@@ -1,0 +1,401 @@
+---
+title: "YT_whamMSE"
+output: html_document
+date: "2025-03-28"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+
+# devtools::install_github("timjmiller/wham", dependencies=TRUE)
+# devtools::install_github("lichengxue/wham-devel", dependencies=TRUE)
+
+# devtools::install_github("lichengxue/whamMSE", dependencies=TRUE)
+
+library(wham)
+library(whamMSE)
+
+setwd("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/YT_proj")
+write.dir <- "C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/YT_proj"
+
+# Read in data files
+# TO DO: ASK WHAT EACH OF THESE ARE (TWO GOM STOCKS, TWO SNE (but one doesn't work so idk))
+# FIGURE OUT HOW TO PULL THESE YOURSELF. OR WAIT TILL DATA COMES OUT (see Jessie email) 
+CCGOM <- read_asap3_dat("ASAP Dat files/CCGOM.DAT")
+CCGOM_alt3 <- read_asap3_dat("ASAP Dat files/CCGOM_alt3.DAT")
+GBK <- read_asap3_dat("ASAP Dat files/GBK.DAT")
+# SNE_2023 <- read_asap3_dat("ASAP Dat files/sne_asap_2023_RT.DAT") this one doesnt work. WHY? Accordign to Jessie this is the right one so figure it out
+SNEMA<- read_asap3_dat("ASAP Dat files/SNEMA_split.DAT")
+```
+
+```{r generateBasicInfo, eval = FALSE}
+
+# THIS IS JUST TO COMPARE WHAT THE INPUT FILES LOOK LIKE IN ASAP VS THE VIGNETTES WHERE THEY GENERATE ON THEIR OWN
+
+# year_start  <- 1  # starting year in the burn-in period
+# year_end    <- 20  # end year in the burn-in period
+# MSE_years   <- 0     # number of years in the feedback loop
+# # Note: no need to include MSE_years in simulation-estimation 
+# 
+# info <- generate_basic_info(n_stocks = 2,
+#                             n_regions = 2,
+#                             n_indices = 2,
+#                             n_fleets = 2,
+#                             n_seasons = 4,
+#                             base.years = year_start:year_end,
+#                             n_feedback_years = MSE_years,
+#                             life_history = "medium",
+#                             n_ages = 12,
+#                             Fbar_ages = 12,
+#                             recruit_model = 2,
+#                             F_info = list(F.year1 = 0.2, Fhist = "constant", Fmax = 0.4, Fmin = 0.2, change_time = 0.5, user_F = NULL),
+#                             catch_info = list(catch_cv = 0.1, catch_Neff = 100),
+#                             index_info = list(index_cv = 0.1, index_Neff = 100, fracyr_indices = 0.625, q = 0.2),
+#                             fracyr_spawn = 0.625,
+#                             fracyr_seasons = NULL,
+#                             # fleet_pointer = NULL,
+#                             # index_pointer = NULL,
+#                             user_waa = NULL,
+#                             user_maturity = NULL,
+#                             bias.correct.process = FALSE,
+#                             bias.correct.observation = FALSE,
+#                             bias.correct.BRPs = FALSE,
+#                             mig_type = 0,
+#                             XSPR_R_opt = 2,
+#                             move_dyn = 0, # natal homing is assumed
+#                             onto_move = 0,
+#                             onto_move_pars = NULL,
+#                             apply_re_trend = 0,
+#                             trend_re_rate = NULL,
+#                             apply_mu_trend = 0,
+#                             trend_mu_rate = NULL, 
+#                             age_mu_devs = NULL) 
+# 
+# basic_info = info$basic_info # collect basic information
+# catch_info = info$catch_info # collect fleet catch information
+# index_info = info$index_info # collect survey information
+# F_info = info$F # collect fishing information
+
+# see more details using ?generate_basic_info
+
+```
+
+```{r multiStockStuffIStillNeedtoFigureOut}
+
+# # Specify movement type and rate. In this example default bidirectional but late look into applying different movement types and rates
+# 
+# basic_info <- generate_NAA_where(basic_info = basic_info, move.type = 2)
+# # Note: the default is "bidirectional" movement (e.g. stock 1 move to region 2 and stock 2 move to region 1)
+# 
+# move <- generate_move(basic_info = basic_info, move.type = 2, move.rate = c(0.3, 0.1), move.re = "constant") # Note: default is move = 0.3 (constant) for stock1 and 0.1 (constant) for the other stocks
+# 
+# # Configure selectivity and natural mortality
+# 
+# n_stocks  <- as.integer(basic_info['n_stocks'])
+# n_regions <- as.integer(basic_info['n_regions'])
+# n_fleets  <- as.integer(basic_info['n_fleets'])
+# n_indices <- as.integer(basic_info['n_indices'])
+# n_ages    <- as.integer(basic_info['n_ages'])
+# 
+# # Selectivity Configuration
+# fleet_pars <- c(5,1)
+# index_pars <- c(2,1)
+# sel <- list(model=rep("logistic",n_fleets+n_indices),
+#             initial_pars=c(rep(list(fleet_pars),n_fleets),rep(list(index_pars),n_indices)))
+# 
+# # M Configuration
+# M <- list(model="constant",initial_means=array(0.2, dim = c(n_stocks,n_regions,n_ages)))
+# 
+# # Configure numbers at age NAA - SEE DOCUMENTATION FOR DIFFERENT SETTINGS
+# 
+# sigma        <- "rec+1"
+# re_cor       <- "iid"
+# ini.opt      <- "equilibrium" # option <- c("age-specific-fe", "equilibrium")
+# Rec_sig      <- 0.5 # (sigma for recruitment)
+# NAA_sig      <- 0.5 # (sigma for NAA)
+# 
+# sigma_vals = array(NAA_sig, dim = c(n_stocks, n_regions, n_ages)) # n_stocks x n_regions x n_ages
+# sigma_vals[,,1] = Rec_sig
+# 
+# # Set initial NAA for each stock
+# log_N1    <- rep(10,n_stocks)
+# log_N1[1] <- log(exp(10)*2) # N1_stock1 is 2 times higher than N1_stock2
+# N1_pars   <- generate_ini_N1(log_N1,basic_info,ini.opt)
+# 
+# # Set mean recruitment para. for each stock
+# mean_rec_par <- list()
+# for (i in 1:n_stocks) mean_rec_par[[i]] <- exp(log_N1[i])
+# 
+# NAA_re <- list(N1_model=rep(ini.opt,n_stocks),
+#                sigma=rep(sigma,n_stocks),
+#                cor=rep(re_cor,n_stocks),
+#                recruit_model = 2,  # rec random around the mean
+#                recruit_pars = mean_rec_par, 
+#                sigma_vals = sigma_vals,  
+#                N1_pars = N1_pars,
+#                NAA_where = basic_info$NAA_where) # NAA_where must be specified in basic_info!
+# 
+# 
+# # Generate WHAM in put
+# input <- prepare_wham_input(basic_info = basic_info, 
+#                             selectivity = sel, 
+#                             M = M, 
+#                             NAA_re = NAA_re, 
+#                             move = move,
+#                             catch_info = catch_info, 
+#                             index_info = index_info, 
+#                             F = F_info)
+# 
+# # Generate operating model
+# 
+# om <- fit_wham(input, do.fit = F, do.brps = T, MakeADFun.silent = TRUE)
+# # Note: do.fit must be FALSE (no modeling fitting yet)
+# 
+# 
+# #NEXT STEPS ARE SEFL TEST AND CROSS TEST. BUT FIRST FIGURE OUT HOW TO GET MULTIWHAM TO WORK
+
+
+
+```
+
+```{r WHAMonGBStock}
+# I'm just naming this asap 4 to compare to the example file but eventually need to figure out how to do multiple stocks
+asap4 <- CCGOM
+
+wham.dir <- find.package("wham")
+file.copy(from=file.path(wham.dir,"extdata","ex1_SNEMAYT.dat"), to=write.dir, overwrite=FALSE)
+asap3 <- read_asap3_dat("ex1_SNEMAYT.dat")
+
+# recruitment model: random about mean, no S-R function (recruit_model = 2)
+# recruitment deviations: independent random effects (NAA_re = list(sigma="rec", cor="iid"))
+# selectivity: age-specific (fix sel=1 for ages 4-5 in fishery, age 4 in index1, and ages 2-4 in index2)
+
+input1 <- prepare_wham_input(asap4, recruit_model=2, model_name="Trying one stock: GOM Yellowtail Flounder",
+                              # selectivity=list(model=rep("age-specific",11), 
+                              #     re=rep("none",11), 
+                              #     initial_pars=list(c(0.5,0.5,0.5,1,1,0.5),c(0.5,0.5,0.5,1,0.5,0.5),c(0.5,1,1,1,0.5,0.5),   
+                              #                       c(0.5,0.5,0.5,1,1,0.5),c(0.5,0.5,0.5,1,0.5,0.5),c(0.5,1,1,1,0.5,0.5),
+                              #                       c(0.5,0.5,0.5,1,1,0.5),c(0.5,0.5,0.5,1,0.5,0.5),c(0.5,1,1,1,0.5,0.5),
+                              #                       c(0.5,0.5,0.5,1,1,0.5),c(0.5,0.5,0.5,1,0.5,0.5)),  
+                              #     fix_pars=list(4:5,4,2:4,
+                              #                   4:5,4,2:4,
+                              #                   4:5,4,2:4,
+                              #                   4:5,4)),
+                              NAA_re = list(sigma="rec", cor="iid")) # Including selectivity throws an error I haven't fixed yet
+
+# Fit model then check convergence
+m1 <- fit_wham(input1, do.osa = F) # turn off OSA residuals to save time in ex
+check_convergence(m1) # Has converged. party.
+
+# # OG CODE
+# input1 <- prepare_wham_input(asap3, recruit_model=2, model_name="Ex 1: SNEMA Yellowtail Flounder",
+#                               selectivity=list(model=rep("age-specific",3), 
+#                                   re=rep("none",3), 
+#                                   initial_pars=list(c(0.5,0.5,0.5,1,1,0.5),c(0.5,0.5,0.5,1,0.5,0.5),c(0.5,1,1,1,0.5,0.5)),  
+#                                   fix_pars=list(4:5,4,2:4)),
+#                               NAA_re = list(sigma="rec", cor="iid"))
+
+
+ 
+```
+
+```{r m2thru4}
+
+input2 <- prepare_wham_input(asap4, recruit_model=2, model_name="Ex 1: SNEMA Yellowtail Flounder",
+                              # selectivity=list(model=rep("age-specific",3), 
+                              #     re=rep("none",3), 
+                              #     initial_pars=list(c(0.5,0.5,0.5,1,1,0.5),c(0.5,0.5,0.5,1,0.5,0.5),c(0.5,1,1,1,0.5,0.5)), 
+                              #     fix_pars=list(4:5,4,2:4)),
+                              NAA_re = list(sigma="rec", cor="iid"),
+                              age_comp = "logistic-normal-miss0")
+m2 <- fit_wham(input2, do.osa = F) # turn off OSA residuals to save time in ex
+check_convergence(m2) # Converged
+
+
+input3 <- prepare_wham_input(asap4, recruit_model=2, model_name="Ex 1: SNEMA Yellowtail Flounder",
+                              # selectivity=list(model=rep("age-specific",3), 
+                              #     re=rep("none",3), 
+                              #     initial_pars=list(c(0.5,0.5,0.5,1,1,0.5),c(0.5,0.5,0.5,1,0.5,0.5),c(0.5,1,1,1,0.5,0.5)), 
+                              #     fix_pars=list(4:5,4,2:4)),
+                              NAA_re = list(sigma="rec+1", cor="iid"))
+m3 <- fit_wham(input3, do.osa = F) # turn off OSA residuals to save time in ex
+check_convergence(m3)
+
+
+input4 <- prepare_wham_input(asap4, recruit_model=2, model_name="Ex 1: SNEMA Yellowtail Flounder",
+                              # selectivity=list(model=rep("age-specific",3), 
+                              #     re=rep("none",3), 
+                              #     initial_pars=list(c(0.5,0.5,0.5,1,1,0.5),c(0.5,0.5,0.5,1,0.5,0.5),c(0.5,1,1,1,0.5,0.5)), 
+                              #     fix_pars=list(4:5,4,2:4)),
+                              NAA_re = list(sigma="rec+1", cor="iid"),
+                              age_comp = "logistic-normal-miss0")
+m4 <- fit_wham(input4, do.osa = F) # turn off OSA residuals to save time in ex
+
+check_convergence(m4)
+
+# All converged. yay!!
+mods <- list(m1=m1, m2=m2, m3=m3, m4=m4)
+save("mods", file="ex1_models.RData")
+```
+
+```{r selfTest}
+
+# This is from MSE paper
+sim_fn <- function(m4, self.fit = FALSE){
+  input <- m4$input
+  input$data <- m4$simulate(complete=TRUE)
+  # $simulate() is a function to generate datasets given the parameters defined in the OM
+  # Note: process error and observation error are both turned on when simulating datasets 
+  # To turn them off, use basic_info$simulate_process_error = 0 and basic_info$simulate_observation_error = 0
+  if(self.fit) {
+    fit <- fit_wham(input, do.osa = FALSE, do.retro = FALSE, MakeADFun.silent = FALSE)
+    return(fit)
+  } else return(input) 
+}
+# Note: turn on do.osa to calculate one-step-ahead residuals
+# Note: turn on do.retro to calculate retrospective bias
+set.seed(12345)
+self_sim_fit <- sim_fn(m4, self.fit = TRUE)
+
+# Cek convergence of simulation
+
+check_convergence(self_sim_fit) # check the model convergence SIMULATED MODEL CONVERGED
+
+```
+
+```{r compareModels}
+
+res <- compare_wham_models(mods, table.opts=list(fname="ex1_table", sort=TRUE))
+res$best
+m4_proj <- project_wham(model=m4)
+```
+
+```{r plotAndDiagnostics}
+
+plot_wham_output(mod=m4_proj) # default is png
+plot_wham_output(mod=m4_proj, out.type='html')
+```
+
+```{r PerformMSE}
+
+
+random = input4$random # check what processes are random effects
+input4$random = NULL # so inner optimization won't change simulated RE
+m4 <- fit_wham(input4, do.fit = F, do.brps = T, MakeADFun.silent = TRUE)
+# Note: do.fit must be FALSE (no modeling fitting yet)
+
+# Generate daaset
+m4_with_data <- update_om_fn(m4, seed = 123, random = random)
+
+# Specify assessment interval and assessment year in feedback loop
+
+assess.interval <- 3 # Note: assessment interval is 3 years, given the feedback period is 3 years, there will be only 1 assessment
+base.years      <- 1:20 # Burn-in period
+first.year      <- head(base.years,1)
+terminal.year   <- tail(base.years,1)
+assess.years    <- seq(terminal.year, tail(m4$years,1)-assess.interval,by = assess.interval)
+
+mods <- list() # Create a list to save MSE outputs
+
+
+
+```
+
+```{r EM1}
+
+#These are from the selectivity configuration which I'm still figuring out
+fleet_pars <- c(5,1)
+index_pars <- c(2,1)
+n_ages <- 6 #This was from looking at data in asapfile
+
+n_stocks = n_regions = n_fleets = n_indices = 1
+
+sel_em <- list(model=rep("logistic",n_fleets+n_indices),
+               initial_pars=c(rep(list(fleet_pars),n_fleets),rep(list(index_pars),n_indices)))
+
+NAA_re_em <- list(N1_model="equilibrium",sigma="rec+1",cor="iid")
+
+M_em <- list(model="constant",initial_means=array(0.2, dim = c(n_stocks,n_regions,n_ages)))
+
+mods[[1]] = loop_through_fn(om = m4_with_data,
+                            em_info = input4, 
+                            random = random,
+                            M_em = M_em, 
+                            sel_em = sel_em, 
+                            NAA_re_em = NAA_re_em, 
+                            move_em = NULL,
+                            age_comp_em = "multinomial",
+                            em.opt = list(separate.em = TRUE, separate.em.type = 1, 
+                                          do.move = FALSE, est.move = FALSE),
+                            assess_years = assess.years, 
+                            assess_interval = assess.interval, 
+                            base_years = base.years,
+                            year.use = 20, # number of years of data you want to use in the assessment model
+                            #hcr.type = 1, # unused argument 
+                            seed = 123,
+                            save.sdrep = FALSE, 
+                            save.last.em = TRUE)
+
+```
+
+```{r EM2}
+
+n_stocks = n_regions = 1
+n_fleets = n_indices = 2
+sel_em <- list(model=rep("logistic",n_fleets+n_indices),
+               initial_pars=c(rep(list(fleet_pars),n_fleets),rep(list(index_pars),n_indices)))
+
+NAA_re_em <- list(N1_model="equilibrium",sigma="rec+1",cor="iid")
+
+M_em <- list(model="constant",initial_means=array(0.2, dim = c(n_stocks,n_regions,n_ages)))
+
+mods[[2]] = loop_through_fn(om = m4_with_data, 
+                            em_info = input4, 
+                            random = random,
+                            M_em = M_em, 
+                            sel_em = sel_em, 
+                            NAA_re_em = NAA_re_em, 
+                            move_em = NULL,
+                            age_comp_em = "multinomial",
+                            em.opt = list(separate.em = TRUE, separate.em.type = 2, 
+                                          do.move = FALSE, est.move = FALSE),
+                            assess_years = assess.years, 
+                            assess_interval = assess.interval, 
+                            base_years = base.years,
+                            year.use = 20, # number of years of data you want to use in the assessment model
+                            #hcr.type = 1, 
+                            seed = 123,
+                            save.sdrep = FALSE)
+
+# HAVING A HARD TIME UNDERSTANDING THIS ERROR. 
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+---
+title: "MSEBasic"
+output: html_document
+date: "2025-03-31"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(wham)
+library(whamMSE)
+
+main.dir = here::here()
+```
+
+```{r BasicInfo}
+
+year_start  <- 1  # starting year in the burn-in period
+year_end    <- 20  # end year in the burn-in period
+MSE_years   <- 0     # number of years in the feedback loop
+# Note: no need to include MSE_years in simulation-estimation 
+
+info <- generate_basic_info(n_stocks = 2,
+                            n_regions = 2,
+                            n_indices = 2,
+                            n_fleets = 2,
+                            n_seasons = 4,
+                            base.years = year_start:year_end,
+                            n_feedback_years = MSE_years,
+                            life_history = "medium",
+                            n_ages = 12,
+                            Fbar_ages = 12,
+                            recruit_model = 2,
+                            F_info = list(F.year1 = 0.2, Fhist = "constant", Fmax = 0.4, Fmin = 0.2, change_time = 0.5, user_F = NULL),
+                            catch_info = list(catch_cv = 0.1, catch_Neff = 100),
+                            index_info = list(index_cv = 0.1, index_Neff = 100, fracyr_indices = 0.625, q = 0.2),
+                            fracyr_spawn = 0.625,
+                            fracyr_seasons = NULL,
+                            # fleet_pointer = NULL,
+                            # index_pointer = NULL,
+                            user_waa = NULL,
+                            user_maturity = NULL,
+                            bias.correct.process = FALSE,
+                            bias.correct.observation = FALSE,
+                            bias.correct.BRPs = FALSE,
+                            mig_type = 0,
+                            XSPR_R_opt = 2,
+                            move_dyn = 0, # natal homing is assumed
+                            onto_move = 0,
+                            onto_move_pars = NULL,
+                            apply_re_trend = 0,
+                            trend_re_rate = NULL,
+                            apply_mu_trend = 0,
+                            trend_mu_rate = NULL, 
+                            age_mu_devs = NULL) 
+
+basic_info = info$basic_info # collect basic information
+catch_info = info$catch_info # collect fleet catch information
+index_info = info$index_info # collect survey information
+F_info = info$F # collect fishing information
+
+# see more details using ?generate_basic_info
+
+```
+
+```
+```
