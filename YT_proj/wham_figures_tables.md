@@ -57,7 +57,7 @@ header-includes:
 
 ### Parameter estimates
 
-<table class="table" style="margin-left: auto; margin-right: auto;">
+<table class="table" style="color: black; margin-left: auto; margin-right: auto;">
 <caption>Parameter estimates, standard errors, and confidence intervals. Rounded to 3 decimal places.</caption>
  <thead>
   <tr>
@@ -368,7 +368,7 @@ header-includes:
 
 ### Abundance at age
 
-<table class="table" style="margin-left: auto; margin-right: auto;">
+<table class="table" style="color: black; margin-left: auto; margin-right: auto;">
 <caption>Abundance at age (1000s) for stock 1 in region 1.</caption>
  <thead>
   <tr>
@@ -756,7 +756,7 @@ header-includes:
 
 ### Fishing mortality at age by region
 
-<table class="table" style="margin-left: auto; margin-right: auto;">
+<table class="table" style="color: black; margin-left: auto; margin-right: auto;">
 <caption>Total fishing mortality at age in region 1.</caption>
  <thead>
   <tr>
@@ -1144,7 +1144,7 @@ header-includes:
 
 ### Fishing mortality at age by fleet
 
-<table class="table" style="margin-left: auto; margin-right: auto;">
+<table class="table" style="color: black; margin-left: auto; margin-right: auto;">
 <caption>Total fishing mortality at age in fleet 1.</caption>
  <thead>
   <tr>
