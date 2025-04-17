@@ -1,0 +1,286 @@
+---
+title: "WHAMsansASAP"
+output: html_document
+date: "2025-04-16"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+
+# devtools::install_github("lichengxue/whamMSE", dependencies=TRUE)
+# devtools::install_github("NOAA-EDAB/ecodata", dependencies=TRUE, build = FALSE)
+
+library(wham)
+library(whamMSE)
+library(ecodata)
+library(dplyr)
+
+write.dir <- "C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/GitHub/UMassD/YT_proj"
+setwd(write.dir)
+
+# Read in data files
+
+# TO DO: ASK WHAT EACH OF THESE ARE (TWO GOM STOCKS, TWO SNE (but one doesn't work so idk))
+# FIGURE OUT HOW TO PULL THESE YOURSELF. OR WAIT TILL DATA COMES OUT (see Jessie email) 
+
+CCGOM <- read_asap3_dat("ASAP Dat files/CCGOM.DAT")
+CCGOM_alt3 <- read_asap3_dat("ASAP Dat files/CCGOM_alt3.DAT")
+GBK <- read_asap3_dat("ASAP Dat files/GBK.DAT")
+# # SNE_2023 <- read_asap3_dat("ASAP Dat files/sne_asap_2023_RT.DAT") this one doesnt work. WHY? Accordign to Jessie this is the right one so figure it out
+SNEMA<- read_asap3_dat("ASAP Dat files/SNEMA_split.DAT")
+```
+
+```{r basicInfo}
+
+year_start  <- 1  # starting year in the burn-in period
+year_end    <- 20  # end year in the burn-in period
+MSE_years   <- 3     # number of years in the feedback loop
+# Note: no need to include MSE_years in simulation-estimation 
+
+asap3 <- CCGOM
+input <- prepare_wham_input(asap3)
+
+# Generate Basic Info
+
+basic_info <- list(
+    n_stocks = 1L,
+    n_regions = 1L,
+    # n_seasons = 1L,
+    n_fleets = 1L,
+    base.years = year_start:year_end, #From MSE EX
+    n_feedback_years = MSE_years, #From MSE EX
+    ages = 1:input$data$n_ages,
+    n_fleets = input$data$n_fleets,
+    fracyr_SSB = cbind(input$data$fracyr_SSB), #(n_years x n_stocks)
+    maturity = input$data$mature, #(n_stocks x n_years x n_ages)
+    years = as.integer(input$years), #(n_years)
+    waa = input$data$waa, #(any no. x n_years x n_ages)
+    waa_pointer_ssb = input$data$waa_pointer_ssb, #(n_stocks)
+    spawn_regions = 1, #(n_stocks)
+    spawn_seasons = 1 #(n_stocks)
+)
+
+# Generate Catch Info
+catch_info <- list(
+    n_fleets = NCOL(input$data$agg_catch), #(n_fleets)
+    agg_catch = cbind(input$data$agg_catch), #(n_years x n_fleets)
+    agg_catch_cv = cbind(sqrt(exp(input$data$agg_catch_sigma^2) - 1)), #(n_years x n_fleets)
+    catch_paa = input$data$catch_paa, #(n_fleets x n_years x n_ages)
+    use_catch_paa = cbind(input$data$use_catch_paa), #(n_years x n_fleets), 0: don't use, 1: use
+    catch_Neff = cbind(input$data$catch_Neff), #(n_years x n_fleets)
+    selblock_pointer_fleets = cbind(input$data$selblock_pointer_fleets), #(n_years x n_fleets)
+    waa_pointer_fleets = input$data$waa_pointer_fleets, #(n_fleets)
+    fleet_regions = rep(1,input$data$n_fleets) #(n_fleets)
+)
+
+# Generate Index Info
+index_info <- list(
+    n_indices = NCOL(input$data$agg_indices),
+    agg_indices = cbind(input$data$agg_indices), #(n_years x n_indices)
+    units_indices = input$data$units_indices, #(n_indices) 1: biomass 2: numbers
+    units_index_paa = input$data$units_index_paa, #(n_indices) 1: biomass 2: numbers
+    agg_index_cv = cbind(sqrt(exp(input$data$agg_index_sigma^2) - 1)), #(n_years x n_indices)
+    index_Neff = cbind(input$data$index_Neff), #(n_years x n_indices)
+    fracyr_indices = cbind(input$data$fracyr_indices), #(n_years x n_indices)
+    use_indices = cbind(input$data$use_indices), #(n_years x n_indices)
+    use_index_paa = cbind(input$data$use_index_paa),  #(n_years x n_indices)
+    index_paa = input$data$index_paa,  #(n_indices x n_years x n_ages)
+    selblock_pointer_indices = cbind(input$data$selblock_pointer_indices), #(n_years x n_indices)
+    waa_pointer_indices = input$data$waa_pointer_indices, #(n_indices)
+    index_regions = rep(1,input$data$n_indices)) #(n_indices)
+
+```
+
+```{r configs}
+
+# Selectivity and Natural Mortality Config
+n_stocks  <- as.integer(basic_info['n_stocks'])
+n_regions <- as.integer(basic_info['n_regions'])
+n_fleets  <- as.integer(basic_info['n_fleets'])
+n_indices <- index_info$n_indices
+n_ages    <- input$data$n_ages
+
+# Selectivity WHY DOES DOING IT THIS WAY CHANGE NUMBER OF INDICES?
+fleet_pars <- c(0, 0.025, 0.325, 1, 1, 1)
+index_pars <- list(c(0.2, 0.775, 1, 1, 1, 1),c(0, 0.1, 0.8, 1, 1, 1),
+                   c(0, 0.2, 1, 1, 1, 1),c(0.125, 0.7, 1, 1, 1, 1))#,
+                   #c(0.3, 0.875, 1, 1, 1, 1), c(0.075, 0.75, 1, 1, 1, 1))
+# Fix pars for ages 5-6
+sel_info <- list(model=rep("age-specific",n_fleets+n_indices),
+            initial_pars=c(rep(list(fleet_pars),n_fleets),(index_pars)),
+            fix_pars = c(rep(list(3:6), n_fleets + n_indices)))
+
+# Natural Mortality
+MAA <- exp(matrix(c(input$par$Mpars), length(basic_info$years), length(basic_info$ages), byrow = TRUE) + 
+    c(input$par$M_re[1,1,,])) #(nstocks x n_regions x n_years x n_ages)
+M_info <- list(initial_MAA = array(MAA, dim = c(1,1,length(basic_info$years), length(basic_info$ages))))
+
+# Fishing Mortality
+#initial values for annual fully-selected fishing mortality
+F_info <- list(F = matrix(0.3, length(basic_info$years), catch_info$n_fleets)) #(n_years x n_fleets)
+
+# Catchability
+#initial values for fully-selected catchability
+q_info <- list(initial_q = rep(1e-6, index_info$n_indices))
+
+# Numbers At Age
+NAA_list <- list(sigma = "rec+1", N1_model = rep("equilibrium",2), recruit_pars = list(exp(10),exp(10)))
+```
+
+```{r InputandGenerate}
+# THIS GIVES A WARNING. IS THAT YOUR PROBLEM?
+# Input Everything
+#all at once 
+input_all <- prepare_wham_input(
+    basic_info = basic_info,
+    selectivity = sel_info, 
+    catch_info = catch_info, 
+    index_info = index_info, 
+    NAA_re = NAA_list,
+    M = M_info, 
+    F = F_info, 
+    catchability = q_info)
+
+# cat(unlist(input_all$log)) # Gives model info
+
+# Generate OM
+random = input$random # check what processes are random effects
+input$random = NULL # so inner optimization won't change simulated RE
+om <- fit_wham(input, do.fit = T, do.brps = T, MakeADFun.silent = TRUE)
+# Note: do.fit must be FALSE (no modeling fitting yet)
+
+# Generate dataset
+om_with_data <- update_om_fn(om, seed = 123, random = random)
+
+# Assessment Interval and Year
+assess.interval <- 3 # Note: assessment interval is 3 years, given the feedback period is 3 years, there will be only 1 assessment
+base.years      <- year_start:year_end # Burn-in period
+first.year      <- head(base.years,1)
+terminal.year   <- tail(base.years,1)
+assess.years    <- seq(terminal.year, tail(om$years,1)-assess.interval,by = assess.interval)
+
+```
+
+```{r PlotandDiagnostics}
+
+ check_convergence(om)
+om_proj <- project_wham(model=om)
+
+ check_convergence(om_proj)
+
+# plot_wham_output(mod=om_proj) # default is png
+plot_wham_output(mod=om_proj, out.type='html')
+```
+
+```{r CPI, eval = FALSE}
+# SAME ERROR BUT COUDL BE BECAUSE YOU'RE USING AN EXAMPLE FILE FOR THE CPI
+# Not using WHAM vigs but github presentation for this formatting
+CPI <- ecodata::cold_pool %>%
+  filter(Source == "MOM6") %>%
+  filter(Var == "cold_pool_index")
+
+CPI_ses <- ecodata::cold_pool %>%
+  filter(Source == "MOM6") %>%
+  filter(Var == "se_persistence_index")
+
+ecov_0 <- list(
+  label = "CPI",
+  mean = as.matrix(CPI$Value), #FIX HERE. THIS DOES NOT MATCH WITH YEARS
+  logsigma = 'est_1', # estimate obs sigma, 1 value shared across years
+  year = CPI$Time,
+  use_obs = matrix(1, ncol=1, nrow=dim(CPI)[1]), # use all obs (=1)
+  process_model = 'ar1', # "rw" or "ar1"
+  recruitment_how = matrix("none")) # n_Ecov x n_stocks
+
+ecov_CPI <- list(
+  label = "CPI",
+  mean = as.matrix(CPI$Value), #FIX HERE. THIS DOES NOT MATCH WITH YEARS
+  logsigma = 'est_1', # estimate obs sigma, 1 value shared across years
+  year = CPI$Time,
+  use_obs = matrix(1, ncol=1, nrow=dim(CPI)[1]), # use all obs (=1)
+  process_model = 'ar1', # "rw" or "ar1"
+  recruitment_how = matrix("controlling")) # affects maximum recruitment (MAY NEED TO CHANGE)
+
+
+input_0 <- prepare_wham_input(
+    basic_info = basic_info,
+    selectivity = sel_info,
+    ecov = ecov_0,
+    age_comp = "logistic-normal-miss0",
+    catch_info = catch_info, 
+    index_info = index_info, 
+    NAA_re = NAA_list,
+    M = M_info, 
+    F = F_info, 
+    catchability = q_info)
+
+fit_0 <- fit_wham(input_0, do.sdrep = FALSE, do.retro = FALSE, do.osa = FALSE)
+
+# CPI
+input_CPI <- prepare_wham_input(
+    basic_info = basic_info,
+    selectivity = sel_info,
+    ecov = ecov_CPI,
+    age_comp = "logistic-normal-miss0",
+    catch_info = catch_info, 
+    index_info = index_info, 
+    NAA_re = NAA_info,
+    M = M_info, 
+    F = F_info, 
+    catchability = q_info)
+
+fit_CPI <- fit_wham(input_CPI, do.sdrep = FALSE, do.retro = FALSE, do.osa = FALSE)
+# input_0 <- prepare_wham_input(asap3, recruit_model = 3, 
+#   NAA_re = NAA_re, 
+#   selectivity = selectivity,
+#   ecov=ecov,
+#   age_comp = "logistic-normal-miss0") # logistic normal, treat 0 obs as missing
+# fit_0 <- fit_wham(input_0, do.sdrep = FALSE, do.retro = FALSE, do.osa = FALSE)
+# fit_0 <- do_sdreport(fit_0)
+# fit_0$peels <- retro(fit_0)
+# fit_0 <- make_osa_residuals(fit_0)
+# plot_wham_output(fit_0, dir.main = tmp.dir)
+
+```
+
+```{r MSE, eval = FALSE}
+# FROM VIG: USING THE SAME EM AND OM. WHY?
+# THIS STILL ISNT WORKING
+mod = loop_through_fn(om = om_with_data,
+                      em_info = info, 
+                      random = random,
+                      M_em = M, 
+                      sel_em = sel,
+                      NAA_re_em = NAA_re, 
+                      age_comp_em = "multinomial",
+                      em.opt = list(separate.em = FALSE, 
+                                    separate.em.type = 1, #Changed by cheng bc 1 stock 1 region, no move. why? 
+                                    do.move = FALSE, 
+                                    est.move = FALSE),
+                      assess_years = assess.years, 
+                      assess_interval = assess.interval, 
+                      base_years = base.years,
+                      year.use = 20,
+                      add.years = TRUE, 
+                      # add.years=TRUE: assessment will use 20 years of data from historical period + new years in the feedback period
+                      seed = 123,
+                      save.sdrep = TRUE,
+                      save.last.em = TRUE,
+                      do.retro = TRUE, # Perform retrospective analysis
+                      do.osa = TRUE) # Perform OSA residual analysis
+
+
+# DONT USE plot_wham_mse(). STILL WORKING OUT BUGS
+```
+
+
+
+
+
+
+
+
+
+
+
+
