@@ -16,7 +16,7 @@ require(ggplot2)
 write.dir <- "C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/GitHub/UMassD/YT_proj"
 setwd(write.dir)
 
-gb_dat <- read_asap3_dat(here("YT_proj/ASAP Dat files/GBK.DAT"))
+gb_dat <- read_asap3_dat(here("YT_proj/ASAPfiles_5.14Pull/GBK.DAT"))
 
 
 
@@ -38,7 +38,24 @@ ecov <- list(
 ecov$recruitment_how <- matrix("controlling-lag-1-linear") #add recruitment how to ecov
 
 
+# # Alex OG selectivity
+# sel2=list(
+#   model=c("age-specific",
+#           "logistic","logistic","logistic"), 
+#   re = c("ar1_y","none","none","none"),
+#   initial_pars=list(
+#     c(0.1,0.25,0.5,1,1,1), # Commercial fleet
+#     c(2,0.3), # Spring NEFSC
+#     c(2,0.3), # Fall NEFSC
+#     c(2,0.3)), # DFO survey
+#   fix_pars = list(
+#     c(6),
+#     c(NULL),
+#     c(NULL),
+#     c(NULL))
+# )
 
+#Trying to fix all selectivities
 sel2=list(
   model=c("age-specific",
           "logistic","logistic","logistic"), 
@@ -49,11 +66,12 @@ sel2=list(
     c(2,0.3), # Fall NEFSC
     c(2,0.3)), # DFO survey
   fix_pars = list(
-    c(6),
+    c(NULL),
     c(NULL),
     c(NULL),
     c(NULL))
 )
+
 
 gb_datM<-gb_dat
 

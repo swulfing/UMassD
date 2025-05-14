@@ -1,8 +1,10 @@
 ---
-title: "ASMFC MSE Workshop: Age Structured Model"
+title: 'ASMFC MSE Workshop: Age Structured Model'
 author: "Gavin Fay"
 date: "August 2021"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
 ---
 
 
@@ -17,10 +19,12 @@ library(RcppRoll)
 source("age-functions.R")
 source("performance-metrics.R")
 ```
+# Changes
 
+1. in code chunk below, "future_options" no longer used in package, use $furrr_options()$ instead
 
 ```{r}
-my_future_options <- future_options()
+my_future_options <- furrr_options()
 my_future_options$globals <- ls()
 my_future_options$packages <- c("wham",
                                 "tidyverse",
