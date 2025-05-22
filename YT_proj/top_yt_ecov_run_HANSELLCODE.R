@@ -18,7 +18,13 @@ setwd(write.dir)
 
 gb_dat <- read_asap3_dat(here("YT_proj/ASAPfiles_5.14Pull/GBK.DAT"))
 
-
+# # Memperbaiki indices
+# for (i in 1:length(gb_dat[[1]][["dat"]][["IAA_mats"]])){
+#  gb_dat[[1]][["dat"]][["IAA_mats"]][[i]][gb_dat[[1]][["dat"]][["IAA_mats"]][[i]] == 0] <- 0.1
+# }
+# 
+# # Memperbaiki Catch
+# gb_dat[[1]][["dat"]][["CAA_mats"]][[1]][gb_dat[[1]][["dat"]][["CAA_mats"]][[1]] == 0] <- 0.1
 
 env.dat <- read.csv("CI_indices.csv")
 

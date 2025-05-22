@@ -1,0 +1,17 @@
+Region,Type,MRIP
+ME_NY,Shore,40.3
+ME_NY,PartyBoat,2
+ME_NY,CharterBoat,1.5
+ME_NY,PrivateBoat,56.2
+NJ,Shore,34.9
+NJ,PartyBoat,2.1
+NJ,CharterBoat,1.3
+NJ,PrivateBoat,61.6
+DE_MD,Shore,37.8
+DE_MD,PartyBoat,1.3
+DE_MD,CharterBoat,0.9
+DE_MD,PrivateBoat,60
+VA_NC,Shore,46.4
+VA_NC,PartyBoat,0.1
+VA_NC,CharterBoat,0.2
+VA_NC,PrivateBoat,53.3

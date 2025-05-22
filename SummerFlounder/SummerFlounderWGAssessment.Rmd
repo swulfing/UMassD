@@ -1,0 +1,183 @@
+---
+title: "FlukeRecCatch"
+output:
+  pdf_document: default
+  html_document: default
+date: "2025-05-19"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warnings = FALSE)
+
+library(ggplot2)
+library(dplyr)
+
+setwd("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/GitHub/UMassD/SummerFlounder")
+
+pplData <- read.csv("Fluke2024WorkingGroup.csv")
+RDMData <- read.csv("FlukeRDM_Data.csv")
+MRIP <- read.csv("FOSS_landings.csv")
+
+
+
+```
+
+# Commercial
+
+```{r commercial1, fig.cap = "Percent of overall quota per state vs number of participants in previous working group. Source: MAFMC"}
+
+plot(pplData$PercentQuota ~ pplData$WG_Reps, ylim = c(0,30))
+text(pplData$WG_Reps, pplData$PercentQuota, labels=pplData$State, cex= 0.7, pos = 3)
+
+```
+
+```{r commercial2, fig.cap = "Number of major dealers per state. Source: MAFMC"}
+
+plot(pplData$NoDealersPerState ~ pplData$WG_Reps, ylim = c(0,50))
+text(pplData$WG_Reps, pplData$NoDealersPerState, labels=pplData$State, cex= 0.7, pos = 3)
+
+```
+
+```{r commercial3, fig.cap = "Total commercial landings in major landing cities. Source: MAFMC"}
+
+plot(pplData$TotalLandingsMajorCities ~ pplData$WG_Reps, ylim = c(0,2500000))
+text(pplData$WG_Reps, pplData$TotalLandingsMajorCities, labels=pplData$State, cex= 0.7, pos = 3)
+
+```
+
+```{r commercial5, fig.cap = "Landings Per Vessel in major landing cities. Source: MAFMC"}
+
+plot(pplData$LandingsperVesselMajorCities ~ pplData$WG_Reps, ylim = c(0,50000))
+text(pplData$WG_Reps, pplData$LandingsperVesselMajorCities, labels=pplData$State, cex= 0.7, pos = 3)
+
+
+```
+
+\newpage
+
+# RECREATIONAL
+
+```{r recreational1, fig.cap = "Number of recreational landings from RDM model Source: RDM"}
+
+plot(pplData$RDM_harvest ~ pplData$WG_Reps, ylim = c(0,1150000))
+text(pplData$WG_Reps, pplData$RDM_harvest, labels=pplData$State, cex= 0.7, pos = 3)
+
+
+```
+
+```{r recreational2, fig.cap = "Recreational fisher method by state Source:  RDM"}
+
+#dev.off()
+ggplot(RDMData, aes(x = Region, y = MRIP, fill = Type)) + 
+  geom_bar(stat = "identity")
+
+```
+
+```{r NOAA, fig.cap = "Overall Quota. Note, according to 'Using baseline data from 1980 to 1989, the current plan allocates the summer flounder quota on a 55/45 percent basis to commercial and recreational fisheries, respectively.' - https://asmfc.org/species/summer-flounder/ Source: NOAA"}
+
+plot(pplData$NOAA_Quota ~ pplData$WG_Reps, ylim = c(0,3500000))
+text(pplData$WG_Reps, pplData$NOAA_Quota, labels=pplData$State, cex= 0.7, pos = 3)
+
+```
+
+\newpage
+
+# MRIP Data
+```{r MRIPRecreational, fig.cap = "MRIP landings (Total lbs) since 2020. Source: MRIP Data"}
+MRIP_clean <- MRIP %>%
+  filter(Year >= 2020, Collection == "Recreational") %>%
+  group_by(State) %>%
+  summarise(Total_Lbs = sum(Pounds), Total_USD = sum(Dollars)) %>%
+  mutate(State = case_when(State == "NEW YORK" ~ "NY",
+         State == "NORTH CAROLINA" ~ "NC",
+         State == "VIRGINIA" ~ "VA",
+         State == "NEW JERSEY" ~ "NJ",
+         State == "MARYLAND" ~ "MD",
+         State == "MASSACHUSETTS" ~ "MA",
+         State == "DELAWARE" ~ "DE",
+         State == "MAINE" ~ "ME",
+         State == "NEW HAMPSHIRE" ~ "NH",
+         State == "RHODE ISLAND" ~ "RI",
+         State == "CONNECTICUT" ~ "CT"
+         ))
+  
+MRIP_rec <- merge(x = MRIP_clean, y = pplData, by = "State")
+# MRIP_rec$WG_Reps <- as.numeric(MRIP_rec$WG_Reps)
+
+plot(MRIP_rec$Total_Lbs ~ MRIP_rec$WG_Reps, ylim = c(0, 20000000))
+text(MRIP_rec$WG_Reps, MRIP_rec$Total_Lbs, labels=MRIP_rec$State, cex= 0.7, pos = 3)
+
+```
+
+```{r percentChange, fig.cap = "Percent change in recreational landings per state between historic (before 2020) and recent 3 year average (2020-2023). Source: MRIP Data"}
+
+MRIP_3yr <- MRIP %>%
+  filter(Collection == "Recreational") %>%
+  filter(Year >= 2020) %>%
+  mutate(YRS = "3_Yr") %>%
+  group_by(State, YRS) %>%
+  summarise(MeanLbs_3yr = mean(Pounds)) %>%
+  mutate(State = case_when(State == "NEW YORK" ~ "NY",
+         State == "NORTH CAROLINA" ~ "NC",
+         State == "VIRGINIA" ~ "VA",
+         State == "NEW JERSEY" ~ "NJ",
+         State == "MARYLAND" ~ "MD",
+         State == "MASSACHUSETTS" ~ "MA",
+         State == "DELAWARE" ~ "DE",
+         State == "MAINE" ~ "ME",
+         State == "NEW HAMPSHIRE" ~ "NH",
+         State == "RHODE ISLAND" ~ "RI",
+         State == "CONNECTICUT" ~ "CT"
+         )) %>%
+  select(State, MeanLbs_3yr)
+
+MRIP_historic <- MRIP %>%
+  filter(Collection == "Recreational") %>%
+  filter(Year < 2020) %>%
+  mutate(YRS = "Historic") %>%
+  group_by(State, YRS) %>%
+  summarise(MeanLbs_Historic = mean(Pounds)) %>%
+  mutate(State = case_when(State == "NEW YORK" ~ "NY",
+         State == "NORTH CAROLINA" ~ "NC",
+         State == "VIRGINIA" ~ "VA",
+         State == "NEW JERSEY" ~ "NJ",
+         State == "MARYLAND" ~ "MD",
+         State == "MASSACHUSETTS" ~ "MA",
+         State == "DELAWARE" ~ "DE",
+         State == "MAINE" ~ "ME",
+         State == "NEW HAMPSHIRE" ~ "NH",
+         State == "RHODE ISLAND" ~ "RI",
+         State == "CONNECTICUT" ~ "CT"
+         ))%>%
+  select(State, MeanLbs_Historic)
+
+MRIP_compare <- merge(x = MRIP_3yr, y = MRIP_historic, by = "State") %>%
+  mutate(Percent_diff = ((MeanLbs_3yr - MeanLbs_Historic)/MeanLbs_Historic)*100) %>%
+  merge(x = ., y = pplData, by = 'State')
+
+#MRIP_rec <- merge(x = MRIP_clean, y = pplData, by = "State")
+
+plot(MRIP_compare$Percent_diff ~ MRIP_compare$WG_Reps, ylim = c(-100,0))
+text(MRIP_compare$WG_Reps, MRIP_compare$Percent_diff, labels=MRIP_compare$State, cex= 0.7, pos = 3)
+
+```
+
+\newpage
+
+# Links to Sources
+
+- Dubik et al 2019: https://www.sciencedirect.com/science/article/pii/S0308597X18305463
+
+- RDM: https://static1.squarespace.com/static/511cdc7fe4b00307a2628ac6/t/62fbf883d2b94a149e6b3892/1660680337803/fluke+RDM+overview+-+final+report.pdf
+
+- MAFMC: https://static1.squarespace.com/static/511cdc7fe4b00307a2628ac6/t/668c660208b1a378bc4b312c/1720477187008/Fluke+AP+FPR+Info+Doc_2024.pdf
+
+- NOAA: https://www.fisheries.noaa.gov/bulletin/noaa-fisheries-approves-2023-summer-flounder-scup-and-black-sea-bass-specifications
+
+- MRIP data: https://www.fisheries.noaa.gov/foss/f?p=215:200:9450926951968:::::
+
+
+
+
+
+

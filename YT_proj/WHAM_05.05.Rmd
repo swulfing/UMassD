@@ -125,7 +125,13 @@ assess.years    <- seq(terminal.year, tail(om$years,1)-assess.interval,by = asse
 
 ```
 
-```{r MSE_noEcov}
+```{r projectWham_noEcov, eval = FALSE}
+check_convergence(om)
+plot_wham_output(om)
+
+```
+
+```{r MSE_noEcov, eval = FALSE}
 
 mod = loop_through_fn(om = om_with_data,
                       em_info = info, 
@@ -150,4 +156,6 @@ mod = loop_through_fn(om = om_with_data,
                       do.retro = TRUE, # Perform retrospective analysis
                       do.osa = TRUE) # Perform OSA residual analysis
 ```
+
+
 
