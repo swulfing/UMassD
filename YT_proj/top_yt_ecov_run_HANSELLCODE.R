@@ -13,7 +13,7 @@ require(ggplot2)
 # source(here::here("R/sim_fn.R"))
 # source(here::here("R/make_simtest_plots.R"))
 
-write.dir <- "C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/GitHub/UMassD/YT_proj"
+write.dir <- "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj"
 setwd(write.dir)
 
 gb_dat <- read_asap3_dat(here("YT_proj/ASAPfiles_5.14Pull/GBK.DAT"))

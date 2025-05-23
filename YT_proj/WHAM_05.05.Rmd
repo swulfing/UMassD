@@ -18,15 +18,23 @@ library(whamMSE)
 library(ecodata)
 library(dplyr)
 
-write.dir <- "C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/GitHub/UMassD/YT_proj"
+write.dir <- "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj"
 setwd(write.dir)
 
-gb_dat <- read_asap3_dat("ASAP Dat files/GBK.DAT")
+gb_dat <- read_asap3_dat("ASAPfiles_5.14Pull/GBK.DAT")
 input <- prepare_wham_input(gb_dat) 
 ```
 
 # READ ME
 This is adapted from the attempt of 04.16 with Cheng Li's single stock MSE and TJ Miller's WHAM without ASAP modules. I am now combining with Alex Hansell's GOM stock assessment to get an accurate assessment with ecov.
+
+Next Steps:
+
+- diagnose model issues (see Sarah email)
+
+- Run MSE
+
+- Contact Cheng for new features (esp. ecov)
 
 ```{r genBasicInfo}
 
@@ -112,7 +120,7 @@ input_NoEcov <- prepare_wham_input(basic_info = basic_info,
 ```{r GenerateOMandData_noEcov}
 random = input_NoEcov$random # check what processes are random effects
 input_NoEcov$random = NULL # so inner optimization won't change simulated RE
-om <- fit_wham(input_NoEcov, do.fit = F, do.brps = T, MakeADFun.silent = TRUE)
+om <- fit_wham(input_NoEcov, do.fit = F, do.brps = T, MakeADFun.silent = TRUE, do.retro = FALSE, do.osa = FALSE) #Changing do.retro and do.osa as per SGaichas email
 # Note: do.fit must be FALSE (no modeling fitting yet)
 
 om_with_data <- update_om_fn(om, seed = 123, random = random)

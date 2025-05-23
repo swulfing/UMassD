@@ -9,7 +9,7 @@ date: "2025-05-20"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
-library(wham)
+library(wham) 
 library(Hmisc)
 library(mvtnorm)
 library(here)
@@ -17,7 +17,7 @@ library(tidyverse)
 library(ggdist)
 #library(dplyr)
 
-write.dir <- "C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/GitHub/UMassD/YT_proj"
+write.dir <- "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj"
 setwd(write.dir)
 
 gb_dat <- read_asap3_dat(here("YT_proj/ASAPfiles_5.14Pull/GBK.DAT"))
@@ -28,6 +28,11 @@ input <- prepare_wham_input(gb_dat)
 # Data and Plot
 
 This is an attempt to incorporate YT Georges Bank data into Gavin's Intro to MSE vigs. Who knows lol
+
+Next steps:
+
+ - incorporate sel, M, indices from YT GBK stock assess
+ 
 ```{r data}
 
 start_year <- gb_dat[[1]]$dat$year1
