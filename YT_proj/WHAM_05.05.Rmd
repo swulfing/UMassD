@@ -118,13 +118,39 @@ input_NoEcov <- prepare_wham_input(basic_info = basic_info,
 ```
 
 ```{r GenerateOMandData_noEcov}
+input_NoEcov$map$mean_rec_pars <- factor(c(2,1)) # FROM ALEX CODE. REDUCED MAX GRADIANT COMPONENT WHEN ADDED BUT MODEL STILL DOESN'T CONVERGE
+
 random = input_NoEcov$random # check what processes are random effects
 input_NoEcov$random = NULL # so inner optimization won't change simulated RE
-om <- fit_wham(input_NoEcov, do.fit = F, do.brps = T, MakeADFun.silent = TRUE, do.retro = FALSE, do.osa = FALSE) #Changing do.retro and do.osa as per SGaichas email
+om <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE, do.retro = FALSE, do.osa = FALSE) #Changing do.retro and do.osa as per SGaichas email
 # Note: do.fit must be FALSE (no modeling fitting yet)
 
-om_with_data <- update_om_fn(om, seed = 123, random = random)
 
+
+### TRYING TO FIX CONVERGENCE ISSUES
+# Random stuff from alex model
+mean(om$rep$log_SR_a)
+mean(om$rep$log_SR_b)
+
+input_NoEcov$par$mean_rec_pars[,1]<-c(mean(om$rep$log_SR_a)) # TOOK OUT SUBSCRIPTS FROM OG CODE
+input_NoEcov$par$mean_rec_pars[,2]<-c(mean(om$rep$log_SR_b)) 
+
+om_fix <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE, do.retro = FALSE, do.osa = FALSE)
+
+check_convergence(om_fix)
+
+
+# input_NoEcov$par <- om$parList
+# om_improve <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE, do.retro = FALSE, do.osa = FALSE)
+# 
+# om_with_data <- update_om_fn(om, seed = 123, random = random)
+
+
+
+
+
+
+### END
 assess.interval <- 3 # Note: assessment interval is 3 years, given the feedback period is 3 years, there will be only 1 assessment
 base.years      <- year_start:year_end # Burn-in period
 first.year      <- head(base.years,1)
