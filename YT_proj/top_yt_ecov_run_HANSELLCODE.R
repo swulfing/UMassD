@@ -4,9 +4,9 @@
 # TRY USING KELSEY'S COMPUTER, MAYBE A REBOOT?
 
 # pak::pkg_install("timjmiller/wham@lab", lib = "C:/Users/alex.hansell/AppData/Local/Programs/R/R-4.2.2/library/multi_wham/")
-pak::pkg_install("timjmiller/wham", lib = "C:/Users/swulfing/AppData/Local/Programs/R/R-4.4.3/library/wham_test")
+# pak::pkg_install("timjmiller/wham", lib = "C:/Users/swulfing/AppData/Local/Programs/R/R-4.4.3/library/wham_test")
 
-library(wham, lib.loc = "C:/Users/swulfing/AppData/Local/Programs/R/R-4.4.3/library/wham_test")
+library(wham) #, lib.loc = "C:/Users/swulfing/AppData/Local/Programs/R/R-4.4.3/library/wham_test")
 require(tidyr)
 require(dplyr)
 require(readxl)
@@ -23,7 +23,7 @@ require(ggplot2) # C:\Users\swulfing\AppData\Local\Programs\R\R-4.4.3\library
 write.dir <- "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj"
 setwd(write.dir)
 
-gb_dat <- read_asap3_dat(here("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/ASAPfiles_5.14Pull/GBK.DAT"))
+gb_dat <- read_asap3_dat("ASAPfiles_5.14Pull/GBK.dat")
 
 # # Memperbaiki indices
 # for (i in 1:length(gb_dat[[1]][["dat"]][["IAA_mats"]])){
@@ -98,9 +98,9 @@ gb_datM[[1]]$dat$M[,6]<-0.22
 
 input3 <- prepare_wham_input(gb_dat, 
                              selectivity=sel2,
-                             recruit_model=2, # This is bev-holt recruitment fxn. They use two params. 103-111 are tweaking those params
+                             recruit_model=3, # This is bev-holt recruitment fxn. They use two params. 103-111 are tweaking those params
                              age_comp = "logistic-normal-pool0",
-                             #NAA_re = list(sigma="rec+1", cor ="iid"),
+                             NAA_re = list(sigma="rec+1", cor ="iid"),
                              #ecov = ecov,
                              model_name="Run28"
                              #basic_info = list(simulate_process_error = rep(FALSE, 5))
@@ -122,8 +122,8 @@ mT <- fit_wham(input3, MakeADFun.silent = FALSE ,do.osa = F, do.retro = F, do.fi
 mean(mT$rep$log_SR_a[38:50,])
 mean(mT$rep$log_SR_b[38:50,])
 
-input3$par$mean_rec_pars[,1]<-c(mean(mT$rep$log_SR_a[38:50,])) # IFX THESE
-input3$par$mean_rec_pars[,2]<-c(mean(mT$rep$log_SR_b[38:50,])) # FIX THESE
+# input3$par$mean_rec_pars[,1]<-c(mean(mT$rep$log_SR_a[38:50,])) # IFX THESE
+# input3$par$mean_rec_pars[,2]<-c(mean(mT$rep$log_SR_b[38:50,])) # FIX THESE
 
 mT$rep$log_SR_a
 mT$rep$log_SR_b

@@ -1,7 +1,7 @@
 library(wham)
 library(whamMSE)
 
-main.dir <- "C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/GitHub/UMassD/YT_proj"
+main.dir <- "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj"
 setwd(main.dir)
 
 year_start  <- 1  # starting year in the burn-in period
@@ -104,3 +104,19 @@ mod = loop_through_fn(om = om_with_data,
                       do.retro = TRUE, # Perform retrospective analysis
                       do.osa = TRUE) # Perform OSA residual analysis
 
+# Output analysis
+par(mfrow = c(1,2))
+SSB_s1 <- lapply(mod, function(mods) mod[["om"]][["rep"]][["SSB"]])
+plot(SSB_s1[[1]][14:23], type = "l", col = "blue", ylab = "SSB", xlab = "Year", ylim = c(20000,80000), main = "Stock 1") # only extract SSB from the last 10 years
+# colors <- c("red","green","purple","orange")
+# for (i in 2:5) {
+#   lines(SSB_s1[[i]][14:23], col = colors[i-1],lty = i)
+# }
+# legend("topleft",legend = paste0("EM ", 1:5), col = c("blue",colors),lty=1:5, cex=0.8)
+
+Catch_s1 <- lapply(mod, function(mods) mod[["om"]][["rep"]][["pred_catch"]])
+plot(Catch_s1[[1]][14:23], type = "l", col = "blue", ylab = "Catch", xlab = "Year", ylim = c(1000,15000), main = "Stock 2")
+# colors <- c("red","green","purple","orange")
+# for (i in 2:5) {
+#   lines(Catch_s1[[i]][14:23], col = colors[i-1],lty = i)
+# }

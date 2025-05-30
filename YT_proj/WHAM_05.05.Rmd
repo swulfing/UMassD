@@ -22,7 +22,8 @@ write.dir <- "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj"
 setwd(write.dir)
 
 gb_dat <- read_asap3_dat("ASAPfiles_5.14Pull/GBK.DAT")
-input <- prepare_wham_input(gb_dat) 
+input <- prepare_wham_input(gb_dat)
+
 ```
 
 # READ ME
@@ -52,12 +53,55 @@ info <- generate_basic_info(n_stocks = input$data$n_stocks,
                             n_feedback_years = MSE_years,
                             life_history = "medium", # Not sure if we're keeping this
                             n_ages = input$data$n_ages) 
+```
 
-basic_info = info$basic_info # collect basic information
-catch_info = info$catch_info # collect fleet catch information
-index_info = info$index_info # collect survey information
-F_info = info$F # collect fishing information
+```{r specifyInfo}
 
+# FIX THIS CHUNK FIRST I THINK THAT WILL HELP ALL YOUR OTHER PROBS (but who even knows at this point lol)
+# COMPARE DIMENSIONS OF OLD CATCH/INDEX/F INFO AND FORCE THOSE ONTO THESE
+
+###### OLD CODE ######
+
+# 
+# 
+# # These right now are based on defaults or life history. FIND ARGUMENT TO PROVIDE MYSELF
+# basic_info = info$basic_info # collect basic information TRY input$data$catch_paa OR AGG CATCH
+# catch_info = info$catch_info # collect fleet catch information
+# index_info = info$index_info # collect survey information
+# F_info = info$F # collect fishing information
+
+###### END ######
+basic_info = info$basic_info
+
+catch_info <- list(
+    n_fleets = NCOL(input$data$agg_catch), #(n_fleets)
+    agg_catch = cbind(input$data$agg_catch), #(n_years x n_fleets)
+    agg_catch_cv = cbind(sqrt(exp(input$data$agg_catch_sigma^2) - 1)), #(n_years x n_fleets)
+    catch_paa = input$data$catch_paa, #(n_fleets x n_years x n_ages)
+    use_catch_paa = cbind(input$data$use_catch_paa), #(n_years x n_fleets), 0: don't use, 1: use
+    catch_Neff = cbind(input$data$catch_Neff), #(n_years x n_fleets)
+    selblock_pointer_fleets = cbind(input$data$selblock_pointer_fleets), #(n_years x n_fleets)
+    waa_pointer_fleets = input$data$waa_pointer_fleets, #(n_fleets)
+    fleet_regions = rep(1,input$data$n_fleets) #(n_fleets)
+)
+
+index_info <- list(
+    n_indices = NCOL(input$data$agg_indices),
+    agg_indices = cbind(input$data$agg_indices), #(n_years x n_indices)
+    units_indices = input$data$units_indices, #(n_indices) 1: biomass 2: numbers
+    units_index_paa = input$data$units_index_paa, #(n_indices) 1: biomass 2: numbers
+    agg_index_cv = cbind(sqrt(exp(input$data$agg_index_sigma^2) - 1)), #(n_years x n_indices)
+    index_Neff = cbind(input$data$index_Neff), #(n_years x n_indices)
+    fracyr_indices = cbind(input$data$fracyr_indices), #(n_years x n_indices)
+    use_indices = cbind(input$data$use_indices), #(n_years x n_indices)
+    use_index_paa = cbind(input$data$use_index_paa),  #(n_years x n_indices)
+    index_paa = input$data$index_paa,  #(n_indices x n_years x n_ages)
+    selblock_pointer_indices = cbind(input$data$selblock_pointer_indices), #(n_years x n_indices)
+    waa_pointer_indices = input$data$waa_pointer_indices, #(n_indices)
+    index_regions = rep(1,input$data$n_indices)) #(n_indices)
+
+#initial values for annual fully-selected fishing mortality
+F_info <- list(F = matrix(0.3, length(basic_info$years), catch_info$n_fleets)) #(n_years x n_fleets)
 ```
 
 ```{r configs}
@@ -72,15 +116,15 @@ n_ages    <- as.integer(basic_info['n_ages'])
 sel2=list(
   model=c("age-specific",
           "logistic","logistic","logistic"), 
-  re = c("ar1_y","none","none","none"), 
+  re = c("none","none","none","none"), #re = c("ar1_y","none","none","none"), use ar1 to est sel but later fixing all 
   initial_pars=list(
     c(0.1,0.25,0.5,1,1,1), # Commercial fleet
     c(2,0.3), # Spring NEFSC
     c(2,0.3), # Fall NEFSC
     c(2,0.3)), # DFO survey
   fix_pars = list(
-    c(6),
-    c(NULL),
+    c(4:6), # Estimate param for each age
+    c(NULL), # bc logistic, these only estimate 2 params so just want to fix first one
     c(NULL),
     c(NULL))
 )
@@ -118,32 +162,31 @@ input_NoEcov <- prepare_wham_input(basic_info = basic_info,
 ```
 
 ```{r GenerateOMandData_noEcov}
-input_NoEcov$map$mean_rec_pars <- factor(c(2,1)) # FROM ALEX CODE. REDUCED MAX GRADIANT COMPONENT WHEN ADDED BUT MODEL STILL DOESN'T CONVERGE
+
 
 random = input_NoEcov$random # check what processes are random effects
 input_NoEcov$random = NULL # so inner optimization won't change simulated RE
-om <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE, do.retro = FALSE, do.osa = FALSE) #Changing do.retro and do.osa as per SGaichas email
+om <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE,
+               do.retro = TRUE, do.osa = FALSE) #Changing do.retro and do.osa as per SGaichas email
 # Note: do.fit must be FALSE (no modeling fitting yet)
 
 
 
-### TRYING TO FIX CONVERGENCE ISSUES
-# Random stuff from alex model
-mean(om$rep$log_SR_a)
-mean(om$rep$log_SR_b)
 
-input_NoEcov$par$mean_rec_pars[,1]<-c(mean(om$rep$log_SR_a)) # TOOK OUT SUBSCRIPTS FROM OG CODE
-input_NoEcov$par$mean_rec_pars[,2]<-c(mean(om$rep$log_SR_b)) 
-
-om_fix <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE, do.retro = FALSE, do.osa = FALSE)
-
-check_convergence(om_fix)
-
-
-# input_NoEcov$par <- om$parList
-# om_improve <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE, do.retro = FALSE, do.osa = FALSE)
+###### DOING THIS CAUSES NAS TO BE PRODUCED ######
+# input_NoEcov$par$mean_rec_pars[,1]<-c(mean(om$rep$log_SR_a)) # TOOK OUT SUBSCRIPTS FROM OG CODE
+# input_NoEcov$par$mean_rec_pars[,2]<-c(mean(om$rep$log_SR_b))
 # 
-# om_with_data <- update_om_fn(om, seed = 123, random = random)
+# om_fix <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE, do.retro = FALSE, do.osa = FALSE)
+# 
+# check_convergence(om_fix)
+######      ######
+
+input_NoEcov$par <- om$parList
+om_improve <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE,
+               do.retro = TRUE, do.osa = FALSE)
+
+om_with_data <- update_om_fn(om, seed = 123, random = random)
 
 
 
