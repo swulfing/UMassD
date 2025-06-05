@@ -81,7 +81,7 @@ terminal.year   <- tail(base.years,1)
 assess.years    <- seq(terminal.year, tail(om$years,1)-assess.interval,by = assess.interval)
 
 # USE EM same as OM for MSE
-mod = loop_through_fn(om = om_with_data,
+mod = loop_through_fn_TEST(om = om_with_data,
                       em_info = info, 
                       random = random,
                       M_em = M, 

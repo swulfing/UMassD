@@ -7,6 +7,8 @@ date: "2025-04-16"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 
+# TO DO: COPY SOURCE CODE (SPECIFICALLY THE LOOP THROUGH OM FXN) AND USE BROWSER() TO STEP THROUGH WHAT'S GIVING TROUBLE
+
 # library(pak)
 # library(devtools)
 # pak::pkg_install("timjmiller/wham")
@@ -53,6 +55,8 @@ info <- generate_basic_info(n_stocks = input$data$n_stocks,
                             n_feedback_years = MSE_years,
                             life_history = "medium", # Not sure if we're keeping this
                             n_ages = input$data$n_ages) 
+
+# IF something is specifying age comp (which I'm not bc from vig) This could create a conflict when comparing to em
 ```
 
 ```{r specifyInfo}
@@ -65,15 +69,39 @@ info <- generate_basic_info(n_stocks = input$data$n_stocks,
 # 
 # 
 # # These right now are based on defaults or life history. FIND ARGUMENT TO PROVIDE MYSELF
-# basic_info = info$basic_info # collect basic information TRY input$data$catch_paa OR AGG CATCH
-# catch_info = info$catch_info # collect fleet catch information
-# index_info = info$index_info # collect survey information
-# F_info = info$F # collect fishing information
+basic_info = info$basic_info # collect basic information TRY input$data$catch_paa OR AGG CATCH
+catch_info = info$catch_info # collect fleet catch information
+index_info = info$index_info # collect survey information
+F_info = info$F # collect fishing information
 
 ###### END ######
-basic_info = info$basic_info
+basic_info_FIX <- list(
+    n_stocks = 1L,
+    n_seasons = 1L,
+    n_fleets = 1L,
+    ages = 1:input$data$n_ages,
+    n_fleets = input$data$n_fleets,
+    fracyr_SSB = cbind(input$data$fracyr_SSB), #(n_years x n_stocks)
+    maturity = input$data$mature, #(n_stocks x n_years x n_ages)
+    years = as.integer(input$years), #(n_years)
+    waa = input$data$waa, #(any no. x n_years x n_ages)
+    waa_pointer_ssb = input$data$waa_pointer_ssb, #(n_stocks)
+    spawn_regions = 1, #(n_stocks)
+    spawn_seasons = 1 #(n_stocks)
+)
 
-catch_info <- list(
+basic_info$ages <-            basic_info_FIX$ages
+basic_info$n_fleets <-        basic_info_FIX$n_fleets
+basic_info$fracyr_SSB <-      basic_info_FIX$fracyr_SSB
+basic_info$maturity <-        basic_info_FIX$maturity
+basic_info$years <-           basic_info_FIX$years
+basic_info$waa <-             basic_info_FIX$waa
+basic_info$waa_pointer_ssb <- basic_info_FIX$waa_pointer_ssb
+basic_info$waa_pointer_indices <- input[["data"]][["waa_pointer_indices"]]
+basic_info$waa_pointer_M <- input$data$waa_pointer_M
+
+
+catch_info_FIX <- list(
     n_fleets = NCOL(input$data$agg_catch), #(n_fleets)
     agg_catch = cbind(input$data$agg_catch), #(n_years x n_fleets)
     agg_catch_cv = cbind(sqrt(exp(input$data$agg_catch_sigma^2) - 1)), #(n_years x n_fleets)
@@ -85,7 +113,17 @@ catch_info <- list(
     fleet_regions = rep(1,input$data$n_fleets) #(n_fleets)
 )
 
-index_info <- list(
+catch_info$n_fleets <-      catch_info_FIX$n_fleets
+catch_info$agg_catch <-     catch_info_FIX$agg_catch
+catch_info$agg_catch_cv <-  catch_info_FIX$agg_catch_cv#[1] #NOTE: THIS DIMENSION IS CHANGED FROM THE OG INPUT
+catch_info$catch_paa <-     catch_info_FIX$catch_paa
+catch_info$use_catch_paa <- catch_info_FIX$use_catch_paa
+catch_info$catch_Neff <-    catch_info_FIX$catch_Neff
+catch_info$selblock_pointer_fleets <- catch_info_FIX$selblock_pointer_fleets
+catch_info$fleet_regions <- catch_info_FIX$fleet_regions
+
+
+index_info_FIX <- list(
     n_indices = NCOL(input$data$agg_indices),
     agg_indices = cbind(input$data$agg_indices), #(n_years x n_indices)
     units_indices = input$data$units_indices, #(n_indices) 1: biomass 2: numbers
@@ -100,8 +138,26 @@ index_info <- list(
     waa_pointer_indices = input$data$waa_pointer_indices, #(n_indices)
     index_regions = rep(1,input$data$n_indices)) #(n_indices)
 
+
+## This doesn't matter apparently
+# index_info_FIX$index_Neff <- replace(index_info_FIX$index_Neff, index_info_FIX$index_Neff == -999, NA)
+
+index_info$n_indices <-       index_info_FIX$n_indices
+index_info$agg_indices <-     index_info_FIX$agg_indices
+index_info$units_indices <-   index_info_FIX$units_indices
+index_info$units_index_paa <- index_info_FIX$units_index_paa
+index_info$agg_index_cv <-    index_info_FIX$agg_index_cv
+index_info$index_Neff <-      index_info_FIX$index_Neff # NOTE: SOME ENTRIES -999, CHANGED TO NAS
+index_info$fracyr_indices <-  index_info_FIX$fracyr_indices
+index_info$use_indices <-     index_info_FIX$use_indices
+index_info$use_index_paa <-   index_info_FIX$use_index_paa
+index_info$index_paa <-       index_info_FIX$index_paa
+index_info$index_regions <-   index_info_FIX$index_regions
+
 #initial values for annual fully-selected fishing mortality
-F_info <- list(F = matrix(0.3, length(basic_info$years), catch_info$n_fleets)) #(n_years x n_fleets)
+F_info_FIX <- list(F = matrix(0.3, length(basic_info$years), catch_info$n_fleets)) #(n_years x n_fleets)
+# NOTE: DO WE WANT TO TAKE AVERAGE OF ALEX'S M'S? I DONT THINK THOSE ARE FISHING M'S BUT CHECK
+F_info$F <- F_info_FIX$F
 ```
 
 ```{r configs}
@@ -116,7 +172,7 @@ n_ages    <- as.integer(basic_info['n_ages'])
 sel2=list(
   model=c("age-specific",
           "logistic","logistic","logistic"), 
-  re = c("none","none","none","none"), #re = c("ar1_y","none","none","none"), use ar1 to est sel but later fixing all 
+  re = c("ar1_y","none","none","none"), #re = c("ar1_y","none","none","none"), use ar1 to est sel but later fixing all 
   initial_pars=list(
     c(0.1,0.25,0.5,1,1,1), # Commercial fleet
     c(2,0.3), # Spring NEFSC
@@ -155,10 +211,15 @@ NAA_re <- list(N1_model=rep(ini.opt,n_stocks),
 input_NoEcov <- prepare_wham_input(basic_info = basic_info, 
                             selectivity = sel2, 
                             M = M, 
-                            NAA_re = NAA_re, 
+                            NAA_re = NAA_re,
                             catch_info = catch_info, 
                             index_info = index_info, 
-                            F = F_info)
+                            F = F_info,
+                            age_comp = "logistic-normal-pool0") 
+
+# input_NoEcov[["data"]][["index_Neff"]] # Should I be making these NAs or 0?
+# input_NoEcov[["data"]][["Ecov_obs"]]
+
 ```
 
 ```{r GenerateOMandData_noEcov}
@@ -166,12 +227,18 @@ input_NoEcov <- prepare_wham_input(basic_info = basic_info,
 
 random = input_NoEcov$random # check what processes are random effects
 input_NoEcov$random = NULL # so inner optimization won't change simulated RE
-om <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE,
-               do.retro = TRUE, do.osa = FALSE) #Changing do.retro and do.osa as per SGaichas email
+
+### USE THIS OM WHEN DIAGNOSING ISSUES ###
+# om <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE,
+#                do.retro = TRUE, do.osa = FALSE) #Changing do.retro and do.osa as per SGaichas email
+
+### END ###
+
+om <- fit_wham(input, do.fit = F, do.brps = T, MakeADFun.silent = TRUE)
 # Note: do.fit must be FALSE (no modeling fitting yet)
 
 
-
+# plot_wham_output(om)
 
 ###### DOING THIS CAUSES NAS TO BE PRODUCED ######
 # input_NoEcov$par$mean_rec_pars[,1]<-c(mean(om$rep$log_SR_a)) # TOOK OUT SUBSCRIPTS FROM OG CODE
@@ -182,10 +249,10 @@ om <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE,
 # check_convergence(om_fix)
 ######      ######
 
-input_NoEcov$par <- om$parList
-om_improve <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE,
-               do.retro = TRUE, do.osa = FALSE)
-
+# input_NoEcov$par <- om$parList
+# om_improve <- fit_wham(input_NoEcov, do.fit = T, do.brps = T, MakeADFun.silent = TRUE,
+#                do.retro = TRUE, do.osa = FALSE)
+# 
 om_with_data <- update_om_fn(om, seed = 123, random = random)
 
 
@@ -202,15 +269,29 @@ assess.years    <- seq(terminal.year, tail(om$years,1)-assess.interval,by = asse
 
 ```
 
-```{r projectWham_noEcov, eval = FALSE}
-check_convergence(om)
-plot_wham_output(om)
+```{r om_issues, eval = FALSE}
+# check_convergence(om)
+# plot_wham_output(om)
+
+# sim_fn <- function(om, self.fit = FALSE) {
+#   input <- om$input
+#   input$data <- om$simulate(complete = TRUE)
+#   if (self.fit) {
+#     fit <- fit_wham(input, do.osa = FALSE, do.retro = FALSE, MakeADFun.silent = TRUE)
+#     return(fit)
+#   } else return(input)
+# }
+# 
+# set.seed(12345)
+# self_sim_fit <- sim_fn(om, self.fit = TRUE)
+# 
+# check_convergence(self_sim_fit)
 
 ```
 
 ```{r MSE_noEcov, eval = FALSE}
 
-mod = loop_through_fn(om = om_with_data,
+mod = loop_through_fn_TEST(om = om_with_data,
                       em_info = info, 
                       random = random,
                       M_em = M, 
@@ -232,6 +313,7 @@ mod = loop_through_fn(om = om_with_data,
                       save.last.em = TRUE,
                       do.retro = TRUE, # Perform retrospective analysis
                       do.osa = TRUE) # Perform OSA residual analysis
+
 ```
 
 
