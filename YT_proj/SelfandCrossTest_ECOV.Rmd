@@ -1,0 +1,82 @@
+---
+title: "SelfandCrossTest"
+output: html_document
+date: "2025-06-06"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE)
+
+library(wham)
+library(whamMSE)
+# library(ecodata) I don't have this package yet
+library(dplyr)
+
+setwd("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj")
+
+gb_dat <- read_asap3_dat("ASAPfiles_5.14Pull/GBK.DAT")
+input <- prepare_wham_input(gb_dat)
+```
+
+```{r rds_read}
+om_ECOV <- readRDS("feedback_om_ECOV.rds")
+om_NOECOV <- readRDS("feedback_om_NOECOV.rds")
+```
+
+```{r selfTest}
+
+sim_fn <- function(om, self.fit = FALSE) {
+  input <- om$input
+  input$data <- om$simulate(complete = TRUE)
+  if (self.fit) {
+    fit <- fit_wham(input, do.osa = FALSE, do.retro = FALSE, MakeADFun.silent = TRUE)
+    return(fit)
+  } else return(input)
+}
+
+set.seed(12345)
+
+
+self_sim_fit_ECOV <- sim_fn(om_ECOV, self.fit = TRUE)
+self_sim_fit_NOECOV <- sim_fn(om_NOECOV, self.fit = TRUE)
+
+check_convergence(self_sim_fit_ECOV)
+check_convergence(self_sim_fit_NOECOV)
+
+plot_wham_output(self_sim_fit_ECOV, out.type = "html")
+plot_wham_output(self_sim_fit_NOECOV, out.type = "html")
+
+```
+
+```{r crossTest}
+
+sim_fn2 <- function(om, em, cross.fit = FALSE) {
+  input <- em$input
+  input$data <- om$simulate(complete = TRUE)
+  if (cross.fit) {
+    fit <- fit_wham(input, do.osa = FALSE, do.retro = FALSE, MakeADFun.silent = TRUE)
+    return(fit)
+  } else return(input)
+}
+
+set.seed(123)
+
+# THIS ABORTS THE R CODE
+# cross_sim_fit <- sim_fn2(om_ECOV, om_NOECOV, cross.fit = TRUE)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

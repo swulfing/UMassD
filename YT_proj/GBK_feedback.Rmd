@@ -77,6 +77,7 @@ user_maturity = array(NA, dim = c(1,53,6))
 user_maturity[,1:50,] = input$data$mature
 for (i in 51:53) user_maturity[,i,] = input$data$mature[, 50, , drop = FALSE] # fill year 51-53 with MAA from year 50 (i.e., 2022), UNLESS you want to use different MAA. (sometimes people do last 5-year average)
 
+# IN THIS CASE IT DOESN'T MATTER BC M IS CONSTANT OVER TIME
 ```
 
 ## Set Weight at age (WAA)
@@ -177,7 +178,7 @@ fracyr_indices = c(0.25,0.75,0.25)
 # Index catchabilities (q), you should specify q here in generate_basic_info, unless q is treated as a random effect!
 
 # I can use q from a fitted model (see model output from code "GBK_No_feedback")
-q = c(2.134e-4,2.2267e-4,2.727e-4) # honestly I don't know q for each index, but you can check in the most recent stock assessment model
+q = c(2.134e-4,2.2267e-4,2.727e-4) 
 
 # use_indices and use_index_paa
 input$data$use_indices
@@ -486,6 +487,8 @@ mod = loop_through_fn(om = om_with_data,
                       save.sdrep = FALSE, 
                       save.last.em = TRUE,
                       FXSPR_init = 0.5) # IMPORTANT!
+
+saveRDS(om, file = "feedback_om_NOECOV.rds")
 
 ```
 

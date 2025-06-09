@@ -1,0 +1,137 @@
+---
+title: "ECOVinMSE_ChengVigs"
+output: html_document
+date: "2025-06-06"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(wham)
+library(whamMSE)
+
+write.dir <- "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj"
+setwd(write.dir)
+
+
+```
+
+```{r genBasicInfo_ConfigNAA}
+
+year_start  <- 1  # starting year in the burn-in period
+year_end    <- 20  # end year in the burn-in period
+MSE_years   <- 3     # number of years in the feedback loop
+# Note: no need to include MSE_years in simulation-estimation 
+
+info <- generate_basic_info(n_stocks = 1,
+                            n_regions = 1,
+                            n_indices = 1,
+                            n_fleets = 1,
+                            n_seasons = 1,
+                            base.years = year_start:year_end,
+                            n_feedback_years = MSE_years,
+                            life_history = "medium",
+                            n_ages = 12) 
+
+basic_info = info$basic_info # collect basic information
+catch_info = info$catch_info # collect fleet catch information
+index_info = info$index_info # collect survey information
+F_info = info$F # collect fishing information
+
+n_stocks <- 1
+n_regions <- 1
+n_ages <- 12
+
+sigma        <- "rec+1"
+re_cor       <- "iid"
+ini.opt      <- "equilibrium" 
+sigma_vals   <-  array(0.5, dim = c(n_stocks, n_regions, n_ages)) # NAA sigma # array(0.5, dim = c(n_stocks, n_regions, n_ages)) # NAA sigma
+
+NAA_re <- list(N1_model=rep(ini.opt,n_stocks),
+               sigma=rep(sigma,n_stocks),
+               cor=rep(re_cor,n_stocks),
+               recruit_model = 2,  # rec random around the mean
+               sigma_vals = sigma_vals) # NAA_where must be specified in basic_info!
+
+```
+
+```{r ecov}
+
+# Create a pseudo ecov time series
+years = basic_info$years
+env.dat <- data.frame(Year = years, mean = runif(length(years), -1, 1), sigma = runif(length(years), 0, 0.2))
+
+ecov <- list(
+    label = "Ecov_x",
+    mean = as.matrix(env.dat$mean),
+    logsigma = as.matrix(log(env.dat$sigma)),
+    year = env.dat$Year,
+    use_obs = matrix(1, ncol=1, nrow=dim(env.dat)[1]), # use all obs (=1)
+    process_model = "rw", # "rw" or "ar1"
+    recruitment_how = matrix("controlling-lag-1-linear",1,1)) #matrix for number of stocks (1) and number of Ecovs (1)
+
+```
+
+```{r genWhamInput_om}
+
+input <- prepare_wham_input(basic_info = basic_info, 
+                            NAA_re = NAA_re,
+                            ecov = ecov,
+                            catch_info = catch_info, 
+                            index_info = index_info, 
+                            F = F_info)
+
+random = input$random # check what processes are random effects
+input$random = NULL # so inner optimization won't change simulated RE
+om <- fit_wham(input, do.fit = F, do.brps = T, MakeADFun.silent = TRUE)
+# Note: do.fit must be FALSE (no modeling fitting yet)
+
+# Gen Dataset
+
+om_with_data <- update_om_fn(om, seed = 123, random = random)
+
+```
+
+```{r assessInterval_MSE}
+
+assess.interval <- 3
+base.years      <- year_start:year_end
+first.year      <- head(base.years,1)
+terminal.year   <- tail(base.years,1)
+assess.years    <- seq(terminal.year, tail(om$years,1)-assess.interval,by = assess.interval)
+
+mod = loop_through_fn(om = om_with_data,
+                      em_info = info, 
+                      random = random,
+                      NAA_re_em = NAA_re, 
+                      ecov_em = ecov,
+                      age_comp_em = "multinomial",
+                      em.opt = list(separate.em = FALSE, 
+                                    separate.em.type = 3, 
+                                    do.move = FALSE, 
+                                    est.move = FALSE),
+                      assess_years = assess.years, 
+                      assess_interval = assess.interval, 
+                      base_years = base.years,
+                      year.use = 20,
+                      add.years = TRUE)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

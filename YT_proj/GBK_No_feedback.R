@@ -1,4 +1,4 @@
-devtools::install_github("lichengxue/whamMSE", dependencies=TRUE)
+# devtools::install_github("lichengxue/whamMSE", dependencies=TRUE)
 library(wham)
 library(whamMSE)
 library(dplyr)
@@ -18,12 +18,12 @@ MSE_years  <- 0    # number of years in the feedback loop
 
 ## Set Maturity at age (MAA)
 
-input$data$mature[,1,] # MAA is constant over years, just extract one MAA from a year
+input$data$mature[,1,] # MAA is constant over years, just extract one MAA from a year. NEED 6 FOR 6 AGES
 user_maturity = NULL
 dim(input$data$mature)
-user_maturity = array(NA, dim = c(1,50,6))
-user_maturity[,1:50,] = input$data$mature
-
+user_maturity = array(NA, dim = c(1,50,6)) # WANT TO MATCH DIMENSIONS
+user_maturity[,1:50,] = input$data$mature  # IM NOT ENTIRELY SURE WHY THIS WAS NECESSARY IT JUST RESULTS IN THE SAME DIMS
+ 
 ## Set Weight at age (WAA)
 
 user_waa = NULL
@@ -141,7 +141,7 @@ catch_info_use = info$catch_info # collect fleet catch information
 index_info_use = info$index_info # collect survey information
 F_info = info$F # collect fishing information
 
-catch_info_use$agg_catch[1:50,] = input$data$agg_catch
+catch_info_use$agg_catch[1:50,] = input$data$agg_catch # FROM WHAT CHENG IS DOING I THINK LIKE HE SAID IT'S EASIER TO GENERATE BASIC INFO AND THEEEEEEEN CHANGE IT TO PUT IN REAL DATA (lines 144-15)
 catch_info_use$catch_paa[,1:50,] = input$data$catch_paa
 # 
 index_info_use$agg_indices[1:50,] = input$data$agg_indices

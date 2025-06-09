@@ -1,0 +1,495 @@
+---
+title: "GBK, ECOV, MSE"
+output:
+  pdf_document: default
+  html_document: default
+date: "2025-04-16"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+
+# TO DO: COPY SOURCE CODE (SPECIFICALLY THE LOOP THROUGH OM FXN) AND USE BROWSER() TO STEP THROUGH WHAT'S GIVING TROUBLE
+
+# library(pak)
+# library(devtools)
+# pak::pkg_install("timjmiller/wham")
+# devtools::install_github("lichengxue/whamMSE", dependencies=TRUE)
+# devtools::install_github("NOAA-EDAB/ecodata", dependencies=TRUE, build = FALSE)
+
+library(wham)
+library(whamMSE)
+# library(ecodata) I don't have this package yet
+library(dplyr)
+
+setwd("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj")
+
+gb_dat <- read_asap3_dat("ASAPfiles_5.14Pull/GBK.DAT")
+input <- prepare_wham_input(gb_dat)
+
+```
+
+# READ ME
+This is adapted from the attempt of 04.16 with Cheng Li's single stock MSE and TJ Miller's WHAM without ASAP modules. I am now combining with Alex Hansell's GOM stock assessment to get an accurate assessment with ecov.
+
+Next Steps:
+
+- diagnose model issues (see Sarah email)
+
+- Run MSE
+
+- Contact Cheng for new features (esp. ecov)
+
+## Fitting A Model to Collect 'TRUE' Values for Para.
+
+See my code `GBK_No_feedback.R` in which I set MSE_years = 0 to just fit a model to real data and collect parameter values from the fitted model as my true values in this MSE. One thing you should know is that, for MSE work, you might need to generate n realizations to evaluate the performance of different management strategies. Here n realizations means the population dynamics and observational data will change (error/noise drawn from some distribution) in every realization. There is currently no way you can use your real observation (real fisheries data) in whamMSE. However, the real observational data are used to 'condition' your operating model. That means, we use a model to fit the real data and get parameter estimates from that model (assuming the model is converged), and then based on the estimated model parameters (including all biological parameters, fishery and survey parameters, process error, observation error) to develop a population dynamics model that best mimic the GBK stock. Since the initial numbers at age and Fishing mortality (F) in your OM are based on estimated values from the fitted_om, the population dynamics at the end of historical period (or the beginning of feedback period) will be kind of similar as the real stock status we are seeing in the ocean. May not be always true since you have process error and observation error which create some stochasiticity that sometimes can drive population to a different direction (e.g., high F kills many fish in 1990 but population may not collapse due to a wired positive noise of rec and NAA that bring the population size back to normal in the following year...). In short, using an OM that includes all parameters close to reality is all we can do in the current version of MSE, and it is impossible to have a exactly same population dynamics as we've seen in the most recent stock assessment model output.
+
+```{r}
+
+fitted_om <- readRDS("fitted_om.RDS") # all the parameter estimates should be saved in fitted_om$rep but it might be hard for you to understand/extract the information
+
+```
+
+## Set number of years in the OM
+
+When preparing the information for MSE, any information that has n_years as one of the dimentions must be = length of historical period (i.e., 1973-2022) and length of feedback years (i.e., 3 years). This is important when you prepare other input such as Weight-at-age, Maturity-at-age, catch_info, and index_info
+
+```{r genBasicInfo}
+
+# We need to match the years from GBK.DAT
+input$years # check years 
+year_start <- 1973
+year_end   <- 2022
+MSE_years  <- 3     # number of years in the feedback loop 
+
+```
+
+## Set Maturity at age (MAA)
+
+Remember that MAA has a dimension representing n_years, which should be `length(1973:2022) + 3 = 53`
+
+```{r}
+
+input$data$mature[,1,] # MAA is constant over years, just extract one MAA from a year
+user_maturity = NULL
+dim(input$data$mature)
+user_maturity = array(NA, dim = c(1,53,6))
+user_maturity[,1:50,] = input$data$mature
+for (i in 51:53) user_maturity[,i,] = input$data$mature[, 50, , drop = FALSE] # fill year 51-53 with MAA from year 50 (i.e., 2022), UNLESS you want to use different MAA. (sometimes people do last 5-year average)
+
+# IN THIS CASE IT DOESN'T MATTER BC M IS CONSTANT OVER TIME
+```
+
+## Set Weight at age (WAA)
+
+Remember that WAA also has a dimension representing n_years, which should be `length(1973:2022) + 3 = 53`
+
+```{r}
+
+user_waa = NULL
+dim(input$data$waa)
+user_waa$waa = array(NA, dim = c(5,53,6))
+user_waa$waa[,1:50,] = input$data$waa
+for (i in 51:53) user_waa$waa[,i,] = input$data$waa[, 50, , drop = FALSE] # fill year 51-53 with WAA from year 50 (i.e., 2022), UNLESS you want to use different WAA (sometimes people do last 5-year average)
+
+# pointer is used to identify which waa is used for which fleet/catch/SSB
+user_waa$waa_pointer_fleets = input$data$waa_pointer_fleets
+user_waa$waa_pointer_indices = input$data$waa_pointer_indices
+user_waa$waa_pointer_totcatch = input$data$waa_pointer_ssb # kind of 'required'... Tim used to have this but now he removed, so this won't affect any calculation, that's what I want to say
+user_waa$waa_pointer_ssb = input$data$waa_pointer_ssb
+user_waa$waa_pointer_M = input$data$waa_pointer_M
+
+```
+
+## Set `fracyr_SSB`
+
+`fracyr_SSB` is calculated based on the `gb_dat[[1]]$dat$fracyr_spawn`
+
+```{r}
+
+fracyr_spawn = gb_dat[[1]]$dat$fracyr_spawn # it's a constant value 0.4166667, this will be used to calculated fracyr_SSB in the input
+
+```
+
+
+## Set `catch_info`
+
+You can use `generate_basic_info` to prepare catch_info. It's safer because you don't need to worry about the dimensions (particularly n_years) in the data input, and you can modify the input data after using generate_basic_info. Please check `?generate_basic_info` to see what information are required for catch_info. 
+
+```{r}
+
+catch_info = list() # require catch_cv, catch_Neff, use_agg_catch, use_catch_paa
+
+catch_cv = 0.05 # sqrt(exp(input$data$agg_catch_sigma^2) - 1) is constant so only 1 value is needed here
+use_agg_catch = 1 # input$data$use_agg_catch, constant, again one value is needed
+use_catch_paa = 1 # cbind(input$data$use_catch_paa), constant, again one value is needed
+catch_Neff = 50 # cbind(input$data$catch_Neff) constant, one value is needed
+
+catch_info = list(catch_cv = catch_cv, 
+                  catch_Neff = catch_Neff, 
+                  use_agg_catch = use_agg_catch, 
+                  use_catch_paa = use_catch_paa)
+
+```
+
+
+## Set `index_info`
+
+You can use `generate_basic_info` to prepare catch_info, check `?generate_basic_info` to see what information are required for index_info.
+
+```{r}
+
+index_info = list() # index_cv, index_Neff, fracyr_indices, q, use_indices, use_index_paa, units_indices, units_index_paa
+
+# Index CV
+sqrt(exp(input$data$agg_index_sigma^2) - 1) # Here we can see CV for agg. index is changing over years, it's safe to first set a constant value for all index CVs and then modify after generate_basic_info
+
+index_cv = rep(0.5,3) # remember to change that later
+
+# Index Neff
+input$data$index_Neff # there are some -999, so, we can set 25 for all of the indices first and then change some of them to be -999 after the input is generated by the generate_basic_info() function
+
+index_Neff = rep(25,3)
+
+# Index units
+input$data$units_indices # a constant value, so one single value is needed here
+
+units_indices = rep(2,3)
+
+# Index paa units
+input$data$units_index_paa # again, 2, a single value will be used
+
+units_index_paa = rep(2,3)
+
+# fracyr_indices
+
+input$data$fracyr_indices # it's time-invariant but different across indices, so we need a vector
+
+fracyr_indices = c(0.25,0.75,0.25)
+
+# use_indices and use_index_paa, you don't need to specify them since default is use = TRUE
+
+# selblock_pointer_indices,  don't need to use it since there is no selectivity block
+
+# waa_pointer_indices and index_regions, don't need 
+
+# fracyr_indices
+
+# Index catchabilities (q), you should specify q here in generate_basic_info, unless q is treated as a random effect!
+
+# I can use q from a fitted model (see model output from code "GBK_No_feedback")
+q = c(2.134e-4,2.2267e-4,2.727e-4) 
+
+# use_indices and use_index_paa
+input$data$use_indices
+use_indices = rep(1,3) # you can see where index_Neff has -999 is corresponding to 0 in use_indices, we here use 1 for all, but need to change some values back to 0 later!
+input$data$use_index_paa
+use_index_paa = rep(1,3) # you can see where index_Neff has -999 is corresponding to 0 in use_indices, we here use 1 for all, but need to change some values back to 0 later!
+
+index_info = list(index_cv = index_cv, 
+                  index_Neff = index_Neff, 
+                  fracyr_indices = fracyr_indices, 
+                  q = q, 
+                  use_indices = use_indices, 
+                  use_index_paa = use_index_paa, 
+                  units_indices = units_indices, 
+                  units_index_paa = units_index_paa)
+
+# agg_indices and index_paa, 
+input$data$agg_indices
+input$data$index_paa
+
+# It's done! Don't forget to change them later!
+
+```
+
+## Generate Basic Info!
+```{r}
+
+info <- generate_basic_info(n_stocks = 1L,
+                            n_regions = 1L,
+                            n_indices = 3L,
+                            n_fleets = 1L,
+                            n_seasons = 1L,
+                            base.years = year_start:year_end,
+                            n_feedback_years = MSE_years,
+                            n_ages = 6,
+                            catch_info = catch_info,
+                            index_info = index_info,
+                            user_waa = user_waa, 
+                            user_maturity = user_maturity,
+                            fracyr_spawn = fracyr_spawn
+                            ) 
+
+basic_info = info$basic_info # collect basic information
+catch_info_use = info$catch_info # collect fleet catch information
+index_info_use = info$index_info # collect survey information
+F_info = info$F # collect fishing information
+
+# F_info needs to be changed by using the estimated F values from the fitted_om
+F_info$F = fitted_om$rep$Fbar[,1, drop = FALSE]
+
+catch_info_use$agg_catch[1:50,] = input$data$agg_catch
+catch_info_use$catch_paa[,1:50,] = input$data$catch_paa
+# 
+index_info_use$agg_indices[1:50,] = input$data$agg_indices
+index_info_use$index_paa[,1:50,] = input$data$index_paa
+index_info_use$use_indices[1:50,] = input$data$use_indices
+index_info_use$use_index_paa[1:50,] = input$data$use_index_paa
+index_info_use$use_indices[51:53,] = 1 # Assuming we will have those data in the feedback period
+index_info_use$use_index_paa[51:53,] = 1 # Assuming we will have those paa data in the feedback period
+```
+
+```{r configs}
+
+n_stocks  <- as.integer(basic_info['n_stocks'])
+n_regions <- as.integer(basic_info['n_regions'])
+n_fleets  <- as.integer(basic_info['n_fleets'])
+n_indices <- as.integer(basic_info['n_indices'])
+n_ages    <- as.integer(basic_info['n_ages'])
+
+# Selectivity Configuration - ALEX CODE
+sel2=list(
+  model=c("age-specific",
+          "logistic","logistic","logistic"), 
+  re = c("ar1_y","none","none","none"), #re = c("ar1_y","none","none","none"), use ar1 to est sel but later fixing all 
+  initial_pars=list(
+    c(0.1,0.25,0.5,1,1,1), # Commercial fleet
+    c(2,0.3), # Spring NEFSC
+    c(2,0.3), # Fall NEFSC
+    c(2,0.3)), # DFO survey
+  fix_pars = list(
+    c(4:6), # Estimate param for each age
+    c(NULL), # bc logistic, these only estimate 2 params so just want to fix first one
+    c(NULL),
+    c(NULL))
+)
+
+# Here I used sel vals estimated from fitted_om
+
+sel3=list(
+  model=c("age-specific",
+          "logistic","logistic","logistic"), 
+  re = c("ar1_y","none","none","none"), #re = c("ar1_y","none","none","none"), use ar1 to est sel but later fixing all 
+  initial_pars=list(
+    c(0.016,0.242,0.743,1,1,1), # Commercial fleet
+    c(2.319,0.327), # Spring NEFSC
+    c(1.635,0.480), # Fall NEFSC
+    c(2.152,0.217)), # DFO survey
+  fix_pars = list(
+    c(4:6), # Estimate param for each age
+    c(NULL), # bc logistic, these only estimate 2 params so just want to fix first one
+    c(NULL),
+    c(NULL))
+)
+
+# CHENG SELECTIVITY
+# fleet_pars <- c(5,1)
+# index_pars <- c(2,1)
+# sel <- list(model=rep("logistic",n_fleets+n_indices),
+#             initial_pars=c(rep(list(fleet_pars),n_fleets),rep(list(index_pars),n_indices)))
+
+# M Configuration
+M <- list(model="constant",initial_means=array(c(0.57, 0.33, 0.26, 0.23, 0.22, 0.22), dim = c(n_stocks,n_regions,n_ages)))
+
+sigma        <- "rec+1"
+re_cor       <- "iid"
+#### Important below ####
+ini.opt      <- "age-specific-fe" # Since we need to change initial numbers at age in the OM, so we need to use age specific assumption instead of equilibrium
+sigma_vals   <-  array(0.5, dim = c(n_stocks, n_regions, n_ages)) # NAA sigma
+
+# I used the sigma vals from my fitted_om, but you can use whatever you want
+sigma_vals[,,1] = 0.767 # rec
+sigma_vals[,,2:6] = 0.736 # NAA
+
+# NAA config
+
+#####################################
+############# IMPORTAMT #############
+#####################################
+
+# IF you choose to use B-H recruitment model, then you need to specify alpha and beta for B-H otherwise the default value will be used!
+
+# I use alpha beta estimated from fitted_om
+
+NAA_re <- list(N1_model=rep(ini.opt,n_stocks),
+               sigma=rep(sigma,n_stocks),
+               cor=rep(re_cor,n_stocks),
+               recruit_model = 3,  # rChanged from ALEX code
+               recruit_pars = list(c(4.394, 5.8e-5)), # I used estimated value from my fitted_om
+               sigma_vals = sigma_vals
+               ) # NAA_where must be specified in basic_info!
+```
+
+## Prepare `wham` input
+
+```{r generateWHAM_noEcov}
+input_NoEcov <- prepare_wham_input(basic_info = basic_info, 
+                            selectivity = sel2, 
+                            M = M, 
+                            NAA_re = NAA_re,
+                            catch_info = catch_info_use, 
+                            index_info = index_info_use, 
+                            F = F_info,
+                            age_comp = "logistic-normal-pool0") 
+
+#####################
+##### Important #####
+#####################
+
+# Change selectivity random-effects parameters (otherwise a defaul will be used in the OM)
+input_NoEcov$par$sel_repars[1,] = c(log(1.058), wham:::gen.logit(c(0,0.508),-1,1))
+
+# We need to change initial numbers at age for the OM
+fitted_om$rep$N1
+ini.NAA <- matrix(NA, n_ages, n_stocks)
+ini.NAA[,1] <- fitted_om$rep$N1
+
+input_NoEcov$par$log_N1[] = 0
+for (i in 1:n_regions) {
+  input_NoEcov$par$log_N1[i,i,] = log(ini.NAA[,i])
+}
+
+# input_NoEcov[["data"]][["index_Neff"]] # Should I be making these NAs or 0?
+# Answer: safer to just set 0 in input$data$use_indices: let model don't use the data for those NA years
+
+# input_NoEcov[["data"]][["Ecov_obs"]]
+
+```
+
+## Change Catch and Index Info
+
+I have a `update_input_index_info` and a `update_input_catch_info` function for you to change your index and catch data. It's safer to change them after `prepare_wham_input`, but I'm trying to have a built in function in generate_basic_info later to make things easier, sorry...
+
+```{r}
+input <- prepare_wham_input(gb_dat) # this is the input from asap file
+
+input_NoEcov$data$agg_index_sigma
+input_NoEcov$data$use_indices
+input_NoEcov$data$use_index_paa
+
+input_NoEcov$data$agg_index_sigma[1:50,] = input$data$agg_index_sigma
+input_NoEcov$data$agg_index_sigma[51:53,] = 0.3 # we can set to any value you want, remember this is sigma not CV (i.e., CV != 0.2)
+
+input_NoEcov$data$index_Neff[1:50,] = input$data$index_Neff
+input_NoEcov$data$index_Neff[51:53,] = 25 # we can set to any value you want, 
+
+# remove_agg, remove_agg_pointer, remove_agg_years
+zero_years <- lapply(seq_len(ncol(input$data$use_indices)), function(j) which(input$data$use_indices[, j] == 0))
+
+max_rows <- max(sapply(zero_years, length))
+n_indices <- length(zero_years)
+remove_agg_years1 <- matrix(NA, nrow = max_rows, ncol = n_indices)
+
+for (j in seq_along(zero_years)) {
+  len <- length(zero_years[[j]])
+  remove_agg_years1[1:len, j] <- zero_years[[j]]
+}
+
+# remove_paa, remove_paa_pointer, remove_paa_years
+zero_years <- lapply(seq_len(ncol(input$data$use_index_paa)), function(j) which(input$data$use_index_paa[, j] == 0))
+
+max_rows <- max(sapply(zero_years, length))
+n_indices <- length(zero_years)
+remove_paa_years1 <- matrix(NA, nrow = max_rows, ncol = n_indices)
+
+for (j in seq_along(zero_years)) {
+  len <- length(zero_years[[j]])
+  remove_paa_years1[1:len, j] <- zero_years[[j]]
+}
+
+input_NoEcov <- update_input_index_info(input_NoEcov, 
+                                        agg_index_sigma = input_NoEcov$data$agg_index_sigma, 
+                                        index_Neff = input_NoEcov$data$index_Neff,
+                                        remove_agg = TRUE, remove_agg_pointer = 1:3, 
+                                        remove_agg_years = remove_agg_years1,
+                                        remove_paa = TRUE, remove_paa_pointer = 1:3, 
+                                        remove_paa_years = remove_paa_years1) # Update input file
+
+
+## Change Catch Info
+
+input_NoEcov$data$agg_catch_sigma[1:50,] = input$data$agg_catch_sigma
+input_NoEcov$data$agg_index_sigma[51:53,] = 0.04996879 # we can set to any value you want
+
+input_NoEcov$data$catch_Neff[1:50,] = input$data$catch_Neff
+input_NoEcov$data$catch_Neff[51:53,] = 50 # we can set to any value you want, 
+
+input_NoEcov <- update_input_catch_info(input_NoEcov, 
+                                        agg_catch_sigma = input_NoEcov$data$agg_catch_sigma, 
+                                        catch_Neff = input_NoEcov$data$catch_Neff) # Update input file
+
+```
+
+## Generate OM with do.fit = FALSE!
+```{r}
+random = input_NoEcov$random # check what processes are random effects
+input_NoEcov$random = NULL # so inner optimization won't change simulated RE
+om <- fit_wham(input_NoEcov, do.fit = FALSE, do.brps = TRUE, MakeADFun.silent = TRUE)
+
+```
+
+## Specify Assessment Interval
+
+```{r}
+
+assess.interval <- 1 # 
+
+base.years      <- year_start:year_end # Burn-in period
+first.year      <- head(base.years,1)
+terminal.year   <- tail(base.years,1)
+assess.years    <- seq(terminal.year, tail(om$years,1)-assess.interval,by = assess.interval)
+
+```
+
+
+```{r}
+i = 1
+
+om_with_data <- update_om_fn(om, seed = 123+i, random = random)
+
+hcr <- list()
+hcr$hcr.type <- 1
+hcr$hcr.opts <- list(use_FXSPR = TRUE, percentFXSPR = 75)
+
+NAA_re$N1_model = "equilibrium" # In the EM we should revert back to equilibrium assumption (match the assumption in the fitted_om)
+
+mod = loop_through_fn(om = om_with_data,
+                      em_info = info, 
+                      random = random,
+                      M_em = M, # use OM M
+                      sel_em = sel3, # use OM sel
+                      NAA_re_em = NAA_re, 
+                      age_comp_em = "logistic-normal-pool0", # This is the likelihood distr. used in EM!
+                      # Here is the correct code: separate.em = FALSE also works for one-area model
+                      em.opt = list(separate.em = FALSE, separate.em.type = 1, 
+                                    do.move = FALSE, est.move = FALSE),
+                      
+                      #################
+                      # Must have this!
+                      #################
+                      update_index_info  = list(agg_index_sigma = input_NoEcov$data$agg_index_sigma, 
+                                                index_Neff = input_NoEcov$data$index_Neff,
+                                                remove_agg = TRUE, remove_agg_pointer = 1:3, 
+                                                remove_agg_years = remove_agg_years1,
+                                                remove_paa = TRUE, remove_paa_pointer = 1:3, 
+                                                remove_paa_years = remove_paa_years1), # Must have this!
+                      update_catch_info  = list(agg_catch_sigma = input_NoEcov$data$agg_catch_sigma, 
+                                                catch_Neff = input_NoEcov$data$catch_Neff), # Must have this!
+                    
+                      assess_years = assess.years, 
+                      assess_interval = assess.interval, 
+                      base_years = base.years,
+                      year.use = 50, # number of years of data you want to use in the 'first' assessment model
+                      add.years = TRUE, # As time goes on, every assessment in the feedback will have the most recent data (50years+n_years) n depends on which assessment in the feedback period
+                      seed = 123+i,
+                      hcr = hcr,
+                      save.sdrep = FALSE, 
+                      save.last.em = TRUE,
+                      FXSPR_init = 0.5) # IMPORTANT!
+
+```
+
+```{r}
+plot(mod$em_full[[1]]$rep$SSB, type = "l", xlab = "Years", ylab = "SSB")
+```
