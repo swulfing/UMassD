@@ -46,7 +46,7 @@ See my code `GBK_No_feedback.R` in which I set MSE_years = 0 to just fit a model
 
 ```{r}
 
-fitted_om <- readRDS("fitted_om_NOECOV.RDS") # all the parameter estimates should be saved in fitted_om$rep but it might be hard for you to understand/extract the information
+fitted_om <- readRDS("fitted_om_NOECOV.rds") # all the parameter estimates should be saved in fitted_om$rep but it might be hard for you to understand/extract the information
 
 ```
 
@@ -178,7 +178,7 @@ fracyr_indices = c(0.25,0.75,0.25)
 # Index catchabilities (q), you should specify q here in generate_basic_info, unless q is treated as a random effect!
 
 # I can use q from a fitted model (see model output from code "GBK_No_feedback")
-q = c(2.134e-4,2.2267e-4,2.727e-4) 
+q = c(2.134e-4,2.2267e-4,2.727e-4) # FROM fitted_om$rep$q
 
 # use_indices and use_index_paa
 input$data$use_indices
@@ -248,31 +248,32 @@ n_fleets  <- as.integer(basic_info['n_fleets'])
 n_indices <- as.integer(basic_info['n_indices'])
 n_ages    <- as.integer(basic_info['n_ages'])
 
-# Selectivity Configuration - ALEX CODE
-sel2=list(
-  model=c("age-specific",
-          "logistic","logistic","logistic"), 
-  re = c("ar1_y","none","none","none"), #re = c("ar1_y","none","none","none"), use ar1 to est sel but later fixing all 
-  initial_pars=list(
-    c(0.1,0.25,0.5,1,1,1), # Commercial fleet
-    c(2,0.3), # Spring NEFSC
-    c(2,0.3), # Fall NEFSC
-    c(2,0.3)), # DFO survey
-  fix_pars = list(
-    c(4:6), # Estimate param for each age
-    c(NULL), # bc logistic, these only estimate 2 params so just want to fix first one
-    c(NULL),
-    c(NULL))
-)
+# # Selectivity Configuration - ALEX CODE
+# sel2=list(
+#   model=c("age-specific",
+#           "logistic","logistic","logistic"), 
+#   re = c("ar1_y","none","none","none"), #re = c("ar1_y","none","none","none"), use ar1 to est sel but later fixing all 
+#   initial_pars=list(
+#     c(0.1,0.25,0.5,1,1,1), # Commercial fleet
+#     c(2,0.3), # Spring NEFSC
+#     c(2,0.3), # Fall NEFSC
+#     c(2,0.3)), # DFO survey
+#   fix_pars = list(
+#     c(4:6), # Estimate param for each age
+#     c(NULL), # bc logistic, these only estimate 2 params so just want to fix first one
+#     c(NULL),
+#     c(NULL))
+# )
 
 # Here I used sel vals estimated from fitted_om
+# FROM fitted_om$rep$selpars
 
 sel3=list(
   model=c("age-specific",
           "logistic","logistic","logistic"), 
   re = c("ar1_y","none","none","none"), #re = c("ar1_y","none","none","none"), use ar1 to est sel but later fixing all 
   initial_pars=list(
-    c(0.016,0.242,0.743,1,1,1), # Commercial fleet
+    c(0.016,0.242,0.743,1,1,1), # Commercial fleet (used closest to 48)
     c(2.319,0.327), # Spring NEFSC
     c(1.635,0.480), # Fall NEFSC
     c(2.152,0.217)), # DFO survey
@@ -298,7 +299,7 @@ re_cor       <- "iid"
 ini.opt      <- "age-specific-fe" # Since we need to change initial numbers at age in the OM, so we need to use age specific assumption instead of equilibrium
 sigma_vals   <-  array(0.5, dim = c(n_stocks, n_regions, n_ages)) # NAA sigma
 
-# I used the sigma vals from my fitted_om, but you can use whatever you want
+# I used the sigma vals from my fitted_om, but you can use whatever you want. FROM PARAM TABLE FITTED OM PLOTTED OUTPUT
 sigma_vals[,,1] = 0.767 # rec
 sigma_vals[,,2:6] = 0.736 # NAA
 
@@ -308,7 +309,7 @@ sigma_vals[,,2:6] = 0.736 # NAA
 ############# IMPORTAMT #############
 #####################################
 
-# IF you choose to use B-H recruitment model, then you need to specify alpha and beta for B-H otherwise the default value will be used!
+# IF you choose to use B-H recruitment model, then you need to specify alpha and beta for B-H otherwise the default value will be used! FROM PARAM TABLE OF FITTED OM PLOTTED OUTPUT
 
 # I use alpha beta estimated from fitted_om
 
@@ -325,7 +326,7 @@ NAA_re <- list(N1_model=rep(ini.opt,n_stocks),
 
 ```{r generateWHAM_noEcov}
 input_NoEcov <- prepare_wham_input(basic_info = basic_info, 
-                            selectivity = sel2, 
+                            selectivity = sel3, 
                             M = M, 
                             NAA_re = NAA_re,
                             catch_info = catch_info_use, 
@@ -337,7 +338,8 @@ input_NoEcov <- prepare_wham_input(basic_info = basic_info,
 ##### Important #####
 #####################
 
-# Change selectivity random-effects parameters (otherwise a defaul will be used in the OM)
+# Change selectivity random-effects parameters (otherwise a defaul will be used in the OM)\
+# FROM PARAM TABLE OF FITTED OUTPUT. SEE SELECTIVITY RE SIGMA AND SELECTIVITY RE ASR1 SIGMA, RESPECTIVELY
 input_NoEcov$par$sel_repars[1,] = c(log(1.058), wham:::gen.logit(c(0,0.508),-1,1))
 
 # We need to change initial numbers at age for the OM

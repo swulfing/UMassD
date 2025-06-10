@@ -287,5 +287,8 @@ input_WITHEcov <- update_input_index_info(input_WITHEcov,
 
 om <- fit_wham(input_WITHEcov, do.fit = T, do.brps = T, MakeADFun.silent = FALSE, do.retro = FALSE, do.osa = FALSE)
 check_convergence(om)
+# IF OUTPUT ISN'T SAVING CHANGE WD HELPS
+# setwd("C:/Users/swulfing/Documents/GitHub/UMassD")
+# getwd()
 plot_wham_output(om, out.type = "html")
 saveRDS(om, file = "fitted_om_ECOV.rds")
