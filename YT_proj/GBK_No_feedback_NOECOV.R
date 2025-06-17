@@ -193,34 +193,39 @@ NAA_re <- list(N1_model=rep(ini.opt,n_stocks),
                recruit_model = 3,  # rChanged from ALEX code
                sigma_vals = sigma_vals) 
 
-# ####################################
-# ##############  ECOV  ##############
-# ####################################
-# 
-# years = basic_info$years
-# 
-# env.dat_me <- read.csv("CI_indices.csv")
-# 
-# env.dat_me <- env.dat_me%>%
-#   filter(Year > 1972)
-# 
-# env.dat_me$bt_temp <- mean(env.dat_me$bt_temp)
-# 
-# ecov_me <- list(
-#   label = "bt_temp",
-#   mean = as.matrix(env.dat_me$bt_temp),
-#   logsigma = 'est_1', # estimate obs sigma, 1 value shared across years
-#   year = env.dat_me$Year,
-#   use_obs = matrix(1, ncol=1, nrow=dim(env.dat_me)[1]),
-#   #lag =1,# use all obs (=1)
-#   process_model = "ar1") #, # "rw" or "ar1"
-# 
-# ecov_me$recruitment_how <- matrix("controlling-lag-1-linear") #add recruitment how to ecov_me
-# 
-# 
-# ######################################
-# ######################################
-# ######################################
+####################################
+##############  ECOV  ##############
+####################################
+
+years = basic_info$years
+
+env.dat_me <- read.csv("CI_indices.csv")
+
+env.dat_me <- env.dat_me%>%
+  filter(Year > 1972)
+
+env.dat_me$bt_temp <- mean(env.dat_me$bt_temp)
+
+ecov_me <- list(
+  label = "bt_temp",
+  mean = as.matrix(env.dat_me$bt_temp),
+  logsigma = 'est_1', # estimate obs sigma, 1 value shared across years
+  year = env.dat_me$Year,
+  use_obs = matrix(1, ncol=1, nrow=dim(env.dat_me)[1]),
+  #lag =1,# use all obs (=1)
+  process_model = "ar1") #, # "rw" or "ar1"
+
+ecov_me$recruitment_how <- matrix("controlling-lag-1-linear") #add recruitment how to ecov_me
+
+#Creating an object with no ECOV included
+ecov_none <- ecov_me
+ecov_none$mean <- rep(NA,length(ecov_me$mean))
+ecov_none$use_obs <- matrix(0, nrow = nrow(ecov_me$use_obs), ncol = ncol(ecov_me$use_obs))
+
+
+######################################
+######################################
+######################################
 
 ## Prepare `wham` input
 
@@ -228,6 +233,7 @@ input_NoEcov <- prepare_wham_input(basic_info = basic_info,
                                    selectivity = sel2, 
                                    M = M, 
                                    NAA_re = NAA_re,
+                                   ecov = ecov_none,
                                    catch_info = catch_info_use, 
                                    index_info = index_info_use, 
                                    F = F_info,

@@ -7,7 +7,7 @@ date: "2025-04-16"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE)
 
 # TO DO: COPY SOURCE CODE (SPECIFICALLY THE LOOP THROUGH OM FXN) AND USE BROWSER() TO STEP THROUGH WHAT'S GIVING TROUBLE
 
@@ -331,11 +331,15 @@ env.dat_me <- read.csv("CI_indices.csv")
 env.dat_me<-env.dat_me%>%
   filter(Year > 1972)
 
+simData <- data.frame(Year = 2022:2025, bt_temp = rep(mean(env.dat_me$bt_temp),4))
+
+env.dat_me <- rbind(env.dat_me, simData)
+env.dat_me$sigma = runif(length(years), 0, 0.2)
 
 ecov_me <- list(
   label = "bt_temp",
   mean = as.matrix(env.dat_me$bt_temp),
-  logsigma = 'est_1', # estimate obs sigma, 1 value shared across years
+  logsigma = as.matrix(log(env.dat_me$sigma)),# 'est_1', # estimate obs sigma, 1 value shared across years
   year = env.dat_me$Year,
   use_obs = matrix(1, ncol=1, nrow=dim(env.dat_me)[1]),
   #lag =1,# use all obs (=1)
@@ -486,6 +490,7 @@ mod = loop_through_fn(om = om_with_data,
                       M_em = M, # use OM M
                       sel_em = sel3, # use OM sel
                       NAA_re_em = NAA_re, 
+                      ecov_em = ecov_me,
                       age_comp_em = "logistic-normal-pool0", # This is the likelihood distr. used in EM!
                       # Here is the correct code: separate.em = FALSE also works for one-area model
                       em.opt = list(separate.em = FALSE, separate.em.type = 1, 
@@ -515,8 +520,33 @@ mod = loop_through_fn(om = om_with_data,
                       FXSPR_init = 0.5) # IMPORTANT!
 
 saveRDS(om, file = "feedback_om_ECOV.rds")
+saveRDS(mod, file = "MSE_ECOV")
 ```
 
 ```{r}
+
+par(mfrow = c(1,2))
 plot(mod$em_full[[1]]$rep$SSB, type = "l", xlab = "Years", ylab = "SSB")
+plot(mod$em_full[[1]]$rep$pred_catch, type = "l", xlab = "Years", ylab = "Catch")
+
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

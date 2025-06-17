@@ -62,7 +62,8 @@ sim_fn2 <- function(om, em, cross.fit = FALSE) {
 set.seed(123)
 
 # THIS ABORTS THE R CODE
-# cross_sim_fit <- sim_fn2(om_ECOV, om_NOECOV, cross.fit = TRUE)
+ cross_sim_fit <- sim_fn2(om_ECOV, om_NOECOV, cross.fit = TRUE)
+ check_convergence(cross_sim_fit)
 
 ```
 

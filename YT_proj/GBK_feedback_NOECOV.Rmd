@@ -7,7 +7,7 @@ date: "2025-04-16"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE)
 
 # TO DO: COPY SOURCE CODE (SPECIFICALLY THE LOOP THROUGH OM FXN) AND USE BROWSER() TO STEP THROUGH WHAT'S GIVING TROUBLE
 
@@ -322,6 +322,38 @@ NAA_re <- list(N1_model=rep(ini.opt,n_stocks),
                ) # NAA_where must be specified in basic_info!
 ```
 
+```{r setEcov}
+
+years = basic_info$years
+
+env.dat_me <- read.csv("CI_indices.csv")
+
+env.dat_me<-env.dat_me%>%
+  filter(Year > 1972)
+
+simData <- data.frame(Year = 2022:2025, bt_temp = rep(mean(env.dat_me$bt_temp),4))
+
+env.dat_me <- rbind(env.dat_me, simData)
+env.dat_me$sigma = runif(length(years), 0, 0.2)
+
+ecov_me <- list(
+  label = "bt_temp",
+  mean = as.matrix(env.dat_me$bt_temp),
+  logsigma = as.matrix(log(env.dat_me$sigma)),# 'est_1', # estimate obs sigma, 1 value shared across years
+  year = env.dat_me$Year,
+  use_obs = matrix(1, ncol=1, nrow=dim(env.dat_me)[1]),
+  #lag =1,# use all obs (=1)
+  process_model = "ar1") #, # "rw" or "ar1"
+
+ecov_me$recruitment_how <- matrix("controlling-lag-1-linear") #add recruitment how to ecov_me
+
+# #Creating an object with no ECOV included
+ecov_none <- ecov_me
+# ecov_none$mean <- rep(NA,length(ecov_me$mean))
+ecov_none$use_obs <- matrix(0, nrow = nrow(ecov_me$use_obs), ncol = ncol(ecov_me$use_obs))
+
+```
+
 ## Prepare `wham` input
 
 ```{r generateWHAM_noEcov}
@@ -329,6 +361,7 @@ input_NoEcov <- prepare_wham_input(basic_info = basic_info,
                             selectivity = sel3, 
                             M = M, 
                             NAA_re = NAA_re,
+                            ecov = ecov_none,
                             catch_info = catch_info_use, 
                             index_info = index_info_use, 
                             F = F_info,
@@ -446,6 +479,14 @@ assess.years    <- seq(terminal.year, tail(om$years,1)-assess.interval,by = asse
 
 
 ```{r}
+# ### PREPPING ECOV FOR MSE ### 
+# 
+# ecov_none$mean <- rep(NA, 60)
+# ecov_none$year <- 1973:2032 #1:53
+# ecov_none$use_obs <- matrix(0, ncol = 1, nrow = (49+11))
+# 
+# #############################
+
 i = 1
 
 om_with_data <- update_om_fn(om, seed = 123+i, random = random)
@@ -462,6 +503,7 @@ mod = loop_through_fn(om = om_with_data,
                       M_em = M, # use OM M
                       sel_em = sel3, # use OM sel
                       NAA_re_em = NAA_re, 
+                      ecov_em = ecov_none,
                       age_comp_em = "logistic-normal-pool0", # This is the likelihood distr. used in EM!
                       # Here is the correct code: separate.em = FALSE also works for one-area model
                       em.opt = list(separate.em = FALSE, separate.em.type = 1, 
@@ -491,9 +533,34 @@ mod = loop_through_fn(om = om_with_data,
                       FXSPR_init = 0.5) # IMPORTANT!
 
 saveRDS(om, file = "feedback_om_NOECOV.rds")
+saveRDS(mod, file = "MSE_NOECOV")
 
 ```
 
 ```{r}
+
+par(mfrow = c(1,2))
 plot(mod$em_full[[1]]$rep$SSB, type = "l", xlab = "Years", ylab = "SSB")
+plot(mod$em_full[[1]]$rep$pred_catch, type = "l", xlab = "Years", ylab = "Catch")
+
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
