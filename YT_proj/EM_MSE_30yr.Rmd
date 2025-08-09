@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = FALSE, cache = TRUE, warning = FALSE)
 library(wham)
 
 
-#devtools::install_github("lichengxue/whamMSE", dependencies=TRUE)
+# devtools::install_github("swulfing/whamMSE", dependencies=TRUE)
 
 library(whamMSE)
 library(dplyr)
@@ -313,8 +313,8 @@ ecov_me <- list(
 )
 
 ecov_AR1 <- ecov_me ###NOT DOING THIS ONE YET. NEED TO FIGURE OUT
-# ecov_none <- ecov_me
-# ecov_none$recruitment_how = matrix("none", input$data$n_Ecov, input$data$n_stocks)
+ecov_none <- ecov_me
+ecov_none$recruitment_how = matrix("none", input$data$n_Ecov, input$data$n_stocks)
 
 HistAvg <- NA
 RecWind <- NA
@@ -333,13 +333,15 @@ for(i in 0:31){
 }
 
 ecov_HistAvg <- ecov_me
-ecov_HistAvg$mean[51:81,] <- HistAvg[1:31]
+# ecov_HistAvg$mean[51:81,] <- HistAvg[1:31]
+ecov_HistAvg$mean[51:81,] <- 0
 
 ecov_RecWind <- ecov_me
 ecov_RecWind$mean[51:81,] <- RecWind[1:31]
 
 ecov_RecTrend <- ecov_me
-ecov_RecTrend$mean[51:81,] <- RecTrend$Temp[1:31]
+#ecov_RecTrend$mean[51:81,] <- RecTrend$Temp[1:31]
+ecov_RecTrend$mean[51:81,] <- 10000000
 
 
 
@@ -535,6 +537,7 @@ foreach (i = 1:10) %dopar% {
     sel_em = sel3,
     NAA_re_em = NAA_re,
     ecov_em = ecov_RecWind,
+    proj.ecov = ecov_RecWind$mean,
     age_comp_em = "logistic-normal-pool0",
     em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
     update_index_info = list(
@@ -605,6 +608,7 @@ foreach (i = 1:10) %dopar% {
     sel_em = sel3,
     NAA_re_em = NAA_re,
     ecov_em = ecov_RecTrend,
+    proj.ecov = ecov_RecTrend$mean,
     age_comp_em = "logistic-normal-pool0",
     em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
     update_index_info = list(
@@ -674,6 +678,7 @@ foreach (i = 1:10) %dopar% {
     sel_em = sel3,
     NAA_re_em = NAA_re,
     ecov_em = ecov_HistAvg,
+    proj.ecov = ecov_HistAvg$mean,
     age_comp_em = "logistic-normal-pool0",
     em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
     update_index_info = list(
