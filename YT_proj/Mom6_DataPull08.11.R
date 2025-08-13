@@ -50,7 +50,7 @@ for( i in 1:nt ) {
   # Now looking at GOM Shapefiles
   GOM_stats <- as.integer(c(464, 465, 466, 467, 511, 512, 513, 514, 515, 521))
   
-  StatAreas <- read_sf('C:/Users/swulfing/Downloads/NEFSC_GIS/Statistical_Areas_2010.shp')
+  StatAreas <- read_sf('C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/UMassD/YT_proj/NEFSC_GIS/Statistical_Areas_2010.shp')
   
   GoM <- subset(StatAreas, subset = Id %in% GOM_stats)
   
@@ -74,7 +74,7 @@ for( i in 1:nt ) {
 
 nc_close(nc)
 
-saveRDS(tempMeans,'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/tempMeans.rds')
+saveRDS(tempMeans,'C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/UMassD/YT_proj/tempMeans.rds')
 
 colnames(tempMeans) <- c('Year', 'Temp')
 
@@ -83,7 +83,7 @@ AnnualMeans <- tempMeans %>%
   summarise(mean = mean(Temp, na.rm = TRUE),
             sd = sd(Temp, na.rm = TRUE))
 
-
+saveRDS(AnnualMeans,'C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/UMassD/YT_proj/AnnualMeans.rds')
 
 
 
