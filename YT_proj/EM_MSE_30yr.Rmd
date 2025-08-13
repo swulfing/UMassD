@@ -333,15 +333,15 @@ for(i in 0:31){
 }
 
 ecov_HistAvg <- ecov_me
-# ecov_HistAvg$mean[51:81,] <- HistAvg[1:31]
-ecov_HistAvg$mean[51:81,] <- 0
+ecov_HistAvg$mean[51:81,] <- HistAvg[1:31]
+# ecov_HistAvg$mean[51:81,] <- 0
 
 ecov_RecWind <- ecov_me
 ecov_RecWind$mean[51:81,] <- RecWind[1:31]
 
 ecov_RecTrend <- ecov_me
-#ecov_RecTrend$mean[51:81,] <- RecTrend$Temp[1:31]
-ecov_RecTrend$mean[51:81,] <- 10000000
+ecov_RecTrend$mean[51:81,] <- RecTrend$Temp[1:31]
+# ecov_RecTrend$mean[51:81,] <- 10000000
 
 
 
@@ -398,6 +398,7 @@ foreach (i = c(1:10)) %dopar% {
     sel_em = sel3,
     NAA_re_em = NAA_re,
     ecov_em = ecov_none,
+    project.ecov = NULL,
     age_comp_em = "logistic-normal-pool0",
     em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
     update_index_info = list(
@@ -468,6 +469,7 @@ foreach (i = 1:10) %dopar% {
     sel_em = sel3,
     NAA_re_em = NAA_re,
     ecov_em = ecov_AR1,
+    project.ecov = NULL,
     age_comp_em = "logistic-normal-pool0",
     em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
     update_index_info = list(
@@ -537,7 +539,7 @@ foreach (i = 1:10) %dopar% {
     sel_em = sel3,
     NAA_re_em = NAA_re,
     ecov_em = ecov_RecWind,
-    proj.ecov = ecov_RecWind$mean,
+    project.ecov = ecov_RecWind$mean,
     age_comp_em = "logistic-normal-pool0",
     em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
     update_index_info = list(
@@ -608,7 +610,7 @@ foreach (i = 1:10) %dopar% {
     sel_em = sel3,
     NAA_re_em = NAA_re,
     ecov_em = ecov_RecTrend,
-    proj.ecov = ecov_RecTrend$mean,
+    project.ecov = ecov_RecTrend$mean,
     age_comp_em = "logistic-normal-pool0",
     em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
     update_index_info = list(
