@@ -1,6 +1,7 @@
 library("ncdf4")
 library(sf)
 library(dplyr)
+library(ggplot2)
 
 # Specify the OPeNDAP server URL (using regular grid output)
 url <- "http://psl.noaa.gov/thredds/dodsC/Projects/CEFI/regional_mom6/cefi_portal/northwest_atlantic/full_domain/hindcast/monthly/regrid/r20250715/tob.nwa.full.hcast.monthly.regrid.r20250715.199301-202312.nc"
@@ -50,7 +51,7 @@ for( i in 1:nt ) {
   # Now looking at GOM Shapefiles
   GOM_stats <- as.integer(c(464, 465, 466, 467, 511, 512, 513, 514, 515, 521))
   
-  StatAreas <- read_sf('C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/UMassD/YT_proj/NEFSC_GIS/Statistical_Areas_2010.shp')
+  StatAreas <- read_sf('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/NEFSC_GIS/Statistical_Areas_2010.shp')
   
   GoM <- subset(StatAreas, subset = Id %in% GOM_stats)
   
@@ -74,7 +75,7 @@ for( i in 1:nt ) {
 
 nc_close(nc)
 
-saveRDS(tempMeans,'C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/UMassD/YT_proj/tempMeans.rds')
+saveRDS(tempMeans,'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/tempMeans.rds')
 
 colnames(tempMeans) <- c('Year', 'Temp')
 
@@ -83,14 +84,15 @@ AnnualMeans <- tempMeans %>%
   summarise(mean = mean(Temp, na.rm = TRUE),
             sd = sd(Temp, na.rm = TRUE))
 
-saveRDS(AnnualMeans,'C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Documents/UMassD/YT_proj/AnnualMeans.rds')
+saveRDS(AnnualMeans,'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/AnnualMeans.rds')
 
 
+CI_indices <- read.csv('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/CI_indices.csv')
 
 
-# testing <- df %>%
-#   filter(tob >=0)
-
+ggplot(AnnualMeans, aes(x = Year, y = mean)) +
+  geom_line(colour = 'red') +
+  geom_line(CI_indices, mapping = aes(x = Year, y = bt_temp), colour = 'black')
 
 
 

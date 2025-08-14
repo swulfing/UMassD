@@ -680,7 +680,7 @@ foreach (i = 1:10) %dopar% {
     sel_em = sel3,
     NAA_re_em = NAA_re,
     ecov_em = ecov_HistAvg,
-    proj.ecov = ecov_HistAvg$mean,
+    project.ecov = ecov_HistAvg$mean,
     age_comp_em = "logistic-normal-pool0",
     em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
     update_index_info = list(
@@ -751,5 +751,167 @@ plot_mse_output(mods,
 
 ```
 
+```{r ModAnalysis}
 
+# View(mods)
+
+model_names = c("Mod_noEcov","Mod_AR1Ecov", "Mod_RecWindEcov", "Mod_RecTrendEcov", "Mod_HistAvgEcov")
+
+om_ests <- data.frame(Year = c(),
+                      Model_name = c(),
+                      seed_no = c(),
+                      Temp = c(),
+                      Obs = c())
+
+em_ests <- data.frame(Year = c(),
+                      Model_name = c(),
+                      seed_no = c(),
+                      Temp = c(),
+                      Obs = c())
+
+for (i in 1:length(mods)){
+  for(k in 1:length(model_nums)){
+    
+    # Set Model info
+    years <- min(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]):(max(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]) + 4) #Year
+    model_name <- rep(model_names[k], length(years)) # Model Name
+    Seed <- rep(i, length(years))
+    
+    # Ecov_x estimates
+    om_ecovx <- mods[[i]][[paste0("Mod",k)]][["om"]][["rep"]][["Ecov_x"]] #OM_ecov Temps
+    em_ecovx <- mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["rep"]][["Ecov_x"]] #EM_ecov Temps
+    # Ecov_Obs estimates
+    om_ecovObs <- mods[[i]][[paste0("Mod",k)]][["om"]][["input"]][["data"]][["Ecov_obs"]]
+    em_ecovObs <- mods[[i]][[paste0("Mod",k)]][["em_input"]][[1]][["data"]][["Ecov_obs"]]
+    
+    
+    # Dataframes and combine
+    om_list <- data.frame(Year = years, Model_name = model_name, seed_no = Seed, Temp = om_ecovx, Obs = om_ecovObs)
+    em_list <- data.frame(Year = years, Model_name = model_name, seed_no = Seed, Temp = em_ecovx, Obs = em_ecovObs)
+    
+    om_ests <- rbind(om_ests, om_list)
+    em_ests <- rbind(em_ests, em_list)
+  }
+}
+
+##OM Summary
+
+om_temps <- om_ests %>%
+  filter(Model_name != "Mod_noEcov") %>%
+  group_by(Year) %>%
+  summarize(MeanTemp = mean(Temp), SDTemp = sd(Temp),
+            MeanObs = mean(Obs), SDObs = sd(Obs)) 
+  
+
+## EM Summary
+
+em_temps <- em_ests %>%
+  group_by(Year, Model_name) %>%
+  summarize(MeanTemp = mean(Temp), SDTemp = sd(Temp),
+            MeanObs = mean(Obs), SDObs = sd(Obs)) %>%
+  filter(Model_name != "Mod_noEcov")
+
+
+# Plotting
+ggplot(om_temps, aes(x = Year, y = MeanObs)) +
+  geom_line(colour = 'black') +
+  geom_line(em_temps, mapping = aes(x = Year, y = MeanObs, colour = Model_name)) 
+
+ggplot(om_temps, aes(x = Year, y = MeanTemp)) +
+  geom_line(colour = 'black') +
+  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name))
+
+
+ggplot(data.frame(ecov_om), aes(x = year, y = mean)) +
+  geom_line(colour = "black") +
+  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name))
+```
+
+```{r ssb}
+
+
+em_ssb <- data.frame(Year = c(),
+                      Model_name = c(),
+                      seed_no = c(),
+                      SSB = c(),
+                      CATCH = c())
+
+for (i in 1:length(mods)){
+  for(k in 1:length(model_nums)){
+    
+    # Set Model info
+    years <- min(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]):max(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]) #Year
+    model_name <- rep(model_names[k], length(years)) # Model Name
+    Seed <- rep(i, length(years))
+    
+    # Ecov_x estimates
+    ssb <- mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["rep"]][["SSB"]]
+    catch <- mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["rep"]][["pred_catch"]]
+    
+    
+    # Dataframes and combine
+    em_list <- data.frame(Year = years, Model_name = model_name, seed_no = Seed, SSB = ssb, CATCH = catch)
+    
+    em_ssb <- rbind(em_ssb, em_list)
+  }
+}
+
+## EM Summary
+
+ssb_summary <- em_ssb %>%
+  group_by(Year, Model_name) %>%
+  summarize(MeanSSB = mean(SSB), SDSSB = sd(SSB),
+            MeanCatch = mean(CATCH), SDCatch = sd(CATCH))
+
+
+# Plotting
+ggplot(ssb_summary, aes(x = Year, y = MeanSSB)) +
+  geom_line(aes(colour = Model_name)) +
+  xlim(2022, 2050)
+
+ggplot(ssb_summary, aes(x = Year, y = MeanCatch)) +
+  geom_line(aes(colour = Model_name)) +
+  xlim(2022, 2050)
+```
+
+```{r fbar}
+em_fbar <- data.frame(Year = c(),
+                      Model_name = c(),
+                      seed_no = c(),
+                      FBAR = c())
+
+for (i in 1:length(mods)){
+  for(k in 1:length(model_nums)){
+    
+    # Set Model info
+    years <- min(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]):max(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]) #Year
+    model_name <- rep(model_names[k], length(years)) # Model Name
+    Seed <- rep(i, length(years))
+    
+    # Ecov_x estimates
+    fbar <- mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["rep"]][["Fbar"]][,1]
+    
+    
+    # Dataframes and combine
+    em_list <- data.frame(Year = years, Model_name = model_name, seed_no = Seed, FBAR = fbar)
+    
+    em_fbar <- rbind(em_fbar, em_list)
+  }
+}
+
+## EM Summary
+
+fbar_summary <- em_fbar %>%
+  group_by(Year, Model_name) %>%
+  summarize(MeanFBAR = mean(FBAR), SDFBAR = sd(FBAR))
+
+
+# Plotting
+ggplot(fbar_summary, aes(x = Year, y = MeanFBAR)) +
+  geom_line(aes(colour = Model_name)) +
+  xlim(2022, 2050)
+
+
+
+```
 
