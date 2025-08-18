@@ -16,6 +16,7 @@ nt      <- varsize[ndims]  # Remember timelike dim is always the LAST dimension!
 
 
 tempMeans <- data.frame(Year = c(),
+                        Month = c(),
                         Mean = c())
 
 for( i in 1:nt ) {
@@ -49,7 +50,7 @@ for( i in 1:nt ) {
   names(df) <- c("lon", "lat", "tob")
   
   # Now looking at GOM Shapefiles
-  GOM_stats <- as.integer(c(464, 465, 466, 467, 511, 512, 513, 514, 515, 521))
+  GOM_stats <- as.integer(c(522, 525, 541, 542, 543, 551, 552, 561, 562))
   
   StatAreas <- read_sf('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/NEFSC_GIS/Statistical_Areas_2010.shp')
   
@@ -69,7 +70,7 @@ for( i in 1:nt ) {
   
   # tempMeans$Year <- append(tempMeans$Year, as.numeric(format(datetime_var, '%Y')))
   # tempMeans$Mean <- append(tempMeans$Mean, mean(DataToUse$tob))
-  tempMeans <- rbind(tempMeans, list(as.numeric(format(datetime_var, '%Y')),mean(DataToUse$tob, na.rm = TRUE)))
+  tempMeans <- rbind(tempMeans, list(as.numeric(format(datetime_var, '%Y')), as.numeric(format(datetime_var, '%m')), mean(DataToUse$tob, na.rm = TRUE)))
   
 }
 
@@ -77,20 +78,23 @@ nc_close(nc)
 
 saveRDS(tempMeans,'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/tempMeans.rds')
 
-colnames(tempMeans) <- c('Year', 'Temp')
+colnames(tempMeans) <- c('Year', 'Month','Temp')
 
-AnnualMeans <- tempMeans %>%
+#Filtering for spring and then combining means
+springMonths <- c(3, 4, 5)
+SpringMeans <- subset(tempMeans, subset = Month %in% springMonths)
+SpringMeans <- tempMeans %>%
   group_by(Year) %>%
   summarise(mean = mean(Temp, na.rm = TRUE),
             sd = sd(Temp, na.rm = TRUE))
 
-saveRDS(AnnualMeans,'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/AnnualMeans.rds')
+saveRDS(SpringMeans,'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/SpringMeans.rds')
 
 
 CI_indices <- read.csv('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/CI_indices.csv')
 
 
-ggplot(AnnualMeans, aes(x = Year, y = mean)) +
+ggplot(SpringMeans, aes(x = Year, y = mean)) +
   geom_line(colour = 'red') +
   geom_line(CI_indices, mapping = aes(x = Year, y = bt_temp), colour = 'black')
 
