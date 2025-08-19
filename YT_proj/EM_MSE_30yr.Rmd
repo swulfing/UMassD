@@ -12,7 +12,7 @@ library(wham)
 
 
 # devtools::install_github("swulfing/whamMSE", dependencies=TRUE)
-
+# devtools::install_github("lichengxue/whamMSE", dependencies=TRUE)
 library(whamMSE)
 library(dplyr)
 library(ggplot2)
@@ -347,18 +347,21 @@ ecov_RecTrend$mean[51:81,] <- RecTrend$Temp[1:31]
 
 ####################### PLOTTING ###############################################
 ggplot(data.frame(ecov_om), aes(x = year, y = mean)) +
-  geom_line(aes(color = "OM")) +
+  #geom_line(aes(color = "OM")) +
   geom_line( aes(x = ecov_AR1$year, y = ecov_AR1$mean, color = 'AR1')) +
   geom_line( aes(x = ecov_HistAvg$year, y = ecov_HistAvg$mean, color = 'HistAvg')) +
   geom_line( aes(x = ecov_RecWind$year, y = ecov_RecWind$mean, color = 'RecWind')) +
   geom_line( aes(x = ecov_RecTrend$year, y = ecov_RecTrend$mean, color = 'RecTrend')) +
+  geom_line(aes(color = "OM")) +
   scale_color_manual(name='Model',
                      breaks=c('OM', 'AR1', 'RecWind', 'HistAvg', 'RecTrend'),
-                     values=c('OM'='black', 
-                              'AR1'='blue',
-                              'RecWind' = 'red',
-                              'HistAvg' = 'purple',
-                              'RecTrend' = 'green')) 
+                     values=c('OM'="#000000", 
+                              'AR1'="#CD0BBC",
+                              'RecWind' = "#F5C710" ,
+                              'HistAvg' =  "#3283FE",
+                              'RecTrend' = "#00BA38" )) +
+  ylab("Bottom Temperature (°C)") +
+  xlab("Year")
   #xlim(2019,2052)
 ########################################################################################################
 
@@ -815,16 +818,45 @@ em_temps <- em_ests %>%
 # Plotting
 ggplot(om_temps, aes(x = Year, y = MeanObs)) +
   geom_line(colour = 'black') +
-  geom_line(em_temps, mapping = aes(x = Year, y = MeanObs, colour = Model_name)) 
+  geom_line(em_temps, mapping = aes(x = Year, y = MeanObs, colour = Model_name)) +
+  ylim(6,9)
 
 ggplot(om_temps, aes(x = Year, y = MeanTemp)) +
   geom_line(colour = 'black') +
-  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name))
+  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name)) +
+  ylim(6,9)
 
 
 ggplot(data.frame(ecov_om), aes(x = year, y = mean)) +
   geom_line(colour = "black") +
-  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name))
+  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name)) + 
+  ylim(6,9)
+
+
+# OM inputs and outputs comparison
+AR1 <- em_temps %>%
+  filter(Model_name == 'Mod_AR1Ecov')
+
+ecov_df <- data.frame(ecov_om)
+
+ggplot(ecov_df, aes(x = year, y = mean)) +
+  geom_line( aes(x = ecov_df$year, y = ecov_df$mean, color = 'ReadIn')) +
+  geom_line( aes(x = om_temps$Year, y = om_temps$MeanTemp, color = 'MeanTemp')) + 
+  geom_line( aes(x = om_temps$Year, y = om_temps$MeanObs, color = 'MeanObs')) + # SAME AS EM OUTPUT
+  #geom_line( mapping = aes(x = AR1$Year, y = AR1$MeanObs, color = 'OutputEm')) +
+  scale_color_manual(name='Output',
+                     breaks=c('ReadIn', 'MeanTemp', 'MeanObs'), #, 'OutputEm'),
+                     values=c('ReadIn'="green", 
+                              'MeanTemp'="red",
+                              'MeanObs' = "black")) + #,
+                              # 'OutputEm' = 'purple')) +
+  ylab("Bottom Temperature (°C)") +
+  xlab("Year")
+
+
+
+
+
 ```
 
 ```{r ssb}

@@ -49,19 +49,19 @@ for( i in 1:nt ) {
   df$Data <- data
   names(df) <- c("lon", "lat", "tob")
   
-  # Now looking at GOM Shapefiles
-  GOM_stats <- as.integer(c(522, 525, 541, 542, 543, 551, 552, 561, 562))
+  # Now looking at GBK Shapefiles
+  GBK_stats <- as.integer(c(522, 525, 541, 542, 543, 551, 552, 561, 562))
   
   StatAreas <- read_sf('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/NEFSC_GIS/Statistical_Areas_2010.shp')
   
-  GoM <- subset(StatAreas, subset = Id %in% GOM_stats)
+  GBK <- subset(StatAreas, subset = Id %in% GBK_stats)
   
   pnts_sf <- st_as_sf(df, coords = c('lon', 'lat'), crs = st_crs(4326))
   
   pnts_trans <- st_transform(pnts_sf, 2163)
-  tt_trans <- st_transform(GoM, 2163)
+  tt_trans <- st_transform(GBK, 2163)
   
-  # Seeing which points fall within the GoM
+  # Seeing which points fall within the GBK
   pnts_trans <- pnts_sf %>% mutate(
     intersection = as.integer(st_intersects( pnts_trans,tt_trans)))
   
@@ -78,6 +78,8 @@ nc_close(nc)
 
 saveRDS(tempMeans,'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/tempMeans.rds')
 
+tempMeans <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/tempMeans.rds')
+
 colnames(tempMeans) <- c('Year', 'Month','Temp')
 
 #Filtering for spring and then combining means
@@ -90,6 +92,7 @@ SpringMeans <- tempMeans %>%
 
 saveRDS(SpringMeans,'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/SpringMeans.rds')
 
+#SpringMeans <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/SpringMeans.rds')
 
 CI_indices <- read.csv('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/CI_indices.csv')
 
