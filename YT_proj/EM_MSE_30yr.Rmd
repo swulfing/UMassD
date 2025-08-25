@@ -227,7 +227,7 @@ input_Ecov <- update_input_index_info(input_Ecov,
 random <- input_Ecov$random
 input_Ecov$random <- NULL
 om_ecov <- fit_wham(input_Ecov, do.fit = FALSE, do.brps = TRUE, MakeADFun.silent = TRUE)
-
+saveRDS(om_ecov, file = "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/om_ecov.rds")
 ```
 
 ```{r ecov_EMSetup}
