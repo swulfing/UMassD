@@ -83,7 +83,7 @@ raster::plot(cropped_raster, legend.shrink=1,
 raster::plot(bathy, add = T, legend = FALSE)
 plot(idk, add = T)
 
-#################################### AG FILES ############################
+#################################### CUT BELOW HERE ############################
 df.ind = 1
 j=1
 data.month.ls = list()

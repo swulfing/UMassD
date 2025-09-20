@@ -109,8 +109,8 @@ setup_om_input <- function(base_om, hist_dat, ecov_dat) {
     for (j in seq_along(lz)) out[1:length(lz[[j]]), j] <- lz[[j]]
     out
   }
-  remove_agg_years1 <- generate_remove_years(input_hist$data$use_indices)
-  remove_paa_years1 <- generate_remove_years(input_hist$data$use_index_paa)
+  remove_agg_years1 <<- generate_remove_years(input_hist$data$use_indices)
+  remove_paa_years1 <<- generate_remove_years(input_hist$data$use_index_paa)
   
   for (i in 51:n_proj_years) om_input$data$agg_index_sigma[i, ] <- input_hist$data$agg_index_sigma[50, ]
   
@@ -219,6 +219,12 @@ finalize_om_for_simulation <- function(input, scenario_type, Ecov_re, ecov_lmean
   if ("Ecov_re" %in% input$random) {
     input$random <- input$random[input$random != "Ecov_re"]
   }
+  ######## CHANGE HERE ########
+  if (scenario_type == "C") {
+    input_C <<- input
+  } else{input_P <<- input}
+  
+  #############################
   
   # Build the final TMB object without fitting
   unfitted_om <- fit_wham(input, do.fit = FALSE, do.brps = FALSE, MakeADFun.silent = TRUE)
@@ -261,30 +267,31 @@ i = 1
 
 ##### CHANGE HERE
 # random1 = random[-2] # We want to turn off the random effects on Ecov
-random1 <- unfitted_om_C$input$random
+random_C <- unfitted_om_C$input$random
 remove <- 'Ecov_re'
-random1 <- random1[!random1 %in% remove]
+random_C <- random_C[!random_C %in% remove]
 #####
 
-om_with_data <- update_om_fn(unfitted_om_C, seed = 123+i, random = random1)
+om_with_data_C <- update_om_fn(unfitted_om_C, seed = 123+i, random = random_C)
 
-plot(om_with_data$input$data$Ecov_obs, type = "l")
-lines(om_with_data$rep$Ecov_x, type = "l", col = "red") # Not surprising with observation error
+plot(om_with_data_C$input$data$Ecov_obs, type = "l")
+lines(om_with_data_C$rep$Ecov_x, type = "l", col = "red") # Not surprising with observation error
 
 # Projected Temp 
 i = 1
 
 ##### CHANGE HERE
 # random1 = random[-2] # We want to turn off the random effects on Ecov
-random1 <- unfitted_om_P$input$random
+random_P <- unfitted_om_P$input$random
 remove <- 'Ecov_re'
-random1 <- random1[!random1 %in% remove]
+random_P <- random_P[!random_P %in% remove]
 #####
 
-om_with_data <- update_om_fn(unfitted_om_P, seed = 123+i, random = random1)
+om_with_data_P <- update_om_fn(unfitted_om_P, seed = 123+i, random = random_P)
 
-plot(om_with_data$input$data$Ecov_obs, type = "l")
-lines(om_with_data$rep$Ecov_x, type = "l", col = "red") # Not surprising with observation error
+#  CHANGE HERE IS THIS SUPPOSED TO BE THE PROJECTED TEMP SCENARIO
+plot(om_with_data_P$input$data$Ecov_obs, type = "l")
+lines(om_with_data_P$rep$Ecov_x, type = "l", col = "red") # Not surprising with observation error
 
 ##### WASNT ABLE TO GET PAST HERE. WHAT ARE WE SETTING BELOW AS OUR MODEL??
 # input_Ecov <- prepare_wham_input(
@@ -299,23 +306,23 @@ lines(om_with_data$rep$Ecov_x, type = "l", col = "red") # Not surprising with ob
 
 # No Ecov Assumed in the EM
 mod1 <- loop_through_fn(
-  om = om_with_data,
+  om = om_with_data_C,
   em_info = info,
-  random = random1,
+  random = random_C,
   M_em = M,
   sel_em = sel3,
   NAA_re_em = NAA_re,
   age_comp_em = "logistic-normal-pool0",
   em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
   update_index_info = list(
-    agg_index_sigma = input_Ecov$data$agg_index_sigma,
-    index_Neff = input_Ecov$data$index_Neff,
+    agg_index_sigma = input_C$data$agg_index_sigma,
+    index_Neff = input_C$data$index_Neff,
     remove_agg = TRUE, remove_agg_pointer = 1:3, remove_agg_years = remove_agg_years1,
     remove_paa = TRUE, remove_paa_pointer = 1:3, remove_paa_years = remove_paa_years1
   ),
   update_catch_info = list(
-    agg_catch_sigma = input_Ecov$data$agg_catch_sigma,
-    catch_Neff = input_Ecov$data$catch_Neff
+    agg_catch_sigma = input_C$data$agg_catch_sigma,
+    catch_Neff = input_C$data$catch_Neff
   ),
   assess_years = assess.years,
   assess_interval = assess.interval,
@@ -330,11 +337,11 @@ mod1 <- loop_through_fn(
 )
 
 
-plot(mod[["om"]][["rep"]][["Ecov_x"]], type = "l")
-lines(mod[["om"]][["input"]][["data"]][["Ecov_obs"]], type = "l", col = "red")
-plot_wham_output(mod$em_full[[1]],out.type = "html")
-mod$om$input$par$Ecov_process_pars
-mod$em_full[[1]]$parList$Ecov_process_pars
+plot(mod1[["om"]][["rep"]][["Ecov_x"]], type = "l")
+lines(mod1[["om"]][["input"]][["data"]][["Ecov_obs"]], type = "l", col = "red")
+plot_wham_output(mod1$em_full[[1]],out.type = "html")
+mod1$om$input$par$Ecov_process_pars
+mod1$em_full[[1]]$parList$Ecov_process_pars
 
 # Ecov Assumed in the EM! (See below as an example for Ecov_C/Ecov_P)
 ecov_me <- list(
@@ -349,9 +356,9 @@ ecov_me <- list(
 )
 
 mod2 <- loop_through_fn(
-  om = om_with_data,
+  om = om_with_data_P,
   em_info = info,
-  random = random1,
+  random = random_P,
   ecov_em = ecov_me,
   M_em = M,
   sel_em = sel3,
@@ -359,14 +366,14 @@ mod2 <- loop_through_fn(
   age_comp_em = "logistic-normal-pool0",
   em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
   update_index_info = list(
-    agg_index_sigma = input_Ecov$data$agg_index_sigma,
-    index_Neff = input_Ecov$data$index_Neff,
+    agg_index_sigma = input_P$data$agg_index_sigma,
+    index_Neff = input_P$data$index_Neff,
     remove_agg = TRUE, remove_agg_pointer = 1:3, remove_agg_years = remove_agg_years1,
     remove_paa = TRUE, remove_paa_pointer = 1:3, remove_paa_years = remove_paa_years1
   ),
   update_catch_info = list(
-    agg_catch_sigma = input_Ecov$data$agg_catch_sigma,
-    catch_Neff = input_Ecov$data$catch_Neff
+    agg_catch_sigma = input_P$data$agg_catch_sigma,
+    catch_Neff = input_P$data$catch_Neff
   ),
   assess_years = assess.years,
   assess_interval = assess.interval,
@@ -386,7 +393,7 @@ plot(mod2$em_full[[1]]$input$data$Ecov_obs, type = "l")
 lines(mod2$em_full[[1]]$rep$Ecov_x, type = "l", col = "red")
 lines(mod2$om$rep$Ecov_x, type = "l", col = "blue")
 
-data <- update_om_fn(om_ecov, seed = 1234, random = random1)
+data <- update_om_fn(om_ecov, seed = 1234, random = random_P)
 plot(data$rep$Ecov_x)
 plot(data$input$data$Ecov_obs,col = "red", type = "l")
 
