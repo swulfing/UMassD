@@ -1,8 +1,10 @@
 ---
-title: "MSE30yr_OMFix"
+title: "MSE3yr_OMFix"
+author: "Sophie Wulfing"
+date: "2025-09-25"
 output: html_document
-date: "2025-08-28"
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, cache = TRUE, warning = FALSE)
@@ -45,7 +47,7 @@ setup_om_input <- function(base_om, hist_dat, ecov_dat) {
   n_ages <<- 6
   year_start <<- 1973
   year_end   <<- 2022
-  MSE_years  <<- 30
+  MSE_years  <<- 3
   n_proj_years <<- year_end - year_start + 1 + MSE_years
   
   # -- Extend Biological Data --
@@ -66,10 +68,16 @@ setup_om_input <- function(base_om, hist_dat, ecov_dat) {
   fracyr_spawn <- hist_dat[[1]]$dat$fracyr_spawn
   
   # -- Define Catch and Survey Index Specs --
-  catch_info <- list(catch_cv = 0.05, catch_Neff = 50, use_agg_catch = 1, use_catch_paa = 1)
+  catch_info <- list(catch_cv = 0.05, 
+                     catch_Neff = 50, 
+                     use_agg_catch = 1, 
+                     use_catch_paa = 1)
+  
   index_info <- list(
-    index_cv = rep(0.5, 3), index_Neff = rep(25, 3), fracyr_indices = c(0.25, 0.75, 0.25),
-    q = c(2.110e-4, 2.247e-4, 2.683e-4), use_indices = rep(1, 3), use_index_paa = rep(1, 3),
+    index_cv = rep(0.5, 3), index_Neff = rep(25, 3), 
+    fracyr_indices = c(0.25, 0.75, 0.25),
+    q = c(2.110e-4, 2.247e-4, 2.683e-4), 
+    use_indices = rep(1, 3), use_index_paa = rep(1, 3),
     units_indices = rep(2, 3), units_index_paa = rep(2, 3)
   )
   
@@ -153,10 +161,10 @@ setup_om_input <- function(base_om, hist_dat, ecov_dat) {
 # Base environmental data structure
 ecov_om <- list(
   label = "bt_temp",
-  mean = as.matrix(c(env.dat_me$bt_temp, rep(NA, 31))), # Future values will be filled
+  mean = as.matrix(c(env.dat_me$bt_temp, rep(NA, 4))), # Future values will be filled
   logsigma = "est_1",
-  year = 1972:2052,
-  use_obs = matrix(1, ncol = 1, nrow = 81),
+  year = 1972:2025,
+  use_obs = matrix(1, ncol = 1, nrow = 54),
   process_model = "ar1",
   recruitment_how = matrix("controlling-lag-1-linear")
 )
@@ -167,7 +175,7 @@ ecov_om <- list(
 
 # Scenario 2: Projected Future Trend
 om_trend <- summary(lm(bt_temp ~ Year, data = env.dat_me))
-projection_om <- data.frame(year_proj = c(2022:2052))
+projection_om <- data.frame(year_proj = c(2022:2025))
 error_sd <- om_trend[["sigma"]] # Correct way to get residual standard error
 projection_om$SD <- rnorm(n = nrow(projection_om), mean = 0, sd = error_sd)
 projection_om <- projection_om %>%
@@ -175,7 +183,7 @@ projection_om <- projection_om %>%
   mutate(Temp_proj = om_trend[["coefficients"]][1,1] + (om_trend[["coefficients"]][2,1] * year_proj) + SD)
 
 ecov_om_P <- ecov_om
-ecov_om_P$mean[51:81,] <- projection_om$Temp_proj
+ecov_om_P$mean[51:54,] <- projection_om$Temp_proj
 
 # -- 3. Build the Full Input Object for Each Scenario --
 # (Assuming the setup_om_input function from above is in your environment)
@@ -227,11 +235,11 @@ finalize_om_for_simulation <- function(input, scenario_type, Ecov_re, ecov_lmean
   if (scenario_type == "P") {
     # For the projected trend, the future "random effect" is the difference
     # between the projected value and the long-term process mean.
-    input$par$Ecov_re[52:81,] <- input$data$Ecov_obs[52:81,] - ecov_lmean
+    input$par$Ecov_re[52:54,] <- input$data$Ecov_obs[52:54,] - ecov_lmean
   } else { # Assumes "C" for constant scenario
     # For a constant future, the true value should equal the mean.
     # Since Ecov_true = Ecov_mean + Ecov_re, the future random effect must be 0.
-    input$par$Ecov_re[52:81,] <- 0
+    input$par$Ecov_re[52:54,] <- 0
   }
   
   # Tell WHAM not to simulate these values, but to use the ones we just set
@@ -349,16 +357,16 @@ env.dat_me <- read.csv("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/CI_ind
 
 ecov_me <- list(
   label = "bt_temp",
-  mean = as.matrix(c(env.dat_me$bt_temp,rep(mean(env.dat_me$bt_temp),31))),
+  mean = as.matrix(c(env.dat_me$bt_temp,rep(mean(env.dat_me$bt_temp),4))),
   # logsigma = as.matrix(rep(log(0.4733709), 50)),
   logsigma = "est_1",
-  year = 1972:2052,
-  use_obs = matrix(1, ncol = 1, nrow = 81),
+  year = 1972:2025,
+  use_obs = matrix(1, ncol = 1, nrow = 54),
   process_model = "ar1",
   recruitment_how = matrix("controlling-lag-1-linear")
 )
 
-ecov_AR1 <- ecov_me ###NOT DOING THIS ONE YET. NEED TO FIGURE OUT PROBLEM WITH EMS
+ecov_AR1 <- ecov_me ###NOT DOING THIS ONE YET. NEED TO FIGURE OUT
 ecov_none <- ecov_me
 ecov_none$recruitment_how = matrix("none", input$data$n_Ecov, input$data$n_stocks)
 
@@ -368,25 +376,25 @@ RecTrend <- data.frame(year = ecov_me$year,
                        Temp = NA)
 k <- 51
 
-for(i in 0:31){
+for(i in 0:4){
   if (i %% 3 == 0){
-    HistAvg[(i+1):(i+3)] <- mean(ecov_om_P$mean[(1:k)])
-    RecWind[(i+1):(i+3)] <- mean(ecov_om_P$mean[((k-4):k)])
-    om_RecentTrend <- summary(lm(ecov_om_P$mean[((k-4):k)] ~ ecov_om_P$year[((k-4):k)]))
-    RecTrend$Temp[(i+1):(i+3)] <- om_RecentTrend[["coefficients"]][1] + (om_RecentTrend[["coefficients"]][2] * ecov_om_P$year[k])
+    HistAvg[(i+1):(i+3)] <- mean(ecov_me$mean[(1:k)], na.rm = TRUE)
+    RecWind[(i+1):(i+3)] <- mean(ecov_me$mean[((k-4):k)], na.rm = TRUE)
+    om_RecentTrend <- summary(lm(ecov_me$mean[((k-4):k)] ~ ecov_me$year[((k-4):k)]))
+    RecTrend$Temp[(i+1):(i+3)] <- om_RecentTrend[["coefficients"]][1] + (om_RecentTrend[["coefficients"]][2] * ecov_me$year[k])
   }
   k <- k + 1
 }
 
 ecov_HistAvg <- ecov_me
-ecov_HistAvg$mean[51:81,] <- HistAvg[1:31]
+ecov_HistAvg$mean[51:54,] <- HistAvg[1:4]
 # ecov_HistAvg$mean[51:81,] <- 0
 
 ecov_RecWind <- ecov_me
-ecov_RecWind$mean[51:81,] <- RecWind[1:31]
+ecov_RecWind$mean[51:54,] <- RecWind[1:4]
 
 ecov_RecTrend <- ecov_me
-ecov_RecTrend$mean[51:81,] <- RecTrend$Temp[1:31]
+ecov_RecTrend$mean[51:54,] <- RecTrend$Temp[1:4]
 # ecov_RecTrend$mean[51:81,] <- 10000000
 
 
@@ -469,7 +477,7 @@ foreach (i = c(1:10)) %dopar% {
   FXSPR_init = 0.5
 )
   
-  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/Mod.30yr_1_%03d.RDS", i)))
+  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/Mod.3yr_1_%03d.RDS", i)))
   }, error=function(e){})
 }
 
@@ -537,7 +545,7 @@ foreach (i = 1:10) %dopar% {
   FXSPR_init = 0.5
 )
   
-  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/Mod.30yr_2_%03d.RDS", i)))
+  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/Mod.3yr_2_%03d.RDS", i)))
     }, error=function(e){})
 }
 
@@ -605,7 +613,7 @@ foreach (i = 1:10) %dopar% {
   FXSPR_init = 0.5
 )
   
-  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/Mod.30yr_3_%03d.RDS", i)))
+  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/Mod.3yr_3_%03d.RDS", i)))
     }, error=function(e){})
 }
 
@@ -674,7 +682,7 @@ foreach (i = 1:10) %dopar% {
   FXSPR_init = 0.5
 )
   
-  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/Mod.30yr_4_%03d.RDS", i)))
+  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/Mod.3yr_4_%03d.RDS", i)))
     }, error=function(e){})
 }
 
@@ -741,7 +749,7 @@ foreach (i = 1:10) %dopar% {
   FXSPR_init = 0.5
 )
   
-  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/Mod.30yr_5_%03d.RDS", i)))
+  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/Mod.3yr_5_%03d.RDS", i)))
     }, error=function(e){})
 }
 
@@ -757,7 +765,7 @@ nsim <- c(1:3, 5:10) # number of simulations/seed
 mods <- lapply(nsim, function(r) {
   
   mod_list <- lapply(model_nums, function(m) {
-    file_path <- file.path(sprintf("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/Mod.30yr_%d_%03d.RDS", m, r))
+    file_path <- file.path(sprintf("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/Mod.3yr_%d_%03d.RDS", m, r))
     readRDS(file_path)
   })
   
@@ -767,7 +775,7 @@ mods <- lapply(nsim, function(r) {
 })
 
 
-saveRDS(mods, file = "C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/MSEmods_30yr.rds")
+saveRDS(mods, file = "C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/MSEmods_3yr.rds")
 
 
 #mods <- readRDS("C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MSE_results/MSEmods_30yr.rds")
@@ -775,7 +783,7 @@ saveRDS(mods, file = "C:/Users/swulfing/OneDrive - University of Massachusetts D
 library(ggridges)
 plot_mse_output(mods,
                 main_dir = getwd(),
-                output_dir = "Report_30yr",
+                output_dir = "Report_3yr",
                 output_format = c("png"), # or html or png
                 width = 10, height = 7, dpi = 300,
                 col.opt = "D",
@@ -892,90 +900,16 @@ ggplot(ecov_df, aes(x = year, y = mean)) +
 
 ```
 
-```{r ssb}
-
-
-em_ssb <- data.frame(Year = c(),
-                      Model_name = c(),
-                      seed_no = c(),
-                      SSB = c(),
-                      CATCH = c())
-
-for (i in 1:length(mods)){
-  for(k in 1:length(model_nums)){
-    
-    # Set Model info
-    years <- min(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]):max(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]) #Year
-    model_name <- rep(model_names[k], length(years)) # Model Name
-    Seed <- rep(i, length(years))
-    
-    # Ecov_x estimates
-    ssb <- mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["rep"]][["SSB"]]
-    catch <- mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["rep"]][["pred_catch"]]
-    
-    
-    # Dataframes and combine
-    em_list <- data.frame(Year = years, Model_name = model_name, seed_no = Seed, SSB = ssb, CATCH = catch)
-    
-    em_ssb <- rbind(em_ssb, em_list)
-  }
-}
-
-## EM Summary
-
-ssb_summary <- em_ssb %>%
-  group_by(Year, Model_name) %>%
-  summarize(MeanSSB = mean(SSB), SDSSB = sd(SSB),
-            MeanCatch = mean(CATCH), SDCatch = sd(CATCH))
-
-
-# Plotting
-ggplot(ssb_summary, aes(x = Year, y = MeanSSB)) +
-  geom_line(aes(colour = Model_name)) +
-  xlim(2022, 2050)
-
-ggplot(ssb_summary, aes(x = Year, y = MeanCatch)) +
-  geom_line(aes(colour = Model_name)) +
-  xlim(2022, 2050)
-```
-
-```{r fbar}
-em_fbar <- data.frame(Year = c(),
-                      Model_name = c(),
-                      seed_no = c(),
-                      FBAR = c())
-
-for (i in 1:length(mods)){
-  for(k in 1:length(model_nums)){
-    
-    # Set Model info
-    years <- min(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]):max(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]) #Year
-    model_name <- rep(model_names[k], length(years)) # Model Name
-    Seed <- rep(i, length(years))
-    
-    # Ecov_x estimates
-    fbar <- mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["rep"]][["Fbar"]][,1]
-    
-    
-    # Dataframes and combine
-    em_list <- data.frame(Year = years, Model_name = model_name, seed_no = Seed, FBAR = fbar)
-    
-    em_fbar <- rbind(em_fbar, em_list)
-  }
-}
-
-## EM Summary
-
-fbar_summary <- em_fbar %>%
-  group_by(Year, Model_name) %>%
-  summarize(MeanFBAR = mean(FBAR), SDFBAR = sd(FBAR))
-
-
-# Plotting
-ggplot(fbar_summary, aes(x = Year, y = MeanFBAR)) +
-  geom_line(aes(colour = Model_name)) +
-  xlim(2022, 2050)
 
 
 
-```
+
+
+
+
+
+
+
+
+
+
