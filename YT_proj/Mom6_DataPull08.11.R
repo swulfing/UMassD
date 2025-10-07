@@ -6,6 +6,25 @@ library(ggplot2)
 # Specify the OPeNDAP server URL (using regular grid output)
 url <- "http://psl.noaa.gov/thredds/dodsC/Projects/CEFI/regional_mom6/cefi_portal/northwest_atlantic/full_domain/hindcast/monthly/regrid/r20250715/tob.nwa.full.hcast.monthly.regrid.r20250715.199301-202312.nc"
 
+##### FROM AI 
+safe_ncvar_get <- function(nc, varname, start, count, max_retries = 3) {
+  for(attempt in 1:max_retries) {
+    result <- tryCatch({
+      ncvar_get(nc, varname, start = start, count = count)
+    }, error = function(e) {
+      if(attempt < max_retries) {
+        cat("Retry", attempt, "for", varname, "\n")
+        Sys.sleep(2)  # Wait 2 seconds before retry
+        return(NULL)
+      } else {
+        stop(e)
+      }
+    })
+    if(!is.null(result)) return(result)
+  }
+}
+##### FROM AI STOP
+
 # Open a NetCDF file lazily and remotely
 nc <- nc_open(url)
 
@@ -15,11 +34,15 @@ ndims   <- v3$ndims
 nt      <- varsize[ndims]  # Remember timelike dim is always the LAST dimension!
 
 
-tempMeans <- data.frame(Year = c(),
-                        Month = c(),
-                        Mean = c())
+# tempMeans <- data.frame(Year = c(),
+#                         Month = c(),
+#                         Mean = c())
+# testingIndex <- 0
+# AI FIX
+tempMeans_list <- list()
 
 for( i in 1:nt ) {
+  tryCatch({
   # Initialize start and count to read one timestep of the variable.
   start <- rep(1,ndims)	# begin with start=(1,1,1,...,1)
   start[ndims] <- i	# change to start=(1,1,1,...,i) to read timestep i
@@ -29,10 +52,10 @@ for( i in 1:nt ) {
   
   lon <- ncvar_get(nc, "lon")
   lat <- ncvar_get(nc, "lat")
-  time <- ncvar_get(nc, "time",start = c(i), count = c(1))
+  time <- safe_ncvar_get(nc, "time",start = c(i), count = c(1))
   
   # Now read in the value of the timelike dimension
-  tob <- ncvar_get( nc, "tob", start=c(1, 1, i), count = c(-1, -1, 1)) # tob <- ncvar_get( nc, "tob", start=i, count=1 )
+  tob <- safe_ncvar_get( nc, "tob", start=c(1, 1, i), count = c(-1, -1, 1)) # tob <- ncvar_get( nc, "tob", start=i, count=1 )
   tunits <- ncatt_get(nc, "time", "units")
   datesince <- tunits$value
   datesince <- substr(datesince, nchar(datesince)-9, nchar(datesince))
@@ -57,24 +80,44 @@ for( i in 1:nt ) {
   GBK <- subset(StatAreas, subset = Id %in% GBK_stats)
   
   pnts_sf <- st_as_sf(df, coords = c('lon', 'lat'), crs = st_crs(4326))
-  
   pnts_trans <- st_transform(pnts_sf, 2163)
   tt_trans <- st_transform(GBK, 2163)
   
   # Seeing which points fall within the GBK
-  pnts_trans <- pnts_sf %>% mutate(
-    intersection = as.integer(st_intersects( pnts_trans,tt_trans)))
+  # pnts_trans <- pnts_sf %>% mutate(
+  #   intersection = as.integer(st_intersects( pnts_trans,tt_trans)))
+  # AI FIX
+  pnts_trans <- pnts_trans %>% mutate(
+    intersection = as.integer(st_intersects(geometry, tt_trans)))
   
-  DataToUse <- subset(pnts_trans, subset = intersection >= 0)
+  
+  # AI FIX
+  # DataToUse <- subset(pnts_trans, subset = intersection >= 0)
+  DataToUse <- subset(pnts_trans, !is.na(intersection))
   # View(DataToUse)
   
   # tempMeans$Year <- append(tempMeans$Year, as.numeric(format(datetime_var, '%Y')))
   # tempMeans$Mean <- append(tempMeans$Mean, mean(DataToUse$tob))
-  tempMeans <- rbind(tempMeans, list(as.numeric(format(datetime_var, '%Y')), as.numeric(format(datetime_var, '%m')), mean(DataToUse$tob, na.rm = TRUE)))
+  # tempMeans <- rbind(tempMeans, list(as.numeric(format(datetime_var, '%Y')), as.numeric(format(datetime_var, '%m')), mean(DataToUse$tob, na.rm = TRUE)))
+  # AI FIX
+  tempMeans_list[[i]] <- list(
+    Year = as.numeric(format(datetime_var, '%Y')),
+    Month = as.numeric(format(datetime_var, '%m')),
+    Mean = mean(DataToUse$tob, na.rm = TRUE)
+  )
+  
+  # }, error=function(e){})
+  # testingIndex <- testingIndex + 1
+  # AI FIX
+  }, error=function(e){
+    cat("Error at timestep", i, ":", conditionMessage(e), "\n")
+  })
   
 }
 
 nc_close(nc)
+# AI FIX
+tempMeans <- bind_rows(tempMeans_list)
 
 saveRDS(tempMeans,'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/tempMeans.rds')
 
@@ -84,8 +127,14 @@ colnames(tempMeans) <- c('Year', 'Month','Temp')
 
 #Filtering for spring and then combining means
 springMonths <- c(3, 4, 5)
+# SpringMeans <- subset(tempMeans, subset = Month %in% springMonths)
+# SpringMeans <- tempMeans %>%
+#   group_by(Year) %>%
+#   summarise(mean = mean(Temp, na.rm = TRUE),
+#             sd = sd(Temp, na.rm = TRUE))
+# AI FIX
 SpringMeans <- subset(tempMeans, subset = Month %in% springMonths)
-SpringMeans <- tempMeans %>%
+SpringMeans <- SpringMeans %>%  # Use the filtered data!
   group_by(Year) %>%
   summarise(mean = mean(Temp, na.rm = TRUE),
             sd = sd(Temp, na.rm = TRUE))
