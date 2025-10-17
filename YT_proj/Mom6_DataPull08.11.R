@@ -25,6 +25,11 @@ safe_ncvar_get <- function(nc, varname, start, count, max_retries = 3) {
 }
 ##### FROM AI STOP
 
+tempMeans_list <- list()
+
+for( i in 1:372 ) { # for( i in 1:nt ) { #### CHANGED BECAUSE WE MOVED THE NC OPEN TO INSIDE THE FOR LOOP. NT = 372L FOR THIS DATASET
+  tryCatch({
+
 # Open a NetCDF file lazily and remotely
 nc <- nc_open(url)
 
@@ -39,10 +44,7 @@ nt      <- varsize[ndims]  # Remember timelike dim is always the LAST dimension!
 #                         Mean = c())
 # testingIndex <- 0
 # AI FIX
-tempMeans_list <- list()
 
-for( i in 1:nt ) {
-  tryCatch({
   # Initialize start and count to read one timestep of the variable.
   start <- rep(1,ndims)	# begin with start=(1,1,1,...,1)
   start[ndims] <- i	# change to start=(1,1,1,...,i) to read timestep i
@@ -109,13 +111,14 @@ for( i in 1:nt ) {
   # }, error=function(e){})
   # testingIndex <- testingIndex + 1
   # AI FIX
+  nc_close(nc)
   }, error=function(e){
     cat("Error at timestep", i, ":", conditionMessage(e), "\n")
   })
   
 }
 
-nc_close(nc)
+
 # AI FIX
 tempMeans <- bind_rows(tempMeans_list)
 
@@ -124,6 +127,11 @@ saveRDS(tempMeans,'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/tempMeans.r
 tempMeans <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/tempMeans.rds')
 
 colnames(tempMeans) <- c('Year', 'Month','Temp')
+
+tempMeans_avg <- tempMeans %>%  # Use the filtered data!
+  group_by(Year) %>%
+  summarise(mean = mean(Temp, na.rm = TRUE),
+            sd = sd(Temp, na.rm = TRUE))
 
 #Filtering for spring and then combining means
 springMonths <- c(3, 4, 5)
@@ -146,7 +154,7 @@ saveRDS(SpringMeans,'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/SpringMea
 CI_indices <- read.csv('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/CI_indices.csv')
 
 
-ggplot(SpringMeans, aes(x = Year, y = mean)) +
+ggplot(tempMeans_avg, aes(x = Year, y = mean)) +
   geom_line(colour = 'red') +
   geom_line(CI_indices, mapping = aes(x = Year, y = bt_temp), colour = 'black')
 
