@@ -883,19 +883,19 @@ em_temps <- em_ests %>%
 # Plotting
 ggplot(om_temps, aes(x = Year, y = MeanObs)) +
   geom_line(colour = 'black') +
-  geom_line(em_temps, mapping = aes(x = Year, y = MeanObs, colour = Model_name)) +
-  ylim(6,9)
+  geom_line(em_temps, mapping = aes(x = Year, y = MeanObs, colour = Model_name)) 
+  #ylim(6,9)
 
 ggplot(om_temps, aes(x = Year, y = MeanTemp)) +
   geom_line(colour = 'black') +
-  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name)) +
-  ylim(6,9)
+  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name)) 
+  #ylim(6,9)
 
 
 ggplot(data.frame(ecov_om), aes(x = year, y = mean)) +
   geom_line(colour = "black") +
-  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name)) + 
-  ylim(6,9)
+  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name)) 
+  #ylim(6,9)
 
 
 # OM inputs and outputs comparison

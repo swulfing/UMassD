@@ -401,10 +401,10 @@ create_ecov_scenarios <- function(bt_temp, base.years, n_feedback, lag = 1, proc
   ecov_om_P$mean[51:81,] <- projection_om$Temp_proj
 
   ecov_lowProj <- ecov_me
-  ecov_lowProj$mean <- projection_low$mean[1:81]
+  ecov_lowProj$mean[1:81,] <- projection_low$mean[1:81]
   # ecov_HistAvg$mean[51:81,] <- 0
   ecov_highProj <- ecov_me
-  ecov_highProj$mean <- (projection_low$mean[1:81]*5)
+  ecov_highProj$mean[1:81,] <- (projection_low$mean[1:81]*5)
   
     # Return scenarios
     return(list(
@@ -652,7 +652,7 @@ mods <- lapply(nsim, function(r) {
 })
 
 
-saveRDS(mods, file = "C:/Users/swulfing/Documents/MSE_results/MSEmods_30yr.rds")
+saveRDS(mods, file = "C:/Users/swulfing/Documents/MSE_results/HighVsLow/MSEmods_30yr.rds")
 
 
 #mods <- readRDS("C:/Users/swulfing/Documents/MSE_results/MSEmods_30yr.rds")
@@ -660,7 +660,7 @@ saveRDS(mods, file = "C:/Users/swulfing/Documents/MSE_results/MSEmods_30yr.rds")
 library(ggridges)
 plot_mse_output(mods,
                 main_dir = getwd(),
-                output_dir = "Report_30yr",
+                output_dir = "Report_30yr_GnB",
                 output_format = c("png"), # or html or png
                 width = 10, height = 7, dpi = 300,
                 col.opt = "D",
@@ -720,7 +720,7 @@ for (i in 1:length(mods)){
 ##OM Summary
 
 om_temps <- om_ests %>%
-  filter(Model_name != "Mod_noEcov") %>%
+  #filter(Model_name != "Mod_noEcov") %>%
   group_by(Year) %>%
   summarize(MeanTemp = mean(Temp), SDTemp = sd(Temp),
             MeanObs = mean(Obs), SDObs = sd(Obs)) 
@@ -731,8 +731,8 @@ om_temps <- om_ests %>%
 em_temps <- em_ests %>%
   group_by(Year, Model_name) %>%
   summarize(MeanTemp = mean(Temp), SDTemp = sd(Temp),
-            MeanObs = mean(Obs), SDObs = sd(Obs)) %>%
-  filter(Model_name != "Mod_noEcov")
+            MeanObs = mean(Obs), SDObs = sd(Obs))
+  #filter(Model_name != "Mod_noEcov")
 
 
 # Plotting
@@ -747,10 +747,10 @@ ggplot(om_temps, aes(x = Year, y = MeanTemp)) +
   ylim(6,9)
 
 
-ggplot(data.frame(ecov_om), aes(x = year, y = mean)) +
+ggplot(data.frame(ecov_om_P), aes(x = year, y = mean)) +
   geom_line(colour = "black") +
   geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name)) + 
-  ylim(6,9)
+  ylim(0,9)
 
 
 # OM inputs and outputs comparison
