@@ -7,7 +7,8 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, cache = TRUE, warning = FALSE)
-setwd("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/10.07EMFix")
+wd <- "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/10.07EMFix"
+setwd(wd)
 library(wham)
 # devtools::document("whamMSE")
 # devtools::load_all("whamMSE")
@@ -672,6 +673,42 @@ plot_mse_output(mods,
 
 ```
 
+```{r defaultPlotAdjustment}
+# COMMENT THIS OUT
+# rm(list = setdiff(ls(), c('mods','wd','radarPlot_FIX')))
+source('plotFixTest.R')
+
+mods_cleaned <- mods[!sapply(mods, is.null)]
+
+mods <- mods_cleaned
+main_dir <- wd
+main.dir <- main_dir
+output_dir <- "Report_30yr_GnB"
+sub.dir <- output_dir
+output_format <- c("png") # or html or png
+width <- 10 
+height <- 7 
+dpi <- 300
+col.opt <- "D"
+new_model_names <- c("Mod_AR1Ecov", "Mod_LOWEcov", "Mod_HIGHEcov")
+base.model <- "Mod_AR1Ecov"
+start.years <- 51
+use.n.years.first <- 1
+use.n.years.last <- 3
+is.nsim <- if (!is.list(mods[[1]][[1]][[1]])) FALSE else TRUE
+method <- "median"
+
+#whamMSE:::plot_model_performance_radar(mods_cleaned, is.nsim, '.', output_dir, width, height, dpi, col.opt, method, use.n.years.first, use.n.years.last, start.years, new_model_names)
+
+FIXEDplot_model_performance_radar(mods_cleaned, is.nsim, main_dir, output_dir, width, height, dpi, col.opt, method, use.n.years.first, use.n.years.last, start.years, new_model_names)
+
+FIXEDplot_model_performance_radar2(mods_cleaned, is.nsim, main_dir, output_dir, width, height, dpi, col.opt, method, use.n.years.first, use.n.years.last, start.years, new_model_names)
+
+FIXEDplot_model_performance_radar3(mods_cleaned, is.nsim, main_dir, output_dir, width, height, dpi, col.opt, method, use.n.years.first, use.n.years.last, start.years, new_model_names)
+
+
+```
+
 ```{r ModAnalysis}
 
 # View(mods)
@@ -738,19 +775,19 @@ em_temps <- em_ests %>%
 # Plotting
 ggplot(om_temps, aes(x = Year, y = MeanObs)) +
   geom_line(colour = 'black') +
-  geom_line(em_temps, mapping = aes(x = Year, y = MeanObs, colour = Model_name)) +
-  ylim(6,9)
+  geom_line(em_temps, mapping = aes(x = Year, y = MeanObs, colour = Model_name)) 
+  # ylim(6,9)
 
 ggplot(om_temps, aes(x = Year, y = MeanTemp)) +
   geom_line(colour = 'black') +
-  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name)) +
-  ylim(6,9)
+  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name))
+  # ylim(6,9)
 
 
 ggplot(data.frame(ecov_om_P), aes(x = year, y = mean)) +
   geom_line(colour = "black") +
-  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name)) + 
-  ylim(0,9)
+  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name)) 
+  # ylim(0,9)
 
 
 # OM inputs and outputs comparison

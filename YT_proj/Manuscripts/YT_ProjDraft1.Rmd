@@ -1,19 +1,19 @@
 ---
 graphics: yes
 output:
-  bookdown::pdf_document2:
-    fig_caption: yes
-    toc: no
-    lof: yes
-    lot: yes
-    keep_tex: yes
+  word_document: default
   pdf_document:
     toc: no
     keep_tex: true
   bookdown::html_document2:
     fig_caption: yes
     toc: no
-  word_document: default
+  bookdown::pdf_document2:
+    fig_caption: yes
+    toc: no
+    lof: yes
+    lot: yes
+    keep_tex: yes
 geometry: margin=1in
 fontsize: 12pt
 bibliography:
@@ -24,20 +24,20 @@ header-includes: \usepackage{setspace} \usepackage{lineno} \usepackage{placeins}
 
 \doublespacing
 
+```{=tex}
 \begin{center}
-	
+    
 \textbf{\Large Applying effective environmental forecasts to Management Strategy Evaluation of yellowtail flounder}
-	
+    
 \textsc{Sophie Wulfing$^{1*}$ Gavin Fay$^{1}$ Chengxue Li$^{3}$ Scott I. Large$^{2}$ Vincent Saba$^{2}$\\}
 \vspace{3 mm}
 \normalsize{\indent $^1$School for Marine Science and Technology, University of Massachusetts Dartmouth, University of New Hampshire, 02747, MA, USA\\ $^2$NOAA, National Marine Fisheries Service, Narragansett, RI 02882, USA\\ $^3$School of Marine and Atmospheric Sciences, Stony Brook University, Stony Brook, NY 11794, USA\\}
 $\text{*}$ Corresponding authors: Sophie Wulfing (SophieWulfing@gmail.com)
 \end{center}
-
+```
 \newpage
 
 \linenumbers
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, dev="cairo_pdf", cache = TRUE)
@@ -50,13 +50,13 @@ setwd("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts")
 
 <!-- SREREAD PROPOSAL AND USE SOME OF THE VERBIAGE/POINTS MADE IN THERE. SLIDE 3 ON 01 OF GAVINS INTRO TO MSE HAS GOOD MSE READINGS   -->
 
-As the world’s oceans are complex physical and chemical systems, climate change has impacted oceans in a variety of ways such increased ocean temperature and acidification, changes in ocean currents,<!-- THIS ISI HOW YOIU DO MULTIPLE CITATIONS   --> [@fabryImpactsOceanAcidification2008; @guinotteOceanAcidificationIts2008; @abrahamReviewGlobalOcean2013; @sydemanClimateChangeMarine2015; @wilsonClimatedrivenChangesOcean2016; @poloczanskaResponsesMarineOrganisms2016; @garciamolinosOceanCurrentsModify2017; @friedlandMiddleAtlanticBight2022; @chengNewRecordOcean2024]. As a result, different marine species are projected to have complex and different responses to these environmental shifts depending on species’ life histories, thermal tolerances, mobility, and other aspects of the species’ biology. (Guinotte & Fabry 2008; Chown et al 2010; Honisch et al 2012; Stewart et al 2014; Sydeman et al 2015; Polocanska et al 2016; Wilson et al 2016; Chaikin et al 2024). This creates compounding challenges when managing commercially-important fisheries. As some species will shift ranges northward or to deeper waters in search of colder temperatures, this will disrupt historical food chains as predators and prey may shift in different directions, or range shifts will introduce new interactions between predator and prey species that have historically not overlapped (Overholtz et al 2009; Albout et al 2014; Stewart et al 2014; Sydeman et al 2015; Wilson et al 2016; Garcia Molinos et al 2017; Chaikin et al 2024). Further, as fish populations may experience distribution shifts, annual growth patterns, or vary in abundance, this has potential to increase catch effort as historical fishing grounds and times may now not line up with fish stocks’ new life history dynamics (Overholtz et al 2009; Poloczanska et al 2016; Tommasi 2017; Fulton et al 2021). New species may also shift their ranges into a commonly fished area, potentially opening up new commercial opportunities <!-- THIS IS HOW YOU DO A SINGLE CITATION -->[@stewartCombinedClimatePreymediated2014]. 
+As the world’s oceans are complex physical and chemical systems, climate change has impacted oceans in a variety of ways such increased ocean temperature and acidification, changes in ocean currents,<!-- THIS ISI HOW YOIU DO MULTIPLE CITATIONS   --> [@fabryImpactsOceanAcidification2008; @guinotteOceanAcidificationIts2008; @abrahamReviewGlobalOcean2013; @sydemanClimateChangeMarine2015; @wilsonClimatedrivenChangesOcean2016; @poloczanskaResponsesMarineOrganisms2016; @garciamolinosOceanCurrentsModify2017; @friedlandMiddleAtlanticBight2022; @chengNewRecordOcean2024]. As a result, different marine species are projected to have complex and different responses to these environmental shifts depending on species’ life histories, thermal tolerances, mobility, and other aspects of the species’ biology. (Guinotte & Fabry 2008; Chown et al 2010; Honisch et al 2012; Stewart et al 2014; Sydeman et al 2015; Polocanska et al 2016; Wilson et al 2016; Chaikin et al 2024). This creates compounding challenges when managing commercially-important fisheries. As some species will shift ranges northward or to deeper waters in search of colder temperatures, this will disrupt historical food chains as predators and prey may shift in different directions, or range shifts will introduce new interactions between predator and prey species that have historically not overlapped (Overholtz et al 2009; Albout et al 2014; Stewart et al 2014; Sydeman et al 2015; Wilson et al 2016; Garcia Molinos et al 2017; Chaikin et al 2024). Further, as fish populations may experience distribution shifts, annual growth patterns, or vary in abundance, this has potential to increase catch effort as historical fishing grounds and times may now not line up with fish stocks’ new life history dynamics (Overholtz et al 2009; Poloczanska et al 2016; Tommasi 2017; Fulton et al 2021). New species may also shift their ranges into a commonly fished area, potentially opening up new commercial opportunities <!-- THIS IS HOW YOU DO A SINGLE CITATION -->[@stewartCombinedClimatePreymediated2014].
 
-- THIS IS WHAT HAPPENS IF THE KEY DOESN'T EXIST IN THE .BIB DOC: [@IfYouCiteAKeyThatDoesntExist] 
+-   THIS IS WHAT HAPPENS IF THE KEY DOESN'T EXIST IN THE .BIB DOC: [@IfYouCiteAKeyThatDoesntExist]
 
-- TO PUT A CITATION IN THE MIDDLE OF A SENTENCE, @sydemanClimateChangeMarine2015 SHOWS YOU CAN JUST NOT INCLUDE THE BRACKETS
+-   TO PUT A CITATION IN THE MIDDLE OF A SENTENCE, @sydemanClimateChangeMarine2015 SHOWS YOU CAN JUST NOT INCLUDE THE BRACKETS
 
-- NOTICE HOW FORGETTING ONE @ SYMBOL OR BRACKET OR SEMI-COLON MESSES UP THE CITATION: [@fabryImpactsOceanAcidification2008; @guinotteOceanAcidificationIts2008; abrahamReviewGlobalOcean2013; @sydemanClimateChangeMarine2015; @wilsonClimatedrivenChangesOcean2016; @poloczanskaResponsesMarineOrganisms2016; @garciamolinosOceanCurrentsModify2017; @friedlandMiddleAtlanticBight2022; @chengNewRecordOcean2024]
+-   NOTICE HOW FORGETTING ONE \@ SYMBOL OR BRACKET OR SEMI-COLON MESSES UP THE CITATION: [@fabryImpactsOceanAcidification2008; @guinotteOceanAcidificationIts2008; abrahamReviewGlobalOcean2013; @sydemanClimateChangeMarine2015; @wilsonClimatedrivenChangesOcean2016; @poloczanskaResponsesMarineOrganisms2016; @garciamolinosOceanCurrentsModify2017; @friedlandMiddleAtlanticBight2022; @chengNewRecordOcean2024]
 
 The US Northeast continental shelf has warmed faster than any other marine ecosystem in the United States (Saba et al 2016; Kleisner et al 2017; Saba et al 2023). The varying responses to climate change across fished species has presented challenges in accurately assessing stock health of various species in the region (Hare et al 2016; Kleisner et al 2017). Environmental covariates have rarely been incorporated into stock assessments in the Northeast (Mazure et al 2023). This has shown to reduce retrospective patterns and increase projection accuracy in New England populations such as Atlantic Cod, haddock, yellowtail flounder, and winter flounder (Buckely et al 2004; Klein et al 2017).
 
@@ -71,5 +71,3 @@ Further, decisions on how to project environmental conditions are important to c
 \newpage
 
 **References**
-
-
