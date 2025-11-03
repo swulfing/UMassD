@@ -1,30 +1,21 @@
----
-title: "MSE30yr_EMFix"
-author: "Sophie Wulfing"
-date: "2025-10-07"
-output: html_document
----
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, cache = TRUE, warning = FALSE)
-wd <- "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/10.07EMFix"
+wd <- "/home/swulfing_umassd_edu/MSEResults"
 setwd(wd)
+install.packages(c('dplyr', 'ggplot2', 'doParallel', 'foreach', 'devtools'), repos = "http://cran.us.r-project.org")
+devtools::install_github("timjmiller/wham", dependencies=TRUE)
 library(wham)
 # devtools::document("whamMSE")
 # devtools::load_all("whamMSE")
-remotes::install_github("lichengxue/whamMSE@UMassD-MSE")
+#remotes::install_github("lichengxue/whamMSE@UMassD-MSE", dependencies=TRUE)
 library(whamMSE)
 library(dplyr)
 library(ggplot2)
-library(viridis)
 
 gb_dat <- read_asap3_dat("GBK.DAT")
 om_ecov <- readRDS("om_ecov.rds") # This is your base operating model
 env.dat_me <- read.csv("CI_indices.csv") %>% filter(Year > 1971)
 input <- prepare_wham_input(gb_dat)
-```
 
-```{r fxnsetup_om_input}
 #' A flexible function to set up a WHAM OM input object
 #'
 #' @param base_om The initial fitted WHAM model object (your 'om_ecov').
@@ -154,9 +145,6 @@ setup_om_input <- function(base_om, hist_dat, ecov_dat) {
 
 
 
-```
-
-```{r createEnviroScenarios_om}
 # -- 2. Create the Two Environmental Scenarios --
 # Base environmental data structure
 ecov_om <- list(
@@ -213,9 +201,6 @@ plot(om_P$input$data$Ecov_obs,type = "l", col="red")
 lines(om_P$rep$Ecov_x,type = "l", col="blue") # Not surprising becuase random effects on Ecov was set ON in om_input_P 
 
 
-```
-
-```{r fxnecov_re}
 
 Ecov_re <- readRDS("Ecov_re.RDS") # this MUST come from a fitted OM (estimated random effects of Ecov from a fitted.mod) 
 
@@ -264,9 +249,7 @@ finalize_om_for_simulation <- function(input, scenario_type, Ecov_re, ecov_lmean
   return(unfitted_om)
 }
 
-```
 
-```{r finalizeOM}
 # Define the long-term mean of your environmental covariate.
 # Your code used 7.341484. Let's define it explicitly.
 long_term_bt_mean <- 7.341484 
@@ -337,9 +320,7 @@ lines(om_with_data_P$rep$Ecov_x, type = "l", col = "red") # Not surprising with 
 # waa_info <- info$par_inputs$user_waa
 # input_Ecov <- update_waa(input_Ecov, waa_info = waa_info)
 #####
-```
 
-```{r ecovScenarios}
 create_ecov_scenarios <- function(bt_temp, base.years, n_feedback, lag = 1, process_model = "ar1") {
   # Historical years (without lag)
   n_hist  <- length(base.years)
@@ -399,13 +380,13 @@ create_ecov_scenarios <- function(bt_temp, base.years, n_feedback, lag = 1, proc
   ecov_AR1 <- ecov_me ###NOT DOING THIS ONE YET. NEED TO FIGURE OUT PROBLEM WITH EMS
   ecov_none <- ecov_me
   ecov_none$recruitment_how = matrix("none", input$data$n_Ecov, input$data$n_stocks)
-
+  
   HistAvg <- NA
   RecWind <- NA
   RecTrend <- data.frame(year = ecov_me$year,
-                       Temp = NA)
+                         Temp = NA)
   k <- 51
-
+  
   for(i in 0:31){
     if (i %% 3 == 0){
       HistAvg[(i+1):(i+3)] <- mean(ecov_om_P$mean[(1:k)])
@@ -417,27 +398,27 @@ create_ecov_scenarios <- function(bt_temp, base.years, n_feedback, lag = 1, proc
     }
     k <- k + 1
   }
-
+  
   ecov_HistAvg <- ecov_me
   ecov_HistAvg$mean[51:81,] <- HistAvg[1:31]
   # ecov_HistAvg$mean[51:81,] <- 0
-
+  
   ecov_RecWind <- ecov_me
   ecov_RecWind$mean[51:81,] <- RecWind[1:31]
-
+  
   ecov_RecTrend <- ecov_me
   ecov_RecTrend$mean[51:81,] <- RecTrend$Temp[1:31]
   # ecov_RecTrend$mean[51:81,] <- 10000000
   
-    # Return scenarios
-    return(list(
-      AR1 = ecov_AR1,
-      None = ecov_none,
-      HistAvg = ecov_HistAvg,
-      RecWind = ecov_RecWind,
-      RecTrend = ecov_RecTrend
-    ))
-  }
+  # Return scenarios
+  return(list(
+    AR1 = ecov_AR1,
+    None = ecov_none,
+    HistAvg = ecov_HistAvg,
+    RecWind = ecov_RecWind,
+    RecTrend = ecov_RecTrend
+  ))
+}
 
 
 # base years are 1973:2022 (50 yrs), 6-yr feedback, lag=1
@@ -448,22 +429,12 @@ bt_temp <- om_with_data_P$input$data$Ecov_obs  # should be length 57 (1972–202
 scenarios <- create_ecov_scenarios(bt_temp, base.years, n_feedback, lag = 1)
 
 ecov_opts <- list(use_ecov_em = TRUE,
-                      lag = 1,
-                      period = 51:81)
+                  lag = 1,
+                  period = 51:81)
 
 
 ####################### PLOTTING ###############################################
-# STILL FIXING COLORS HERE 
-# colors <- viridisLite::viridis(n = 5, option = "D")
-#  scale_color_manual(name='Model',
-#                      breaks=c('OM', 'AR1', 'RecWind', 'HistAvg', 'RecTrend'),
-#                      values=c('OM'="#000000", 
-#                               'AR1' = colors[1],
-#                               'RecWind' = colors[3] ,
-#                               'HistAvg' =  colors[2],
-#                               'RecTrend' = colors[4] )) +
-
-EMtempPlot <- ggplot(data.frame(ecov_om), aes(x = year, y = mean)) +
+ggplot(data.frame(ecov_om), aes(x = year, y = mean)) +
   #geom_line(aes(color = "OM")) +
   geom_line( aes(x = scenarios[["AR1"]][["year"]], y = scenarios[["AR1"]][["mean"]], color = 'AR1')) +
   geom_line( aes(x = scenarios[["HistAvg"]][["year"]], y = scenarios[["HistAvg"]][["mean"]], color = 'HistAvg')) +
@@ -479,19 +450,15 @@ EMtempPlot <- ggplot(data.frame(ecov_om), aes(x = year, y = mean)) +
                               'RecTrend' = "#00BA38" )) +
   ylab("Bottom Temperature (°C)") +
   xlab("Year")
-  #xlim(2019,2052)
-
-ggsave('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/EMtempPlot.png', plot = tempPlot)
+#xlim(2019,2052)
 ########################################################################################################
-```
 
-```{r AR1Sims}
 
 hcr <- list(hcr.type = 1, hcr.opts = list(use_FXSPR = TRUE, percentFXSPR = 75))
 
 ecov_optsAR1 <- list(use_ecov_em = FALSE,
-                      lag = 1,
-                      period = 51:81)
+                     lag = 1,
+                     period = 51:81)
 
 # Quick check
 range(scenarios$AR1$year)  # 1972 to 2028
@@ -503,175 +470,54 @@ library(foreach)
 cluster <- makeCluster(10)
 registerDoParallel(cluster)
 
-foreach (i = c(1:10)) %dopar% {
-# for(i in 1:10){
+foreach (i = c(1:100)) %dopar% {
+  # for(i in 1:10){
   tryCatch({
     
-library(whamMSE) 
-library(wham)
-  
-
-mod <- loop_through_fn(
-  om = om_with_data_P,
-  em_info = info,
-  random = random_P,
-  M_em = M,
-  sel_em = sel3,
-  NAA_re_em = NAA_re,
-  ecov_em = scenarios$AR1,
-  ecov_em_opts = ecov_opts,
-  age_comp_em = "logistic-normal-pool0",
-  em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
-  update_index_info = list(
-    agg_index_sigma = input_P$data$agg_index_sigma,
-    index_Neff = input_P$data$index_Neff,
-    remove_agg = TRUE, remove_agg_pointer = 1:3, remove_agg_years = remove_agg_years1,
-    remove_paa = TRUE, remove_paa_pointer = 1:3, remove_paa_years = remove_paa_years1
-  ),
-  update_catch_info = list(
-    agg_catch_sigma = input_P$data$agg_catch_sigma,
-    catch_Neff = input_P$data$catch_Neff
-  ),
-  assess_years = assess.years,
-  assess_interval = assess.interval,
-  base_years = base.years,
-  year.use = 50,
-  add.years = TRUE,
-  seed = 123 + i,
-  hcr = hcr,
-  save.sdrep = FALSE,
-  save.last.em = TRUE,
-  FXSPR_init = 0.5
-)
-
-  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/Documents/MSE_results/Mod.30yr_1_%03d.RDS", i)))
-  }, error=function(e){})
-}
-
- stopCluster(cluster)
-
-```
-
-```{r EcovHistAvgSims}
-
-hcr <- list(hcr.type = 1, hcr.opts = list(use_FXSPR = TRUE, percentFXSPR = 75))
-
-
-
-library(doParallel)
-library(foreach)
-
-cluster <- makeCluster(10)
-registerDoParallel(cluster)
-
-foreach (i = c(1:10)) %dopar% {
-#for(i in 1:10){
-  #tryCatch({
-library(whamMSE) 
-library(wham)
-
-mod <- loop_through_fn(
-  om = om_with_data_P,
-  em_info = info,
-  random = random_P,
-  M_em = M,
-  sel_em = sel3,
-  NAA_re_em = NAA_re,
-  ecov_em = scenarios$HistAvg,
-  ecov_em_opts = ecov_opts,
-  age_comp_em = "logistic-normal-pool0",
-  em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
-  update_index_info = list(
-    agg_index_sigma = input_P$data$agg_index_sigma,
-    index_Neff = input_P$data$index_Neff,
-    remove_agg = TRUE, remove_agg_pointer = 1:3, remove_agg_years = remove_agg_years1,
-    remove_paa = TRUE, remove_paa_pointer = 1:3, remove_paa_years = remove_paa_years1
-  ),
-  update_catch_info = list(
-    agg_catch_sigma = input_P$data$agg_catch_sigma,
-    catch_Neff = input_P$data$catch_Neff
-  ),
-  assess_years = assess.years,
-  assess_interval = assess.interval,
-  base_years = base.years,
-  year.use = 50,
-  add.years = TRUE,
-  seed = 123 + i,
-  hcr = hcr,
-  save.sdrep = FALSE,
-  save.last.em = TRUE,
-  FXSPR_init = 0.5
-)
-
-  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/Documents/MSE_results/Mod.30yr_2_%03d.RDS", i)))
- # }, error=function(e){})
-}
-
-stopCluster(cluster)
-
-```
-
-```{r EcovRecWindSims}
-
-hcr <- list(hcr.type = 1, hcr.opts = list(use_FXSPR = TRUE, percentFXSPR = 75))
-
-
-
-library(doParallel)
-library(foreach)
-
-cluster <- makeCluster(10)
-registerDoParallel(cluster)
-
-foreach (i = c(1:10)) %dopar% {
-#for(i in 1:10){
-  tryCatch({
-  
     library(whamMSE) 
     library(wham)
-
-mod <- loop_through_fn(
-  om = om_with_data_P,
-  em_info = info,
-  random = random_P,
-  M_em = M,
-  sel_em = sel3,
-  NAA_re_em = NAA_re,
-  ecov_em = scenarios$RecWind,
-  ecov_em_opts = ecov_opts,
-  age_comp_em = "logistic-normal-pool0",
-  em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
-  update_index_info = list(
-    agg_index_sigma = input_P$data$agg_index_sigma,
-    index_Neff = input_P$data$index_Neff,
-    remove_agg = TRUE, remove_agg_pointer = 1:3, remove_agg_years = remove_agg_years1,
-    remove_paa = TRUE, remove_paa_pointer = 1:3, remove_paa_years = remove_paa_years1
-  ),
-  update_catch_info = list(
-    agg_catch_sigma = input_P$data$agg_catch_sigma,
-    catch_Neff = input_P$data$catch_Neff
-  ),
-  assess_years = assess.years,
-  assess_interval = assess.interval,
-  base_years = base.years,
-  year.use = 50,
-  add.years = TRUE,
-  seed = 123 + i,
-  hcr = hcr,
-  save.sdrep = FALSE,
-  save.last.em = TRUE,
-  FXSPR_init = 0.5
-)
-
-  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/Documents/MSE_results/Mod.30yr_3_%03d.RDS", i)))
+    
+    
+    mod <- loop_through_fn(
+      om = om_with_data_P,
+      em_info = info,
+      random = random_P,
+      M_em = M,
+      sel_em = sel3,
+      NAA_re_em = NAA_re,
+      ecov_em = scenarios$AR1,
+      ecov_em_opts = ecov_opts,
+      age_comp_em = "logistic-normal-pool0",
+      em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
+      update_index_info = list(
+        agg_index_sigma = input_P$data$agg_index_sigma,
+        index_Neff = input_P$data$index_Neff,
+        remove_agg = TRUE, remove_agg_pointer = 1:3, remove_agg_years = remove_agg_years1,
+        remove_paa = TRUE, remove_paa_pointer = 1:3, remove_paa_years = remove_paa_years1
+      ),
+      update_catch_info = list(
+        agg_catch_sigma = input_P$data$agg_catch_sigma,
+        catch_Neff = input_P$data$catch_Neff
+      ),
+      assess_years = assess.years,
+      assess_interval = assess.interval,
+      base_years = base.years,
+      year.use = 50,
+      add.years = TRUE,
+      seed = 123 + i,
+      hcr = hcr,
+      save.sdrep = FALSE,
+      save.last.em = TRUE,
+      FXSPR_init = 0.5
+    )
+    
+    saveRDS(mod, file.path(sprintf("/home/swulfing_umassd_edu/MSEResults/Outputs/Mod.30yr_1_%03d.RDS", i)))
   }, error=function(e){})
 }
 
 stopCluster(cluster)
 
-```
 
-```{r EcovRecTrendSims}
 
 hcr <- list(hcr.type = 1, hcr.opts = list(use_FXSPR = TRUE, percentFXSPR = 75))
 
@@ -683,55 +529,51 @@ library(foreach)
 cluster <- makeCluster(10)
 registerDoParallel(cluster)
 
-foreach (i = c(1:10)) %dopar% {
-# for(i in 1:10){
-  tryCatch({
-  
+foreach (i = c(1:100)) %dopar% {
+  #for(i in 1:10){
+  #tryCatch({
   library(whamMSE) 
   library(wham)
-    
-mod <- loop_through_fn(
-  om = om_with_data_P,
-  em_info = info,
-  random = random_P,
-  M_em = M,
-  sel_em = sel3,
-  NAA_re_em = NAA_re,
-  ecov_em = scenarios$RecTrend,
-  ecov_em_opts = ecov_opts,
-  age_comp_em = "logistic-normal-pool0",
-  em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
-  update_index_info = list(
-    agg_index_sigma = input_P$data$agg_index_sigma,
-    index_Neff = input_P$data$index_Neff,
-    remove_agg = TRUE, remove_agg_pointer = 1:3, remove_agg_years = remove_agg_years1,
-    remove_paa = TRUE, remove_paa_pointer = 1:3, remove_paa_years = remove_paa_years1
-  ),
-  update_catch_info = list(
-    agg_catch_sigma = input_P$data$agg_catch_sigma,
-    catch_Neff = input_P$data$catch_Neff
-  ),
-  assess_years = assess.years,
-  assess_interval = assess.interval,
-  base_years = base.years,
-  year.use = 50,
-  add.years = TRUE,
-  seed = 123 + i,
-  hcr = hcr,
-  save.sdrep = FALSE,
-  save.last.em = TRUE,
-  FXSPR_init = 0.5
-)
-
-  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/Documents/MSE_results/Mod.30yr_4_%03d.RDS", i)))
-  }, error=function(e){})
+  
+  mod <- loop_through_fn(
+    om = om_with_data_P,
+    em_info = info,
+    random = random_P,
+    M_em = M,
+    sel_em = sel3,
+    NAA_re_em = NAA_re,
+    ecov_em = scenarios$HistAvg,
+    ecov_em_opts = ecov_opts,
+    age_comp_em = "logistic-normal-pool0",
+    em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
+    update_index_info = list(
+      agg_index_sigma = input_P$data$agg_index_sigma,
+      index_Neff = input_P$data$index_Neff,
+      remove_agg = TRUE, remove_agg_pointer = 1:3, remove_agg_years = remove_agg_years1,
+      remove_paa = TRUE, remove_paa_pointer = 1:3, remove_paa_years = remove_paa_years1
+    ),
+    update_catch_info = list(
+      agg_catch_sigma = input_P$data$agg_catch_sigma,
+      catch_Neff = input_P$data$catch_Neff
+    ),
+    assess_years = assess.years,
+    assess_interval = assess.interval,
+    base_years = base.years,
+    year.use = 50,
+    add.years = TRUE,
+    seed = 123 + i,
+    hcr = hcr,
+    save.sdrep = FALSE,
+    save.last.em = TRUE,
+    FXSPR_init = 0.5
+  )
+  
+  saveRDS(mod, file.path(sprintf("/home/swulfing_umassd_edu/MSEResults/Outputs/Mod.30yr_2_%03d.RDS", i)))
+  # }, error=function(e){})
 }
 
 stopCluster(cluster)
 
-```
-
-```{r EcovNoneSims}
 
 hcr <- list(hcr.type = 1, hcr.opts = list(use_FXSPR = TRUE, percentFXSPR = 75))
 
@@ -743,75 +585,187 @@ library(foreach)
 cluster <- makeCluster(10)
 registerDoParallel(cluster)
 
-foreach (i = c(1:10)) %dopar% {
-# for(i in 1:10){
+foreach (i = c(1:100)) %dopar% {
+  #for(i in 1:10){
   tryCatch({
-  
-library(whamMSE) 
-library(wham)
     
+    library(whamMSE) 
+    library(wham)
     
-mod <- loop_through_fn(
-  om = om_with_data_P,
-  em_info = info,
-  random = random_P,
-  M_em = M,
-  sel_em = sel3,
-  NAA_re_em = NAA_re,
-  ecov_em = scenarios$None,
-  ecov_em_opts = ecov_opts,
-  age_comp_em = "logistic-normal-pool0",
-  em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
-  update_index_info = list(
-    agg_index_sigma = input_P$data$agg_index_sigma,
-    index_Neff = input_P$data$index_Neff,
-    remove_agg = TRUE, remove_agg_pointer = 1:3, remove_agg_years = remove_agg_years1,
-    remove_paa = TRUE, remove_paa_pointer = 1:3, remove_paa_years = remove_paa_years1
-  ),
-  update_catch_info = list(
-    agg_catch_sigma = input_P$data$agg_catch_sigma,
-    catch_Neff = input_P$data$catch_Neff
-  ),
-  assess_years = assess.years,
-  assess_interval = assess.interval,
-  base_years = base.years,
-  year.use = 50,
-  add.years = TRUE,
-  seed = 123 + i,
-  hcr = hcr,
-  save.sdrep = FALSE,
-  save.last.em = TRUE,
-  FXSPR_init = 0.5
-)
-
-  saveRDS(mod, file.path(sprintf("C:/Users/swulfing/Documents/MSE_results/Mod.30yr_5_%03d.RDS", i)))
+    mod <- loop_through_fn(
+      om = om_with_data_P,
+      em_info = info,
+      random = random_P,
+      M_em = M,
+      sel_em = sel3,
+      NAA_re_em = NAA_re,
+      ecov_em = scenarios$RecWind,
+      ecov_em_opts = ecov_opts,
+      age_comp_em = "logistic-normal-pool0",
+      em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
+      update_index_info = list(
+        agg_index_sigma = input_P$data$agg_index_sigma,
+        index_Neff = input_P$data$index_Neff,
+        remove_agg = TRUE, remove_agg_pointer = 1:3, remove_agg_years = remove_agg_years1,
+        remove_paa = TRUE, remove_paa_pointer = 1:3, remove_paa_years = remove_paa_years1
+      ),
+      update_catch_info = list(
+        agg_catch_sigma = input_P$data$agg_catch_sigma,
+        catch_Neff = input_P$data$catch_Neff
+      ),
+      assess_years = assess.years,
+      assess_interval = assess.interval,
+      base_years = base.years,
+      year.use = 50,
+      add.years = TRUE,
+      seed = 123 + i,
+      hcr = hcr,
+      save.sdrep = FALSE,
+      save.last.em = TRUE,
+      FXSPR_init = 0.5
+    )
+    
+    saveRDS(mod, file.path(sprintf("/home/swulfing_umassd_edu/MSEResults/Outputs/Mod.30yr_3_%03d.RDS", i)))
   }, error=function(e){})
 }
 
 stopCluster(cluster)
 
-```
 
-```{r sims}
+hcr <- list(hcr.type = 1, hcr.opts = list(use_FXSPR = TRUE, percentFXSPR = 75))
+
+
+
+library(doParallel)
+library(foreach)
+
+cluster <- makeCluster(10)
+registerDoParallel(cluster)
+
+foreach (i = c(1:100)) %dopar% {
+  # for(i in 1:10){
+  tryCatch({
+    
+    library(whamMSE) 
+    library(wham)
+    
+    mod <- loop_through_fn(
+      om = om_with_data_P,
+      em_info = info,
+      random = random_P,
+      M_em = M,
+      sel_em = sel3,
+      NAA_re_em = NAA_re,
+      ecov_em = scenarios$RecTrend,
+      ecov_em_opts = ecov_opts,
+      age_comp_em = "logistic-normal-pool0",
+      em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
+      update_index_info = list(
+        agg_index_sigma = input_P$data$agg_index_sigma,
+        index_Neff = input_P$data$index_Neff,
+        remove_agg = TRUE, remove_agg_pointer = 1:3, remove_agg_years = remove_agg_years1,
+        remove_paa = TRUE, remove_paa_pointer = 1:3, remove_paa_years = remove_paa_years1
+      ),
+      update_catch_info = list(
+        agg_catch_sigma = input_P$data$agg_catch_sigma,
+        catch_Neff = input_P$data$catch_Neff
+      ),
+      assess_years = assess.years,
+      assess_interval = assess.interval,
+      base_years = base.years,
+      year.use = 50,
+      add.years = TRUE,
+      seed = 123 + i,
+      hcr = hcr,
+      save.sdrep = FALSE,
+      save.last.em = TRUE,
+      FXSPR_init = 0.5
+    )
+    
+    saveRDS(mod, file.path(sprintf("/home/swulfing_umassd_edu/MSEResults/Outputs/Mod.30yr_4_%03d.RDS", i)))
+  }, error=function(e){})
+}
+
+stopCluster(cluster)
+
+
+hcr <- list(hcr.type = 1, hcr.opts = list(use_FXSPR = TRUE, percentFXSPR = 75))
+
+
+
+library(doParallel)
+library(foreach)
+
+cluster <- makeCluster(10)
+registerDoParallel(cluster)
+
+foreach (i = c(1:100)) %dopar% {
+  # for(i in 1:10){
+  tryCatch({
+    
+    library(whamMSE) 
+    library(wham)
+    
+    
+    mod <- loop_through_fn(
+      om = om_with_data_P,
+      em_info = info,
+      random = random_P,
+      M_em = M,
+      sel_em = sel3,
+      NAA_re_em = NAA_re,
+      ecov_em = scenarios$None,
+      ecov_em_opts = ecov_opts,
+      age_comp_em = "logistic-normal-pool0",
+      em.opt = list(separate.em = FALSE, separate.em.type = 1, do.move = FALSE, est.move = FALSE),
+      update_index_info = list(
+        agg_index_sigma = input_P$data$agg_index_sigma,
+        index_Neff = input_P$data$index_Neff,
+        remove_agg = TRUE, remove_agg_pointer = 1:3, remove_agg_years = remove_agg_years1,
+        remove_paa = TRUE, remove_paa_pointer = 1:3, remove_paa_years = remove_paa_years1
+      ),
+      update_catch_info = list(
+        agg_catch_sigma = input_P$data$agg_catch_sigma,
+        catch_Neff = input_P$data$catch_Neff
+      ),
+      assess_years = assess.years,
+      assess_interval = assess.interval,
+      base_years = base.years,
+      year.use = 50,
+      add.years = TRUE,
+      seed = 123 + i,
+      hcr = hcr,
+      save.sdrep = FALSE,
+      save.last.em = TRUE,
+      FXSPR_init = 0.5
+    )
+    
+    saveRDS(mod, file.path(sprintf("/home/swulfing_umassd_edu/MSEResults/Outputs/Mod.30yr_5_%03d.RDS", i)))
+  }, error=function(e){})
+}
+
+stopCluster(cluster)
+
+
 
 model_nums <- 1:5
-nsim <- c(1:10) # number of simulations/seed
+nsim <- c(1:100) # number of simulations/seed
 
 mods <- lapply(nsim, function(r) {
   tryCatch({
-  mod_list <- lapply(model_nums, function(m) {
-    file_path <- file.path(sprintf("C:/Users/swulfing/Documents/MSE_results/Mod.30yr_%d_%03d.RDS", m, r))
-    readRDS(file_path)
-  })
-  
-  names(mod_list) <- paste0("Mod", model_nums)
-  
-  return(mod_list)
+    mod_list <- lapply(model_nums, function(m) {
+      file_path <- file.path(sprintf("/home/swulfing_umassd_edu/MSEResults/Outputs/Mod.30yr_%d_%03d.RDS", m, r))
+      readRDS(file_path)
+    })
+    
+    names(mod_list) <- paste0("Mod", model_nums)
+    
+    return(mod_list)
   }, error=function(e){})
 })
 
 
-saveRDS(mods, file = "C:/Users/swulfing/Documents/MSE_results/MSEmods_30yr.rds")
+saveRDS(mods, file = "/home/swulfing_umassd_edu/MSEResults/Outputs/MSEmods_30yr.rds")
 
 
 #mods <- readRDS("C:/Users/swulfing/Documents/MSE_results/MSEmods_30yr.rds")
@@ -828,278 +782,4 @@ plot_mse_output(mods,
                 start.years = 51,
                 use.n.years.first = 1,
                 use.n.years.last = 3)
-
-```
-
-```{r defaultPlotAdjustment}
-# COMMENT THIS OUT
-# rm(list = setdiff(ls(), c('mods','wd','radarPlot_FIX')))
-source('plotFixTest.R')
-
-mods_cleaned <- mods[!sapply(mods, is.null)]
-
-mods <- mods_cleaned
-main_dir <- wd
-main.dir <- main_dir
-output_dir <- "Report_30yr"
-sub.dir <- output_dir
-output_format <- c("png") # or html or png
-width <- 10 
-height <- 7 
-dpi <- 300
-col.opt <- "D"
-new_model_names <- c("Mod_AR1Ecov", "Mod_HistAvgEcov", "Mod_RecWindEcov", "Mod_RecTrendEcov", "Mod_NoEcov")
-base.model <- "Mod_AR1Ecov"
-start.years <- 51
-use.n.years.first <- 1
-use.n.years.last <- 3
-is.nsim <- if (!is.list(mods[[1]][[1]][[1]])) FALSE else TRUE
-method <- "median"
-
-#whamMSE:::plot_model_performance_radar(mods_cleaned, is.nsim, '.', output_dir, width, height, dpi, col.opt, method, use.n.years.first, use.n.years.last, start.years, new_model_names)
-
-FIXEDplot_model_performance_radar(mods_cleaned, is.nsim, main_dir, output_dir, width, height, dpi, col.opt, method, use.n.years.first, use.n.years.last, start.years, new_model_names)
-
-FIXEDplot_model_performance_radar2(mods_cleaned, is.nsim, main_dir, output_dir, width, height, dpi, col.opt, method, use.n.years.first, use.n.years.last, start.years, new_model_names)
-
-FIXEDplot_model_performance_radar3(mods_cleaned, is.nsim, main_dir, output_dir, width, height, dpi, col.opt, method, use.n.years.first, use.n.years.last, start.years, new_model_names)
-
-
-```
-
-```{r ModAnalysis}
-
-# View(mods)
-
-model_names = c("Mod_AR1Ecov", "Mod_HistAvgEcov", "Mod_RecWindEcov", "Mod_RecTrendEcov", "Mod_NoEcov")
-
-om_ests <- data.frame(Year = c(),
-                      Model_name = c(),
-                      seed_no = c(),
-                      Temp = c(),
-                      Obs = c())
-
-em_ests <- data.frame(Year = c(),
-                      Model_name = c(),
-                      seed_no = c(),
-                      Temp = c(),
-                      Obs = c())
-
-catch_advice <- data.frame(Year = c(),
-                      Model_name = c(),
-                      seed_no = c(),
-                      Catch_Advice = c())
-
-for (i in 1:length(mods)){
-  for(k in 1:length(model_nums)){
-    
-      tryCatch({
-    # Set Model info
-    years <- min(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]):(max(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]) + 4) #Year
-    model_name <- rep(model_names[k], length(years)) # Model Name
-    Seed <- rep(i, length(years))
-    
-    # Ecov_x estimates
-    om_ecovx <- mods[[i]][[paste0("Mod",k)]][["om"]][["rep"]][["Ecov_x"]] #OM_ecov Temps
-    em_ecovx <- mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["rep"]][["Ecov_x"]] #EM_ecov Temps
-    # Ecov_Obs estimates
-    om_ecovObs <- mods[[i]][[paste0("Mod",k)]][["om"]][["input"]][["data"]][["Ecov_obs"]]
-    em_ecovObs <- mods[[i]][[paste0("Mod",k)]][["em_input"]][[1]][["data"]][["Ecov_obs"]]
-    advice <- unlist(mods[[i]][[paste0("Mod",k)]][["catch_advice"]])
-    
-    
-    # Dataframes and combine
-    om_list <- data.frame(Year = years, Model_name = model_name, seed_no = Seed, Temp = om_ecovx, Obs = om_ecovObs)
-    em_list <- data.frame(Year = years, Model_name = model_name, seed_no = Seed, Temp = em_ecovx, Obs = em_ecovObs)
-    advice_list <- data.frame(Year = years[51:80], Model_name = model_name[51:80], seed_no = Seed[51:80], Catch_Advice = advice)
-    
-    om_ests <- rbind(om_ests, om_list)
-    em_ests <- rbind(em_ests, em_list)
-    catch_advice <- rbind(catch_advice, advice_list)
-    
-      }, error=function(e){})
-  }
-}
-
-##OM Summary
-
-om_temps <- om_ests %>%
-  filter(Model_name != "Mod_noEcov") %>%
-  group_by(Year) %>%
-  summarize(MeanTemp = mean(Temp), SDTemp = sd(Temp),
-            MeanObs = mean(Obs), SDObs = sd(Obs)) 
-  
-
-## EM Summary
-
-em_temps <- em_ests %>%
-  group_by(Year, Model_name) %>%
-  summarize(MeanTemp = mean(Temp), SDTemp = sd(Temp),
-            MeanObs = mean(Obs), SDObs = sd(Obs)) %>%
-  filter(Model_name != "Mod_noEcov")
-
-
-# Plotting
-ggplot(om_temps, aes(x = Year, y = MeanObs)) +
-  geom_line(colour = 'black') +
-  geom_line(em_temps, mapping = aes(x = Year, y = MeanObs, colour = Model_name)) 
-  #ylim(6,9)
-
-ggplot(om_temps, aes(x = Year, y = MeanTemp)) +
-  geom_line(colour = 'black') +
-  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name)) 
-  #ylim(6,9)
-
-
-ggplot(data.frame(ecov_om), aes(x = year, y = mean)) +
-  geom_line(colour = "black") +
-  geom_line(em_temps, mapping = aes(x = Year, y = MeanTemp, colour = Model_name)) 
-  #ylim(6,9)
-
-
-# OM inputs and outputs comparison
-AR1 <- em_temps %>%
-  filter(Model_name == 'Mod_AR1Ecov')
-
-ecov_df <- data.frame(ecov_om)
-
-ggplot(ecov_df, aes(x = year, y = mean)) +
-  geom_line( aes(x = ecov_df$year, y = ecov_df$mean, color = 'ReadIn')) +
-  geom_line( aes(x = om_temps$Year, y = om_temps$MeanTemp, color = 'MeanTemp')) + 
-  geom_line( aes(x = om_temps$Year, y = om_temps$MeanObs, color = 'MeanObs')) + # SAME AS EM OUTPUT
-  #geom_line( mapping = aes(x = AR1$Year, y = AR1$MeanObs, color = 'OutputEm')) +
-  scale_color_manual(name='Output',
-                     breaks=c('ReadIn', 'MeanTemp', 'MeanObs'), #, 'OutputEm'),
-                     values=c('ReadIn'="green", 
-                              'MeanTemp'="red",
-                              'MeanObs' = "black")) + #,
-                              # 'OutputEm' = 'purple')) +
-  ylab("Bottom Temperature (°C)") +
-  xlab("Year")
-
-
-
-
-
-```
-
-```{r CatchAdvice}
-# NEED TO RUN MODS CHUNK AND CHUNK ABOVE TO CREATE DATAFRAME. idk what to do about this one lol
-advice_plots <- list()
-
-for(i in 1:length(model_names)){
-  plot_data <- catch_advice %>%
-    filter(Model_name == model_names[i])
-  
-  advice_plots[[i]] <- ggplot(plot_data, aes(x = Year, y = Catch_Advice, color = factor(seed_no), 
-                      group = seed_no)) +
-      geom_line() +
-      ggtitle(paste(model_names[i]))
-}
-
-# advice_plots[[5]]
-
-advice_average <- catch_advice %>%
-  group_by(Year, Model_name) %>%
-  summarise(Mean = mean(Catch_Advice), MinEst = min(Catch_Advice), MaxEst = max(Catch_Advice))
-
-
-ggplot(advice_average) +
-  #geom_ribbon(aes(x=Year, ymin=MinEst, ymax=MaxEst, color = Model_name), alpha=0.5) +
-  geom_line(aes(x=Year, y=Mean, color = Model_name))
-```
-
-```{r ssb}
-
-
-em_ssb <- data.frame(Year = c(),
-                      Model_name = c(),
-                      seed_no = c(),
-                      SSB = c(),
-                      CATCH = c())
-
-for (i in 1:length(mods)){
-  for(k in 1:length(model_nums)){
-    tryCatch({
-    # Set Model info
-    years <- min(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]):max(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]) #Year
-    model_name <- rep(model_names[k], length(years)) # Model Name
-    Seed <- rep(i, length(years))
-    
-    # Ecov_x estimates
-    ssb <- mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["rep"]][["SSB"]]
-    catch <- mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["rep"]][["pred_catch"]]
-    
-    
-    # Dataframes and combine
-    em_list <- data.frame(Year = years, Model_name = model_name, seed_no = Seed, SSB = ssb, CATCH = catch)
-    
-    em_ssb <- rbind(em_ssb, em_list)
-  }, error=function(e){})
-  }
-}
-
-## EM Summary
-
-ssb_summary <- em_ssb %>%
-  group_by(Year, Model_name) %>%
-  summarize(MeanSSB = mean(SSB), SDSSB = sd(SSB),
-            MeanCatch = mean(CATCH), SDCatch = sd(CATCH))
-
-
-# Plotting
-ggplot(ssb_summary, aes(x = Year, y = MeanSSB)) +
-  geom_line(aes(colour = Model_name)) +
-  xlim(2022, 2050)
-
-ggplot(ssb_summary, aes(x = Year, y = MeanCatch)) +
-  geom_line(aes(colour = Model_name)) +
-  xlim(2022, 2050)
-```
-
-```{r fbar}
-em_fbar <- data.frame(Year = c(),
-                      Model_name = c(),
-                      seed_no = c(),
-                      FBAR = c())
-
-for (i in 1:length(mods)){
-  for(k in 1:length(model_nums)){
-    tryCatch({
-    # Set Model info
-    years <- min(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]):max(mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["years"]]) #Year
-    model_name <- rep(model_names[k], length(years)) # Model Name
-    Seed <- rep(i, length(years))
-    
-    # Ecov_x estimates
-    fbar <- mods[[i]][[paste0("Mod",k)]][["em_full"]][[1]][["rep"]][["Fbar"]][,1]
-    
-    
-    # Dataframes and combine
-    em_list <- data.frame(Year = years, Model_name = model_name, seed_no = Seed, FBAR = fbar)
-    
-    em_fbar <- rbind(em_fbar, em_list)
-    }, error=function(e){})
-  }
-}
-
-## EM Summary
-
-fbar_summary <- em_fbar %>%
-  group_by(Year, Model_name) %>%
-  summarize(MeanFBAR = mean(FBAR), SDFBAR = sd(FBAR))
-
-
-# Plotting
-ggplot(fbar_summary, aes(x = Year, y = MeanFBAR)) +
-  geom_line(aes(colour = Model_name)) +
-  xlim(2022, 2050)
-
-
-
-```
-
-
-
-
 

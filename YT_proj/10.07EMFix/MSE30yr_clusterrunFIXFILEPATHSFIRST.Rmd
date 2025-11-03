@@ -16,7 +16,6 @@ remotes::install_github("lichengxue/whamMSE@UMassD-MSE")
 library(whamMSE)
 library(dplyr)
 library(ggplot2)
-library(viridis)
 
 gb_dat <- read_asap3_dat("GBK.DAT")
 om_ecov <- readRDS("om_ecov.rds") # This is your base operating model
@@ -453,17 +452,7 @@ ecov_opts <- list(use_ecov_em = TRUE,
 
 
 ####################### PLOTTING ###############################################
-# STILL FIXING COLORS HERE 
-# colors <- viridisLite::viridis(n = 5, option = "D")
-#  scale_color_manual(name='Model',
-#                      breaks=c('OM', 'AR1', 'RecWind', 'HistAvg', 'RecTrend'),
-#                      values=c('OM'="#000000", 
-#                               'AR1' = colors[1],
-#                               'RecWind' = colors[3] ,
-#                               'HistAvg' =  colors[2],
-#                               'RecTrend' = colors[4] )) +
-
-EMtempPlot <- ggplot(data.frame(ecov_om), aes(x = year, y = mean)) +
+ggplot(data.frame(ecov_om), aes(x = year, y = mean)) +
   #geom_line(aes(color = "OM")) +
   geom_line( aes(x = scenarios[["AR1"]][["year"]], y = scenarios[["AR1"]][["mean"]], color = 'AR1')) +
   geom_line( aes(x = scenarios[["HistAvg"]][["year"]], y = scenarios[["HistAvg"]][["mean"]], color = 'HistAvg')) +
@@ -480,8 +469,6 @@ EMtempPlot <- ggplot(data.frame(ecov_om), aes(x = year, y = mean)) +
   ylab("Bottom Temperature (°C)") +
   xlab("Year")
   #xlim(2019,2052)
-
-ggsave('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/EMtempPlot.png', plot = tempPlot)
 ########################################################################################################
 ```
 
@@ -503,7 +490,7 @@ library(foreach)
 cluster <- makeCluster(10)
 registerDoParallel(cluster)
 
-foreach (i = c(1:10)) %dopar% {
+foreach (i = c(1:100)) %dopar% {
 # for(i in 1:10){
   tryCatch({
     
@@ -564,7 +551,7 @@ library(foreach)
 cluster <- makeCluster(10)
 registerDoParallel(cluster)
 
-foreach (i = c(1:10)) %dopar% {
+foreach (i = c(1:100)) %dopar% {
 #for(i in 1:10){
   #tryCatch({
 library(whamMSE) 
@@ -623,7 +610,7 @@ library(foreach)
 cluster <- makeCluster(10)
 registerDoParallel(cluster)
 
-foreach (i = c(1:10)) %dopar% {
+foreach (i = c(1:100)) %dopar% {
 #for(i in 1:10){
   tryCatch({
   
@@ -683,7 +670,7 @@ library(foreach)
 cluster <- makeCluster(10)
 registerDoParallel(cluster)
 
-foreach (i = c(1:10)) %dopar% {
+foreach (i = c(1:100)) %dopar% {
 # for(i in 1:10){
   tryCatch({
   
@@ -743,7 +730,7 @@ library(foreach)
 cluster <- makeCluster(10)
 registerDoParallel(cluster)
 
-foreach (i = c(1:10)) %dopar% {
+foreach (i = c(1:100)) %dopar% {
 # for(i in 1:10){
   tryCatch({
   
@@ -795,7 +782,7 @@ stopCluster(cluster)
 ```{r sims}
 
 model_nums <- 1:5
-nsim <- c(1:10) # number of simulations/seed
+nsim <- c(1:100) # number of simulations/seed
 
 mods <- lapply(nsim, function(r) {
   tryCatch({
@@ -885,11 +872,6 @@ em_ests <- data.frame(Year = c(),
                       Temp = c(),
                       Obs = c())
 
-catch_advice <- data.frame(Year = c(),
-                      Model_name = c(),
-                      seed_no = c(),
-                      Catch_Advice = c())
-
 for (i in 1:length(mods)){
   for(k in 1:length(model_nums)){
     
@@ -905,18 +887,14 @@ for (i in 1:length(mods)){
     # Ecov_Obs estimates
     om_ecovObs <- mods[[i]][[paste0("Mod",k)]][["om"]][["input"]][["data"]][["Ecov_obs"]]
     em_ecovObs <- mods[[i]][[paste0("Mod",k)]][["em_input"]][[1]][["data"]][["Ecov_obs"]]
-    advice <- unlist(mods[[i]][[paste0("Mod",k)]][["catch_advice"]])
     
     
     # Dataframes and combine
     om_list <- data.frame(Year = years, Model_name = model_name, seed_no = Seed, Temp = om_ecovx, Obs = om_ecovObs)
     em_list <- data.frame(Year = years, Model_name = model_name, seed_no = Seed, Temp = em_ecovx, Obs = em_ecovObs)
-    advice_list <- data.frame(Year = years[51:80], Model_name = model_name[51:80], seed_no = Seed[51:80], Catch_Advice = advice)
     
     om_ests <- rbind(om_ests, om_list)
     em_ests <- rbind(em_ests, em_list)
-    catch_advice <- rbind(catch_advice, advice_list)
-    
       }, error=function(e){})
   }
 }
@@ -981,32 +959,6 @@ ggplot(ecov_df, aes(x = year, y = mean)) +
 
 
 
-```
-
-```{r CatchAdvice}
-# NEED TO RUN MODS CHUNK AND CHUNK ABOVE TO CREATE DATAFRAME. idk what to do about this one lol
-advice_plots <- list()
-
-for(i in 1:length(model_names)){
-  plot_data <- catch_advice %>%
-    filter(Model_name == model_names[i])
-  
-  advice_plots[[i]] <- ggplot(plot_data, aes(x = Year, y = Catch_Advice, color = factor(seed_no), 
-                      group = seed_no)) +
-      geom_line() +
-      ggtitle(paste(model_names[i]))
-}
-
-# advice_plots[[5]]
-
-advice_average <- catch_advice %>%
-  group_by(Year, Model_name) %>%
-  summarise(Mean = mean(Catch_Advice), MinEst = min(Catch_Advice), MaxEst = max(Catch_Advice))
-
-
-ggplot(advice_average) +
-  #geom_ribbon(aes(x=Year, ymin=MinEst, ymax=MaxEst, color = Model_name), alpha=0.5) +
-  geom_line(aes(x=Year, y=Mean, color = Model_name))
 ```
 
 ```{r ssb}
