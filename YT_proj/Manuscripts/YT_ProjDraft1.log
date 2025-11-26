@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.17)  3 NOV 2025 13:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.25)  25 NOV 2025 19:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **YT_ProjDraft1.tex
 (./YT_ProjDraft1.tex
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-06>
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size12.clo
@@ -23,7 +23,7 @@ File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip50
 \bibindent=\dimen148
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2025/06/16 v2.17y AMS math features
+Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip51
 For additional information on amsmath, use the `?' option.
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -83,8 +83,8 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \multlinegap=\skip52
 \multlinetaggap=\skip53
 \mathdisplay@stack=\toks21
-LaTeX Info: Redefining \[ on input line 2949.
-LaTeX Info: Redefining \] on input line 2950.
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
@@ -97,7 +97,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks22
@@ -177,7 +177,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen165
 \Gm@dimlist=\toks25
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
 \LTleft=\skip54
 \LTright=\skip55
 \LTpre=\skip56
@@ -214,7 +214,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count306
 \@thisrulewidth=\dimen179
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \col@sep=\dimen180
 \ar@mcellbox=\box60
 \extrarowheight=\dimen181
@@ -401,7 +401,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 115
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count331
 ) (./YT_ProjDraft1.aux)
 \openout1 = `YT_ProjDraft1.aux'.
@@ -494,81 +494,42 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 123.
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-[1
+) [1
 
 {c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 133.
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
+) [2] [3] [4] [5] [6]
+<Plots/Biases/EMtempPlot.png, id=40, 528.7755pt x 327.1422pt>
+File: Plots/Biases/EMtempPlot.png Graphic file (type png)
+<use Plots/Biases/EMtempPlot.png>
+Package pdftex.def Info: Plots/Biases/EMtempPlot.png  used on input line 158.
+(pdftex.def)             Requested size: 528.79842pt x 327.15636pt.
 
-[2]
-
-[3]
-
-[4]
-Underfull \hbox (badness 1533) in paragraph at lines 149--150
-\T1/lmr/m/n/12 (WHAM). WHAM was de-vel-oped by re-searchers at NEFSC, and is a state-space
+Overfull \hbox (59.0434pt too wide) in paragraph at lines 158--158
+[][] 
  []
 
-
-Underfull \hbox (badness 1817) in paragraph at lines 149--150
-\T1/lmr/m/n/12 stock as-sess-ment model which in-cor-po-rates cli-mate vari-ables into fish-ery pro-cesses
- []
-
-
-
-[5]
-<Plots/EMtempPlot.png, id=35, 505.89pt x 505.89pt>
-File: Plots/EMtempPlot.png Graphic file (type png)
-<use Plots/EMtempPlot.png>
-Package pdftex.def Info: Plots/EMtempPlot.png  used on input line 160.
-(pdftex.def)             Requested size: 469.76265pt x 469.76265pt.
-
-
-[6]
-
-[7 <./Plots/EMtempPlot.png>]
-
-[8]
-
-[9]
-
-[10]
-
-[11]
-
-[12]
-
-[13]
-
-[14]
-
-[15]
-
-[16]
-
-[17] (./YT_ProjDraft1.aux)
+[7] [8 <./Plots/Biases/EMtempPlot.png>] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] (./YT_ProjDraft1.aux)
  ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-06>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 12026 strings out of 469729
- 187759 string characters out of 5475392
- 596446 words of memory out of 5000000
- 40213 multiletter control sequences out of 15000+600000
+ 12042 strings out of 469519
+ 188254 string characters out of 5467703
+ 600017 words of memory out of 5000000
+ 40435 multiletter control sequences out of 15000+600000
  668861 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 83i,6n,93p,1944b,553s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,6n,93p,1947b,557s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on YT_ProjDraft1.pdf (17 pages, 603637 bytes).
+Output written on YT_ProjDraft1.pdf (18 pages, 603377 bytes).
 PDF statistics:
- 238 PDF objects out of 1000 (max. 8388607)
- 201 compressed objects within 3 object streams
- 66 named destinations out of 1000 (max. 500000)
+ 245 PDF objects out of 1000 (max. 8388607)
+ 207 compressed objects within 3 object streams
+ 68 named destinations out of 1000 (max. 500000)
  30 words of extra memory for PDF output out of 10000 (max. 10000000)
 

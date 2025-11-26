@@ -1,0 +1,294 @@
+---
+title: "Results_figs"
+author: "Sophie Wulfing"
+date: "2025-11-18"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE, warning = FALSE)
+
+library(png)
+library(ggplot2)
+library(dplyr)
+library(knitr)
+library(ggpubr)
+library(gridExtra)
+
+PlotLocations <- 'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots'
+
+ModNames_proj <- c("Mod_AR1Ecov", "Mod_HistAvgEcov", "Mod_RecWindEcov", "Mod_RecTrendEcov", "Mod_TermYear", "Mod_NoEcov")
+ModNames_bias <-  c("Mod_AR1Ecov", "Mod_LOWEcov", "Mod_MEDLOWEcov", "Mod_MEDEcov", "Mod_HIGHEcov", "Mod_NoEcov")
+ModNames_biasOMs <- c("Mod_LOWEcov", "Mod_MEDLOWEcov", "Mod_MEDEcov", "Mod_HIGHEcov")
+
+Proj_ests <- readRDS('C:/Users/swulfing/Documents/MSE_results/Combo/Projections_data.rds')
+Bias_ests <- readRDS('C:/Users/swulfing/Documents/MSE_results/Biases/Biases_data.rds')
+
+```
+
+```{r paramEsts}
+# MAKE A TABLE OF THE PARAMETER ESTIMATES
+#Proj_ests <- as.data.frame(Proj_ests)
+
+# PROJECTIONS
+paramEsts_projs <- Proj_ests %>%
+  group_by(EM_name) %>%
+  summarize(OM_ecov = round(mean(Ecov_processPars_mean_overall), digits = 3),
+          mean_ecov = round(mean(Ecov_processPars_mean_assessment), digits = 3),
+          sd_ecov = round(mean(Ecov_processPars_sd_assessment), digits = 3),
+          rho = round(mean(Ecov_processPars_rho_assessment), digits = 3))
+
+#Ecov_processPars_mean
+
+kable(paramEsts_projs, caption = 'Ecov parameter estimates, sd, and rho for each EM for projections test')
+
+
+# BIASES
+meanTable_bias <- data.frame(EM_name = ModNames_bias)
+sdTable_bias <- data.frame(EM_name = ModNames_bias)
+rhoTable_bias <- data.frame(EM_name = ModNames_bias)
+
+for(i in 1:4){
+  data_use <- Bias_ests[[i]]
+  
+  #mean
+  data_clean <- data_use %>%
+  group_by(EM_name) %>%
+  summarize(ecov_mean = round(mean(Ecov_processPars_mean_overall), digits = 3))
+  
+  colnames(data_clean) <- c('EM_name', names(Bias_ests[i]) )
+  
+  meanTable_bias <- merge(meanTable_bias, data_clean, by = 'EM_name')
+
+  #sd
+  data_clean <- data_use %>%
+  group_by(EM_name) %>%
+  summarize(ecov_mean = round(mean(Ecov_processPars_sd_overall), digits = 3))
+  
+  colnames(data_clean) <- c('EM_name', names(Bias_ests[i]) )
+  
+  sdTable_bias <- merge(sdTable_bias, data_clean, by = 'EM_name')
+  
+  #logit_rho
+  data_clean <- data_use %>%
+  group_by(EM_name) %>%
+  summarize(ecov_mean = round(mean(Ecov_processPars_rho_overall), digits = 3))
+  
+  colnames(data_clean) <- c('EM_name', names(Bias_ests[i]) )
+  
+  rhoTable_bias <- merge(rhoTable_bias, data_clean, by = 'EM_name')
+}
+
+
+
+#Ecov_processPars_mean
+
+#kable(paramEsts_projs, caption = 'Ecov parameter estimates, sd, and logit_rho for each EM for projections test')
+
+kable(meanTable_bias, caption = 'mean ecov parameter estimates, or each EM and OM for bias test')
+
+kable(sdTable_bias, caption = 'mean sd estimates, or each EM and OM for bias test')
+
+kable(rhoTable_bias, caption = 'rho parameter estimates, or each EM and OM for bias test')
+
+```
+
+```{r paramEsts_yearly_proj}
+# Write the yearly estimations
+paramEsts_yearly <- Proj_ests %>%
+  group_by(EM_name,Year) %>%
+  summarize(OM_ecov = mean(Ecov_processPars_mean_overall),
+          EM_ecov = mean(Ecov_processPars_mean_assessment))
+
+paramEsts_yearly$EM_ecov <- seq(1,nrow(paramEsts_yearly), by = 1)
+
+ggplot(paramEsts_yearly, aes(x = Year, y = EM_ecov, color = EM_name)) +
+  geom_line()
+
+
+print(YearlyParams_proj)
+ggsave(paste0(PlotLocations,'/YearlyParams_proj.png'), plot = YearlyParams_proj)
+
+```
+
+```{r paramEsts_yearly_bias}
+# Write the yearly estimations
+p <- list()
+
+for(i in 1:4){
+paramEsts_yearly <- Bias_ests[[i]] %>%
+  group_by(EM_name,Year) %>%
+  summarize(OM_ecov = mean(Ecov_processPars_mean_overall),
+          EM_ecov = mean(Ecov_processPars_mean_assessment))
+
+paramEsts_yearly$EM_ecov <- seq(1,nrow(paramEsts_yearly), by = 1)
+
+p[[i]] <- ggplot(paramEsts_yearly, aes(x = Year, y = EM_ecov, color = EM_name)) +
+  geom_line()
+
+
+#print(YearlyParams_proj)
+#ggsave(paste0(PlotLocations,'/YearlyParams_proj.png'), plot = YearlyParams_proj)
+}
+
+ggpubr::ggarrange(p[[1]], p[[2]], p[[3]], p[[4]], nrow = 4, common.legend = TRUE, legend = 'right')
+
+```
+
+```{r catchAdvice_proj, fig.cap = 'mean catch advice for each EM in projections test'}
+
+# resulting catch advice
+
+catchAdvice_projs <- Proj_ests %>%
+  filter(Year >= 2024) %>%
+  group_by(EM_name, Year) %>%
+  summarize(mean_catchAdvice = mean(Catch_advice),
+          sd_catchAdvice = sd(Catch_advice))
+
+ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_catchAdvice, group = EM_name, color = EM_name)) +
+  geom_ribbon(aes(ymin = mean_catchAdvice - sd_catchAdvice, ymax = mean_catchAdvice + sd_catchAdvice, fill = EM_name), alpha = 0.2) +
+  geom_line()
+```
+
+```{r catchAdvicd_bias, fig.cap = 'mean catch advice for each EM in projections test'}
+
+# Biases
+catchAdvice_plots <- list()
+for(i in 1:4){
+  data_use <- Bias_ests[[i]]
+  
+  data_clean <- data_use %>%
+  filter(Year >= 2024) %>%
+  group_by(EM_name, Year) %>%
+  summarize(mean_catchAdvice = mean(Catch_advice),
+          sd_catchAdvice = sd(Catch_advice))
+  
+  catchAdvice_plots[[i]] <- 
+    ggplot(data = data_clean, aes(x = Year, y = mean_catchAdvice, group = EM_name, color = EM_name)) +
+  geom_ribbon(aes(ymin = mean_catchAdvice - sd_catchAdvice, ymax = mean_catchAdvice + sd_catchAdvice, fill = EM_name), alpha = 0.2) +
+  geom_line() +
+  ggtitle(names(Bias_ests[i])) +
+  ylab ("Catch Advice") +
+  theme(legend.position  = 'none')
+  
+}
+
+ggarrange(catchAdvice_plots[[1]], catchAdvice_plots[[2]], catchAdvice_plots[[3]], catchAdvice_plots[[4]], ncol = 2, nrow = 2, common.legend = TRUE, legend = 'right')
+
+```
+
+```{r proj_terminal3_ssb_catch_fbar,out.width="30%",fig.cap="fBar, SSB, and catch of terminal 3 years of MSE in projections test",fig.show='hold',fig.align='center'}
+
+knitr::include_graphics(c("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png",
+                        "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png",
+                        "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Projections/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png"))
+
+
+
+```
+
+```{r bias_terminal3_ssb,out.width="50%",out.height = '50%', fig.cap="SSB of terminal 3 years of all OM tests of bias test",fig.show='hold',fig.align='center'}
+
+
+bias_plots <- list(ssb = c(),
+                   catch = c(),
+                   fbar = c())
+for(i in 1:4){
+  
+  bias_plots$ssb[i] <- paste0('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_',i,'/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png')
+  bias_plots$catch[i] <- paste0('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_',i,'/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png')
+  bias_plots$fbar[i] <- paste0('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_',i,'/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png')
+  
+}
+# ssb1 <- readPNG(bias_plots$ssb[1])
+# ssb2 <- readPNG(bias_plots$ssb[2])
+# ssb3 <- readPNG(bias_plots$ssb[3])
+# ssb4 <- readPNG(bias_plots$ssb[4])
+knitr::include_graphics(c(bias_plots$ssb[1:4]))
+# library(cowplot)
+# plot_grid(bias_plots$ssb[1], bias_plots$ssb[2], bias_plots$ssb[3], bias_plots$ssb[4], ncol = 2)
+```
+
+```{r bias_terminal3_catch,out.width="50%",fig.cap="SSB of terminal 3 years of all OM tests of bias test",fig.show='hold',fig.align='center'}
+
+#image1 <- readPNG()
+knitr::include_graphics(c(bias_plots$catch[1:4]))
+```
+
+```{r bias_terminal3_fbar,out.width="50%",fig.cap="SSB of terminal 3 years of all OM tests of bias test",fig.show='hold',fig.align='center'}
+
+
+knitr::include_graphics(c(bias_plots$fbar[1:4]))
+```
+
+```{r proj_spiderPlots, out.width="50%",fig.cap="Radar charts of projection test",fig.show='hold',fig.align='center'}
+
+knitr::include_graphics(c('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png','C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png'))
+
+
+```
+
+```{r bias_spiderPlot_OM1,out.width="50%",out.height = '50%', fig.cap="OM1 Radar charts of bias test",fig.show='hold',fig.align='center'}
+
+knitr::include_graphics(c('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png','C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png'))
+
+
+```
+
+```{r bias_spiderPlot_OM2,out.width="50%",out.height = '50%', fig.cap="OM2 Radar charts of bias test",fig.show='hold',fig.align='center'}
+
+knitr::include_graphics(c('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png','C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png'))
+
+
+```
+
+```{r bias_spiderPlot_OM3,out.width="50%",out.height = '50%', fig.cap="OM3 Radar charts of bias test",fig.show='hold',fig.align='center'}
+
+knitr::include_graphics(c('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png','C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png'))
+
+
+```
+
+```{r bias_spiderPlot_OM4,out.width="50%",out.height = '50%', fig.cap="OM4 Radar charts of bias test",fig.show='hold',fig.align='center'}
+
+knitr::include_graphics(c('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png','C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png'))
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
