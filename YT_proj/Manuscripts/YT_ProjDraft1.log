@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.26)  3 DEC 2025 13:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.26)  8 DEC 2025 17:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -523,69 +523,75 @@ Overfull \hbox (60.26408pt too wide) in paragraph at lines 166--166
  []
 
 [9] [10 <./Plots/Combo/EMtempPlot.png>]
-<YT_ProjDraft1_files/figure-latex/paramEstsbias-1.pdf, id=68, 469.755pt x 325.215pt>
+<YT_ProjDraft1_files/figure-latex/paramEstsbias-1.pdf, id=66, 469.755pt x 325.215pt>
 File: YT_ProjDraft1_files/figure-latex/paramEstsbias-1.pdf Graphic file (type pdf)
 <use YT_ProjDraft1_files/figure-latex/paramEstsbias-1.pdf>
 Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/paramEstsbias-1.pdf  used on input line 179.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-LaTeX Warning: Reference `fig:timeseriesparam' on page 11 undefined on input line 233.
+LaTeX Warning: Reference `fig:timeseriesparam' on page 11 undefined on input line 210.
 
 
-LaTeX Warning: Reference `fig:timeseriesproj' on page 11 undefined on input line 233.
+LaTeX Warning: Reference `fig:timeseriesproj' on page 11 undefined on input line 210.
 
 [11{c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc} <./YT_ProjDraft1_files/figure-latex/paramEstsbias-1.pdf>]
-<Plots/YearlyParams_proj.png, id=86, 528.2937pt x 325.9377pt>
-File: Plots/YearlyParams_proj.png Graphic file (type png)
-<use Plots/YearlyParams_proj.png>
-Package pdftex.def Info: Plots/YearlyParams_proj.png  used on input line 235.
-(pdftex.def)             Requested size: 528.34077pt x 325.96672pt.
-
-Overfull \hbox (58.58575pt too wide) in paragraph at lines 235--236
-[][] 
- []
-
-[12]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 237.
+<YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf, id=84, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf  used on input line 212.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf, id=85, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf  used on input line 214.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[12 <./YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf>]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 216.
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf, id=91, 469.755pt x 325.215pt>
+<YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf, id=98, 469.755pt x 325.215pt>
 File: YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf Graphic file (type pdf)
 <use YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf>
-Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf  used on input line 243.
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf  used on input line 222.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<YT_ProjDraft1_files/figure-latex/timeseriesproj-2.pdf, id=92, 469.755pt x 325.215pt>
+<YT_ProjDraft1_files/figure-latex/timeseriesproj-2.pdf, id=99, 469.755pt x 325.215pt>
 File: YT_ProjDraft1_files/figure-latex/timeseriesproj-2.pdf Graphic file (type pdf)
 <use YT_ProjDraft1_files/figure-latex/timeseriesproj-2.pdf>
-Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/timeseriesproj-2.pdf  used on input line 254.
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/timeseriesproj-2.pdf  used on input line 233.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=95, 722.7pt x 505.89pt>
+<YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf, id=102, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf  used on input line 245.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[13 <./YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf>] [14 <./YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf>] [15 <./YT_ProjDraft1_files/figure-latex/timeseriesproj-2.pdf>]
+<Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=144, 722.7pt x 505.89pt>
 File: Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png Graphic file (type png)
 <use Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png>
-Package pdftex.def Info: Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 267.
+Package pdftex.def Info: Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 248.
 (pdftex.def)             Requested size: 722.70924pt x 505.89645pt.
 
-Overfull \hbox (252.95422pt too wide) in paragraph at lines 267--267
+Overfull \hbox (252.95422pt too wide) in paragraph at lines 248--248
 [][] 
  []
 
-<Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png, id=96, 722.7pt x 505.89pt>
+<Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png, id=145, 722.7pt x 505.89pt>
 File: Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png Graphic file (type png)
 <use Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png>
-Package pdftex.def Info: Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png  used on input line 272.
+Package pdftex.def Info: Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png  used on input line 253.
 (pdftex.def)             Requested size: 140.92041pt x 98.64429pt.
-<Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png, id=97, 722.7pt x 505.89pt>
+<Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png, id=146, 722.7pt x 505.89pt>
 File: Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png Graphic file (type png)
 <use Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png>
-Package pdftex.def Info: Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png  used on input line 272.
+Package pdftex.def Info: Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png  used on input line 253.
 (pdftex.def)             Requested size: 140.92041pt x 98.64429pt.
-<Plots/Combo/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png, id=98, 722.7pt x 505.89pt>
+<Plots/Combo/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png, id=147, 722.7pt x 505.89pt>
 File: Plots/Combo/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png Graphic file (type png)
 <use Plots/Combo/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png>
-Package pdftex.def Info: Plots/Combo/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png  used on input line 272.
+Package pdftex.def Info: Plots/Combo/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png  used on input line 253.
 (pdftex.def)             Requested size: 140.92041pt x 98.64429pt.
-[13 <./Plots/YearlyParams_proj.png>] [14 <./YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf>] [15 <./YT_ProjDraft1_files/figure-latex/timeseriesproj-2.pdf>] [16 <./Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png>] [17 <./Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.PNG> <./Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.PNG> <./Plots/Combo/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.PNG>] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] (./YT_ProjDraft1.aux)
+[16 <./YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf>] [17 <./Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png>] [18 <./Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.PNG> <./Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.PNG> <./Plots/Combo/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.PNG>] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] (./YT_ProjDraft1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-14>
@@ -595,18 +601,18 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 12228 strings out of 469519
- 195735 string characters out of 5467979
- 603571 words of memory out of 5000000
- 40591 multiletter control sequences out of 15000+600000
+ 12237 strings out of 469519
+ 196720 string characters out of 5467979
+ 602490 words of memory out of 5000000
+ 40600 multiletter control sequences out of 15000+600000
  675176 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 83i,8n,93p,2882b,566s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,8n,93p,2882b,557s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on YT_ProjDraft1.pdf (28 pages, 2014660 bytes).
+Output written on YT_ProjDraft1.pdf (29 pages, 1881621 bytes).
 PDF statistics:
- 381 PDF objects out of 1000 (max. 8388607)
- 311 compressed objects within 4 object streams
+ 409 PDF objects out of 1000 (max. 8388607)
+ 330 compressed objects within 4 object streams
  94 named destinations out of 1000 (max. 500000)
- 107 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 117 words of extra memory for PDF output out of 10000 (max. 10000000)
 

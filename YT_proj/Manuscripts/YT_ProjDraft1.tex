@@ -172,7 +172,7 @@ After the MSE process was conducted in both experiments, we compared the outputs
 
 \subsection{Bias Tests}\label{bias-tests}
 
-The estimated parameters for the environmental link are shown in figure \ref{fig:paramEstsbias} compared to that of the OM in each bias test, and the estimated logit rho is shown in table \ref{tab:rhoTablebias}. Here, we see estimated parameters ranging from 7.449 - 8.904. Generally, the EM tended to underestimate the environmental covariate compared to the OM, with the exception of High EM and the AR1 EM compared with the MediumLow OM With the exception of the MediumLowEcov, the highest logit rho (or the models whose variation was most explained by the model) for the OMs using both the highest and lowest biased projections were the EM with the highest bias, HighEcov. However, when looking at how the ecov is updated with every assessment step in the mode, the updated parameter estimates do not diverge from the `true' estimate in the OM, even though the underlying temperatures take different trajectories. As a result, the subsequent catch advice from the EMs, spawning stock biomass (SSB), fishing mortality (\(\bar{F}\)), and predicted catch from the OM stays relatively consistent across EMs over the time series. These figures are provided in the supplemental material.
+The estimated parameters for the environmental link are shown in figure \ref{fig:paramEstsbias} compared to that of the OM in each bias test. Here, we see FIX THIS HERE estimated parameters ranging from 7.449 - 8.904. Generally, the EM tended to underestimate the environmental covariate compared to the OM, with the exception of High EM and the AR1 EM compared with the MediumLow OM With the exception of the MediumLowEcov, the highest logit rho (or the models whose variation was most explained by the model) for the OMs using both the highest and lowest biased projections were the EM with the highest bias, HighEcov. However, when looking at how the ecov is updated with every assessment step in the mode, the updated parameter estimates do not diverge from the `true' estimate in the OM, even though the underlying temperatures take different trajectories. As a result, the subsequent catch advice from the EMs, spawning stock biomass (SSB), fishing mortality (\(\bar{F}\)), and predicted catch from the OM stays relatively consistent across EMs over the time series. These figures are provided in the supplemental material.
 
 \begin{figure}
 \centering
@@ -182,48 +182,25 @@ The estimated parameters for the environmental link are shown in figure \ref{fig
 
 \begin{table}
 
-\caption{\label{tab:rhoTablebias}Rho parameter estimates from each EM tested against each OM}
+\caption{\label{tab:paramEstsproj}Ecov parameter estimates, standard deviation, and rho for each EM for projection}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
-EM\_name & OM\_1 & OM\_2 & OM\_3 & OM\_4\\
+EM\_name & OM\_ecov & mean\_ecov & PercentChange & sd\_ecov\\
 \hline
-Mod\_AR1Ecov & 0.990 & 0.971 & 0.987 & 0.987\\
+Mod\_AR1Ecov & -0.397 & -0.455 & 14.610 & 0.186\\
 \hline
-Mod\_HIGHEcov & 0.994 & 0.976 & 0.991 & 0.991\\
+Mod\_BadProj & -0.397 & -0.349 & -12.091 & 0.156\\
 \hline
-Mod\_LOWEcov & 0.920 & 0.922 & 0.939 & 0.945\\
+Mod\_GoodProj & -0.397 & -0.278 & -29.975 & 0.138\\
 \hline
-Mod\_MEDEcov & 0.988 & 0.986 & 0.983 & 0.983\\
+Mod\_HistAvgEcov & -0.397 & -0.535 & 34.761 & 0.188\\
 \hline
-Mod\_MEDLOWEcov & 0.919 & 0.919 & 0.931 & 0.942\\
+Mod\_RecTrendEcov & -0.397 & -0.278 & -29.975 & 0.124\\
 \hline
-Mod\_NoEcov & 0.992 & 0.992 & 0.992 & 0.986\\
+Mod\_RecWindEcov & -0.397 & -0.402 & 1.259 & 0.147\\
 \hline
-\end{tabular}
-\end{table}
-
-\begin{table}
-
-\caption{\label{tab:paramEstsproj}Ecov parameter estimates, standard deviation, and rho for each EM for projection}
-\centering
-\begin{tabular}[t]{l|r|r|r|r|r}
-\hline
-EM\_name & OM\_ecov & mean\_ecov & PercentChange & sd\_ecov & rho\\
-\hline
-Mod\_AR1Ecov & 7.932 & 7.935 & 0.038 & 0.235 & 0.970\\
-\hline
-Mod\_BadProj & 7.764 & 7.707 & -0.734 & 0.338 & 0.937\\
-\hline
-Mod\_GoodProj & 8.441 & 8.203 & -2.820 & 0.340 & 0.981\\
-\hline
-Mod\_HistAvgEcov & 7.485 & 7.378 & -1.430 & 0.348 & 0.863\\
-\hline
-Mod\_RecTrendEcov & 7.888 & 7.832 & -0.710 & 0.691 & 0.863\\
-\hline
-Mod\_RecWindEcov & 7.847 & 7.845 & -0.025 & 0.320 & 0.942\\
-\hline
-Mod\_TermYear & 8.047 & 7.932 & -1.429 & 0.304 & 0.972\\
+Mod\_TermYear & -0.397 & -0.326 & -17.884 & 0.134\\
 \hline
 \end{tabular}
 \end{table}
@@ -232,7 +209,9 @@ Mod\_TermYear & 8.047 & 7.932 & -1.429 & 0.304 & 0.972\\
 
 When comparing the parameter for the environmental covariate across different projections (table \ref{tab:paramEstsproj}), the highest parameter estimate came from the `Good' projection which follows the general temperature trend of the OM. This model also had the highest logit rho value. The lowest parameter estimate was calculated from the EM which uses the historical average, which along with the recent trend projection, had the lowest logit rho value. Similar to the bias tests, the calculated parameter estimates at each assessment year did not appear to diverge from the estimate in the OM \ref{fig:timeseriesparam}. Figure \ref{fig:timeseriesproj} shows the catch advice, SSB, \(\bar{F}\), and predicted catch from the OM of each projection test. Similar to the bias tests, these model outputs were very similar and all converged to similar estimations.
 
-\includegraphics[width=30.46in]{Plots/YearlyParams_proj}
+\includegraphics{YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf}
+
+\includegraphics{YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf}
 
 \begin{verbatim}
 ## $`1`
@@ -262,6 +241,8 @@ When comparing the parameter for the environmental covariate across different pr
 \end{verbatim}
 
 This similarity is also captured in the model performance (figure \ref{fig:radar}), where the models have a similar performance, with the exception of the model without an ecological covariate and the model with a biased projction. The calculated SSB, (\(\bar{F}\)), and predicted catch from the terminal three years of the projection period show similar patterns of similarity across EMs (figure \ref{fig:projterminal3}).
+
+\includegraphics{YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf}
 
 \begin{figure}
 \includegraphics[width=41.67in]{Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar} \caption{Relative performance of each EM}\label{fig:radar}
