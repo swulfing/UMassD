@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.10.17)  25 NOV 2025 13:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.25)  26 NOV 2025 12:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Results_figs.tex
 (./Results_figs.tex
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-06>
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
@@ -23,7 +23,7 @@ File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip50
 \bibindent=\dimen148
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2025/06/16 v2.17y AMS math features
+Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip51
 For additional information on amsmath, use the `?' option.
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -83,8 +83,8 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \multlinegap=\skip52
 \multlinetaggap=\skip53
 \mathdisplay@stack=\toks21
-LaTeX Info: Redefining \[ on input line 2949.
-LaTeX Info: Redefining \] on input line 2950.
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
@@ -97,7 +97,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks22
@@ -177,7 +177,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen165
 \Gm@dimlist=\toks25
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2024-12-18 v4.23 Multi-page Table package (DPC)
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
 \LTleft=\skip54
 \LTright=\skip55
 \LTpre=\skip56
@@ -214,7 +214,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count306
 \@thisrulewidth=\dimen179
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \col@sep=\dimen180
 \ar@mcellbox=\box60
 \extrarowheight=\dimen181
@@ -360,7 +360,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 83.
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count323
 ) (./Results_figs.aux)
 \openout1 = `Results_figs.aux'.
@@ -453,198 +453,187 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-[1
+) [1
 
 {c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 170.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 172.
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<Results_figs_files/figure-latex/catchAdvice_proj-1.pdf, id=15, 469.755pt x 325.215pt>
+<Results_figs_files/figure-latex/paramEsts_yearly_proj-1.pdf, id=15, 469.755pt x 325.215pt>
+File: Results_figs_files/figure-latex/paramEsts_yearly_proj-1.pdf Graphic file (type pdf)
+<use Results_figs_files/figure-latex/paramEsts_yearly_proj-1.pdf>
+Package pdftex.def Info: Results_figs_files/figure-latex/paramEsts_yearly_proj-1.pdf  used on input line 177.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<Results_figs_files/figure-latex/paramEsts_yearly_bias-1.pdf, id=16, 469.755pt x 325.215pt>
+File: Results_figs_files/figure-latex/paramEsts_yearly_bias-1.pdf Graphic file (type pdf)
+<use Results_figs_files/figure-latex/paramEsts_yearly_bias-1.pdf>
+Package pdftex.def Info: Results_figs_files/figure-latex/paramEsts_yearly_bias-1.pdf  used on input line 194.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[2 <./Results_figs_files/figure-latex/paramEsts_yearly_proj-1.pdf>]
+<Results_figs_files/figure-latex/catchAdvice_proj-1.pdf, id=28, 469.755pt x 325.215pt>
 File: Results_figs_files/figure-latex/catchAdvice_proj-1.pdf Graphic file (type pdf)
 <use Results_figs_files/figure-latex/catchAdvice_proj-1.pdf>
-Package pdftex.def Info: Results_figs_files/figure-latex/catchAdvice_proj-1.pdf  used on input line 177.
+Package pdftex.def Info: Results_figs_files/figure-latex/catchAdvice_proj-1.pdf  used on input line 203.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<Results_figs_files/figure-latex/catchAdvicd_bias-1.pdf, id=16, 469.755pt x 325.215pt>
+<Results_figs_files/figure-latex/catchAdvicd_bias-1.pdf, id=29, 469.755pt x 325.215pt>
 File: Results_figs_files/figure-latex/catchAdvicd_bias-1.pdf Graphic file (type pdf)
 <use Results_figs_files/figure-latex/catchAdvicd_bias-1.pdf>
-Package pdftex.def Info: Results_figs_files/figure-latex/catchAdvicd_bias-1.pdf  used on input line 194.
+Package pdftex.def Info: Results_figs_files/figure-latex/catchAdvicd_bias-1.pdf  used on input line 220.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png, id=17, 722.7pt x 505.89pt>
+<Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png, id=30, 722.7pt x 505.89pt>
 File: Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png Graphic file (type png)
 <use Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png>
-Package pdftex.def Info: Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png  used on input line 200.
+Package pdftex.def Info: Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png  used on input line 226.
 (pdftex.def)             Requested size: 140.92041pt x 98.64429pt.
-<Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png, id=18, 722.7pt x 505.89pt>
+<Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png, id=31, 722.7pt x 505.89pt>
 File: Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png Graphic file (type png)
 <use Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png>
-Package pdftex.def Info: Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png  used on input line 200.
+Package pdftex.def Info: Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png  used on input line 226.
 (pdftex.def)             Requested size: 140.92041pt x 98.64429pt.
-<Plots/Projections/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png, id=19, 722.7pt x 505.89pt>
+<Plots/Projections/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png, id=32, 722.7pt x 505.89pt>
 File: Plots/Projections/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png Graphic file (type png)
 <use Plots/Projections/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png>
-Package pdftex.def Info: Plots/Projections/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png  used on input line 200.
+Package pdftex.def Info: Plots/Projections/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png  used on input line 226.
 (pdftex.def)             Requested size: 140.92041pt x 98.64429pt.
-<Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png, id=20, 722.7pt x 505.89pt>
+<Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png, id=33, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png Graphic file (type png)
 <use Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png>
-Package pdftex.def Info: Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png  used on input line 209.
+Package pdftex.def Info: Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png  used on input line 235.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png, id=21, 722.7pt x 505.89pt>
+<Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png, id=34, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png Graphic file (type png)
 <use Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png>
-Package pdftex.def Info: Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png  used on input line 209.
+Package pdftex.def Info: Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png  used on input line 235.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png, id=22, 722.7pt x 505.89pt>
+<Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png, id=35, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png Graphic file (type png)
 <use Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png>
-Package pdftex.def Info: Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png  used on input line 209.
+Package pdftex.def Info: Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png  used on input line 235.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png, id=23, 722.7pt x 505.89pt>
+<Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png, id=36, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png Graphic file (type png)
 <use Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png>
-Package pdftex.def Info: Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png  used on input line 209.
+Package pdftex.def Info: Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png  used on input line 235.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
 
-LaTeX Warning: Float too large for page by 34.16359pt on input line 214.
+LaTeX Warning: Float too large for page by 34.16359pt on input line 240.
 
-<Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png, id=24, 722.7pt x 505.89pt>
+<Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png, id=37, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png Graphic file (type png)
 <use Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png>
-Package pdftex.def Info: Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png  used on input line 218.
+Package pdftex.def Info: Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png  used on input line 244.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png, id=25, 722.7pt x 505.89pt>
+<Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png, id=38, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png Graphic file (type png)
 <use Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png>
-Package pdftex.def Info: Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png  used on input line 218.
+Package pdftex.def Info: Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png  used on input line 244.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png, id=26, 722.7pt x 505.89pt>
+<Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png, id=39, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png Graphic file (type png)
 <use Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png>
-Package pdftex.def Info: Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png  used on input line 218.
+Package pdftex.def Info: Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png  used on input line 244.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png, id=27, 722.7pt x 505.89pt>
+<Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png, id=40, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png Graphic file (type png)
 <use Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png>
-Package pdftex.def Info: Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png  used on input line 218.
+Package pdftex.def Info: Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png  used on input line 244.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
 
-LaTeX Warning: Float too large for page by 34.16359pt on input line 223.
+LaTeX Warning: Float too large for page by 34.16359pt on input line 249.
 
-<Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png, id=28, 722.7pt x 505.89pt>
+<Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png, id=41, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png Graphic file (type png)
 <use Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png>
-Package pdftex.def Info: Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png  used on input line 227.
+Package pdftex.def Info: Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png  used on input line 253.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png, id=29, 722.7pt x 505.89pt>
+<Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png, id=42, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png Graphic file (type png)
 <use Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png>
-Package pdftex.def Info: Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png  used on input line 227.
+Package pdftex.def Info: Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png  used on input line 253.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png, id=30, 722.7pt x 505.89pt>
+<Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png, id=43, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png Graphic file (type png)
 <use Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png>
-Package pdftex.def Info: Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png  used on input line 227.
+Package pdftex.def Info: Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png  used on input line 253.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png, id=31, 722.7pt x 505.89pt>
+<Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png, id=44, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png Graphic file (type png)
 <use Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png>
-Package pdftex.def Info: Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png  used on input line 227.
+Package pdftex.def Info: Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png  used on input line 253.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
 
-LaTeX Warning: Float too large for page by 34.16359pt on input line 232.
+LaTeX Warning: Float too large for page by 34.16359pt on input line 258.
 
-<Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=32, 722.7pt x 505.89pt>
+<Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=45, 722.7pt x 505.89pt>
 File: Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png Graphic file (type png)
 <use Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png>
-Package pdftex.def Info: Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 236.
+Package pdftex.def Info: Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 262.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png, id=33, 722.7pt x 505.89pt>
+<Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png, id=46, 722.7pt x 505.89pt>
 File: Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png Graphic file (type png)
 <use Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>
-Package pdftex.def Info: Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png  used on input line 236.
+Package pdftex.def Info: Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png  used on input line 262.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=34, 722.7pt x 505.89pt>
+<Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=47, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png Graphic file (type png)
 <use Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png>
-Package pdftex.def Info: Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 245.
+Package pdftex.def Info: Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 271.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png, id=35, 722.7pt x 505.89pt>
+<Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png, id=48, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png Graphic file (type png)
 <use Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>
-Package pdftex.def Info: Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png  used on input line 245.
+Package pdftex.def Info: Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png  used on input line 271.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=36, 722.7pt x 505.89pt>
+<Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=49, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png Graphic file (type png)
 <use Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png>
-Package pdftex.def Info: Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 254.
+Package pdftex.def Info: Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 280.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png, id=37, 722.7pt x 505.89pt>
+<Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png, id=50, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png Graphic file (type png)
 <use Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>
-Package pdftex.def Info: Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png  used on input line 254.
+Package pdftex.def Info: Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png  used on input line 280.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=38, 722.7pt x 505.89pt>
+<Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=51, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png Graphic file (type png)
 <use Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png>
-Package pdftex.def Info: Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 263.
+Package pdftex.def Info: Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 289.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png, id=39, 722.7pt x 505.89pt>
+<Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png, id=52, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png Graphic file (type png)
 <use Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>
-Package pdftex.def Info: Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png  used on input line 263.
+Package pdftex.def Info: Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png  used on input line 289.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=40, 722.7pt x 505.89pt>
+<Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=53, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png Graphic file (type png)
 <use Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png>
-Package pdftex.def Info: Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 272.
+Package pdftex.def Info: Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 298.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png, id=41, 722.7pt x 505.89pt>
+<Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png, id=54, 722.7pt x 505.89pt>
 File: Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png Graphic file (type png)
 <use Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>
-Package pdftex.def Info: Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png  used on input line 272.
+Package pdftex.def Info: Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png  used on input line 298.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-
-
-[2 <./Results_figs_files/figure-latex/catchAdvice_proj-1.pdf>]
-
-[3 <./Results_figs_files/figure-latex/catchAdvicd_bias-1.pdf> <./Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.PNG> <./Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.PNG> <./Plots/Projections/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.PNG>]
-
-[4 <./Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.PNG> <./Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.PNG> <./Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.PNG> <./Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.PNG>]
-
-[5 <./Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.PNG> <./Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.PNG> <./Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.PNG> <./Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.PNG>]
-
-[6 <./Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.PNG> <./Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.PNG> <./Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.PNG> <./Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.PNG>]
-
-[7 <./Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png> <./Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>]
-
-[8 <./Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png> <./Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>]
-
-[9 <./Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png> <./Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>]
-
-[10 <./Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png> <./Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>]
-
-[11 <./Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png> <./Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>] (./Results_figs.aux)
+[3 <./Results_figs_files/figure-latex/paramEsts_yearly_bias-1.pdf>] [4 <./Results_figs_files/figure-latex/catchAdvice_proj-1.pdf>] [5 <./Results_figs_files/figure-latex/catchAdvicd_bias-1.pdf> <./Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.PNG> <./Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.PNG> <./Plots/Projections/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.PNG>] [6 <./Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.PNG> <./Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.PNG> <./Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.PNG> <./Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.PNG>] [7 <./Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.PNG> <./Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.PNG> <./Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.PNG> <./Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.PNG>] [8 <./Plots/Biases/OM_1/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.PNG> <./Plots/Biases/OM_2/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.PNG> <./Plots/Biases/OM_3/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.PNG> <./Plots/Biases/OM_4/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.PNG>] [9 <./Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png> <./Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>] [10 <./Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png> <./Plots/Biases/OM_1/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>] [11 <./Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png> <./Plots/Biases/OM_2/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>] [12 <./Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png> <./Plots/Biases/OM_3/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>] [13 <./Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png> <./Plots/Biases/OM_4/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar2.png>] (./Results_figs.aux)
  ***********
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-09-02>
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-06>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 11667 strings out of 469729
- 200680 string characters out of 5475392
- 599264 words of memory out of 5000000
- 39920 multiletter control sequences out of 15000+600000
+ 11693 strings out of 469519
+ 201917 string characters out of 5467703
+ 604835 words of memory out of 5000000
+ 40152 multiletter control sequences out of 15000+600000
  650067 words of font info for 61 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 89i,6n,93p,661b,548s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,6n,93p,661b,552s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Results_figs.pdf (11 pages, 3215518 bytes).
+Output written on Results_figs.pdf (13 pages, 3221640 bytes).
 PDF statistics:
- 149 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
- 27 named destinations out of 1000 (max. 500000)
- 136 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 164 PDF objects out of 1000 (max. 8388607)
+ 97 compressed objects within 1 object stream
+ 29 named destinations out of 1000 (max. 500000)
+ 146 words of extra memory for PDF output out of 10000 (max. 10000000)
 

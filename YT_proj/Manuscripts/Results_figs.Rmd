@@ -8,7 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, cache = TRUE, warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE, cache = FALSE, warning = FALSE)
 
 library(png)
 library(ggplot2)
@@ -35,10 +35,10 @@ Bias_ests <- readRDS('C:/Users/swulfing/Documents/MSE_results/Biases/Biases_data
 # PROJECTIONS
 paramEsts_projs <- Proj_ests %>%
   group_by(EM_name) %>%
-  summarize(OM_ecov = round(mean(Ecov_processPars_mean_overall), digits = 3),
-          mean_ecov = round(mean(Ecov_processPars_mean_assessment), digits = 3),
-          sd_ecov = round(mean(Ecov_processPars_sd_assessment), digits = 3),
-          rho = round(mean(Ecov_processPars_rho_assessment), digits = 3))
+  summarize(OM_ecov = round(mean(Ecov_processPars_mean_overall, na.rm = TRUE), digits = 3),
+          mean_ecov = round(mean(Ecov_processPars_mean_assessment, na.rm = TRUE), digits = 3),
+          sd_ecov = round(mean(Ecov_processPars_sd_assessment, na.rm = TRUE), digits = 3),
+          rho = round(mean(Ecov_processPars_rho_assessment, na.rm = TRUE), digits = 3))
 
 #Ecov_processPars_mean
 
@@ -56,7 +56,7 @@ for(i in 1:4){
   #mean
   data_clean <- data_use %>%
   group_by(EM_name) %>%
-  summarize(ecov_mean = round(mean(Ecov_processPars_mean_overall), digits = 3))
+  summarize(ecov_mean = round(mean(Ecov_processPars_mean_overall, na.rm = TRUE), digits = 3))
   
   colnames(data_clean) <- c('EM_name', names(Bias_ests[i]) )
   
@@ -65,7 +65,7 @@ for(i in 1:4){
   #sd
   data_clean <- data_use %>%
   group_by(EM_name) %>%
-  summarize(ecov_mean = round(mean(Ecov_processPars_sd_overall), digits = 3))
+  summarize(ecov_mean = round(mean(Ecov_processPars_sd_overall, na.rm = TRUE), digits = 3))
   
   colnames(data_clean) <- c('EM_name', names(Bias_ests[i]) )
   
@@ -74,7 +74,7 @@ for(i in 1:4){
   #logit_rho
   data_clean <- data_use %>%
   group_by(EM_name) %>%
-  summarize(ecov_mean = round(mean(Ecov_processPars_rho_overall), digits = 3))
+  summarize(ecov_mean = round(mean(Ecov_processPars_rho_overall, na.rm = TRUE), digits = 3))
   
   colnames(data_clean) <- c('EM_name', names(Bias_ests[i]) )
   
@@ -102,10 +102,12 @@ paramEsts_yearly <- Proj_ests %>%
   summarize(OM_ecov = mean(Ecov_processPars_mean_overall),
           EM_ecov = mean(Ecov_processPars_mean_assessment))
 
-paramEsts_yearly$EM_ecov <- seq(1,nrow(paramEsts_yearly), by = 1)
+#paramEsts_yearly$EM_ecov <- seq(1,nrow(paramEsts_yearly), by = 1)
 
-ggplot(paramEsts_yearly, aes(x = Year, y = EM_ecov, color = EM_name)) +
-  geom_line()
+YearlyParams_proj <- ggplot(paramEsts_yearly, aes(x = Year, y = EM_ecov, color = EM_name)) +
+  geom_line() +
+   geom_hline(yintercept = mean(paramEsts_yearly$OM_ecov), color = "black", linetype = "dashed") +#geom_line(aes(x = Year, y = OM_ecov)) +
+  xlim(2022,2072)
 
 
 print(YearlyParams_proj)
@@ -123,10 +125,12 @@ paramEsts_yearly <- Bias_ests[[i]] %>%
   summarize(OM_ecov = mean(Ecov_processPars_mean_overall),
           EM_ecov = mean(Ecov_processPars_mean_assessment))
 
-paramEsts_yearly$EM_ecov <- seq(1,nrow(paramEsts_yearly), by = 1)
+#paramEsts_yearly$EM_ecov <- seq(1,nrow(paramEsts_yearly), by = 1)
 
 p[[i]] <- ggplot(paramEsts_yearly, aes(x = Year, y = EM_ecov, color = EM_name)) +
-  geom_line()
+  geom_line() +
+   geom_hline(yintercept = mean(paramEsts_yearly$OM_ecov), color = "black", linetype = "dashed") +#geom_line(aes(x = Year, y = OM_ecov)) +
+  xlim(2022,2072)
 
 
 #print(YearlyParams_proj)
@@ -148,7 +152,7 @@ catchAdvice_projs <- Proj_ests %>%
           sd_catchAdvice = sd(Catch_advice))
 
 ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_catchAdvice, group = EM_name, color = EM_name)) +
-  geom_ribbon(aes(ymin = mean_catchAdvice - sd_catchAdvice, ymax = mean_catchAdvice + sd_catchAdvice, fill = EM_name), alpha = 0.2) +
+  #geom_ribbon(aes(ymin = mean_catchAdvice - sd_catchAdvice, ymax = mean_catchAdvice + sd_catchAdvice, fill = EM_name), alpha = 0.2) +
   geom_line()
 ```
 
@@ -167,7 +171,7 @@ for(i in 1:4){
   
   catchAdvice_plots[[i]] <- 
     ggplot(data = data_clean, aes(x = Year, y = mean_catchAdvice, group = EM_name, color = EM_name)) +
-  geom_ribbon(aes(ymin = mean_catchAdvice - sd_catchAdvice, ymax = mean_catchAdvice + sd_catchAdvice, fill = EM_name), alpha = 0.2) +
+  #geom_ribbon(aes(ymin = mean_catchAdvice - sd_catchAdvice, ymax = mean_catchAdvice + sd_catchAdvice, fill = EM_name), alpha = 0.2) +
   geom_line() +
   ggtitle(names(Bias_ests[i])) +
   ylab ("Catch Advice") +
@@ -179,10 +183,91 @@ ggarrange(catchAdvice_plots[[1]], catchAdvice_plots[[2]], catchAdvice_plots[[3]]
 
 ```
 
-```{r proj_terminal3_ssb_catch_fbar,out.width="30%",fig.cap="fBar, SSB, and catch of terminal 3 years of MSE in projections test",fig.show='hold',fig.align='center'}
+```{r SSB_bias, fig.cap = 'mean SSB for each EM in projections test'}
+
+# Biases
+SSB_plots <- list()
+for(i in 1:4){
+  data_use <- Bias_ests[[i]]
+  
+  data_clean <- data_use %>%
+  filter(Year >= 2024) %>%
+  group_by(EM_name, Year) %>%
+  summarize(mean_SSB = mean(SSB),
+          sd_SSB = sd(SSB))
+  
+  SSB_plots[[i]] <- 
+    ggplot(data = data_clean, aes(x = Year, y = mean_SSB, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_SSB - sd_SSB, ymax = mean_SSB + sd_SSB, fill = EM_name), alpha = 0.2) +
+  geom_line() +
+  ggtitle(names(Bias_ests[i])) +
+  ylab ("Catch Advice") +
+  theme(legend.position  = 'none')
+  
+}
+
+ggarrange(SSB_plots[[1]], SSB_plots[[2]], SSB_plots[[3]], SSB_plots[[4]], ncol = 2, nrow = 2, common.legend = TRUE, legend = 'right')
+
+```
+
+```{r Pred_catch_bias, fig.cap = 'mean Pred_catch for each EM in projections test'}
+
+# Biases
+Pred_catch_plots <- list()
+for(i in 1:4){
+  data_use <- Bias_ests[[i]]
+  
+  data_clean <- data_use %>%
+  filter(Year >= 2024) %>%
+  group_by(EM_name, Year) %>%
+  summarize(mean_Pred_catch = mean(Pred_catch),
+          sd_Pred_catch = sd(Pred_catch))
+  
+  Pred_catch_plots[[i]] <- 
+    ggplot(data = data_clean, aes(x = Year, y = mean_Pred_catch, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_Pred_catch - sd_Pred_catch, ymax = mean_Pred_catch + sd_Pred_catch, fill = EM_name), alpha = 0.2) +
+  geom_line() +
+  ggtitle(names(Bias_ests[i])) +
+  ylab ("Catch Advice") +
+  theme(legend.position  = 'none')
+  
+}
+
+ggarrange(Pred_catch_plots[[1]], Pred_catch_plots[[2]], Pred_catch_plots[[3]], Pred_catch_plots[[4]], ncol = 2, nrow = 2, common.legend = TRUE, legend = 'right')
+
+```
+
+```{r FBar_bias, fig.cap = 'mean FBar for each EM in projections test'}
+
+# Biases
+FBar_plots <- list()
+for(i in 1:4){
+  data_use <- Bias_ests[[i]]
+  
+  data_clean <- data_use %>%
+  filter(Year >= 2024) %>%
+  group_by(EM_name, Year) %>%
+  summarize(mean_FBar = mean(FBar),
+          sd_FBar = sd(FBar))
+  
+  FBar_plots[[i]] <- 
+    ggplot(data = data_clean, aes(x = Year, y = mean_FBar, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_FBar - sd_FBar, ymax = mean_FBar + sd_FBar, fill = EM_name), alpha = 0.2) +
+  geom_line() +
+  ggtitle(names(Bias_ests[i])) +
+  ylab ("Catch Advice") +
+  theme(legend.position  = 'none')
+  
+}
+
+ggarrange(FBar_plots[[1]], FBar_plots[[2]], FBar_plots[[3]], FBar_plots[[4]], ncol = 2, nrow = 2, common.legend = TRUE, legend = 'right')
+
+```
+
+```{r proj_terminal3_ssb_catch_Pred_catch,out.width="30%",fig.cap="Pred_catch, SSB, and catch of terminal 3 years of MSE in projections test",fig.show='hold',fig.align='center'}
 
 knitr::include_graphics(c("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png",
-                        "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png",
+                        "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Projections/Projections_Report_50yr/Performance_Boxplot/Pred_catch_global_last_3_years.png",
                         "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Projections/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png"))
 
 
@@ -194,12 +279,12 @@ knitr::include_graphics(c("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Man
 
 bias_plots <- list(ssb = c(),
                    catch = c(),
-                   fbar = c())
+                   Pred_catch = c())
 for(i in 1:4){
   
   bias_plots$ssb[i] <- paste0('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_',i,'/Biases_Report_50yr/Performance_Boxplot/SSB_last_3_years.png')
   bias_plots$catch[i] <- paste0('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_',i,'/Biases_Report_50yr/Performance_Boxplot/Catch_last_3_years.png')
-  bias_plots$fbar[i] <- paste0('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_',i,'/Biases_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png')
+  bias_plots$Pred_catch[i] <- paste0('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Biases/OM_',i,'/Biases_Report_50yr/Performance_Boxplot/Pred_catch_global_last_3_years.png')
   
 }
 # ssb1 <- readPNG(bias_plots$ssb[1])
@@ -217,10 +302,10 @@ knitr::include_graphics(c(bias_plots$ssb[1:4]))
 knitr::include_graphics(c(bias_plots$catch[1:4]))
 ```
 
-```{r bias_terminal3_fbar,out.width="50%",fig.cap="SSB of terminal 3 years of all OM tests of bias test",fig.show='hold',fig.align='center'}
+```{r bias_terminal3_Pred_catch,out.width="50%",fig.cap="SSB of terminal 3 years of all OM tests of bias test",fig.show='hold',fig.align='center'}
 
 
-knitr::include_graphics(c(bias_plots$fbar[1:4]))
+knitr::include_graphics(c(bias_plots$Pred_catch[1:4]))
 ```
 
 ```{r proj_spiderPlots, out.width="50%",fig.cap="Radar charts of projection test",fig.show='hold',fig.align='center'}

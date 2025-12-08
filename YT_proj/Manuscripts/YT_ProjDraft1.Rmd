@@ -32,9 +32,9 @@ header-includes: \usepackage{setspace} \usepackage{lineno} \usepackage{placeins}
     
 \textbf{\Large Applying effective environmental forecasts to Management Strategy Evaluation of yellowtail flounder}
     
-\textsc{Sophie Wulfing$^{1*}$ Gavin Fay$^{1}$ Chengxue Li$^{3}$ Scott I. Large$^{2}$ Vincent Saba$^{2}$\\}
+\textsc{Sophie Wulfing$^{1*}$ Chengxue Li$^{3}$ Scott I. Large$^{2}$ Vincent Saba$^{2}$ Gavin Fay$^{1}$\\}
 \vspace{3 mm}
-\normalsize{\indent $^1$School for Marine Science and Technology, University of Massachusetts Dartmouth, University of New Hampshire, 02747, MA, USA\\ $^2$NOAA, National Marine Fisheries Service, Narragansett, RI 02882, USA\\ $^3$School of Marine and Atmospheric Sciences, Stony Brook University, Stony Brook, NY 11794, USA\\}
+\normalsize{\indent $^1$School for Marine Science and Technology, University of Massachusetts Dartmouth, University of New Hampshire, 02747, MA, USA\\ $^2$NOAA, National Marine Fisheries Service, Woods Hole, MA 02543, USA\\ $^3$School of Marine and Atmospheric Sciences, Stony Brook University, Stony Brook, NY 11794, USA\\}
 $\text{*}$ Corresponding authors: Sophie Wulfing (SophieWulfing@gmail.com)
 \end{center}
 ```
@@ -44,13 +44,29 @@ $\text{*}$ Corresponding authors: Sophie Wulfing (SophieWulfing@gmail.com)
 \linenumbers
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, dev="cairo_pdf", cache = TRUE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, dev="cairo_pdf", cache = FALSE)
 setwd("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts")
+
+library(png)
+library(ggplot2)
+library(dplyr)
+library(knitr)
+library(ggpubr)
+library(gridExtra)
+
+PlotLocations <- 'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots'
+
+ModNames_proj <- c("Mod_AR1Ecov", "Mod_HistAvgEcov", "Mod_RecWindEcov", "Mod_RecTrendEcov", "Mod_TermYear", "Mod_NoEcov")
+ModNames_bias <-  c("Mod_AR1Ecov", "Mod_LOWEcov", "Mod_MEDLOWEcov", "Mod_MEDEcov", "Mod_HIGHEcov", "Mod_NoEcov")
+ModNames_biasOMs <- c("Mod_LOWEcov", "Mod_MEDLOWEcov", "Mod_MEDEcov", "Mod_HIGHEcov")
+
+Proj_ests <- readRDS('C:/Users/swulfing/Documents/MSE_results/Combo/Projections_data.rds')
+Bias_ests <- readRDS('C:/Users/swulfing/Documents/MSE_results/Biases/Biases_data.rds')
 ```
 
 # ABSTRACT
 
-The US Northeast Continental shelf is the fastest warming marine ecosystem in the United States, so understanding this change is imperative to maintaining the sustainability and productivity of this fishery. Stocks in the region have exhibited different distributional shifts in response to changing ocean temperatures, chemistry, and currents. Management Strategy Evaluation (MSE) is a technique in fisheries management to simulate and compare different management actions. MSE highlights the effectiveness and trade-offs of different management options and have been used to create more climate-ready management plans. The Georges Bank Yellowtail Flounder (*Limanda ferruginea*) is an important stock to the Northeast groundfish fishery and has been shown to alter distributional patterns due to bottom temperature. However, predicting future environmental covariates such as bottom temperature can be challenging, as these conditions are subject to high stochasticity. For this reason, our goal is to analyze the different choices made when projecting or forecasting future environmental conditions, what subsequent catch advice is generated from the MSE, and how this affects long-term fishery dynamics. Preliminary results have shown that different projection decisions have a limited impact on the model performance and output, and we will expand on these findings by comparing the slopes of climate projections with results from the MSE process.
+The US Northeast Continental shelf is the fastest warming marine ecosystem in the United States, so understanding this change is imperative to maintaining the sustainability and productivity of this region's fishery. Fished stocks in the region have exhibited different distributional shifts in response to changing ocean temperatures, chemistry, and currents. Management Strategy Evaluation (MSE) is a technique in fisheries management to simulate and compare the likely outcomes of different management actions, assess trade-offs of different management options, and has been used to create more climate-ready management plans. The Georges Bank Yellowtail Flounder (*Limanda ferruginea*) is an important stock to the Northeast groundfish fishery and its recruitment has been shown to be impacted by bottom ocean temperatures. However, predicting future environmental covariates such as bottom temperature can be challenging, as these conditions are subject to high stochasticity. For this reason, our goal is to analyze the different choices made when projecting or forecasting future environmental conditions within assessments, what subsequent catch advice is generated from the MSE, and how this affects long-term fishery dynamics. Preliminary results focusing on recruitment-environment relationships have shown that different projection decisions, including integrating environmental forecasts, have a limited impact on the model performance and output, and we will expand on these findings by comparing the MSE results under different climate scenarios, informed by ocean model forecast products.
 
 # INTRODUCTION
 
@@ -72,25 +88,296 @@ To conduct the MSE process, we used trawl survey data from the Northeast Fisheri
 
 For the environmental covariate of bottom temperature, we used a dataset developed by @dupontavice2023, which is also used in the Georges Bank yellowtail flounder stock assessment CITE ASSESSMENT. We projected the ‘real-world- temperature by conducting a linear regression on the existing data points and then projecting future temperatures along this trendline with added variation around a normal distribution. The package whamMSE was used to conduct the Management Strategy Evaluation CITECHENG. In this simulation, the environmental covariate was treated as a latent variable in the operating model, therefore process error of the ecov was turned off in the OM so only the specified projection was modeled in the “real world” scenario of our simulation. First, the Wood’s Hole Assessment Model was fitted to real Yellowtail flounder data from the NEFSC survey to serve as the basis for the OM. This base-OM was used to estimate parameters for numbers-at-age, selectivity, recruitment, and ecological covariate. These parameters were then treated as ‘truth’ in our simulation and were used in the second OM we developed for the projections. This second OM, with all of the parameters already estimated, fixes the environmental covariate at a true state with no process error, however observation error is still included in this process. This allowed us to run multiple simulations of various temperature projections in our Estimation Model while maintaining the same ‘real-world’ state.
 
-We then tested various EMs that were identical except for this temperature projection. Instead of using a single time series throughout the projection, all EMs were changed to simulate real-life stock assessment processes, where the three-year projection was recalculated at each assessment year step given the previous three years of data. Descriptions of temperature projections are described in figure \ref{fig:EMTemps}. For the first experiment, we first compared EM temperature projections with varying levels of bias. We developed four scenarios: High Ecov, where the overall trend of the OM temperature projection was doubled to simulate a high bias in projections; Medium Ecov, where the EM uses the same temperature as the OM; Medium-Low Ecov, where the overall trend was multiplied by -1 to simulate low bias in projections; and Low Ecov, where the overall trend was multiplied by -2 to simulate a very low bias in projections.
+We then tested various EMs that were identical except for this temperature projection. Instead of using a single time series throughout the projection, all EMs were changed to simulate real-life stock assessment processes, where the three-year projection was recalculated at each assessment year step given the previous three years of data. Descriptions of temperature projections are described in figure \ref{fig:EMTemps}. For the first experiment, we first compared EM temperature projections with varying levels of bias. We developed four scenarios: High Ecov, where the overall trend of the OM temperature projection was doubled to simulate a high bias in projections; Medium Ecov, where the EM uses the same temperature as the OM; Medium-Low Ecov, where the overall trend was multiplied by -1 to simulate low bias in projections; and Low Ecov, where the overall trend was multiplied by -2 to simulate a very low bias in projections. Each simulation was run 100 times to ensure robustness of model results. Any non-converged model resulted in the elimation of that whole simulation.
 
-```{r EMTemps, fig.cap = 'WRITE THIS'}
+```{r EMTemps, fig.cap = 'Temperature projections of the different Bias tests. The medium projection follows the overall trend of historical data, and this was used as a baseline for the other bias projections', echo = FALSE, warning = FALSE, message = FALSE}
 knitr::include_graphics("Plots/Biases/EMtempPlot.png")
 ```
 
 This simulation was then repeated with the OM changing it's baseline projection to use the High, Medium, Medium-Low, and Low temperature projections to compare how hypothetical future climate scenarios may change the outcome of having a biased projection. Each of these OMs were tested against each climate projection in the EMs.
 
-After comparing projections through the MSE process, the experiment was repeated except we used only the original OM temperature projection (the one that maintains the trend from the overall data set). For the EMs, the two extreme bias projections were kept (High Ecov and Low Ecov), along with various projection choices that, at each assessment year, self-update with the previous years' temperature information. A new temperature projection is then calculated from that in the EM and projected for the next three years until the next assessment. The different projection choices used in the experiment are described in figure \ref{fig:EMTemps_Proj}.
+After comparing projections through the MSE process, the experiment was repeated except we used only the original OM temperature projection (the one that maintains the trend from the overall data set). For the EMs, the two extreme bias projections were kept (High Ecov and Low Ecov), along with various projection choices that, at each assessment year, self-update with the previous years' temperature information. A new temperature projection is then calculated from that in the EM and projected for the next three years until the next assessment. The different projection choices used in the experiment are described in figure \ref{fig:EMTempsProj}.
 
 <!-- FIX TO INCLUDE NEW STUFF Temperature projections used in each EM. AR1 (Auto-Regressive1) - This projection uses an updated mean at each timestep. AR1 processes are given by equation GIVE NUMBER, which uses an updated mean at each timestep for the projection. NewWind - (New Window) This process uses the mean of the previous 5 years in its projection. NewTrend - (New Trend) Similar to new window, this process takes the last 5 years of data and uses the linear regression of the last 5 years as its projection HistAvg - (Historical average) Uses the average of all datapoints collected. NoTemp - (No temperature) This projection does not consider environmental covariates it its projection. -->
 
-```{r EMTemps_Proj, fig.cap = 'WRITE THIS'}
+```{r EMTempsProj, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = ' Temperature projections used in each EM. AR1 (Auto-Regressive1) - This projection uses an updated mean at each timestep for the projection. NewWind (New Window) - This process uses the mean of the previous 5 years in its projection. HistAvg (Historical average) - Uses the average of all datapoints collected. NewTrend (New Trend) - Similar to new window, this process takes the last 5 years of data and uses the linear regression of the last 5 years as its projection. TermYear (Terminal Year) - Uses the terminal year of historical data across the projection period. GoodProj (Good projection) - Uses the same time series as the OM. BadProj (Bad projection) - Same as the MedLow bias in the previous experiment, this projection tests projection with a low bias. NoTemp - (No temperature, not pictured) This projection does not consider environmental covariates it its projection.'}
 
 knitr::include_graphics("Plots/Combo/EMtempPlot.png")
 ```
 
 After the MSE process was conducted in both experiments, we compared the outputs of each model and the subsequent catch advice to emerge from the model. We then compared estimated natural and fishing mortality, spawning stock biomass, and estimated recruitment in each model in order to understand how different assumptions in creating environmental projections propagates reflects real-world dynamics and how this ultimately affects management decisions.
 
+# RESULTS
+
+## Bias Tests
+
+The estimated parameters for the environmental link are shown in figure \ref{fig:paramEstsbias} compared to that of the OM in each bias test. Here, we see FIX THIS HERE estimated parameters ranging from 7.449 - 8.904. Generally, the EM tended to underestimate the environmental covariate compared to the OM, with the exception of High EM and the AR1 EM compared with the MediumLow OM With the exception of the MediumLowEcov, the highest logit rho (or the models whose variation was most explained by the model) for the OMs using both the highest and lowest biased projections were the EM with the highest bias, HighEcov. However, when looking at how the ecov is updated with every assessment step in the mode, the updated parameter estimates do not diverge from the 'true' estimate in the OM, even though the underlying temperatures take different trajectories. As a result, the subsequent catch advice from the EMs, spawning stock biomass (SSB), fishing mortality ($\bar{F}$), and predicted catch from the OM stays relatively consistent across EMs over the time series. These figures are provided in the supplemental material.
+
+```{r paramEstsbias, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Estimated environmental parameter from each EM compared to the 'true' value in the OM on the y axis. Colors correspond to if the EM had a high temperature bias (red), a low temperature bias (blue), or if the EM intended to accurately reflect climate dynamics (i.e. AR1 process or temperature projection that matched that of the OM) (green). The dashed black line indicates where these two estimations would be equal"}
+
+# BIASES
+meanTablebias <- data.frame(EM_name = c(),
+                            seed = c(),
+                            OM_name = c(),
+                            ecov_mean_om = c(),
+                            ecov_mean_em = c(),
+                            percentDifference = c(),
+                            ecov_sd = c(), 
+                            bias_dir = c())
+
+for(i in 1:4){
+  data_use <- Bias_ests[[i]]
+
+  #mean
+  data_clean <- data_use %>%
+  group_by(EM_name, seed_no) %>%
+  summarize(ecov_mean_om = round(mean(Ecov_beta_R_OM, na.rm = TRUE), digits = 3),
+            ecov_mean_em = round(mean(Ecov_beta_R_EM, na.rm = TRUE), digits = 3),
+            ecov_sd = round(sd(Ecov_beta_R_EM, na.rm = TRUE), digits = 3)) %>%
+    mutate(percentDifference = (ecov_mean_em - ecov_mean_om)/ecov_mean_om)
+  
+  data_clean$OM_name <- i
+  
+  data_clean <- data_clean %>%
+    select(EM_name, seed_no, OM_name, ecov_mean_om, ecov_mean_em, percentDifference, ecov_sd)
+  
+    for(j in 1:nrow(data_clean)){
+  #meanTablebias <- merge(meanTablebias, data_clean, by = 'EM_name')
+    if(i == 1){
+      if(data_clean$EM_name[j] == 'Mod_AR1Ecov'| data_clean$EM_name[j] == 'Mod_LOWEcov'){data_clean$bias_dir[j] <- 'S'} else {data_clean$bias_dir[j] <- 'H'}
+      }
+
+    if(i == 2){
+      if(data_clean$EM_name[j] == 'Mod_AR1Ecov'| data_clean$EM_name[j] == 'Mod_MEDLOWEcov'){data_clean$bias_dir[j] <- 'S'} else if (data_clean$EM_name[j] == 'Mod_LOWEcov'){data_clean$bias_dir[j] <- 'L'} else{data_clean$bias_dir[j] <- 'H'}
+    }
+    if(i == 3){
+      if(data_clean$EM_name[j] == 'Mod_AR1Ecov'| data_clean$EM_name[j] == 'Mod_MEDEcov'){data_clean$bias_dir[j] <- 'S'} else if (data_clean$EM_name[j] == 'Mod_LOWEcov' | data_clean$EM_name[j] == 'Mod_MEDLOWEcov'){data_clean$bias_dir[j] <- 'L'} else{data_clean$bias_dir[j] <- 'H'}
+    }
+    if(i == 4){
+      if(data_clean$EM_name[j] == 'Mod_AR1Ecov'| data_clean$EM_name[j] == 'Mod_HIGHEcov'){data_clean$bias_dir[j] <- 'S'} else{data_clean$bias_dir[j] <- 'L'}
+    }
+
+  # }
+  # bias_compare <- rbind(bias_compare, data_clean)
+}
+
+
+data_clean$bias_dir <- factor(data_clean$bias_dir, levels = c('L','S','H'))
+
+  #colnames(data_clean) <- c('EM', 'OM', 'OM Ecov', 'EM Ecov', 'Percent Change', 'SD')
+
+  meanTablebias <- rbind(meanTablebias, data_clean)
+}
+
+
+meanTablebias$EM_name <- factor(meanTablebias$EM_name, levels = c("Mod_NoEcov","Mod_LOWEcov", "Mod_MEDLOWEcov", "Mod_MEDEcov", "Mod_HIGHEcov", "Mod_AR1Ecov"))
+
+p <- list()
+
+for(i in c(3,4,1,2)){
+  data_use <- Bias_ests[[i]]
+  
+  plotdata <- meanTablebias %>%
+    filter(OM_name == i) %>%
+    filter(EM_name != "Mod_NoEcov")
+  
+  p[[i]] <- ggplot(plotdata, aes(x = EM_name, y = ecov_mean_em, fill = bias_dir)) +
+    geom_boxplot(show.legend = TRUE) +
+    scale_fill_manual(name = 'Bias',
+                      values = c("L" = "blue", "S" = "green", "H" = "red") ,
+                     labels = c('Low', 'None', 'High'),
+                     drop = FALSE) +
+    geom_hline(yintercept = mean(plotdata$ecov_mean_om), linetype = "dashed", color = "black") +
+    ylim(-0.75, -0.1) +
+    #ggtitle (i) + 
+    theme(axis.title = element_blank()) +
+    coord_flip()
+}
+
+ggarrange(p[[1]], p[[2]], p[[3]], p[[4]], nrow = 4, common.legend = TRUE, legend = 'right')
+
+
+
+```
+
+
+```{r paramEstsproj, fig.cap = 'WRITE THIS', echo = FALSE, warning = FALSE, message = FALSE}
+library(dplyr)
+
+# PROJECTIONS
+paramEsts_projs <- Proj_ests %>%
+  filter(EM_name != 'Mod_NoEcov') %>%
+  group_by(EM_name) %>%
+  summarize(OM_ecov = round(mean(Ecov_beta_R_OM, na.rm = TRUE), digits = 3),
+          mean_ecov = round(mean(Ecov_beta_R_EM, na.rm = TRUE), digits = 3),
+          sd_ecov = round(sd(Ecov_beta_R_EM, na.rm = TRUE), digits = 3)) %>%
+    rowwise() %>%
+    mutate(PercentChange = ((mean_ecov - OM_ecov)/OM_ecov) * 100) %>%
+  select(EM_name, OM_ecov, mean_ecov, PercentChange, sd_ecov)
+
+#Ecov_processPars_mean
+
+paramEsts_projs$PercentChange <- round(paramEsts_projs$PercentChange, digits = 3)
+
+kable(paramEsts_projs, caption = 'Ecov parameter estimates, standard deviation, and rho for each EM for projection')
+
+```
+
+## Projection Tests
+
+When comparing the parameter for the environmental covariate across different projections (table \ref{tab:paramEstsproj}), the highest parameter estimate came from the 'Good' projection which follows the general temperature trend of the OM. This model also had the highest logit rho value. The lowest parameter estimate was calculated from the EM which uses the historical average, which along with the recent trend projection, had the lowest logit rho value. Similar to the bias tests, the calculated parameter estimates at each assessment year did not appear to diverge from the estimate in the OM \ref{fig:timeseriesparam}. Figure \ref{fig:timeseriesproj} shows the catch advice, SSB, $\bar{F}$, and predicted catch from the OM of each projection test. Similar to the bias tests, these model outputs were very similar and all converged to similar estimations.
+
+```{r timeseriesrecruit}
+#knitr::include_graphics("Plots/YearlyParams_proj.png")
+
+paramEsts_yearprojs <- Proj_ests %>%
+  filter(EM_name != 'Mod_NoEcov') %>%
+  group_by(EM_name, Year) %>%
+  filter(Year > 2023) %>%
+  summarize(mean_OM = mean(OM_NAA_youngest),
+            mean_EM = mean(EM_NAA_youngest)) %>%
+  mutate(percentDiff = (mean_EM - mean_OM)/ mean_OM)
+
+om_recruit <- paramEsts_yearprojs %>%
+  group_by(Year) %>%
+  summarize(mean = mean(mean_OM),
+            sd = sd(mean_OM))
+
+ggplot(paramEsts_yearprojs, aes(x = Year, y = percentDiff, color = EM_name)) +
+  geom_line() +
+  # geom_line(paramEsts_yearprojs, aes(x = Year, y = mean_EM, color = EM_name)) +
+  # geom_line(om_recruit, aes(x = om_recruit$Year, y = om_recruit$mean, color = 'black'))
+  geom_hline(yintercept = 0, color = 'black', linetype = 'dashed')
+```
+
+
+```{r timeseriesparam}
+#knitr::include_graphics("Plots/YearlyParams_proj.png")
+
+paramEsts_yearprojs <- Proj_ests %>%
+  filter(EM_name != 'Mod_NoEcov') %>%
+  group_by(EM_name, Year) %>%
+  filter(Year > 2023) %>%
+  summarize(mean_OM = mean(Ecov_beta_R_OM),
+            mean_EM = mean(Ecov_beta_R_EM))
+
+ggplot(paramEsts_yearprojs, aes(x = Year, y = mean_EM, color = EM_name)) +
+  geom_line() +
+  geom_hline(yintercept = mean(paramEsts_yearprojs$mean_OM), color = 'black', linetype = 'dashed')
+```
+
+```{r timeseriesproj, fig.cap = 'Catch advice (top), SSB (second), FBar (third), and predicted catch (bottom) calculated from each EM over the projection period', echo = FALSE, warning = FALSE, message = FALSE}
+p <- list()
+
+catchAdvice_projs <- Proj_ests %>%
+  filter(Year >= 2024) %>%
+  group_by(EM_name, Year) %>%
+  summarize(mean_catchAdvice = mean(Catch_advice),
+          sd_catchAdvice = sd(Catch_advice),
+          mean_SSB = mean(SSB),
+          sd_SSB = sd(SSB),
+          mean_FBar = mean(FBar),
+          sd_FBar = sd(FBar),
+          mean_Pred_catch = mean(Pred_catch),
+          sd_Pred_catch = sd(Pred_catch))
+
+
+
+p[[1]] <- ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_catchAdvice, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_catchAdvice - sd_catchAdvice, ymax = mean_catchAdvice + sd_catchAdvice, fill = EM_name), alpha = 0.2) +
+    geom_line()
+
+p[[2]] <- ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_SSB, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_SSB - sd_SSB, ymax = mean_SSB + sd_SSB, fill = EM_name), alpha = 0.2) +
+    geom_line()
+
+p[[3]] <- ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_FBar, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_FBar - sd_cFBar, ymax = mean_FBar + sd_FBar, fill = EM_name), alpha = 0.2) +
+    geom_line()
+
+p[[4]] <- ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_Pred_catch, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_mean_Pred_catch - mean_Pred_catch, ymax = mean_mean_Pred_catch + sd_mean_Pred_catch, fill = EM_name), alpha = 0.2) +
+    geom_line()
+
+ggpubr::ggarrange(p[[1]], p[[2]], p[[3]], p[[4]], nrow = 2, common.legend = TRUE, legend = 'right')
+
+```
+
+This similarity is also captured in the model performance (figure \ref{fig:radar}), where the models have a similar performance, with the exception of the model without an ecological covariate and the model with a biased projction. The calculated SSB, ($\bar{F}$), and predicted catch from the terminal three years of the projection period show similar patterns of similarity across EMs (figure \ref{fig:projterminal3}).
+
+```{r recruitmentDevs}
+
+data_recruit <- Proj_ests %>%
+  select(Year, EM_name, seed_no, EM_NAAsigma_youngest) %>%
+  filter(EM_name != 'Mod_NoEcov', Year > 2021)
+
+data_recruit$EM_NAAsigma_youngest <- exp(data_recruit$EM_NAAsigma_youngest)
+
+data_ecovNone <- Proj_ests %>%
+  select(Year, EM_name, seed_no, EM_NAAsigma_youngest) %>%
+  filter(EM_name == 'Mod_NoEcov', Year > 2021) %>%
+  select(Year, seed_no, EM_NAAsigma_youngest)
+colnames(data_ecovNone) <- c('Year', 'seed_no', 'recDevs_noEcov')
+
+data_ecovNone$recDevs_noEcov <- exp(data_ecovNone$recDevs_noEcov)
+
+
+recruitmentDevs <- merge(data_recruit, data_ecovNone, all.x = TRUE, by = c('Year', 'seed_no'))
+recruitmentDevs <- recruitmentDevs %>%
+  rowwise() %>%
+  mutate(percentDiff = (EM_NAAsigma_youngest - recDevs_noEcov)/recDevs_noEcov)
+
+idk <- recruitmentDevs %>%
+  group_by(EM_name, seed_no) %>%
+  summarize(mean = mean(percentDiff, na.rm = TRUE))
+
+# meanDevs <- recruitmentDevs %>%
+#   group_by(Year, EM_name) %>%
+#   summarise(mean = mean(percentDiff))
+
+
+ggplot(idk, aes(x = EM_name, y = mean)) +
+  geom_boxplot()
+```
+
+```{r radar, fig.cap = 'Relative performance of each EM', echo = FALSE, warning = FALSE, message = FALSE}
+knitr::include_graphics("Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png")
+```
+
+```{r projterminal3, out.width="30%", fig.cap="Fbar, SSB, and catch of terminal 3 years of MSE in projections test", fig.show='hold', fig.align='center', echo = FALSE, warning = FALSE, message = FALSE}
+
+knitr::include_graphics(c("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years.png",
+                          
+                        "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years.png",
+                        
+                        "C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Combo/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years.png"))
+
+
+
+```
+
+# DISCUSSION
+
+The results from the bias test show that, while incorporating the ecological covariate helps model performance overall, the trajectory of the projection of temperature used in predicting future simulations can have a high or low bias, as they tended to underestimate the parameter from the ‘true’ value. However, the overall result had a limited impact on the SSB, $\bar{F}$, and subsequent catch. This is because regardless of the bias in the projection, the ecological parameter estimated at each assessment did not diverge away from the ‘true’ OM temperature regardless.
+
+However, this test was more of a hypothetical exploration of how diverging temperature projections changes the outputs of the model. In reality, stock assessments use hindcast environmental information, so it is not realistic that an assessment would continue to use a temperature trajectory that diverges away from the real environmental conditions. Instead, stock assessments incorporate the most recent data and use this information to make predictions until the next assessment. This is why our projections test updated its temperature predictions with the previous three years of information. Similar to the bias tests, we found that incorporating the environmental covariate resulted in slightly different dynamics, but overall followed similar trajectories. The EM with the ‘good’ projection (i.e. one that followed that of the OM) performed the best, but other self-updating estimations of temperatures performed almost as well. This is in line with previous literature for yellowtail flounder, which has shown that there is little discernible difference between projections that used a continued estimated environmental process, ones that fixed the environmental process at recent 5 year average, and a third EM which used the observed environmental index [@brittenIdentificationPerformanceStockrecruitment2024]. This could be the result of the type of link that the environmental covariate makes with the population. For Georges Bank Yellowtail, the environmental covariate has a lagged controlling effect on recruitment (CITE RT). Over time, the negative effects of high temperature could be masked by density-dependent mortality, or other factors that occur during the lag. Further, there may be a greater difference in model outputs if the ecov had a direct effect on catchability, mortality, behavioral, or metabolic processes; life history traits that can all be affected by environmental change [@stockWoodsHoleAssessment2021], indicating a need for further research on projection choices for environmental covariates that affect other parts of life history. Catch advice is not very dependent on recruitment, and because this environmental link is also lagged, these combined factors could be masking the effect. Further, @haltuchPromisesPitfallsIncluding2011 has shown that incorrectly including environmental covariates in the stock does not have a large effect on biomass reference points or relative errors of the model. A review by @puntFisheriesManagementClimate2014 has also shown that short and medium-term fisheries management simulations are generally not greatly improved by incorporating environmental covariates. This research served to test a longer-term simulation and found a similar result. However, if there is a high temporal contrast in the ‘real world’ or OM, incorporating the environmental covariate in the estimation model can improve model accuracy [@millerFactorsAffectingInferences2023].
+
+Overall, we found that projection decisions had a limited effect on catch advice and fishery dynamics in an MSE framework, and this could be due to the nature of the environmental link to georges bank yellowtail flounder, indicating a need for further research on how this type of link will affect model dynamics over different projection decisions. 
+
+
 \newpage
 
 **References**
+
+
+
+
+
+
+
+
+
+
+
+
+
