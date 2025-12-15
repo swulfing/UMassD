@@ -62,6 +62,7 @@ ModNames_biasOMs <- c("Mod_LOWEcov", "Mod_MEDLOWEcov", "Mod_MEDEcov", "Mod_HIGHE
 
 Proj_ests <- readRDS('C:/Users/swulfing/Documents/MSE_results/Combo/Projections_data.rds')
 Bias_ests <- readRDS('C:/Users/swulfing/Documents/MSE_results/Biases/Biases_data.rds')
+BRP_data <- readRDS('C:/Users/swulfing/Documents/MSE_results/BRP_data.rds')
 ```
 
 # ABSTRACT
@@ -338,6 +339,72 @@ idk <- recruitmentDevs %>%
 
 ggplot(idk, aes(x = EM_name, y = mean)) +
   geom_boxplot()
+```
+
+```{r ReferencePointsMSY, eval = FALSE}
+#### THIS IS THE TYPE AS MSY AS A PROXY
+MSYOverfishedStatus <- BRP_data %>%
+  filter(Year >= 2024) %>%
+  group_by(EM_name, Year) %>%
+  summarize(OM_Overfishing = mean(MSYOverfishing_OM, na.rm = TRUE),
+            EM_Overfishing = mean(MSYOverfishing_EM, na.rm = TRUE),
+            SD_Overfishing = sd(MSYOverfishing_EM, na.rm = TRUE),
+            OM_Overfished = mean(Overfished_OM, na.rm = TRUE),
+            EM_Overfished = mean(Overfished_EM, na.rm = TRUE),
+            SD_Overfished = sd(Overfished_EM, na.rm = TRUE)
+            )
+
+
+ggplot(data = MSYOverfishedStatus, aes(x = Year, y = EM_Overfished)) +
+  geom_point(aes(y = EM_Overfished), color = 'red') +
+  geom_point(aes(y = OM_Overfished), color = 'black') +
+  facet_wrap(vars(EM_name))
+
+ggplot(data = MSYOverfishedStatus, aes(x = Year, y = EM_Overfishing)) +
+  geom_point(aes(y = EM_Overfishing), color = 'red') +
+  geom_point(aes(y = OM_Overfishing), color = 'black') +
+  facet_wrap(vars(EM_name))
+
+```
+
+```{r ReferencePoints}
+#### NOT USING MSY AS PROXY
+OverfishedStatus <- BRP_data %>%
+  filter(Year >= 2024) %>%
+  group_by(EM_name, Year) %>%
+  summarize(OM_Overfishing = mean(Overfishing_OM, na.rm = TRUE),
+            EM_Overfishing = mean(Overfishing_EM, na.rm = TRUE),
+            SD_Overfishing = sd(Overfishing_EM, na.rm = TRUE),
+            OM_Overfished = mean(Overfished_OM, na.rm = TRUE),
+            EM_Overfished = mean(Overfished_EM, na.rm = TRUE),
+            SD_Overfished = sd(Overfished_EM, na.rm = TRUE)
+            )
+
+
+ggplot(data = OverfishedStatus, aes(x = Year, y = EM_Overfished)) +
+  geom_point(aes(y = EM_Overfished), color = 'red') +
+  geom_point(aes(y = OM_Overfished), color = 'black') +
+  facet_wrap(vars(EM_name))
+
+ggplot(data = OverfishedStatus, aes(x = Year, y = EM_Overfishing)) +
+  geom_point(aes(y = EM_Overfishing), color = 'red') +
+  geom_point(aes(y = OM_Overfishing), color = 'black') +
+  facet_wrap(vars(EM_name))
+
+```
+
+```{r BRP_PerDiff}
+
+BRP_calcd <- BRP_data %>%
+  filter(Year >= 2024) %>%
+  rowwise() %>%
+  mutate(BPR_PerDiff = (exp(EM_log_FXSPR_static) - exp(OM_log_FXSPR_static)) /exp(OM_log_FXSPR_static))
+
+
+
+ggplot(BRP_calcd, aes(x = EM_name, y = BPR_PerDiff)) +
+  geom_boxplot()
+
 ```
 
 ```{r radar, fig.cap = 'Relative performance of each EM', echo = FALSE, warning = FALSE, message = FALSE}
