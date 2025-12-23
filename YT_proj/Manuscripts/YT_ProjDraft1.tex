@@ -132,7 +132,7 @@ $\text{*}$ Corresponding authors: Sophie Wulfing (SophieWulfing@gmail.com)
 
 \section{ABSTRACT}\label{abstract}
 
-The US Northeast Continental shelf is the fastest warming marine ecosystem in the United States, so understanding this change is imperative to maintaining the sustainability and productivity of this region's fishery. Fished stocks in the region have exhibited different distributional shifts in response to changing ocean temperatures, chemistry, and currents. Management Strategy Evaluation (MSE) is a technique in fisheries management to simulate and compare the likely outcomes of different management actions, assess trade-offs of different management options, and has been used to create more climate-ready management plans. The Georges Bank Yellowtail Flounder (\emph{Limanda ferruginea}) is an important stock to the Northeast groundfish fishery and its recruitment has been shown to be impacted by bottom ocean temperatures. However, predicting future environmental covariates such as bottom temperature can be challenging, as these conditions are subject to high stochasticity. For this reason, our goal is to analyze the different choices made when projecting or forecasting future environmental conditions within assessments, what subsequent catch advice is generated from the MSE, and how this affects long-term fishery dynamics. Preliminary results focusing on recruitment-environment relationships have shown that different projection decisions, including integrating environmental forecasts, have a limited impact on the model performance and output, and we will expand on these findings by comparing the MSE results under different climate scenarios, informed by ocean model forecast products.
+The US Northeast Continental shelf is the fastest warming marine ecosystem in the United States, so understanding this change is imperative to maintaining the sustainability and productivity of this region's fishery. Fished stocks in the region have exhibited different distributional shifts in response to changing ocean temperatures, chemistry, and currents. Management Strategy Evaluation (MSE) is a technique in fisheries management to simulate and compare the likely outcomes of different management actions, assess trade-offs of different management options, and has been used to create more climate-ready management plans. The Georges Bank Yellowtail Flounder (\emph{Limanda ferruginea}) is an important stock to the Northeast groundfish fishery and its recruitment has been shown to be impacted by bottom ocean temperatures. However, predicting future environmental covariates such as bottom temperature can be challenging, as these conditions are subject to high stochasticity. For this reason, our goal is to analyze the different choices made when projecting or forecasting future environmental conditions within assessments, what subsequent catch advice is generated from the MSE, and how this affects long-term fishery dynamics. Results focusing on recruitment-environment relationships have shown that different projection decisions, including integrating environmental forecasts, have a limited impact on the model performance and output, and we will expand on these findings by comparing the MSE results under different climate scenarios, informed by ocean model forecast products.
 
 \section{INTRODUCTION}\label{introduction}
 
@@ -142,7 +142,7 @@ The US Northeast continental shelf has warmed faster than any other marine ecosy
 
 Management Strategy Evaluations (MSEs) are decision making frameworks that allow assessors to simulate and compare the sustainability and tradeoffs associated with different management decisions (Hollowed et al., 2011; Tommasi et al., 2017; Mazur et al., 2023; V. Saba et al., 2023). Applying climate change covariates and MSE to New England groundfish has shown to improve the robustness of stock assessments (Mazur et al., 2023). However, applications of MSEs can still be challenging, as climate change shifts population baselines and creates dynamics that are harder to predict in biological systems. This demonstrates a need for further research on how to incorporate these environmental conditions into the MSE framework (Hollowed et al., 2011; Punt et al., 2016; Stram \& Holsman, 2022a; V. Saba et al., 2023). Populations' responses to climate change can be complex, as fish exhibit different sensitivities to environmental conditions depending on their lifestage, and different environmental changes (i.e.~increased sea surface or bottom temperature, changes in salinity, and altered currents) will have different effects on populations (Hollowed et al., 2011).
 
-Further, decisions on how to project environmental conditions are important to consider when predicting stock dynamics. With recent improvements, ocean dynamic models are able to offer improved predictions of future stock dynamics and are being used in stocks worldwide. However, the spatial and temporal scale of these models is relevant (Hobday et al., 2016). Future climate is also difficult to estimate as there is a lot of uncertainty and climate change is a very chaotic process (Punt et al., 2014b). As assessments attempt to capture future population trends, forecasting environmental trends is also imperative, however this can be challenging as optimal decisions can change depending on scale, species, and which environmental covariates are used (Hollowed et al., 2011; Tommasi et al., 2017; Stram \& Holsman, 2022b). In a simulation-estimation experiment, Britten et al. (n.d.) found that there was no discernable difference if projections continued the AR1 process or if the environmental covariate projection was calculated as the mean of the last 5 years. This project aims to build off of this finding by expanding the projections tested, simulating over a greater number of years, and seeing how catch advice and fishery dynamics may respond to changing projections.
+Further, decisions on how to project environmental conditions are important to consider when predicting stock dynamics. With recent improvements, ocean dynamic models are able to offer improved predictions of future stock dynamics and are being used in stocks worldwide. However, the spatial and temporal scale of these models is relevant (Hobday et al., 2016). Future climate is also difficult to estimate as there is a lot of uncertainty and climate change is a very chaotic process (Punt et al., 2014b). As assessments attempt to capture future population trends, forecasting environmental trends is also imperative, however this can be challenging as optimal decisions can change depending on scale, species, and which environmental covariates are used (Kell et al., 2005; Hollowed et al., 2011; Tommasi et al., 2017; Stram \& Holsman, 2022b). In a simulation-estimation experiment, Britten et al. (2024) found that there was no discernable difference if projections continued the AR1 process or if the environmental covariate projection was calculated as the mean of the last 5 years. Further, Kell et al. (2005) showed that climate change has a limited effect in the short term for Atlantic cod, and only long term simulations showed an affect on stock dynamics and recovery. This project aims to build off of this finding by expanding the projections tested, simulating over a greater number of years, and seeing how catch advice and fishery dynamics may respond to changing projections.
 
 The yellowtail flounder (\emph{Limanda ferruginea}) has a long history of harvest in the US Atlantic Coast. However due to stock collapse in the 1980s, it is now primarily caught as bycatch in other surrounding fisheries (CITE RTA). Yellowtail flounder is managed as three distinct stocks in the Northeast US; Southern New England, Gulf of Maine, and Georges Bank. Yellowtail flounder are sensitive to water temperatures at the larval phase (Laurence \& Howell, 1981). The Georges Bank stock has been shown to shift its distribution northward in response to warming ocean temperatures (Murawski, 1993; Nye et al., 2009; Hyun et al., 2014). This stock has been in decline starting in the 1970s, leading to a collapse in the early 1990s (Stone et al., 2004). Recently, ocean bottom temperature has been shown to have a strong link to the recruitment of Georges Bank yellowtail flounder, and the incorporation of this environmental covariate has been shown to improve stock assessment accuracy and prediction success {[}Johnson et al. (1999); Kerr et al. (2022); CITE RESEARCH TRACK{]}. Because this relationship between environment and stock dynamics has a clear linkage, inclusion of environmental covariates have improved assessment success, and this stock has a long history of data collection, we will use Georges Bank yellowtail flounder as a case study. We aim to incorporate bottom temperature into stock assessments and the Management Strategy Evaluation framework in order to assess different choices when projecting bottom temperature in Georges Bank and how this affects forecasts in assessments and subsequent tactical fishery management advice of Georges Bank yellowtail flounder.
 
@@ -170,15 +170,27 @@ After the MSE process was conducted in both experiments, we compared the outputs
 
 \section{RESULTS}\label{results}
 
+Before assessing the accuracy of each model, each EM simulated was tested for convergence. If any of the EM models did not converge, the whole seed was removed from the results to ensure comparability across results. Convergence checks were used from the r packages TMP and nlminb CITE PACKAGES.
+
 \subsection{Bias Tests}\label{bias-tests}
 
-The estimated parameters for the environmental link are shown in figure \ref{fig:paramEstsbias} compared to that of the OM in each bias test. Here, we see FIX THIS HERE estimated parameters ranging from 7.449 - 8.904. Generally, the EM tended to underestimate the environmental covariate compared to the OM, with the exception of High EM and the AR1 EM compared with the MediumLow OM With the exception of the MediumLowEcov, the highest logit rho (or the models whose variation was most explained by the model) for the OMs using both the highest and lowest biased projections were the EM with the highest bias, HighEcov. However, when looking at how the ecov is updated with every assessment step in the mode, the updated parameter estimates do not diverge from the `true' estimate in the OM, even though the underlying temperatures take different trajectories. As a result, the subsequent catch advice from the EMs, spawning stock biomass (SSB), fishing mortality (\(\bar{F}\)), and predicted catch from the OM stays relatively consistent across EMs over the time series. These figures are provided in the supplemental material.
+The estimated parameters for the environmental covariate are shown in figure \ref{fig:paramEstsbias} compared to that of the OM in each bias test (the black vertical line). Across the EMs, the accuracy of the estimated parameter (in relation to the `real' one calculated by the OM) was generally higher when projections overestimated the temperature timeseries, and lower for low bias projections. Observing how this parameter is estimated over time, projections that were similar to the OM or had slight bias remained around the calculated OM parameter, while the projections with high bias tended to diverge away from this `true' mean (figure \ref{fig:biasProjOverTime}). However, the subsequent catch advice from the EMs, spawning stock biomass (SSB), fishing mortality (\(\bar{F}\)), and predicted catch from the OM stays relatively consistent across EMs over the time series. These figures are provided in the supplemental material.
 
 \begin{figure}
 \centering
 \includegraphics{YT_ProjDraft1_files/figure-latex/paramEstsbias-1.pdf}
 \caption{\label{fig:paramEstsbias}Estimated environmental parameter from each EM compared to the `true' value in the OM on the y axis. Colors correspond to if the EM had a high temperature bias (red), a low temperature bias (blue), or if the EM intended to accurately reflect climate dynamics (i.e.~AR1 process or temperature projection that matched that of the OM) (green). The dashed black line indicates where these two estimations would be equal}
 \end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{YT_ProjDraft1_files/figure-latex/biasProjOverTime-1.pdf}
+\caption{\label{fig:biasProjOverTime}Calcualted environmnetal covariates from the EM updated at each assessment period. The ``True'' OM value is shown in the horizontal dashed line}
+\end{figure}
+
+\subsection{Projection Tests}\label{projection-tests}
+
+When comparing the parameter for the environmental covariate across different projections (table \ref{tab:paramEstsproj}) , the most accurate estimation of the ecological covariate was the projection that used recent window approach, with only a 1.3\% change from the `true' value. Both the recent trend projection and the `good' projection estimated this parameter poorly, with an almost 30\% difference between the true covariate and the estimation in the EM. The calculated parameter estimates at each assessment year show that the Historical average and AR1 process tended to underestimate the ecological covariate while the other projections generally over-estimated this trend (figure \ref{fig:timeseriesparam}). However, figure \ref{fig:timeseriesproj} shows the catch advice, SSB, \(\bar{F}\), and predicted catch from the OM of each projection test. Similar to the bias tests, these model outputs were very similar and all converged to similar estimations.
 
 \begin{table}
 
@@ -205,44 +217,50 @@ Mod\_TermYear & -0.397 & -0.326 & -17.884 & 0.134\\
 \end{tabular}
 \end{table}
 
-\subsection{Projection Tests}\label{projection-tests}
-
-When comparing the parameter for the environmental covariate across different projections (table \ref{tab:paramEstsproj}), the highest parameter estimate came from the `Good' projection which follows the general temperature trend of the OM. This model also had the highest logit rho value. The lowest parameter estimate was calculated from the EM which uses the historical average, which along with the recent trend projection, had the lowest logit rho value. Similar to the bias tests, the calculated parameter estimates at each assessment year did not appear to diverge from the estimate in the OM \ref{fig:timeseriesparam}. Figure \ref{fig:timeseriesproj} shows the catch advice, SSB, \(\bar{F}\), and predicted catch from the OM of each projection test. Similar to the bias tests, these model outputs were very similar and all converged to similar estimations.
-
-\includegraphics{YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf}
-
+\begin{figure}
+\centering
 \includegraphics{YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf}
-
-\begin{verbatim}
-## $`1`
-\end{verbatim}
+\caption{\label{fig:timeseriesparam}Estimated ecological covariates in for the different temperature projection choices in the EM compared to the ``true'' value in the OM.}
+\end{figure}
 
 \begin{figure}
 \centering
 \includegraphics{YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf}
-\caption{\label{fig:timeseriesproj-1}Catch advice (top), SSB (second), FBar (third), and predicted catch (bottom) calculated from each EM over the projection period}
+\caption{\label{fig:timeseriesproj}Catch advice (top), SSB (second), FBar (third), and predicted catch (bottom) calculated from each EM over the projection period}
 \end{figure}
 
-\begin{verbatim}
-## 
-## $`2`
-\end{verbatim}
+Differences in estimated recruitment between the EM and OM is shown in figure \ref{fig:timeseriesrecruit}, where there is noticeable variation between the EM estimations and that of the OM but for most years, the EMs tended to under estimate recruitment compared to that of the OM. Comparing the calculated variation in recruitment (figure \ref{fig:recruitmentDevs}) between models that used an ecological covariate and the No Ecov projection of the same seed, we can estimate the percentage of this variation that is captured in the ecological covariate. All models had a mean percentage of variation between 5\% and 10\%. The AR1 process and the `Bad' projection both had the highest range of recruitment variations, with the AR1 process reaching a maximum of 20.6 \% of variation in recruitment being explained by the ecological covariate. The Recent Trend and `Good' projection displayed the smallest range of variation that was captured by the ecological covariate.
 
 \begin{figure}
 \centering
-\includegraphics{YT_ProjDraft1_files/figure-latex/timeseriesproj-2.pdf}
-\caption{\label{fig:timeseriesproj-2}Catch advice (top), SSB (second), FBar (third), and predicted catch (bottom) calculated from each EM over the projection period}
+\includegraphics{YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf}
+\caption{\label{fig:timeseriesrecruit}Percent difference of the calcualted recruitment per assessment year in each EM compared to the OM.}
 \end{figure}
 
-\begin{verbatim}
-## 
-## attr(,"class")
-## [1] "list"      "ggarrange"
-\end{verbatim}
-
-This similarity is also captured in the model performance (figure \ref{fig:radar}), where the models have a similar performance, with the exception of the model without an ecological covariate and the model with a biased projction. The calculated SSB, (\(\bar{F}\)), and predicted catch from the terminal three years of the projection period show similar patterns of similarity across EMs (figure \ref{fig:projterminal3}).
-
+\begin{figure}
+\centering
 \includegraphics{YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf}
+\caption{\label{fig:recruitmentDevs}Percent difference of the recruiement deviation per assessment year in each EM compared to the OM.}
+\end{figure}
+
+Looking at the stock status, all of the EMs under-estimated the yellowtail's overfished status, but all models projected that this stock would remain overfished for most of the projection period (figure \ref{fig:ReferencePoints}). Similarly, the EMs also under- estimated the overfishing status, but this varied between status being over and under the overfishing threshold (the red horizontal line) over the course of the time series. In this case, each EM overestimated the FXSPR reference point when compared to the reference point used in the operating model (figure \ref{fig:BRPPerDiff}).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.45\linewidth]{YT_ProjDraft1_files/figure-latex/ReferencePoints-1} \includegraphics[width=0.45\linewidth]{YT_ProjDraft1_files/figure-latex/ReferencePoints-2} 
+
+}
+
+\caption{Overfished (left) and overfishing (right) status over the projected time series for each EM. Overfished and overfishing thresholds are shown in the horizonal red line}\label{fig:ReferencePoints}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{YT_ProjDraft1_files/figure-latex/BRPPerDiff-1.pdf}
+\caption{\label{fig:BRPPerDiff}Percent difference of the calculated FXSPR reference point in each EM compared to the OM.}
+\end{figure}
+
+In the model performance (figure \ref{fig:radar}), however, these differences have a minimal impact on the overall accuracy of these models. With the exception of the model without an ecological covariate and the model with a biased projection, all models performed similarly when comparing SSB, Catch, and \(\bar{F}\) of the first and terminal years of the projection. The calculated SSB, (\(\bar{F}\)), and predicted catch from the terminal three years of the projection period show similar patterns of similarity across EMs (figure \ref{fig:projterminal3}).
 
 \begin{figure}
 \includegraphics[width=41.67in]{Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar} \caption{Relative performance of each EM}\label{fig:radar}
@@ -259,12 +277,18 @@ This similarity is also captured in the model performance (figure \ref{fig:radar
 
 \section{DISCUSSION}\label{discussion}
 
-The results from the bias test show that, while incorporating the ecological covariate helps model performance overall, the trajectory of the projection of temperature used in predicting future simulations can have a high or low bias, as they tended to underestimate the parameter from the `true' value. However, the overall result had a limited impact on the SSB, \(\bar{F}\), and subsequent catch. This is because regardless of the bias in the projection, the ecological parameter estimated at each assessment did not diverge away from the `true' OM temperature regardless.
+The results from the bias test show that, while incorporating the ecological covariate helps model performance overall, the trajectory of the projection of temperature used in predicting future simulations will predictably under or over estimate the ecological parameter depending on the type of bias. However, the overall result had a limited impact on the SSB, \(\bar{F}\), and subsequent catch. This is because regardless of the bias in the projection, indicating that bottom temperature's overall affect on recruitment may have a limited impact on the status of the fishery over time. Kell et al. (2005) found that the specific climate scenario modeled in the OM had a limited affect on the recoverability of Atlantic cod stocks.
 
-However, this test was more of a hypothetical exploration of how diverging temperature projections changes the outputs of the model. In reality, stock assessments use hindcast environmental information, so it is not realistic that an assessment would continue to use a temperature trajectory that diverges away from the real environmental conditions. Instead, stock assessments incorporate the most recent data and use this information to make predictions until the next assessment. This is why our projections test updated its temperature predictions with the previous three years of information. Similar to the bias tests, we found that incorporating the environmental covariate resulted in slightly different dynamics, but overall followed similar trajectories. The EM with the `good' projection (i.e.~one that followed that of the OM) performed the best, but other self-updating estimations of temperatures performed almost as well. This is in line with previous literature for yellowtail flounder, which has shown that there is little discernible difference between projections that used a continued estimated environmental process, ones that fixed the environmental process at recent 5 year average, and a third EM which used the observed environmental index (Britten et al., 2024). This could be the result of the type of link that the environmental covariate makes with the population. For Georges Bank Yellowtail, the environmental covariate has a lagged controlling effect on recruitment (CITE RT). Over time, the negative effects of high temperature could be masked by density-dependent mortality, or other factors that occur during the lag. Further, there may be a greater difference in model outputs if the ecov had a direct effect on catchability, mortality, behavioral, or metabolic processes; life history traits that can all be affected by environmental change (Stock \& Miller, 2021), indicating a need for further research on projection choices for environmental covariates that affect other parts of life history. Catch advice is not very dependent on recruitment, and because this environmental link is also lagged, these combined factors could be masking the effect. Further, Haltuch \& Punt (2011b) has shown that incorrectly including environmental covariates in the stock does not have a large effect on biomass reference points or relative errors of the model. A review by Punt et al. (2014a) has also shown that short and medium-term fisheries management simulations are generally not greatly improved by incorporating environmental covariates. This research served to test a longer-term simulation and found a similar result. However, if there is a high temporal contrast in the `real world' or OM, incorporating the environmental covariate in the estimation model can improve model accuracy (Miller et al., 2023b).
+However, this test was more of a hypothetical exploration of how diverging temperature projections changes the outputs of the model. In reality, stock assessments use hindcast environmental information, so it is not realistic that an assessment would continue to use a temperature trajectory that diverges away from the real environmental conditions. Instead, stock assessments incorporate the most recent data and use this information to make predictions until the next assessment. This is why our projections test updated its temperature predictions with the previous three years of information. Similar to the bias tests, we found that incorporating the environmental covariate resulted in slightly different dynamics, but overall followed similar trajectories. Some models appeared to do better with some metrics (e.g.~recent window projections resulted in the most accurate ecological covariate, whereas the `good' projection performed the most poorly here, it estimated the smallest range of recruitemnt deviations being explained by the ecological covariate), but this had a limited impact in the overall fishery dynamics, even in the long term. This is in line with previous literature for yellowtail flounder, which has shown that there is little discernible difference between projections that used a continued estimated environmental process, ones that fixed the environmental process at recent 5 year average, and a third EM which used the observed environmental index (Britten et al., 2024). This research also noted that the specific stock-recruitment relationship defined in the model will change the environmental affect size due to the placement of the environmental covariate in the stock-recruit equation. McClatchie et al. (2010) found that for Pacific sardine, \emph{Sardinops sagax}, temperature actually did not have a relationship with recruitment, and the correlation between temperature parameters and recruitment depended on the amount of autocorrelation in the temperature time series, although the specific mechanism that links Pacific sardine recruitment is less clear than with yellowtail flounder. This may also be due to the amount of recruitment variation that was explained by the ecological covariate. In these simulations, the percentage of variation explained by the ecological covariate had a maximum of 20.6\% in one simulation, yet De Oliveira \& Butterworth (2005) found that management strategies do not show any benefits to risk and average catch if the ecological covariate explains less than 50\% of recruitment variation. None of the simulations in this experiment exceeded 50\%.
 
-Overall, we found that projection decisions had a limited effect on catch advice and fishery dynamics in an MSE framework, and this could be due to the nature of the environmental link to georges bank yellowtail flounder, indicating a need for further research on how this type of link will affect model dynamics over different projection decisions.
+This could be the result of the type of link that the environmental covariate makes with the population. For Georges Bank Yellowtail, the environmental covariate has a lagged controlling effect on recruitment (CITE RT). Over time, the negative effects of high temperature could be masked by density-dependent mortality, or other factors that occur during the lag. Kell et al. (2005) found that the long-term performance and calculated reference points of Atlantic cod stock depended on if ocean temperatures were linked to juvenile survival versus the carrying capacity of the stock. Further, there may be a greater difference in model outputs if the environmental covariate had a direct effect on distribution, carrying capacity, catchability, mortality, behavioral, migratory, spawning, or metabolic processes; life history traits that can all be affected by environmental change (Punt et al., 2014a; Stock \& Miller, 2021), indicating a need for further research on projection choices for environmental covariates that affect other parts of life history. Catch advice is not very dependent on recruitment, and because this environmental link is also lagged, these combined factors could be masking the effect. Further, Haltuch \& Punt (2011b) has shown that incorrectly including environmental covariates in the stock does not have a large effect on biomass reference points or relative errors of the model. A review by Punt et al. (2014a) has also shown that short and medium-term fisheries management simulations are generally not greatly improved by incorporating environmental covariates. This research served to test a longer-term simulation and found a similar result. However, if there is a high temporal contrast in the `real world' or OM, incorporating the environmental covariate in the estimation model can improve model accuracy (Miller et al., 2023b). This could indicate that these results may change depending on the amount of future variation in ocean bottom temperatures.
 
+Future ocean conditions are expected to be highly variable in coming years due to climate change, (Wang et al., 2010), so understanding potential impacts on fishery dynamics is vital. Overall, we found that projection decisions had a limited effect on catch advice and fishery dynamics in an MSE framework, and this could be due to the nature of the environmental link to Georges Bank Yellowtail flounder, indicating a need for further research on how this type of link will affect model dynamics over different projection decisions.
+
+WOULD THE DIFFERENTEE BETWEEN REC TREND AND REC WINDOW BE MORE ABOUT THE GENERAL TREND OF THE PROJECTION (I.E. RECENTLY INCREASING THEREFORE REC TREND WITH GENERALLY INCREASE?)
+WHAT IS THE RECRUITMENT DEVIATIONS GRAPH TELLING UUUUUU
+gET ADVICE ON TEH REF POINTS FIGURE
+GENERALLY UNDER EST RECRUITMENT AND STOCK STATUS
 \newpage
 
 \textbf{References}
@@ -294,6 +318,9 @@ Cheng, L., Abraham, J., Trenberth, K. E., Boyer, T., Mann, M. E., Zhu, J., Wang,
 
 \bibitem[\citeproctext]{ref-chown2010}
 Chown, S., Hoffmann, A., Kristensen, T., Angilletta, M., Stenseth, N., \& Pertoldi, C. (2010). Adapting to climate change: a perspective from evolutionary physiology. \emph{Climate Research}, \emph{43}(1), 3--15. \url{https://doi.org/10.3354/cr00879}
+
+\bibitem[\citeproctext]{ref-deoliveiraLimitsUseEnvironmental2005}
+De Oliveira, J., \& Butterworth, D. (2005). Limits to the use of environmental indices to reduce risk and/or increase yield in the {South African} anchovy fishery. \emph{African Journal of Marine Science}, \emph{27}(1), 191--203. \url{https://doi.org/10.2989/18142320509504078}
 
 \bibitem[\citeproctext]{ref-dupontavice2023}
 Du Pontavice, H., Chen, Z., \& Saba, V. S. (2023). A high-resolution ocean bottom temperature product for the northeast U.S. continental shelf marine ecosystem. \emph{Progress in Oceanography}, \emph{210}, 102948. \url{https://doi.org/10.1016/j.pocean.2022.102948}
@@ -340,6 +367,9 @@ Hyun, S.-Y., Cadrin, S. X., \& Roman, S. (2014). Fixed and mixed effect models f
 \bibitem[\citeproctext]{ref-johnsonYellowtailFlounderLimanda1999}
 Johnson, D., Morse, W., Berrien, P., \& Vitaliano, J. (1999). \emph{Yellowtail {Flounder}, {Limanda} ferruginea, {Life History} and {Habitat Characteristics}} (NOAA Technical Memorandum NMFS-NE-140). US Department of Commerce.
 
+\bibitem[\citeproctext]{ref-kellImplicationsClimateChange2005}
+Kell, L. T., Pilling, G. M., \& O'Brien, C. M. (2005). Implications of climate change for the management of {North Sea} cod ({Gadus} morhua). \emph{ICES Journal of Marine Science}, \emph{62}(7), 1483--1491. \url{https://doi.org/10.1016/j.icesjms.2005.05.006}
+
 \bibitem[\citeproctext]{ref-kerr2022}
 Kerr, L., Barajas, M., \& Wiedenmann, J. (2022). Coherence and potential drivers of stock assessment uncertainty in Northeast US groundfish stocks. \emph{ICES Journal of Marine Science}, \emph{79}(8), 2217--2230. \url{https://doi.org/10.1093/icesjms/fsac140}
 
@@ -354,6 +384,9 @@ Laurence, G., \& Howell, W. H. (1981). Embryology and influence of temperature a
 
 \bibitem[\citeproctext]{ref-mazur2023}
 Mazur, M. D., Jesse, J., Cadrin, S. X., Truesdell, S. B., \& Kerr, L. (2023). Consequences of ignoring climate impacts on New England groundfish stock assessment and management. \emph{Fisheries Research}, \emph{262}, 106652. \url{https://doi.org/10.1016/j.fishres.2023.106652}
+
+\bibitem[\citeproctext]{ref-mcclatchieReassessmentStockRecruit2010}
+McClatchie, S., Goericke, R., Auad, G., \& Hill, K. (2010). Re-assessment of the stock--recruit and temperature--recruit relationships for {Pacific} sardine ({Sardinops} sagax). \emph{Canadian Journal of Fisheries and Aquatic Sciences}, \emph{67}(11), 1782--1790. \url{https://doi.org/10.1139/F10-101}
 
 \bibitem[\citeproctext]{ref-miller2023}
 Miller, T. J., Applegate, A., Britten, G., Brooks, E. N., Fay, G., Hansell, A., Legault, C. M., Muffley, B., Stock, B. C., \& Wiedenmann, J. (2023a). \emph{Factors affecting inferences on natural mortality and associated environmental effects}.
@@ -411,6 +444,9 @@ Sydeman, W. J., Poloczanska, E., Reed, T. E., \& Thompson, S. A. (2015). Climate
 
 \bibitem[\citeproctext]{ref-tommasi2017}
 Tommasi, D., Stock, C. A., Hobday, A. J., Methot, R., Kaplan, I. C., Eveson, J. P., Holsman, K., Miller, T. J., Gaichas, S., Gehlen, M., Pershing, A., Vecchi, G. A., Msadek, R., Delworth, T., Eakin, C. M., Haltuch, M. A., Séférian, R., Spillman, C. M., Hartog, J. R., \ldots{} Werner, F. E. (2017). Managing living marine resources in a dynamic environment: The role of seasonal to decadal climate forecasts. \emph{Progress in Oceanography}, \emph{152}, 15--49. \url{https://doi.org/10.1016/j.pocean.2016.12.011}
+
+\bibitem[\citeproctext]{ref-wangClimateProjectionsSelected2010}
+Wang, M., Overland, J. E., \& Bond, N. A. (2010). Climate projections for selected large marine ecosystems. \emph{Journal of Marine Systems}, \emph{79}(3-4), 258--266. \url{https://doi.org/10.1016/j.jmarsys.2008.11.028}
 
 \bibitem[\citeproctext]{ref-wilson2016}
 Wilson, L. J., Fulton, C. J., Hogg, A. M., Joyce, K. E., Radford, B. T. M., \& Fraser, C. I. (2016). Climate{-}driven changes to ocean circulation and their inferred impacts on marine dispersal patterns. \emph{Global Ecology and Biogeography}, \emph{25}(8), 923--939. \url{https://doi.org/10.1111/geb.12456}
