@@ -155,7 +155,7 @@ For the environmental covariate of bottom temperature, we used a dataset develop
 We then tested various EMs that were identical except for this temperature projection. Instead of using a single time series throughout the projection, all EMs were changed to simulate real-life stock assessment processes, where the three-year projection was recalculated at each assessment year step given the previous three years of data. Descriptions of temperature projections are described in figure \ref{fig:EMTemps}. For the first experiment, we first compared EM temperature projections with varying levels of bias. We developed four scenarios: High Ecov, where the overall trend of the OM temperature projection was doubled to simulate a high bias in projections; Medium Ecov, where the EM uses the same temperature as the OM; Medium-Low Ecov, where the overall trend was multiplied by -1 to simulate low bias in projections; and Low Ecov, where the overall trend was multiplied by -2 to simulate a very low bias in projections. Each simulation was run 100 times to ensure robustness of model results. Any non-converged model resulted in the elimation of that whole simulation.
 
 \begin{figure}
-\includegraphics[width=30.49in]{Plots/Biases/EMtempPlot} \caption{Temperature projections of the different Bias tests. The medium projection follows the overall trend of historical data, and this was used as a baseline for the other bias projections}\label{fig:EMTemps}
+\includegraphics[width=29.17in]{Plots/Biases/EMtempPlot} \caption{Temperature projections of the different Bias tests. The medium projection follows the overall trend of historical data, and this was used as a baseline for the other bias projections}\label{fig:EMTemps}
 \end{figure}
 
 This simulation was then repeated with the OM changing it's baseline projection to use the High, Medium, Medium-Low, and Low temperature projections to compare how hypothetical future climate scenarios may change the outcome of having a biased projection. Each of these OMs were tested against each climate projection in the EMs.
@@ -163,7 +163,7 @@ This simulation was then repeated with the OM changing it's baseline projection 
 After comparing projections through the MSE process, the experiment was repeated except we used only the original OM temperature projection (the one that maintains the trend from the overall data set). For the EMs, the two extreme bias projections were kept (High Ecov and Low Ecov), along with various projection choices that, at each assessment year, self-update with the previous years' temperature information. A new temperature projection is then calculated from that in the EM and projected for the next three years until the next assessment. The different projection choices used in the experiment are described in figure \ref{fig:EMTempsProj}.
 
 \begin{figure}
-\includegraphics[width=30.56in]{Plots/Combo/EMtempPlot} \caption{ Temperature projections used in each EM. AR1 (Auto-Regressive1) - This projection uses an updated mean at each timestep for the projection. NewWind (New Window) - This process uses the mean of the previous 5 years in its projection. HistAvg (Historical average) - Uses the average of all datapoints collected. NewTrend (New Trend) - Similar to new window, this process takes the last 5 years of data and uses the linear regression of the last 5 years as its projection. TermYear (Terminal Year) - Uses the terminal year of historical data across the projection period. GoodProj (Good projection) - Uses the same time series as the OM. BadProj (Bad projection) - Same as the MedLow bias in the previous experiment, this projection tests projection with a low bias. NoTemp - (No temperature, not pictured) This projection does not consider environmental covariates it its projection.}\label{fig:EMTempsProj}
+\includegraphics[width=30.46in]{Plots/Combo/EMtempPlot} \caption{ Temperature projections used in each EM. AR1 (Auto-Regressive1) - This projection uses an updated mean at each timestep for the projection. NewWind (New Window) - This process uses the mean of the previous 5 years in its projection. HistAvg (Historical average) - Uses the average of all datapoints collected. NewTrend (New Trend) - Similar to new window, this process takes the last 5 years of data and uses the linear regression of the last 5 years as its projection. TermYear (Terminal Year) - Uses the terminal year of historical data across the projection period. GoodProj (Good projection) - Uses the same time series as the OM. BadProj (Bad projection) - Same as the MedLow bias in the previous experiment, this projection tests projection with a low bias. NoTemp - (No temperature, not pictured) This projection does not consider environmental covariates it its projection.}\label{fig:EMTempsProj}
 \end{figure}
 
 After the MSE process was conducted in both experiments, we compared the outputs of each model and the subsequent catch advice to emerge from the model. We then compared estimated natural and fishing mortality, spawning stock biomass, and estimated recruitment in each model in order to understand how different assumptions in creating environmental projections propagates reflects real-world dynamics and how this ultimately affects management decisions.
@@ -198,21 +198,21 @@ When comparing the parameter for the environmental covariate across different pr
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
-EM\_name & OM\_ecov & mean\_ecov & PercentChange & sd\_ecov\\
+EM Name & OM Ecov & Mean Ecov & Percent Change & Ecov Standard Dev.\\
 \hline
-Mod\_AR1Ecov & -0.397 & -0.455 & 14.610 & 0.186\\
+AR(1) & -0.397 & -0.455 & 14.610 & 0.186\\
 \hline
-Mod\_BadProj & -0.397 & -0.349 & -12.091 & 0.156\\
+Bad Projection & -0.397 & -0.349 & -12.091 & 0.156\\
 \hline
-Mod\_GoodProj & -0.397 & -0.278 & -29.975 & 0.138\\
+Good Projection & -0.397 & -0.278 & -29.975 & 0.138\\
 \hline
-Mod\_HistAvgEcov & -0.397 & -0.535 & 34.761 & 0.188\\
+Historical Average & -0.397 & -0.535 & 34.761 & 0.188\\
 \hline
-Mod\_RecTrendEcov & -0.397 & -0.278 & -29.975 & 0.124\\
+Recent Trend & -0.397 & -0.278 & -29.975 & 0.124\\
 \hline
-Mod\_RecWindEcov & -0.397 & -0.402 & 1.259 & 0.147\\
+Recent Window & -0.397 & -0.402 & 1.259 & 0.147\\
 \hline
-Mod\_TermYear & -0.397 & -0.326 & -17.884 & 0.134\\
+Terminal Year & -0.397 & -0.326 & -17.884 & 0.134\\
 \hline
 \end{tabular}
 \end{table}
@@ -268,7 +268,7 @@ In the model performance (figure \ref{fig:radar}), however, these differences ha
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.3\linewidth]{Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Fbar_global_last_3_years} \includegraphics[width=0.3\linewidth]{Plots/Combo/Projections_Report_50yr/Performance_Boxplot/Catch_last_3_years} \includegraphics[width=0.3\linewidth]{Plots/Combo/Projections_Report_50yr/Performance_Boxplot/SSB_last_3_years} 
+{\centering \includegraphics[width=0.3\linewidth]{Plots/Combo/RadarPlot_fix/Performance_Boxplot/Fbar_global_last_10_years} \includegraphics[width=0.3\linewidth]{Plots/Combo/RadarPlot_fix/Performance_Boxplot/Catch_last_10_years} \includegraphics[width=0.3\linewidth]{Plots/Combo/RadarPlot_fix/Performance_Boxplot/SSB_last_10_years} 
 
 }
 
