@@ -114,6 +114,8 @@ Before assessing the accuracy of each model, each EM simulated was tested for co
 
 ## Bias Tests
 
+SEE HANSELL PAPER FOR A GOOD DISCUSSION ON THE CONSEQUENCES OF OVER VS UNDERESTIMATING ECOV 
+
 The estimated parameters for the environmental covariate are shown in figure \@ref(fig:paramEstsbias) compared to that of the OM in each bias test (the black vertical line). Across the EMs, the accuracy of the estimated parameter (in relation to the ‘real’ one calculated by the OM) was generally higher when projections overestimated the temperature timeseries, and lower for low bias projections. Observing how this parameter is estimated over time, projections that were similar to the OM or had slight bias remained around the calculated OM parameter, while the projections with high bias tended to diverge away from this ‘true’ mean (figure \@ref(fig:biasProjOverTime)). However, the subsequent catch advice from the EMs, spawning stock biomass (SSB), fishing mortality ($\bar{F}$), and predicted catch from the OM stays relatively consistent across EMs over the time series. These figures are provided in the supplemental material.
 
 ```{r paramEstsbias, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Estimated environmental parameter from each EM compared to the 'true' value in the OM on the y axis. Colors correspond to if the EM had a high temperature bias (red), a low temperature bias (blue), or if the EM intended to accurately reflect climate dynamics (i.e. AR1 process or temperature projection that matched that of the OM) (green). The dashed black line indicates where these two estimations would be equal"}
@@ -177,6 +179,8 @@ meanTablebias$EM_name <- factor(meanTablebias$EM_name, levels = c("Mod_NoEcov","
 
 p <- list()
 
+scenarioNames <- c('High', 'Medium', 'Medium-Low', 'Low') #c('Medium-Low','Low','High', 'Medium')
+
 for(i in c(3,4,1,2)){
   data_use <- Bias_ests[[i]]
   
@@ -193,12 +197,13 @@ for(i in c(3,4,1,2)){
     scale_x_discrete(labels= c('Low', 'Medium-Low','Medium','High','AR(1)')) +
     geom_hline(yintercept = mean(plotdata$ecov_mean_om), linetype = "dashed", color = "black") +
     ylim(-0.75, -0.1) +
-    #ggtitle (i) + 
-    theme(axis.title = element_blank()) +
+    labs(title = paste('Climate Scenario:', scenarioNames[i])) +#ggtitle (i) + 
+    theme(axis.title = element_blank(),
+          plot.title = element_text(size = 10)) +
     coord_flip()
 }
 
-ggarrange(p[[1]], p[[2]], p[[3]], p[[4]], nrow = 4, common.legend = TRUE, legend = 'right')
+annotate_figure(ggarrange(p[[1]], p[[2]], p[[3]], p[[4]], nrow = 4, common.legend = TRUE, legend = 'right'), left = text_grob("Forecast", rot = 90, vjust = 1, hjust = 0.5, size = 14))
 
 
 
@@ -231,6 +236,9 @@ ggarrange(p[[1]], p[[2]], p[[3]], p[[4]], nrow = 4, common.legend = TRUE, legend
 When comparing the parameter for the environmental covariate across different projections (table \@ref(tab:paramEstsproj)) , the most accurate estimation of the ecological covariate was the projection that used recent window approach, with only a 1.3% change from the ‘true’ value. Both the recent trend projection and the ‘good’ projection estimated this parameter poorly, with an almost 30% difference between the true covariate and the estimation in the EM. The calculated parameter estimates at each assessment year show that the Historical average and AR1 process tended to underestimate the ecological covariate while the other projections generally over-estimated this trend (figure \@ref(fig:timeseriesparam)). However, figure \@ref(fig:timeseriesproj) shows the catch advice, SSB, $\bar{F}$, and predicted catch from the OM of each projection test. Similar to the bias tests, these model outputs were very similar and all converged to similar estimations.
 
 ```{r paramEstsproj, fig.cap = 'Estimated ecological covariates in for the different biased temperature projections in the EM compared to the "true" value in the OM.', echo = FALSE, warning = FALSE, message = FALSE}
+### DO WE WANT THIS INFO IN TABLE OR GRAPH FORM
+
+
 library(dplyr)
 
 # PROJECTIONS
@@ -261,10 +269,25 @@ colnames(paramEsts_projs) <- c('EM Name','OM Ecov','Mean Ecov','Percent Change',
 
 kable(paramEsts_projs, caption = 'Ecov parameter estimates, standard deviation, and rho for each EM for projection')
 
+
+boxplot_test <- Proj_ests %>%
+  filter(EM_name != 'Mod_NoEcov')
+
+ggplot(data = boxplot_test, aes(x = EM_name, y = Ecov_beta_R_EM)) +
+  geom_boxplot() +
+  geom_hline(yintercept = -0.3969783, color = 'red', linetype = 'dashed') +
+  scale_x_discrete(labels= c('AR(1)','Bad Projection','Good Projection','Historical Average','Recent Trend','Recent Window','Terminal Year')) +
+  xlab('Projection') +
+  ylab('Calculated Ecological Covariate') +
+  theme(axis.text.x=element_text(color = "black", size=11, angle=30, vjust=.8, hjust=0.8)) 
+
+
 ```
 
 ```{r timeseriesparam, fig.cap = 'Estimated ecological covariates in for the different temperature projection choices in the EM compared to the "true" value in the OM.'}
 #knitr::include_graphics("Plots/YearlyParams_proj.png")
+
+labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','Recent Trend','Recent Window','Terminal Year')
 
 paramEsts_yearprojs <- Proj_ests %>%
   filter(EM_name != 'Mod_NoEcov') %>%
@@ -279,10 +302,11 @@ ggplot(paramEsts_yearprojs, aes(x = Year, y = mean_EM, color = EM_name)) +
 ```
 
 ```{r timeseriesproj, fig.cap = 'Catch advice (top), SSB (second), FBar (third), and predicted catch (bottom) calculated from each EM over the projection period', echo = FALSE, warning = FALSE, message = FALSE}
+library(scales)
 p <- list()
 
 catchAdvice_projs <- Proj_ests %>%
-  filter(Year >= 2024) %>%
+  #filter(Year >= 2024) %>%
   group_by(EM_name, Year) %>%
   summarize(mean_catchAdvice = mean(Catch_advice),
           sd_catchAdvice = sd(Catch_advice),
@@ -298,16 +322,19 @@ catchAdvice_projs <- Proj_ests %>%
 p[[1]] <- ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_catchAdvice, group = EM_name, color = EM_name)) +
   #geom_ribbon(aes(ymin = mean_catchAdvice - sd_catchAdvice, ymax = mean_catchAdvice + sd_catchAdvice, fill = EM_name), alpha = 0.2) +
     geom_line() +
-  ylab('Mean Catch Advice') +
+  ylab('Mean Catch Advice (kmt)') +
   scale_color_discrete(name = "EM",
-                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year'))
+                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year')) +
+  scale_y_continuous(labels = scales::comma)
+  # scale_y_continuous(labels = scales::label_number_si())
 
 p[[2]] <- ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_SSB, group = EM_name, color = EM_name)) +
   #geom_ribbon(aes(ymin = mean_SSB - sd_SSB, ymax = mean_SSB + sd_SSB, fill = EM_name), alpha = 0.2) +
     geom_line() +
-  ylab('Mean SSB') +
+  ylab('Mean SSB (kmt)') +
   scale_color_discrete(name = "EM",
-                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year'))
+                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year')) +
+  scale_y_continuous(labels = scales::comma)
 
 p[[3]] <- ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_FBar, group = EM_name, color = EM_name)) +
   #geom_ribbon(aes(ymin = mean_FBar - sd_cFBar, ymax = mean_FBar + sd_FBar, fill = EM_name), alpha = 0.2) +
@@ -319,11 +346,49 @@ p[[3]] <- ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_FBar, group = 
 p[[4]] <- ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_Pred_catch, group = EM_name, color = EM_name)) +
   #geom_ribbon(aes(ymin = mean_mean_Pred_catch - mean_Pred_catch, ymax = mean_mean_Pred_catch + sd_mean_Pred_catch, fill = EM_name), alpha = 0.2) +
     geom_line() +
-  ylab('Mean Predicted Catch') +
+  ylab('Mean Predicted Catch (kmt)') +
   scale_color_discrete(name = "EM",
-                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year'))
+                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year')) +
+  scale_y_continuous(labels = scales::comma)
 
 ggpubr::ggarrange(p[[1]], p[[2]], p[[3]], p[[4]], nrow = 4, common.legend = TRUE, legend = 'right')
+
+```
+
+```{r fixSSBIssue}
+
+test <- Proj_ests %>%
+  filter(Year >=2020 & Year <=2025) %>%
+  select(Year, EM_name, seed_no, SSB, SSB_EM) %>%
+  mutate(SSB_diff = ((SSB_EM - SSB)/SSB) * 100)
+
+
+EMs <- unique(test$EM_name)
+
+for(i in 1:length(EMs)){
+  
+  usethis <- test %>%
+    filter(EM_name == EMs[i])
+  
+  p <- ggplot(usethis, aes(x = Year, y = SSB_diff, group = seed_no, color = seed_no)) +
+    geom_line() +
+    labs(title = EMs[i])
+  
+  print(p)
+  
+}
+
+ggplot(test, aes(x = EM_name, y = SSB_diff)) +
+  geom_boxplot()
+
+test_2 <- test %>%
+  group_by(EM_name, Year) %>%
+  summarise(mean = mean(SSB_diff, na.rm = TRUE),
+            sd = sd(SSB_diff))
+
+ggplot(test_2, aes(x = Year, y = mean, group = EM_name, color = EM_name)) +
+  geom_line()
+
 
 ```
 
@@ -352,7 +417,7 @@ ggplot(paramEsts_yearprojs, aes(x = Year, y = percentDiff, color = EM_name)) +
   geom_hline(yintercept = 0, color = 'black', linetype = 'dashed')
 ```
 
-```{r recruitmentDevs, fig.cap = 'Percent of recruitment deviation EXPLAINED BY THE ECOV IN EACH  MODEL. MAKE SURE YOU CHANGE YOUR RESULTS PARAGRAPHS TO SAY THIS', echo = FALSE, warning = FALSE, message = FALSE}
+```{r recruitmentDevs, fig.cap = 'Percent of recruitment deviation EXPLAINED BY THE ECOV IN EACH  MODEL. MAKE SURE YOU CHANGE YOUR RESULTS PARAGRAPHS TO SAY THIS. ALSO FIX THIS BASED ON CHENG EMAIL', echo = FALSE, warning = FALSE, message = FALSE}
 
 data_recruit <- Proj_ests %>%
   select(Year, EM_name, seed_no, EM_NAAsigma_youngest) %>%
@@ -396,24 +461,68 @@ ggplot(idk, aes(x = EM_name, y = mean)) +
 
 ```{r AutoCorrRecruitment, fig.cap = 'WRITE THIS ONCE YOU ARE DONE', echo = FALSE, warning = FALSE, message = FALSE}
 
-# library(lmtest)
-# 
-# data_recruit <- Proj_ests %>%
-#   select(Year, EM_name, seed_no, EM_NAAsigma_youngest) %>%
-#   filter(Year >= 2022) %>%
-#   group_by(Year, EM_name) %>%
-#   summarise(ResidRecruit = mean(EM_NAAsigma_youngest, na.rm = TRUE))
-# 
-# p <- list()
-# 
-# for(i in 1:length(unique(data_recruit$EM_name))){
-#   datause <- data_recruit %>%
-#     filter(EM_name == unique(data_recruit$EM_name)[i])
-#   
-#   p[[i]] <- acf(datause$ResidRecruit)
-# }
-# 
-# ggpubr::ggarrange(p[[1]], p[[2]], p[[3]], p[[4]], p[[5]], p[[6]], p[[7]], p[[8]], nrow = 4, common.legend = TRUE, legend = 'right')
+
+autoTest <- Proj_ests %>%
+  select(Year, EM_name, seed_no, OM_NAA_devs, EM_NAA_devs)
+
+ems <- unique(autoTest$EM_name)
+seeds <- unique(autoTest$seed_no)
+
+autoCorr <- data.frame(EM = c(),
+                       seed = c(),
+                       pval_OM = c(),
+                       phi_hat_OM = c(),
+                       pval_EM = c(),
+                       phi_hat_EM = c()
+                       )
+
+for(i in 1:length(ems)){
+  for(j in 1:length(seeds)){
+    
+    useData <- autoTest %>%
+      filter(EM_name == ems[i] & seed_no == seeds[j])
+    
+    x_EM <- useData$EM_NAA_devs
+    x_OM <- useData$OM_NAA_devs
+    
+    fit_OM <- lm(x_OM[-1] ~ x_OM[-length(x_OM)] - 1)  # AR(1) through origin
+    summary(fit_OM) # should have p > 0.05 indicating there's no AR1 autocorrelation, meaning very likely to be IID
+    
+    fit_EM <- lm(x_EM[-1] ~ x_EM[-length(x_EM)] - 1)  # AR(1) through origin
+    summary(fit_EM) # should have p > 0.05 indicating there's no AR1 autocorrelation, meaning very likely to be IID
+    
+    data_List <- data.frame(
+      EM = ems[i],
+      seed = seeds[j],
+      pval_OM = summary(fit_OM)$coefficients[, "Pr(>|t|)"],#coef(fit_OM)[4],
+      phi_hat_OM = coef(fit_OM)[1], #phi_hat # Should be near 0 if you define NAA for age 1 to be IID in your model
+      pval_EM = summary(fit_EM)$coefficients[, "Pr(>|t|)"],#coef(fit_EM)[4],
+      phi_hat_EM = coef(fit_EM)[1]
+    #phi_hat # Should be near 0 if you define NAA for age 1 to be IID in your model
+    )
+    
+     autoCorr <- rbind(autoCorr, data_List)
+  }
+}
+
+
+ggplot(autoCorr, aes(x = EM, y = pval_OM)) + #Line means p >0.05, meaining no AR1 autoCor, most likely IID
+  geom_boxplot() +
+  geom_hline(yintercept = 0.05)
+
+ggplot(autoCorr, aes(x = EM, y = pval_EM)) + #Line means p >0.05, meaining no AR1 autoCor, most likely IID
+  geom_boxplot() +
+  geom_hline(yintercept = 0.05)
+
+
+ggplot(autoCorr, aes(x = EM, y = phi_hat_OM)) + #Line means phi hat near 0 meaning NAA is IID 
+  geom_boxplot() +
+  geom_hline(yintercept = 0)
+
+ggplot(autoCorr, aes(x = EM, y = phi_hat_EM)) +
+  geom_boxplot() +
+  geom_hline(yintercept = 0)
+
 
 ```
 

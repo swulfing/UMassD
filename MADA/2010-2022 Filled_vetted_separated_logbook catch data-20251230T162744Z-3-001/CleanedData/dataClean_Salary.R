@@ -151,28 +151,34 @@ test <- salary_data %>%
   filter(Time.arrive < Time.depart)
 
 
+# Gender Fix =======================
+
+salary_data$Gender[salary_data$Gender %in% c(  "V", "V ", "V  " )] <- 'V'
+salary_data$Gender[salary_data$Gender %in% c( "L", "L ","L  ","L   ","L    ","L     "," L", "L      ","L       ", "l")] <- 'L'
+salary_data$Gender[salary_data$Gender %in% c(  "" )] <- NA
+salary_data$Gender[salary_data$Gender %in% c(  "L/V" )] <- "BOTH" # ASK ABOUT L/V INPUTS. MAY CHANGE TO NA
+
+# test <- salary_data %>%
+#   filter(Gender == "L/V")
+# 
+# 
+# test2 <- salary_data %>%
+#   filter(Name %in% test$Name)
 
 
 
+# MAKE A CSV SO SOMEONE CAN TRANSLATE FOR YOU =======================
+
+Wordlist <- c(unique(salary_data$Product.type),
+              unique(salary_data$Other.catch.type.1..unweigned.),
+              unique(salary_data$Other.catch.type.2..unweigned.), 
+              unique(salary_data$Other.catch.type.3..unweigned.), 
+              unique(salary_data$Other.catch.type.4..unweigned.))
+
+Translate_salary <- data.frame(Word_Malagasy = Wordlist)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+write.csv(Translate_salary, "Malagasy_Salary.csv")
 
 
 
