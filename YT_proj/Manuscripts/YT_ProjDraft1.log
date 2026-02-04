@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.26)  5 JAN 2026 20:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.11.26)  3 FEB 2026 17:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -512,13 +512,13 @@ Overfull \hbox (36.14143pt too wide) in paragraph at lines 158--158
  []
 
 [7] [8 <./Plots/Biases/EMtempPlot.png>]
-<Plots/Combo/EMtempPlot.png, id=52, 528.2937pt x 325.9377pt>
+<Plots/Combo/EMtempPlot.png, id=52, 526.8483pt x 325.215pt>
 File: Plots/Combo/EMtempPlot.png Graphic file (type png)
 <use Plots/Combo/EMtempPlot.png>
 Package pdftex.def Info: Plots/Combo/EMtempPlot.png  used on input line 166.
-(pdftex.def)             Requested size: 528.34077pt x 325.96672pt.
+(pdftex.def)             Requested size: 526.8872pt x 325.23901pt.
 
-Overfull \hbox (58.58575pt too wide) in paragraph at lines 166--166
+Overfull \hbox (57.13219pt too wide) in paragraph at lines 166--166
 [][] 
  []
 
@@ -526,101 +526,236 @@ Overfull \hbox (58.58575pt too wide) in paragraph at lines 166--166
 <YT_ProjDraft1_files/figure-latex/paramEstsbias-1.pdf, id=67, 469.755pt x 325.215pt>
 File: YT_ProjDraft1_files/figure-latex/paramEstsbias-1.pdf Graphic file (type pdf)
 <use YT_ProjDraft1_files/figure-latex/paramEstsbias-1.pdf>
-Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/paramEstsbias-1.pdf  used on input line 181.
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/paramEstsbias-1.pdf  used on input line 183.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <YT_ProjDraft1_files/figure-latex/biasProjOverTime-1.pdf, id=68, 469.755pt x 325.215pt>
 File: YT_ProjDraft1_files/figure-latex/biasProjOverTime-1.pdf Graphic file (type pdf)
 <use YT_ProjDraft1_files/figure-latex/biasProjOverTime-1.pdf>
-Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/biasProjOverTime-1.pdf  used on input line 187.
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/biasProjOverTime-1.pdf  used on input line 189.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [11{c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc} <./YT_ProjDraft1_files/figure-latex/paramEstsbias-1.pdf>] [12 <./YT_ProjDraft1_files/figure-latex/biasProjOverTime-1.pdf>]
-<YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf, id=99, 469.755pt x 325.215pt>
+<YT_ProjDraft1_files/figure-latex/paramEstsproj-1.pdf, id=99, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/paramEstsproj-1.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/paramEstsproj-1.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/paramEstsproj-1.pdf  used on input line 224.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf, id=100, 469.755pt x 325.215pt>
 File: YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf Graphic file (type pdf)
 <use YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf>
-Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf  used on input line 222.
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf  used on input line 230.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf, id=100, 469.755pt x 325.215pt>
+<YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf, id=101, 469.755pt x 325.215pt>
 File: YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf Graphic file (type pdf)
 <use YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf>
-Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf  used on input line 228.
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf  used on input line 236.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[13] [14 <./YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf>] [15 <./YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf>]
-<YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf, id=138, 469.755pt x 325.215pt>
+<YT_ProjDraft1_files/figure-latex/fixSSBIssue-1.pdf, id=102, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/fixSSBIssue-1.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/fixSSBIssue-1.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/fixSSBIssue-1.pdf  used on input line 240.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/fixSSBIssue-2.pdf, id=103, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/fixSSBIssue-2.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/fixSSBIssue-2.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/fixSSBIssue-2.pdf  used on input line 240.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/fixSSBIssue-3.pdf, id=104, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/fixSSBIssue-3.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/fixSSBIssue-3.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/fixSSBIssue-3.pdf  used on input line 240.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/fixSSBIssue-4.pdf, id=105, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/fixSSBIssue-4.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/fixSSBIssue-4.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/fixSSBIssue-4.pdf  used on input line 240.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/fixSSBIssue-5.pdf, id=106, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/fixSSBIssue-5.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/fixSSBIssue-5.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/fixSSBIssue-5.pdf  used on input line 240.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/fixSSBIssue-6.pdf, id=107, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/fixSSBIssue-6.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/fixSSBIssue-6.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/fixSSBIssue-6.pdf  used on input line 240.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/fixSSBIssue-7.pdf, id=108, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/fixSSBIssue-7.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/fixSSBIssue-7.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/fixSSBIssue-7.pdf  used on input line 240.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/fixSSBIssue-8.pdf, id=109, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/fixSSBIssue-8.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/fixSSBIssue-8.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/fixSSBIssue-8.pdf  used on input line 240.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/fixSSBIssue-9.pdf, id=110, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/fixSSBIssue-9.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/fixSSBIssue-9.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/fixSSBIssue-9.pdf  used on input line 240.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/fixSSBIssue-10.pdf, id=111, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/fixSSBIssue-10.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/fixSSBIssue-10.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/fixSSBIssue-10.pdf  used on input line 240.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+[]
+ []
+
+[13] [14 <./YT_ProjDraft1_files/figure-latex/paramEstsproj-1.pdf>] [15 <./YT_ProjDraft1_files/figure-latex/timeseriesparam-1.pdf>] [16 <./YT_ProjDraft1_files/figure-latex/timeseriesproj-1.pdf>] [17 <./YT_ProjDraft1_files/figure-latex/fixSSBIssue-1.pdf>] [18 <./YT_ProjDraft1_files/figure-latex/fixSSBIssue-2.pdf>] [19 <./YT_ProjDraft1_files/figure-latex/fixSSBIssue-3.pdf>] [20 <./YT_ProjDraft1_files/figure-latex/fixSSBIssue-4.pdf>] [21 <./YT_ProjDraft1_files/figure-latex/fixSSBIssue-5.pdf>] [22 <./YT_ProjDraft1_files/figure-latex/fixSSBIssue-6.pdf>] [23 <./YT_ProjDraft1_files/figure-latex/fixSSBIssue-7.pdf>] [24 <./YT_ProjDraft1_files/figure-latex/fixSSBIssue-8.pdf>] [25 <./YT_ProjDraft1_files/figure-latex/fixSSBIssue-9.pdf>]
+<YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf, id=287, 469.755pt x 325.215pt>
 File: YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf Graphic file (type pdf)
 <use YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf>
-Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf  used on input line 236.
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf  used on input line 246.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf, id=139, 469.755pt x 325.215pt>
+<YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf, id=288, 469.755pt x 325.215pt>
 File: YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf Graphic file (type pdf)
 <use YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf>
-Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf  used on input line 242.
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf  used on input line 252.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<YT_ProjDraft1_files/figure-latex/ReferencePoints-1.pdf, id=142, 469.755pt x 325.215pt>
+<YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-1.pdf, id=289, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-1.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-1.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-1.pdf  used on input line 256.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-2.pdf, id=290, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-2.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-2.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-2.pdf  used on input line 256.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-3.pdf, id=291, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-3.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-3.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-3.pdf  used on input line 256.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-4.pdf, id=292, 469.755pt x 325.215pt>
+File: YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-4.pdf Graphic file (type pdf)
+<use YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-4.pdf>
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-4.pdf  used on input line 256.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
+[]
+ []
+
+[26 <./YT_ProjDraft1_files/figure-latex/fixSSBIssue-10.pdf>] [27 <./YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf>] [28 <./YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf>] [29 <./YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-1.pdf>] [30 <./YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-2.pdf>] [31 <./YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-3.pdf>]
+<YT_ProjDraft1_files/figure-latex/ReferencePoints-1.pdf, id=371, 469.755pt x 325.215pt>
 File: YT_ProjDraft1_files/figure-latex/ReferencePoints-1.pdf Graphic file (type pdf)
 <use YT_ProjDraft1_files/figure-latex/ReferencePoints-1.pdf>
-Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/ReferencePoints-1.pdf  used on input line 250.
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/ReferencePoints-1.pdf  used on input line 262.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
-<YT_ProjDraft1_files/figure-latex/ReferencePoints-2.pdf, id=143, 469.755pt x 325.215pt>
+<YT_ProjDraft1_files/figure-latex/ReferencePoints-2.pdf, id=372, 469.755pt x 325.215pt>
 File: YT_ProjDraft1_files/figure-latex/ReferencePoints-2.pdf Graphic file (type pdf)
 <use YT_ProjDraft1_files/figure-latex/ReferencePoints-2.pdf>
-Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/ReferencePoints-2.pdf  used on input line 250.
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/ReferencePoints-2.pdf  used on input line 262.
 (pdftex.def)             Requested size: 211.3878pt x 146.3454pt.
-<YT_ProjDraft1_files/figure-latex/BRPPerDiff-1.pdf, id=144, 469.755pt x 325.215pt>
+<YT_ProjDraft1_files/figure-latex/BRPPerDiff-1.pdf, id=373, 469.755pt x 325.215pt>
 File: YT_ProjDraft1_files/figure-latex/BRPPerDiff-1.pdf Graphic file (type pdf)
 <use YT_ProjDraft1_files/figure-latex/BRPPerDiff-1.pdf>
-Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/BRPPerDiff-1.pdf  used on input line 259.
+Package pdftex.def Info: YT_ProjDraft1_files/figure-latex/BRPPerDiff-1.pdf  used on input line 271.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[16 <./YT_ProjDraft1_files/figure-latex/timeseriesrecruit-1.pdf>] [17 <./YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf> <./YT_ProjDraft1_files/figure-latex/ReferencePoints-1.pdf
-
-pdfTeX warning: pdflatex.exe (file ./YT_ProjDraft1_files/figure-latex/ReferencePoints-1.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <./YT_ProjDraft1_files/figure-latex/ReferencePoints-2.pdf
-
-pdfTeX warning: pdflatex.exe (file ./YT_ProjDraft1_files/figure-latex/ReferencePoints-2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [18 <./YT_ProjDraft1_files/figure-latex/BRPPerDiff-1.pdf>]
-<Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=201, 722.7pt x 505.89pt>
+<Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png, id=376, 722.7pt x 505.89pt>
 File: Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png Graphic file (type png)
 <use Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png>
-Package pdftex.def Info: Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 266.
+Package pdftex.def Info: Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png  used on input line 278.
 (pdftex.def)             Requested size: 722.70924pt x 505.89645pt.
 
-Overfull \hbox (252.95422pt too wide) in paragraph at lines 266--266
+Overfull \hbox (252.95422pt too wide) in paragraph at lines 278--278
 [][] 
  []
 
-<Plots/Combo/RadarPlot_fix/Performance_Boxplot/Fbar_global_last_10_years.png, id=202, 722.7pt x 505.89pt>
+<Plots/Combo/RadarPlot_fix/Performance_Boxplot/Fbar_global_last_10_years.png, id=377, 722.7pt x 505.89pt>
 File: Plots/Combo/RadarPlot_fix/Performance_Boxplot/Fbar_global_last_10_years.png Graphic file (type png)
 <use Plots/Combo/RadarPlot_fix/Performance_Boxplot/Fbar_global_last_10_years.png>
-Package pdftex.def Info: Plots/Combo/RadarPlot_fix/Performance_Boxplot/Fbar_global_last_10_years.png  used on input line 271.
+Package pdftex.def Info: Plots/Combo/RadarPlot_fix/Performance_Boxplot/Fbar_global_last_10_years.png  used on input line 283.
 (pdftex.def)             Requested size: 140.92041pt x 98.64429pt.
-<Plots/Combo/RadarPlot_fix/Performance_Boxplot/Catch_last_10_years.png, id=203, 722.7pt x 505.89pt>
+<Plots/Combo/RadarPlot_fix/Performance_Boxplot/Catch_last_10_years.png, id=378, 722.7pt x 505.89pt>
 File: Plots/Combo/RadarPlot_fix/Performance_Boxplot/Catch_last_10_years.png Graphic file (type png)
 <use Plots/Combo/RadarPlot_fix/Performance_Boxplot/Catch_last_10_years.png>
-Package pdftex.def Info: Plots/Combo/RadarPlot_fix/Performance_Boxplot/Catch_last_10_years.png  used on input line 271.
+Package pdftex.def Info: Plots/Combo/RadarPlot_fix/Performance_Boxplot/Catch_last_10_years.png  used on input line 283.
 (pdftex.def)             Requested size: 140.92041pt x 98.64429pt.
-<Plots/Combo/RadarPlot_fix/Performance_Boxplot/SSB_last_10_years.png, id=204, 722.7pt x 505.89pt>
+<Plots/Combo/RadarPlot_fix/Performance_Boxplot/SSB_last_10_years.png, id=379, 722.7pt x 505.89pt>
 File: Plots/Combo/RadarPlot_fix/Performance_Boxplot/SSB_last_10_years.png Graphic file (type png)
 <use Plots/Combo/RadarPlot_fix/Performance_Boxplot/SSB_last_10_years.png>
-Package pdftex.def Info: Plots/Combo/RadarPlot_fix/Performance_Boxplot/SSB_last_10_years.png  used on input line 271.
+Package pdftex.def Info: Plots/Combo/RadarPlot_fix/Performance_Boxplot/SSB_last_10_years.png  used on input line 283.
 (pdftex.def)             Requested size: 140.92041pt x 98.64429pt.
-[19] [20 <./Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png>] [21 <./Plots/Combo/RadarPlot_fix/Performance_Boxplot/Fbar_global_last_10_years.PNG> <./Plots/Combo/RadarPlot_fix/Performance_Boxplot/Catch_last_10_years.PNG> <./Plots/Combo/RadarPlot_fix/Performance_Boxplot/SSB_last_10_years.PNG>] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] (./YT_ProjDraft1.aux)
+[32 <./YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-4.pdf>] [33 <./YT_ProjDraft1_files/figure-latex/ReferencePoints-1.pdf> <./YT_ProjDraft1_files/figure-latex/ReferencePoints-2.pdf
+
+pdfTeX warning: pdflatex.exe (file ./YT_ProjDraft1_files/figure-latex/ReferencePoints-2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./YT_ProjDraft1_files/figure-latex/BRPPerDiff-1.pdf
+
+pdfTeX warning: pdflatex.exe (file ./YT_ProjDraft1_files/figure-latex/BRPPerDiff-1.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>] [34 <./Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png>] [35 <./Plots/Combo/RadarPlot_fix/Performance_Boxplot/Fbar_global_last_10_years.PNG> <./Plots/Combo/RadarPlot_fix/Performance_Boxplot/Catch_last_10_years.PNG> <./Plots/Combo/RadarPlot_fix/Performance_Boxplot/SSB_last_10_years.PNG>] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] (./YT_ProjDraft1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 12238 strings out of 469519
- 197662 string characters out of 5467979
- 605455 words of memory out of 5000000
- 40591 multiletter control sequences out of 15000+600000
+ 12359 strings out of 469519
+ 204363 string characters out of 5467979
+ 604679 words of memory out of 5000000
+ 40697 multiletter control sequences out of 15000+600000
  674858 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 83i,8n,93p,2665b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,8n,93p,2665b,566s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on YT_ProjDraft1.pdf (34 pages, 2008778 bytes).
+Output written on YT_ProjDraft1.pdf (48 pages, 2295629 bytes).
 PDF statistics:
- 476 PDF objects out of 1000 (max. 8388607)
- 385 compressed objects within 4 object streams
- 108 named destinations out of 1000 (max. 500000)
- 132 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 694 PDF objects out of 1000 (max. 8388607)
+ 534 compressed objects within 6 object streams
+ 123 named destinations out of 1000 (max. 500000)
+ 207 words of extra memory for PDF output out of 10000 (max. 10000000)
 

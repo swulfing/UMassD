@@ -163,7 +163,7 @@ This simulation was then repeated with the OM changing it's baseline projection 
 After comparing projections through the MSE process, the experiment was repeated except we used only the original OM temperature projection (the one that maintains the trend from the overall data set). For the EMs, the two extreme bias projections were kept (High Ecov and Low Ecov), along with various projection choices that, at each assessment year, self-update with the previous years' temperature information. A new temperature projection is then calculated from that in the EM and projected for the next three years until the next assessment. The different projection choices used in the experiment are described in figure \ref{fig:EMTempsProj}.
 
 \begin{figure}
-\includegraphics[width=30.46in]{Plots/Combo/EMtempPlot} \caption{ Temperature projections used in each EM. AR1 (Auto-Regressive1) - This projection uses an updated mean at each timestep for the projection. NewWind (New Window) - This process uses the mean of the previous 5 years in its projection. HistAvg (Historical average) - Uses the average of all datapoints collected. NewTrend (New Trend) - Similar to new window, this process takes the last 5 years of data and uses the linear regression of the last 5 years as its projection. TermYear (Terminal Year) - Uses the terminal year of historical data across the projection period. GoodProj (Good projection) - Uses the same time series as the OM. BadProj (Bad projection) - Same as the MedLow bias in the previous experiment, this projection tests projection with a low bias. NoTemp - (No temperature, not pictured) This projection does not consider environmental covariates it its projection.}\label{fig:EMTempsProj}
+\includegraphics[width=30.38in]{Plots/Combo/EMtempPlot} \caption{ Temperature projections used in each EM. AR1 (Auto-Regressive1) - This projection uses an updated mean at each timestep for the projection. NewWind (New Window) - This process uses the mean of the previous 5 years in its projection. HistAvg (Historical average) - Uses the average of all datapoints collected. NewTrend (New Trend) - Similar to new window, this process takes the last 5 years of data and uses the linear regression of the last 5 years as its projection. TermYear (Terminal Year) - Uses the terminal year of historical data across the projection period. GoodProj (Good projection) - Uses the same time series as the OM. BadProj (Bad projection) - Same as the MedLow bias in the previous experiment, this projection tests projection with a low bias. NoTemp - (No temperature, not pictured) This projection does not consider environmental covariates it its projection.}\label{fig:EMTempsProj}
 \end{figure}
 
 After the MSE process was conducted in both experiments, we compared the outputs of each model and the subsequent catch advice to emerge from the model. We then compared estimated natural and fishing mortality, spawning stock biomass, and estimated recruitment in each model in order to understand how different assumptions in creating environmental projections propagates reflects real-world dynamics and how this ultimately affects management decisions.
@@ -173,6 +173,8 @@ After the MSE process was conducted in both experiments, we compared the outputs
 Before assessing the accuracy of each model, each EM simulated was tested for convergence. If any of the EM models did not converge, the whole seed was removed from the results to ensure comparability across results. Convergence checks were used from the r packages TMP and nlminb CITE PACKAGES.
 
 \subsection{Bias Tests}\label{bias-tests}
+
+SEE HANSELL PAPER FOR A GOOD DISCUSSION ON THE CONSEQUENCES OF OVER VS UNDERESTIMATING ECOV
 
 The estimated parameters for the environmental covariate are shown in figure \ref{fig:paramEstsbias} compared to that of the OM in each bias test (the black vertical line). Across the EMs, the accuracy of the estimated parameter (in relation to the `real' one calculated by the OM) was generally higher when projections overestimated the temperature timeseries, and lower for low bias projections. Observing how this parameter is estimated over time, projections that were similar to the OM or had slight bias remained around the calculated OM parameter, while the projections with high bias tended to diverge away from this `true' mean (figure \ref{fig:biasProjOverTime}). However, the subsequent catch advice from the EMs, spawning stock biomass (SSB), fishing mortality (\(\bar{F}\)), and predicted catch from the OM stays relatively consistent across EMs over the time series. These figures are provided in the supplemental material.
 
@@ -200,22 +202,28 @@ When comparing the parameter for the environmental covariate across different pr
 \hline
 EM Name & OM Ecov & Mean Ecov & Percent Change & Ecov Standard Dev.\\
 \hline
-AR(1) & -0.397 & -0.455 & 14.610 & 0.186\\
+AR(1) & -0.397 & -0.411 & 3.526 & 0.166\\
 \hline
-Bad Projection & -0.397 & -0.349 & -12.091 & 0.156\\
+Bad Projection & -0.397 & -0.344 & -13.350 & 0.141\\
 \hline
-Good Projection & -0.397 & -0.278 & -29.975 & 0.138\\
+Good Projection & -0.397 & -0.260 & -34.509 & 0.137\\
 \hline
-Historical Average & -0.397 & -0.535 & 34.761 & 0.188\\
+Historical Average & -0.397 & -0.475 & 19.647 & 0.197\\
 \hline
-Recent Trend & -0.397 & -0.278 & -29.975 & 0.124\\
+Recent Trend & -0.397 & -0.338 & -14.861 & 0.123\\
 \hline
-Recent Window & -0.397 & -0.402 & 1.259 & 0.147\\
+Recent Window & -0.397 & -0.380 & -4.282 & 0.149\\
 \hline
-Terminal Year & -0.397 & -0.326 & -17.884 & 0.134\\
+Terminal Year & -0.397 & -0.302 & -23.929 & 0.141\\
 \hline
 \end{tabular}
 \end{table}
+
+\begin{figure}
+\centering
+\includegraphics{YT_ProjDraft1_files/figure-latex/paramEstsproj-1.pdf}
+\caption{\label{fig:paramEstsproj}Estimated ecological covariates in for the different biased temperature projections in the EM compared to the ``true'' value in the OM.}
+\end{figure}
 
 \begin{figure}
 \centering
@@ -229,6 +237,8 @@ Terminal Year & -0.397 & -0.326 & -17.884 & 0.134\\
 \caption{\label{fig:timeseriesproj}Catch advice (top), SSB (second), FBar (third), and predicted catch (bottom) calculated from each EM over the projection period}
 \end{figure}
 
+\includegraphics{YT_ProjDraft1_files/figure-latex/fixSSBIssue-1.pdf} \includegraphics{YT_ProjDraft1_files/figure-latex/fixSSBIssue-2.pdf} \includegraphics{YT_ProjDraft1_files/figure-latex/fixSSBIssue-3.pdf} \includegraphics{YT_ProjDraft1_files/figure-latex/fixSSBIssue-4.pdf} \includegraphics{YT_ProjDraft1_files/figure-latex/fixSSBIssue-5.pdf} \includegraphics{YT_ProjDraft1_files/figure-latex/fixSSBIssue-6.pdf} \includegraphics{YT_ProjDraft1_files/figure-latex/fixSSBIssue-7.pdf} \includegraphics{YT_ProjDraft1_files/figure-latex/fixSSBIssue-8.pdf} \includegraphics{YT_ProjDraft1_files/figure-latex/fixSSBIssue-9.pdf} \includegraphics{YT_ProjDraft1_files/figure-latex/fixSSBIssue-10.pdf}
+
 Differences in estimated recruitment between the EM and OM is shown in figure \ref{fig:timeseriesrecruit}, where there is noticeable variation between the EM estimations and that of the OM but for most years, the EMs tended to under estimate recruitment compared to that of the OM. Comparing the calculated variation in recruitment (figure \ref{fig:recruitmentDevs}) between models that used an ecological covariate and the No Ecov projection of the same seed, we can estimate the percentage of this variation that is captured in the ecological covariate. All models had a mean percentage of variation between 5\% and 10\%. The AR1 process and the `Bad' projection both had the highest range of recruitment variations, with the AR1 process reaching a maximum of 20.6 \% of variation in recruitment being explained by the ecological covariate. The Recent Trend and `Good' projection displayed the smallest range of variation that was captured by the ecological covariate.
 
 \begin{figure}
@@ -240,8 +250,10 @@ Differences in estimated recruitment between the EM and OM is shown in figure \r
 \begin{figure}
 \centering
 \includegraphics{YT_ProjDraft1_files/figure-latex/recruitmentDevs-1.pdf}
-\caption{\label{fig:recruitmentDevs}Percent difference of the recruiement deviation per assessment year in each EM compared to the OM.}
+\caption{\label{fig:recruitmentDevs}Percent of recruitment deviation EXPLAINED BY THE ECOV IN EACH MODEL. MAKE SURE YOU CHANGE YOUR RESULTS PARAGRAPHS TO SAY THIS. ALSO FIX THIS BASED ON CHENG EMAIL}
 \end{figure}
+
+\includegraphics{YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-1.pdf} \includegraphics{YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-2.pdf} \includegraphics{YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-3.pdf} \includegraphics{YT_ProjDraft1_files/figure-latex/AutoCorrRecruitment-4.pdf}
 
 Looking at the stock status, all of the EMs under-estimated the yellowtail's overfished status, but all models projected that this stock would remain overfished for most of the projection period (figure \ref{fig:ReferencePoints}). Similarly, the EMs also under- estimated the overfishing status, but this varied between status being over and under the overfishing threshold (the red horizontal line) over the course of the time series. In this case, each EM overestimated the FXSPR reference point when compared to the reference point used in the operating model (figure \ref{fig:BRPPerDiff}).
 
@@ -285,10 +297,6 @@ This could be the result of the type of link that the environmental covariate ma
 
 Future ocean conditions are expected to be highly variable in coming years due to climate change, (Wang et al., 2010), so understanding potential impacts on fishery dynamics is vital. Overall, we found that projection decisions had a limited effect on catch advice and fishery dynamics in an MSE framework, and this could be due to the nature of the environmental link to Georges Bank Yellowtail flounder, indicating a need for further research on how this type of link will affect model dynamics over different projection decisions.
 
-WOULD THE DIFFERENTEE BETWEEN REC TREND AND REC WINDOW BE MORE ABOUT THE GENERAL TREND OF THE PROJECTION (I.E. RECENTLY INCREASING THEREFORE REC TREND WITH GENERALLY INCREASE?)
-WHAT IS THE RECRUITMENT DEVIATIONS GRAPH TELLING UUUUUU
-gET ADVICE ON TEH REF POINTS FIGURE
-GENERALLY UNDER EST RECRUITMENT AND STOCK STATUS
 \newpage
 
 \textbf{References}
