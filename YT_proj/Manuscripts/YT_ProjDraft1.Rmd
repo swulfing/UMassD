@@ -62,7 +62,7 @@ ModNames_biasOMs <- c("Mod_LOWEcov", "Mod_MEDLOWEcov", "Mod_MEDEcov", "Mod_HIGHE
 
 Proj_ests <- readRDS('C:/Users/swulfing/Documents/MSE_results/Combo/Projections_data.rds')
 Bias_ests <- readRDS('C:/Users/swulfing/Documents/MSE_results/Biases/Biases_data.rds')
-BRP_data <- readRDS('C:/Users/swulfing/Documents/MSE_results/BRP_data.rds')
+BRP_data <- readRDS('C:/Users/swulfing/Documents/MSE_results/Combo/BRP_data.rds')
 ```
 
 # ABSTRACT
@@ -459,7 +459,7 @@ ggplot(idk, aes(x = EM_name, y = mean)) +
 
 ```
 
-```{r AutoCorrRecruitment, fig.cap = 'WRITE THIS ONCE YOU ARE DONE', echo = FALSE, warning = FALSE, message = FALSE}
+```{r AutoCorrRecruitment, fig.cap = 'AutoCorrelation In Recruitment', echo = FALSE, warning = FALSE, message = FALSE}
 
 
 autoTest <- Proj_ests %>%
@@ -586,13 +586,15 @@ ggplot(data = OverfishedStatus, aes(x = Year, y = EM_Overfished)) +
   geom_point(aes(y = EM_Overfished), color = 'orange') +
   geom_point(aes(y = OM_Overfished), color = 'black') +
   geom_hline(yintercept = 1, linetype = 'dashed', color = 'red') +
-  facet_wrap(vars(EM_name))
+  facet_wrap(vars(EM_name)) +
+  ylim(-5,10)
 
 ggplot(data = OverfishedStatus, aes(x = Year, y = EM_Overfishing)) +
   geom_point(aes(y = EM_Overfishing), color = 'orange') +
   geom_point(aes(y = OM_Overfishing), color = 'black') +
   geom_hline(yintercept = 1, linetype = 'dashed', color = 'red') +
-  facet_wrap(vars(EM_name))
+  facet_wrap(vars(EM_name)) +
+  ylim(-5,10)
 
 ```
 
@@ -616,7 +618,7 @@ In the model performance (figure \@ref(fig:radar)), however, these differences h
 knitr::include_graphics("Plots/Projections/SpiderPlot_fix/Radar_Holistic_Plot/model_performance_radar.png")
 ```
 
-```{r projterminal3, out.width="30%", fig.cap="Fbar, SSB, and catch of terminal 3 years of MSE in projections test", fig.show='hold', fig.align='center', echo = FALSE, warning = FALSE, message = FALSE}
+```{r projterminal3, out.width="30%", fig.cap="Fbar, SSB, and catch of terminal 10 years of MSE in projections test", fig.show='hold', fig.align='center', echo = FALSE, warning = FALSE, message = FALSE}
 
 knitr::include_graphics(c("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots/Combo/RadarPlot_fix/Performance_Boxplot/Fbar_global_last_10_years.png",
                           
