@@ -5,33 +5,40 @@ library(sf)
 library(dplyr)
 library(ggplot2)
 
-# Specify the OPeNDAP server URL (using regular grid output)
+# Specify the OPeNDAP server URL (using regular grid output) as you can tell I tried this a few times
+
 #url <- "http://psl.noaa.gov/thredds/dodsC/Projects/CEFI/regional_mom6/cefi_portal/northwest_atlantic/full_domain/decadal_forecast/monthly/regrid/latest/tob.nwa.full.dc_fcast.monthly.regrid.r20250925.enss.i196501.nc" # THIS URL ENDED IN 1974???
 
-# url <- "http://psl.noaa.gov/thredds/dodsC/Projects/CEFI/regional_mom6/cefi_portal/northwest_atlantic/full_domain/decadal_forecast/monthly/regrid/r20250925/tob.nwa.full.dc_fcast.monthly.regrid.r20250925.enss.i202501.nc" # Decadal forecast 2025-2034
+url <- "http://psl.noaa.gov/thredds/dodsC/Projects/CEFI/regional_mom6/cefi_portal/northwest_atlantic/full_domain/decadal_forecast/monthly/regrid/r20250925/tob.nwa.full.dc_fcast.monthly.regrid.r20250925.enss.i202501.nc" # Decadal forecast 2025-2034
 
-url <- "http://psl.noaa.gov/thredds/dodsC/Projects/CEFI/regional_mom6/cefi_portal/northwest_atlantic/full_domain/decadal_forecast/monthly/regrid/r20250925/tob.nwa.full.dc_fcast.monthly.regrid.r20250925.enss.i202501.nc"
+# url <- "http://psl.noaa.gov/thredds/dodsC/Projects/CEFI/regional_mom6/cefi_portal/northwest_atlantic/full_domain/decadal_forecast/monthly/regrid/r20250925/tob.nwa.full.dc_fcast.monthly.regrid.r20250925.enss.i202501.nc"
 
 # Open a NetCDF file lazily and remotely
+
+
+###############################
+# EXTRACTING DATA
+##############################
+
+#PULLING DATA FROM ONE TIMESTEP (in this case, days since 1960)
 ncopendap <- nc_open(url)
 
-timestart <- 120
+timestart <- 120 # specify timestep. I'm just testing
 
 # Read the coordinate into memory
 lon <- ncvar_get(ncopendap, "lon")
 lat <- ncvar_get(ncopendap, "lat")
-time <- ncvar_get(ncopendap, "lead",start = c(timestart), count = c(1)) # CHANGE FROM 'init' TO 'lead'. days since 1965-01-01 in gregorian calendar. Start is starting point, count is how many timestamps you want after that
+time <- ncvar_get(ncopendap, "lead",start = c(timestart), count = c(1)) # CHANGE FROM 'init' TO 'lead' FROM THE SCRIPT YOU COPIED (Or whatever the time variable is called.). days since 1965-01-01 in gregorian calendar. Start is starting point, count is how many timestamps you want after that
 
 # Read a slice of the data into memory
-# tob <- ncvar_get(ncopendap, "tob", start = c(1, 1, 1, 1), count = c(-1, -1, -1, -1))
 
-tob <- ncvar_get(ncopendap, "tob", start = c(1, 1, timestart, 1), count = c(-1, -1, 1, 1)) # Dimensions (LAT, LON, LEAD, MEMBER (idk wtf member is)) FOUIGURE OUT WHAT THESE DIMS ARE
+tob <- ncvar_get(ncopendap, "tob", start = c(1, 1, timestart, 1), count = c(-1, -1, 1, 1)) # Dimensions (LAT, LON, LEAD, MEMBER (idk wtf member is)), DEPENDING ON WHAT YOU PULL, THESE DIMENSIONS MAY CHANGE ORDER. Here, I am taking all lat/lon data and just one timestep and one 'member' (again, don't know wtf that is)
 
-#MATCH YOUR SECOND ELEMENTS IWTH THE TIME START AND COUNT. MAKE A VARIABLE IN CODE ONCE YOU FIGURE OUT THE TOB PROBLE
+#MATCH YOUR SECOND ELEMENTS IWTH THE TIME START AND COUNT.
 nrow(tob) # Should match your lon dims
 ncol(tob) # should match your lat dims
 
-# View(tob) # Only if you want to check yourself b4 u wreck urself
+# View(tob) # Only if you want to check yourself
 
 # TURNING TIMESTEP INTO SOMETHING USEABLE
 
@@ -51,18 +58,18 @@ filled.contour(lon, lat, tob, main = paste("TOB at", datetime_var), xlab = "Long
 
 
 
-
+###############################
 # Animated map making a gif
-
+##############################
 save_gif({
 # for(i in 1:120) {
-for(i in seq(1,120, by = 10)) {
+for(i in seq(1,120, by = 10)) { # IF YOU WANT TO VISUALIZE MORE TIMESTEPS, YOU CAN CHANGE THIS SEQUENCE
 timestart <- i
 
 # Read the coordinate into memory
 lon <- ncvar_get(ncopendap, "lon")
 lat <- ncvar_get(ncopendap, "lat")
-time <- ncvar_get(ncopendap, "lead",start = c(timestart), count = c(1)) # CHANGE FROM 'init' TO 'lead'. days since 1965-01-01 in gregorian calendar. Start is starting point, count is how many timestamps you want after that
+time <- ncvar_get(ncopendap, "lead",start = c(timestart), count = c(1))
 
 # Read a slice of the data into memory
 # tob <- ncvar_get(ncopendap, "tob", start = c(1, 1, 1, 1), count = c(-1, -1, -1, -1))
@@ -88,7 +95,12 @@ filled.contour(lon, lat, tob, main = paste("TOB at", datetime_var), xlab = "Long
 },gif_file = "filled_contour_animation.gif", width = 800, height = 600, delay = 0.1)
 
 
-# PULLING OUT AN ANNUAL AVERAGE FROM A SPECIFIC STOCK AREA
+
+############################
+# PULLING OUT AN ANNUAL AVERAGE
+# FROM A SPECIFIC STOCK AREA 
+# (In this case I'm looking at Georges Bank)
+#############################
 
 # Make DF
 
@@ -98,7 +110,7 @@ tempMeans_list <- data.frame(
   Mean = c()
 )
 
-for( i in 1:120) {
+for( i in 1:12) {
   
   tryCatch({
     
@@ -140,7 +152,7 @@ for( i in 1:120) {
     names(df) <- c("lon", "lat", "tob")
     
     # Now looking at GBK Shapefiles
-    GBK_stats <- as.integer(c(522, 525, 541, 542, 543, 551, 552, 561, 562))
+    GBK_stats <- as.integer(c(522, 525, 541, 542, 543, 551, 552, 561, 562)) # stock areas that are included in Georges bank. Change if you're looking at a different stock
     
     StatAreas <- read_sf('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/NEFSC_GIS/Statistical_Areas_2010.shp')
     
@@ -180,12 +192,13 @@ for( i in 1:120) {
 }
 
 
-# AI FIX
 #tempMeans <- bind_rows(tempMeans_list)
 
 saveRDS(tempMeans_list,'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/MOM6tempMeans.rds')
 
-tempMeans <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/MOM6tempMeans.rds')
+# tempMeans <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/MOM6tempMeans.rds')
+
+tempMeans <- tempMeans_list
 
 colnames(tempMeans) <- c('Year', 'Month','Temp')
 
@@ -201,7 +214,7 @@ springMonths <- c(3, 4, 5)
 #   group_by(Year) %>%
 #   summarise(mean = mean(Temp, na.rm = TRUE),
 #             sd = sd(Temp, na.rm = TRUE))
-# AI FIX
+
 SpringMeans <- subset(tempMeans, subset = Month %in% springMonths)
 SpringMeans <- SpringMeans %>%  # Use the filtered data!
   group_by(Year) %>%
@@ -212,6 +225,8 @@ saveRDS(SpringMeans,'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/MOM6Sprin
 
 #SpringMeans <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/SpringMeans.rds')
 
+
+### IGNORE THIS I'M JUST COMPARING TO DU PONTAVICE
 CI_indices <- read.csv('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/CI_indices.csv')
 
 
