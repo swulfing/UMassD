@@ -1,0 +1,564 @@
+,FileName,Collector,Village,Date,Month,Day,Year,Name,Gender,Total.number.of.people,Number.of.men,Number.of.women,Time.depart,Time.arrive,Product.type,Number.of.product,Kilo,Price..in.ariary.,Fishing.spot,Gear,Other.catch.type.1..unweigned.,Other.catch.type.1.number
+1,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/16/2020,Nov,16,2020,"kile, deran, Gara",L,3,3,0,07H30,06H30,Fay,2,200,,Ambatobe,Basimpia,,
+2,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/16/2020,Nov,16,2020,Some,L,2,2,0,09H30,06H30,Voramasaka,35,12,"3,500.00",Ankorakorake,Basimpia,zanga,8
+3,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/16/2020,Nov,16,2020,Nila Bema,L,2,2,0,09H30,06H30,Olovo,30,25,"4,000.00",Amaromalinike,Basimpia,zanga,20
+4,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/16/2020,Nov,16,2020,Manosotse,L,2,2,0,09H30,06H30,Voramasaka,,9.5,"3,500.00",Namangoa,Basimpia,,
+5,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/16/2020,Nov,16,2020,Box,L,2,2,0,,06H30,Fiantsifa,10,20,"1,500.00",Ravinagne,Basimpia,horita,3
+6,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/16/2020,Nov,16,2020,Galamona,L,3,3,0,11H00,03H05,Angisy,45,15,"7,000.00",Ankiahia,Basimpia,horita,1
+7,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/16/2020,Nov,16,2020,Momo,L,,,,,,,,,,,Harato,horita,1
+8,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/16/2020,Nov,16,2020,"Sidamo, Zemila, Gaby, Kiry, Jean Noel",L,5,5,0,11H00,03H10,Tapaporoha,60,42.5,"4,000.00",Tsalova,Harato,bozitse,4
+9,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/16/2020,Nov,16,2020,Zixe,L,1,1,0,11H00,03H10,Horita,7,2.5,"5,000.00",Andama,Voloso,lejaleja,2
+10,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/16/2020,Nov,16,2020,Odon,L,1,1,0,11H00,03H20,Horita,3,4.5,"5,000.00",Nosyve,Voloso,,
+11,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/16/2020,Nov,16,2020,Zonve,L,1,1,0,11H00,03H30,Horita,2,1,"5,000.00",Antsanaova,Voloso,lamera,4
+12,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/16/2020,Nov,16,2020,Maronike,L,1,1,0,11H00,03H33,GOGO,200,20,"1,500.00",Amaromalinike,Lay Moky,zanga,7
+13,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,Remena ,L,1,1,0,11H30,03H20,Horita,3,1.5,"5,000.00",Tapolo,Voloso,Antsiva,1
+14,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,Jô,L,1,1,0,11H30,03H22,Angisy,10,5.5,"7,000.00",Badiga,Vinta,,
+15,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,Moizy,L,1,1,0,11H30,03H25,Horita,4,8,"5,000.00",Antsosipase,Voloso,Jakake,9
+16,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,Dalida ,L,1,1,0,11H30,03H28,Lanora,1,35,"3,500.00",Anamangoa,Vinta,,
+17,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,Sahina,L,1,1,0,11H30,03H35,Faigitara,9,20,"1,800.00",Ambatolava,Voloso,Lanilany,6
+18,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,"Lemae, Ravo",L,1,1,0,11H30,03H40,Horita,12,10.5,"5,000.00",Ambalany,Voloso,,
+19,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,Rambola ,L,1,1,0,11H30,03H42,Fiambonjo,8,4,"2,500.00",Ambato Mainty,Basimpia,bozike,3
+20,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,"Mahatsara, Rasidy",L,2,2,0,11H30,03H45,Olovo,1,30,"4,000.00",Ambane,Basimpia,Takalo,2
+21,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,Manike ,L,1,1,0,11H30,03H45,Horita,20,16,"5,000.00",Tsalova,Voloso,,
+22,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,"maherinaze, DINOX",V,2,1,1,11H30,03H50,Horita,5,2.7,"5,000.00",Abadiga,Voloso,zanga,4
+23,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,Lema,V,1,0,1,11H30,03H52,Horita,6,2,"5,000.00",Kiahia,Voloso,soke,300
+24,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,Fiaria,L,1,1,0,11H30,03H54,Horita,8,6,"5,000.00",Atapolo,Voloso,,
+25,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,Hermine,L,1,1,0,11H30,03H56,Ambatsoy,1,25.5,"4,000.00",Nosive,Basimpia,horita,2
+26,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/17/2020,Nov,17,2020,"Tolikiba, Dosike, Donasy, Kotokely",L,4,4,0,11H30,03H59,Manjiandovoke,180,100.5,"3,500.00",Tsalova,Harato,,
+27,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/18/2020,Nov,18,2020,"Mandamine, Monex, Gistin, Nese",L,4,4,0,12H03,03H20,Tapaporoha,70,45,"4,000.00",Ankiahia,Harato,Angy,15
+28,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/18/2020,Nov,18,2020,"Birike, Franco, Maleko, Tsivery, Jean Klo, Felixe, Balata, Baleda, Pinjo, Vany",L,10,10,0,12H03,03H25,Varilava,40 Meza,Sihoa,"6,000.00",Ambatobe ,Makarakara,,
+29,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/18/2020,Nov,18,2020,"Daniel, Jisy, Tsimiliva, Maro, Haja",L,5,5,0,12H07,03H30,Varilava,10 Meza,Sihoa,"6,000.00",Aseransy,Makarakara,Babake,50
+30,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/18/2020,Nov,18,2020,Lexandre,L,1,1,0,12H07,03H33,Horita,8,2,"5,000.00",Abadiga,Voloso,Lamera,4
+31,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/18/2020,Nov,18,2020,Mafaitse,L,1,1,0,12H07,03H39,Horita,2,6,"5,000.00",Ankorakorake,Voloso,Tabake,7
+32,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/18/2020,Nov,18,2020,Dasizy,L,1,1,0,12H07,03H41,Horita,1,5,"5,000.00",Ambane,Voloso,Banga,20
+33,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/18/2020,Nov,18,2020,Kovae,L,1,1,0,12H07,03H47,Horita,10,4,"5,000.00",Ancerance,Voloso,Bozitse,5
+34,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/18/2020,Nov,18,2020,Leda,L,1,1,0,12H07,03H50,Angisy,18,7,"7,000.00",Ankasy - Vinta,Angisy,,
+35,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/18/2020,Nov,18,2020,"Moleda, Vale, Lofe",L,3,3,0,12H07,03H50,Voramasake,40,20,"3,500.00",Tampolo ,Harato,Fiantsifa,20
+36,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/18/2020,Nov,18,2020,Nitsa,L,1,1,0,12H07,03H50,lanora,1,50,"3,000.00",Antsandamba - Vinta,Vinta,,
+37,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,Nila Zavy,L,2,2,0,10H05,01H30,lovokabo,3,35,"4,000.00",Nosive,Basimpia,fiakapoake,
+38,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,Za Fianake,L,1,1,0,10H05,01H30,Lanora,1,10,"3,000.00",Besanto,Basimpia,Angarera,3
+39,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,"Mahaliny, Kamby",L,2,2,0,10H05,01H30,zanga babake,200,,100,Andama,vitera,,2
+40,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,Herisoa Z,L,1,1,0,10H05,01H35,zanga babake,250,,100,Antamboho,vitera,,
+41,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,Tsila,L,1,1,0,10H05,01H40,zanga babake,15,,100,Ambokatsa,vitera,Zanga Foty,5
+42,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,Jean Tisiele,L,1,1,0,10H05,01H40,zanga babake,30,,100,Ambokatsa,vitera,Zanga Foty,3
+43,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,Dadie,L,1,1,0,10H05,01H45,zanga babake,200,,100,Ankiahia,vitera,Zanga Foty,1
+44,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,Jonary,L,1,1,0,10H05,01H45,zanga babake,207,,100,ankara,vitera,Jakake,20
+45,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,Zafy,L,1,1,0,10H05,01H47,Horita,3,2.5,"5,000.00",Badiga,Voloso,,
+46,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,Firaisa,L,1,1,0,10H05,01H50,Horita,8,11.5,"5,000.00",Nosive,Voloso,Gogo,gony 1
+47,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,Tovo / Maniry,L,2,2,0,10H05,01H30,Horita,3,4.5,"5,000.00",Amaromalinike,Voloso,lamera,4
+48,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,Maronike,L,1,1,0,10H05,01H30,Horita,7,4,"5,000.00",Andama,Voloso,,
+49,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,Dada,L,1,1,0,10H05,01H30,Horita,6,2.2,"5,000.00",Andama,Voloso,Ambitsy,2
+50,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,"Zene, Conle, Dara, Leonce",L,4,4,0,10H05,01H30,voramasake,40,23.5,"3,500.00",Ankorakorake,Harato,Fiatsifa,20
+51,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,"Tovo, Gila",L,2,2,0,10H05,01H30,Valalafia,100,32.3,"2,500.00",ambohoriake,Harato,,
+52,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,"Jean, Simon, Mera",L,3,3,0,10H05,01H30,Valalafia,120,45,"2,500.00",ambohoriake,Harato,Lamatra,2
+53,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/19/2020,Nov,19,2020,"Solo, Jeance",L,2,2,0,10H05,01H30,Valalafia,126,40,"2,500.00",ambohoriake,,,
+54,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,"Thiery, Zidoro",L,2,2,0,11H10,03H00,Valalafia,127,45,"2,700.00",ambohoriake,Harato,Antserake,8
+55,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,Dary,L,1,1,0,11H10,03H10,zanga babake,100,,100,Andama,Vifera,Jakake,20
+56,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,Sove,L,1,1,0,11H10,03H14,Horita,7,3.7,500,Atsoripase,Voloso,lamera,2
+57,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,"Odon, Love",L,4,4,0,11H10,03H17,Tapaporoha,80,21.5,"4,000.00",Ravinagne,Harato,Tabake,12
+58,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,zavy,L,1,1,0,11H10,03H20,Kifalatse,8,6.5,"3,000.00",Ravinagne,Basimpia,Tabake,7
+59,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,Zeze,L,1,1,0,11H10,03H25,Tsabeake,13,5,"4,000.00",Ambane,Vinta,Lemeleme,4
+60,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,Lala I,L,1,1,0,11H10,03H30,Angisy,12,3.5,"7,000.00",Abevotsandra,Vinta,,
+61,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,Tolikiba,L,5,5,0,11H10,03H40,Lanora,100,120,"3,000.00",Andama,Harato,Babake,50
+62,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,Danasien,L,4,4,0,11H10,03H45,Varilava,20 Meza,Sihoa,"6,000.00",Ambatolava,Makarakara,,
+63,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,Hady,L,1,1,0,11H10,03H47,Lanora,1,35,"3,000.00",Amaromalinike,Vinta,,
+64,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,Mily,L,1,1,0,11H10,03H54,lovokabo,2,8.5,"4,000.00",Ankiahia,Basimpia,,
+65,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,Tolotse,L,1,1,0,11H10,03H54,Tsabeake,45,12,"4,000.00",Badiga,Vinta,Voramasake,10
+66,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,Lala I,L,1,1,0,11H10,03H59,Angisy,10,5,"7,000.00",Ankiahia,Vinta,,
+67,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/20/2020,Nov,20,2020,Moize,L,1,1,0,11H10,04H06,Tsoidefe,60,3,"4,000.00",Ankiahia,Harato,Tabake,9
+68,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/21/2020,Nov,21,2020,Kilake,L,1,1,0,12H02,03H20,tsiodafe,30,4,"4,000.00",Anserance,Harato,Malila,10
+69,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/21/2020,Nov,21,2020,Nangae,L,4,4,0,12H02,03H25,Fiantsifa,50,120,"1,500.00",Ankorakorake,Harato,Voramasake,20
+70,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/21/2020,Nov,21,2020,Mandamine,L,3,3,0,12H02,03H29,Tapaporoha,100,45.5,"4,000.00",Ambatimatave,Harato,Tabake,18
+71,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/21/2020,Nov,21,2020,Tsihala,L,1,1,0,12H02,03H41,Horita,7,9.5,"5,000.00",Andama,Voloso,Zanga,7
+72,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/21/2020,Nov,21,2020,Bolanta,L,4,4,0,12H02,03H47,Mahalogy,4000,100,"2,500.00",Ambatolava,Harato,,
+73,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/21/2020,Nov,21,2020,martin,L,4,4,0,12H06,03H56,Tapaporoha,60,25.5,"4,000.00",Anserance,Harato,Fiambonjo,30
+74,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/21/2020,Nov,21,2020,Nahatsara,L,1,1,0,12H06,03H56,Votso,3,21.5,"4,000.00",Nosive,Basimpia,Tabake,18
+75,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/21/2020,Nov,21,2020,"Deny, Reza",L,4,4,0,12H06,03H59,Lanora,160,124,"3,000.00",Ankazomibaboke,Harato,,
+76,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/21/2020,Nov,21,2020,Sofera,L,1,1,0,12H06,03H59,Tsabeake,17,8.5,"4,000.00",Ravinagne,Vinta,Lemeleme,7
+77,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/21/2020,Nov,21,2020,Ronaly,L,1,1,0,12H06,04H09,Horita,6,2.5,"5,000.00",Andama,Voloso,Zanga,100
+78,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/21/2020,Nov,21,2020,Zafy,L,1,1,0,12H06,04H12,Horita,9,8,"5,000.00",Andama,Voloso,,
+79,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/21/2020,Nov,21,2020,Nila,L,2,2,0,12H06,04H16,lovokabo,2,16,"4,000.00",Andama,Basimpia,Zanga,2
+80,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/22/2020,Nov,22,2020,Boda ,L,1,1,0,06H30,09H05,Fela,60,20,600,Antamboho,Gantana,,
+81,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/22/2020,Nov,22,2020,Leonce,L,1,1,0,06H30,09H10,Angisy,4,6,"7,000.00",Ampase,Vinta,,
+82,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/22/2020,Nov,22,2020,"Lemae, Ravo",L,1,1,0,06H30,09H13,Horita,19,8.5,"5,000.00",Ankiahia,Voloso,Zanga,2
+83,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/22/2020,Nov,22,2020,Kalisa,L,1,1,0,06H30,09H20,tsiodafe,30,10,"4,000.00",Ambatolava,Harato,Atsisy,9
+84,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/22/2020,Nov,22,2020,mariose,L,2,2,0,06H30,09H20,Antserake,7,12,"4,000.00",Antamboho,Vinta,,
+85,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/22/2020,Nov,22,2020,Galamona,L,3,3,0,06H30,09H25,Angisy,60,25,"3,000.00",Ankasy ,Harato,Babake,10
+86,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/22/2020,Nov,22,2020,"Dara, Leonce",L,4,4,0,06H30,09H25,Joginy,300,90,"2,000.00",Ambavae,Harato,Avorake,20
+87,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/22/2020,Nov,22,2020,"Ginavy, Zemila",L,5,5,0,06H30,09H30,Fitse,600,250,"3,500.00",Anjokojoko,Harato,Tabake,28
+88,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/22/2020,Nov,22,2020,Mandamine,L,4,4,0,06H30,09H35,Babake,200,230,"3,000.00",Ankiahia,Harato,,
+89,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/22/2020,Nov,22,2020,"Nake, Moziky",L,3,3,0,06H30,09H37,Angisy,35,11,"7,000.00",Ambane,Harato,Voramasake,7
+90,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/22/2020,Nov,22,2020,"Sele, Safidy",L,6,6,0,06H30,09H40,Lanora,48,43,"3,000.00",Antamboho,Harato,,
+91,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/23/2020,Nov,23,2020,Boda ,L,1,1,0,06H30,09H05,Fale,60,20,600,Famboho,Gantana,,
+92,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/23/2020,Nov,23,2020,Leonce,L,1,1,0,06H30,09H10,Ampisy,4,6,"7,000.00",Ampase,vinta angisy,,
+93,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/23/2020,Nov,23,2020,Leonce,L,1,1,0,06H30,09H13,Horita,19,6.5,"5,000.00",Ankiahia,Voloso,Zanga,2
+94,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/23/2020,Nov,23,2020,kalisa,L,1,1,0,06H30,09H20,Tsoidefe,30,10,"4,000.00",Ambatolava,Harato,Atsisy,9
+95,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/23/2020,Nov,23,2020,"Mariose, Mario",L,2,2,0,06H30,09H20,Antserake,7,12,"3,000.00",Tamboko,Vinta,,
+96,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/23/2020,Nov,23,2020,"Gala, Mono, Faralahy",L,3,3,0,06H30,09H25,Angisy,60,25,"7,000.00",Ankasy,Harato,Babake,10
+97,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/23/2020,Nov,23,2020,"Dare, Romialy, Zaka, Mario",L,4,4,0,06H30,09H25,Joginy,300,90,"2,000.00",Ambavae,Harato,Avorake,20
+98,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/23/2020,Nov,23,2020,"Ganavy, Zemila, Sidamo, Gaby, Zanoele",L,5,5,0,06H30,09H30,Fitse,600,250,"3,500.00",Anjokojoko,Harato,Tabake,28
+99,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/23/2020,Nov,23,2020,"Mandamine, Nese, Manoxe, Tena",L,4,4,0,06H30,09H35,Babake,200,230,"3,000.00",Ankiahia,Harato,,
+100,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/23/2020,Nov,23,2020,"Nake, Moziky, Rambola",L,3,3,0,06H30,09H37,Angisy,35,11,"7,000.00",Ambane,Harato,Voramasake,7
+101,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/23/2020,Nov,23,2020,"Sele, Safidy, Dada, Karatsake, Jo, Monatse",L,6,6,0,06H30,09H40,lanora,48,43,"3,000.00",Tamboha,Harato,,
+102,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,"Gala, Mona, Faralahy",L,3,3,0,08H00,03H30,Angisy,40,12.5,"7,000.00",Nosive,Harato,Tsoimena,100
+103,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,"Ginavy , Zemilake, Solofo",L,4,4,0,08H00,03H37,Tapaporoha,70,29,"4,000.00",Maromalinike,Harato,Lentiny,20
+104,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,Moizy,L,1,1,0,08H00,03H37,Horita,1,3,"5,000.00",Ambane,Voloso,Gogo,300
+105,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,Mbema,L,1,1,0,08H00,03H40,Jakake,60,15.5,"1,500.00",Antamboho,Voloso,Fay,5
+106,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,Rocelin,L,1,1,0,08H00,03H40,Horita,7,8.5,"5,000.00",Ambemahia,Voloso,,
+107,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,Jean Arinestes,L,1,1,0,08H00,03H40,Tabake,20,6.5,"2,000.00",Ankiahia,Voloso,Faygitara,6
+108,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,Bata,L,1,1,0,08H00,03H43,Horita,4,15.5,"5,000.00",Nosive,Voloso,Mahifara,2
+109,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,Remana,L,1,1,0,08H00,03H43,Horita,2,0.5,"5,000.00",Tapolo,Voloso,Zanga,1
+110,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,Petera,L,1,1,0,08H00,03H47,Horita,1,1.5,"5,000.00",Ambokatra,Voloso,Faigitara,5
+111,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,Karatsake,L,1,1,0,08H00,03H48,Horita,1,0.5,"5,000.00",Masirarano,Voloso,Bozike,1
+112,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,"Arisele, Tsiroe, Safidy, Dada",L,4,4,0,08H00,03H52,Babake,70,142,"3,000.00",Tamboho,Makarakara,Lanora,16
+113,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,Lemae,L,1,1,0,08H00,03H58,Horita,6,2,"5,000.00",Andama,Voloso,Lamera,6
+114,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,Kalisa,L,1,1,0,08H00,03H58,Tsoidafe,60,3,"4,000.00",Abefay,Harato,Tobake,2
+115,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,Manahira,L,1,1,0,08H00,03H59,Fay,7,8,"1,500.00",Taimby,Voloso,Faigitara,7
+116,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/24/2020,Nov,24,2020,Sahira,L,2,2,0,08H00,04H07,Lamera,3,3.5,"2,000.00",Anamangoa,Basimpia,,
+117,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,"Gala, Mona, Faralahy, Mavela",L,4,4,0,09H40,03H40,Lanora,17,18.5,"3,000.00",nosive,Harato,Babake,8
+118,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,Giana,L/V,2,1,1,09H40,03H40,Voramasake,10,6,"3,000.00",Badiga,Harato,Dabandriake,20
+119,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,Herimamy,L,1,1,0,09H40,03H43,Ambatsoy,1,10,"4,000.00",Nosive,Basimpia,Betampe,16
+120,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,Zamba,L,1,1,0,09H40,03H43,Lamatra,2,16,"6,000.00",Maromalinike,Vinta,,
+121,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,Zafianake,L/V,2,1,1,09H40,03H47,Koloka,90,26,"2,500.00",Nosive,Harato,Horita,2
+122,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,"Gay, Golijy",L,2,2,0,09H40,03H49,Akio,1,60,"1,000.00",Ambatobe,Basimpia,,
+123,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,"Papo, Marike, Lemae",L,3,3,0,09H40,04H10,Joho,6,40,"4,000.00",Abesalonjo,Basy,,
+124,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,"Hery, Viviany, Kliny, Netake, Soazara",V,5,0,5,09H40,04H10,Horita,12,17,"5,000.00",Ankiahia,Voloso,Leme,12
+125,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,"Prime, Nanty",L,2,2,0,09H40,04H17,Horita,6,2,"5,000.00",Ambane,Voloso,Leme,4
+126,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,"Lidia, Fanja, Cluodiny",V,3,0,3,09H40,04H19,Horita,2,0.5,"5,000.00",Ambane,Voloso,,
+127,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,Zeze,L,1,1,0,09H40,04H26,Tsabeake,22,4,"4,000.00",Ambavae,Vinta,Leme,7
+128,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,Lala I,L,1,1,0,09H40,04H26,Angisy,8,10,"7,000.00",Anasirarano,Vinta,,
+129,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,Tolotse,L,1,1,0,09H40,04H30,Angisy,12,6.5,"7,000.00",Maromalinike,Vinta,,
+130,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/25/2020,Nov,25,2020,Zikise,L,1,1,0,09H40,04H30,Horita,7,2,"5,000.00",Andama,Voloso,Moroy,2
+131,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,"Dadie, Gay, Maniry",L,3,3,0,10H10,04H20,Bemampe,75,14,"1,000.00",Ambajobe,Gam,,
+132,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,Firaisa,L,1,1,0,10H10,04H20,Horita,2,7,"5,000.00",Ambane,Voloso,Zanga,4
+133,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,"Make, Fomiale, Mozic",L,3,3,0,10H10,04H27,Angisy,60,8.5,"7,000.00",Ravinagne,Harato,,
+134,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,Maronike,L,1,1,0,10H10,04H27,Horita,1,15,"5,000.00",Andama,Voloso,Lamera,1
+135,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,Dada,L,1,1,0,10H10,04H30,Horita,3,11,"5,000.00",Tampolo ,Voloso,Bodiga,6
+136,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,Kian,L,1,1,0,10H10,04H30,Horita,6,3.5,"5,000.00",Andama,Voloso,,
+137,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,"Miandraha, Sambahy",L,2,2,0,10H10,04H30,Horita,2,1,"5,000.00",Ambotomanoko,Voloso,Bobike,6
+138,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,"Dianasy, Fameno",L,2,2,0,10H10,04H35,Koloka,10,3,"2,000.00",Ankiahia,Basimpia,Tambake,3
+139,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,"Kile, Carlose",L,2,2,0,10H10,04H37,olovoangarera,1,10.5,"4,000.00",Ravinagne,Basimpia,Lamera,2
+140,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,Basa,L,1,1,0,10H10,04H40,GOGO,300,50,"2,000.00",Andama,Mostikera,,
+141,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,"Maire, Bonele, Dare",L,3,3,0,10H10,04H40,Angisy,8,1,"7,000.00",Ankiahia,Harato,,
+142,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,"Mangae, Kolin, Zene, Leonce",L,4,4,0,10H10,04H45,Angisy,55,8.5,"7,000.00",Andama,Harato,Antserake,20
+143,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,"Prime, Netake",L,2,2,0,10H10,04H47,Horita,1,1.5,"5,000.00",Badiga,Voloso,Antsiva,1
+144,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/26/2020,Nov,26,2020,"Monira, Hery",L,2,2,0,10H10,04H47,Horita,7,3.5,"5,000.00",Badiga,Voloso,,
+145,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,"Kôsy, Gisy, Monekse",L,3,3,0,11H30,04H00,Fia valala,70,20,"2,500.00",Ambohony,Harato,Antserake,8
+146,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,Maiava,L,1,1,0,11H30,04H06,Horita,3,1.7,"5,000.00",Ambatobe,Voloso,Fiambonjo,7
+147,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,Bata,L,1,1,0,11H30,04H09,Horita,4,2,"5,000.00",Ambotobe,Voloso,Gogo,60
+148,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,Remena,L,1,1,0,11H30,04H11,Horita,6,3,"5,000.00",Ambane,Voloso,Tambake,6
+149,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,Simona,L,1,1,0,11H30,04H11,Horita,1,5,"5,000.00",Tapolo,Voloso,,
+150,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,Jo,L,1,1,0,11H30,04H17,Horita,7,2,"5,000.00",Tapolo,Voloso,Lamera,2
+151,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,Rocelin,L,1,1,0,11H30,04H17,Horita,4,2.5,"5,000.00",Ambatomainty,Voloso,,
+152,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,"Sambalahy, Fameno",L,2,2,0,11H30,04H20,Horita,3,3,"5,000.00",Ambane,Voloso,Olovo,1
+153,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,Sebasy,L,1,1,0,11H30,04H30,Horita,2,1,"5,000.00",Tapolo,Voloso,Beja,1
+154,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,"Zemilake, Sidamo, Tovo, Brian",L,4,4,0,11H30,04H38,Tapaporoha,40,30,"4,000.00",Korakorake ,Voloso,,
+155,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,Mbena,L,1,1,0,11H30,04H40,Jakake,7,11,"1,500.00",Tamboho,Voloso,Fay,2
+156,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,"Gala, Mona, Fara, Hoby",L,4,4,0,11H30,04H40,Angisy,30,4,"7,000.00",Bevotsanja,Harato,,
+157,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,"Mandamine, Nase, Monekse",L,3,3,0,11H30,04H43,Tapaporoha,60,30,"4,000.00",Nosive,Harato,Tabake,10
+158,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/27/2020,Nov,27,2020,Manastse ,L,1,1,0,11H30,04H48,Horita,3,1.5,"5,000.00",Anolama,Voloso,Fiabakobe,2
+159,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,"Bolanta, Julien, Kalisa",L,3,3,0,12H30,04H30,Mahalogy,400,30,"2,000.00",Tahombo ,Harato,Ambariake,20
+160,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,Lemae,L,1,1,0,13H30,04H35,Horita,7,4.5,"5,000.00",Ankara,Voloso,,
+161,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,Dimby ,L,1,1,0,12H30,04H43,Horita,2,1,"5,000.00",Ankara,voloso,votsanja,2
+162,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,Mardona,L,1,1,0,13H30,04H37,Horita,1,0.5,"5,000.00",Nosive,voloso,,
+163,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,Sahira,L,1,1,0,12H30,04H40,Horita,4,2.5,"5,000.00",Tsoripase,Voloso,Bozike,4
+164,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,"Tsihala, Tsirese",L,2,2,0,12H30,04H40,Horita,4,1.5,"5,000.00",Bemahia,Voloso,Lamera,2
+165,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,Mboie,L,1,1,0,12H30,04H42,Horita,9,6,"5,000.00",Maromalinike,Voloso,Tabake,6
+166,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,"Birise, Hafa",L/V,2,1,1,12H30,04H47,Horita,2,3,"5,000.00",Atapolo,Voloso,Faigitara,1
+167,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,Boda ,L,1,1,0,12H30,04H47,Horita,6,2.5,"5,000.00",Ambatobe,Voloso,lovo,1
+168,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,Ginga,L,1,1,0,12H30,04H50,Horita,2,3,"5,000.00",Ambatonaingy,Voloso,Fay ,6
+169,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,Edison,L,1,1,0,12H30,04H50,Horita,1,3.5,"5,000.00",Ankara,Voloso,Ampozo,3
+170,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,Tsilavitse,L,1,1,0,12H30,04H53,Horita,3,1,"5,000.00",Nosive,Voloso,Fiantsifa,1
+171,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,"Nangae, Kosy, Leonce, Kolin",L,4,4,0,12H30,04H56,Voramasaka,60,35.5,"3,500.00",Bemahia,Harato,Fiantsifa,20
+172,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,"Zene, Heriven, Rambola",L,3,3,0,12H30,04H58,Voramasaka,70,42,"3,500.00",Ambatobe,Harato,Fiantsifa,6
+173,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/28/2020,Nov,28,2020,Ramanga,L,3,3,0,12H30,05H10,Voramasaka,30,15.5,"3,500.00",Anamangoa,Harato,Fiantsifa,10
+174,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,Sofera,L,1,1,0,01H30,05H00,Tsabeake,30,10.5,"4,000.00",Tsalova,Vinta,Panisy,6
+175,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,Nivae,L,1,1,0,01H30,05H50,Tsabeake,6,1,"4,000.00",Tsalova,Vinta,,
+176,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,Marisile,L,1,1,0,01H30,05H00,Lanora,1,30,"3,000.00",Ravinogne,Vinta,,
+177,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,"Giana, Zaninike",L/V,2,1,1,01H30,05H10,Voramasaka,45,30,"3,500.00",Korakorake ,Harato,Andrarame,30
+178,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,Zamba ,L,1,1,0,01H30,05H12,Lanora,2,15,"3,000.00",Ambatobe,Vinta,,
+179,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,"Erike, Bata",L,2,2,0,01H30,05H15,Tabak,25,14,"1,500.00",Badiga,BasyMP,Leontiny,10
+180,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,"Zavy, Zikse",L,2,2,0,01H30,05H15,Kifalaotse,13,23,"3,000.00",Ambohoe,BasyMP,Fiakanga,3
+181,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,Herivin,L,1,1,0,01H30,05H18,Horita,2,7,"5,000.00",Andama,Voloso,Faigitara,4
+182,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,Odon,L,1,1,0,01H30,05H24,Horita,16,8.5,"5,000.00",Badiga,Voloso,lejaleja,2
+183,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,Sove,L,1,1,0,01H30,05H24,Horita,3,3,"5,000.00",Andama,Voloso,,
+184,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,Nitsa,L,1,1,0,01H30,05H26,Lanora,1,36,"3,000.00",Namangoa,Vinta,,
+185,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,Roger,L,1,1,0,01H30,05H28,Fiagamo,19,50,"4,000.00",Tsoripase,Vinta,Valala,60
+186,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,Alex,L,1,1,0,01H30,05H30,Fiagamo,2,12,"4,000.00",Ambohoe,Vinta,Valala,45
+187,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,Edison,L,1,1,0,01H30,05H30,Horita,21,9.5,"5,000.00",Bemahia,Voloso,Lamera,4
+188,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,Tanake,L,1,1,0,,,,,,,,,,
+189,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,"Dirike, Franco, Balata, Pinjo, Jean Klon",L,5,5,0,01H30,05H33,Fiantsifa,80,160,"1,500.00",Ankiahia,Zede,,
+190,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/29/2020,Nov,29,2020,Lazizy,L,1,1,0,01H30,05H47,Horita,10,20,"5,000.00",Popolo,Voloso,,
+191,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,Nahatrara,L,1,1,0,02H30,06H00,Votsa,1,8.5,"4,000.00",Bevotsanja,Basy,Angarera,2
+192,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,Berinard,L,1,1,0,02H30,06H05,Horita,8,3,"5,000.00",Ankara,Voloso,Lamera,3
+193,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,"Redae, Mada",L/V,2,1,1,02H30,06H05,Tsioke,60,12,"3,500.00",Badiga,Harato,Tsiodafe,20
+194,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,"Maritin, Vinole, Raside",L,3,3,0,02H30,06H10,Tapaporaha,45,21,"4,000.00",Ravinogne,Harato,Tsiodafe,12
+195,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,Natsetakle,L,1,1,0,02H30,06H13,Horita,7,2.5,"5,000.00",Andama,Voloso,Lagnilagny,6
+196,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,"Zafianaka, Marike",L,2,2,0,02H30,06H13,Mandreandrea,80,28,"2,000.00",Ravinogne,Harato,Voromasaka,16
+197,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,Botomainte,L,1,1,0,02H30,06H16,Fianakanga,3,2,"4,000.00",Tsiropase,Voloso,Tsoritso,3
+198,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,Mana,L,1,1,0,02H30,06H16,Faigitara,6,7,"3,500.00",Tamboho,Basy,Fay,8
+199,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,"Poly, Maintie, Alex",L,3,3,0,02H30,06H19,Tapaporaha,39,19.05,"4,000.00",Nosive,Harato,Tabake,19
+200,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,"Berogay, Papo",L,2,2,0,02H30,06H25,Olovo,2,25,"4,000.00",Ambohoe,Basy,Zanga,3
+201,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,"Hery, Kalentsa, Jean Triel",L,3,3,0,02H30,06H25,Angisy,46,18.5,"7,000.00",Akiahia,Harato,,
+202,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,"Lova, Kongo",L,3,3,0,02H30,06H30,Lovofisaka,1,50,"4,000.00",Ambatobe,Basy,Lamera,2
+203,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,"Soalia, Raza, Valisoa",L,3,3,0,02H30,06H30,Ambariake,107,49,"4,000.00",Tamboho,Harato,Logy,100
+204,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,11/30/2020,Nov,30,2020,Jonary,L,1,1,0,02H30,06H35,Horita,10,12.5,"5,000.00",Tapolo,Voloso,Gogo,60
+205,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/1/2020,Dec,1,2020,"Dirike, Franco, Balata, Pinjo, Jean Klon, Baleda",L,6,6,0,06H00,10H00,Varilava,10000,200,"4,000.00",Nosive,Harato,Ambariake,28
+206,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/1/2020,Dec,1,2020,Ndria,L,1,1,0,06H00,10H00,Horita,5,3,"5,000.00",Ankara,Voloso,Badiga,7
+207,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/1/2020,Dec,1,2020,Dazizy,L,1,1,0,06H00,10H06,Horita,4,6,"5,000.00",Papolo,Voloso,Ambariake,10
+208,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/1/2020,Dec,1,2020,Mafaitse,L,1,1,0,06H00,10H10,Horita,6,1.5,"5,000.00",Ankara,Voloso,Beja,4
+209,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/1/2020,Dec,1,2020,"Renge, Giome, Maro",L,3,3,0,06H00,10H10,Angisy,7,1,"7,000.00",Bevotsandra,Harato,Tsoidafe,6
+210,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/1/2020,Dec,1,2020,Eme,L,1,1,0,06H00,10H15,Tsabeake,11,4,"4,000.00",Antsoripase,Vinta,Leme,2
+211,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/1/2020,Dec,1,2020,"Jimo, Sialy, Sezerimy",L/V,3,2,1,06H00,10H15,Voramasake,26,11,"3,500.00",Anamangoa,Harato,Tabake,4
+212,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/1/2020,Dec,1,2020,Ginga,L,1,1,0,06H00,10H18,Horita,1,5,"5,000.00",Andama,Voloso,Gogo,2000
+213,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/1/2020,Dec,1,2020,Tsihazotana,L,1,1,0,06H00,10H18,Horita,4,1.5,"5,000.00",Ravinogne,Voloso,,
+214,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/1/2020,Dec,1,2020,Samba,L,1,1,0,06H00,10H12,Horita,5,4.5,"5,000.00",Ambokatra,Voloso,zanga,9
+215,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/1/2020,Dec,1,2020,"Tsilavitse, Botiko, Ezekiela",L,3,3,0,06H00,10H12,Voramasake,34,15.5,"5,000.00",Namangoa,Harato,Ampozo,7
+216,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/1/2020,Dec,1,2020,Nolagna,L,1,1,0,06H00,10H24,voramasake,20,8,"3,500.00",Badiga,Vinta,Fiambonjo,10
+217,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/1/2020,Dec,1,2020,Kolin,L,1,1,0,06H00,01H30,Voramasake,2,1,"3,500.00",Badiga,Vinta,,
+218,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/2/2020,Dec,2,2020,Fate,L,1,1,0,07H30,11H00,Horita,1,0.5,"5,000.00",Ankiahia,Voloso,Lamera,1
+219,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/2/2020,Dec,2,2020,Dazizy,L,1,1,0,07H30,11H00,Horita,2,0.5,"5,000.00",Badiga,Voloso,,
+220,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/2/2020,Dec,2,2020,Ndria,L,1,1,0,07H30,11H04,Horita,2,4,"5,000.00",Andama,Voloso,,
+221,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/2/2020,Dec,2,2020,"Drike, Franco, Pinjo, Balata, Ndinike, Baleda, Maleko, Tsivery",L,8,8,0,07H30,11H08,Vango,28,270,"4,000.00",Taniraty,Makarakara,,
+222,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/2/2020,Dec,2,2020,"Lemea, Ravo",L/V,2,1,1,07H30,11H02,Horita,4,1.5,"5,000.00",Badiga,Voloso,Tabokina,1
+223,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/2/2020,Dec,2,2020,Sahira,L,1,1,0,07H30,11H20,Lanora,7,10,"2,500.00",Ambatobe,Basy,,
+224,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/2/2020,Dec,2,2020,Tsingala,L,1,1,0,07H30,11H20,Lamera,4,3,"2,500.00",Ambane,Basy,Tabake,7
+225,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/2/2020,Dec,2,2020,Manahira,L,1,1,0,07H30,11H25,GOGO,300,15,"1,500.00",Masirarano,Tante,Horita,1
+226,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/2/2020,Dec,2,2020,"Gala, Mona, Betenatena",L,3,3,0,07H30,11H30,Angisy,50,16,"7,000.00",Andama,Harato,Ambariake,20
+227,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/2/2020,Dec,2,2020,"Zilô, Gaby, Brisary",L,3,3,0,07H30,11H33,Angisy,4,1,"7,000.00",Ampase,Harato,,
+228,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/2/2020,Dec,2,2020,"Mandamine, Nese, Gisy",L,3,3,0,07H30,11H36,Mahalogy,700,30,"1,500.00",Ampase,Harato,,
+229,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/2/2020,Dec,2,2020,Zigilo,L,1,1,0,07H30,11H40,Horita,1,3.5,"5,000.00",Ankiahia,Voloso,Moroy,1
+230,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/3/2020,Dec,3,2020,Mbena,L,1,1,0,08H30,12H04,Jakake,40,10,"1,500.00",Tamboho,Gantana,Faigitara,7
+231,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/3/2020,Dec,3,2020,Bata,L,1,1,0,08H30,12H10,Lamera,7,2.5,"2,500.00",Bevontsandra,Voloso,,
+232,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/3/2020,Dec,3,2020,"Manosotse, Ronaly",L,2,2,0,08H30,12H10,Tabake,18,6.5,"1,500.00",Ambatobe,Basy,Kifalitse,6
+233,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/3/2020,Dec,3,2020,Rocelin,L,1,1,0,08H30,12H14,Horita,7,7,"5,000.00",Ambatomainty,Voloso,Kapoake,2
+234,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/3/2020,Dec,3,2020,Maira,L,1,1,0,08H30,12H16,Kiloka,17,7,"1,500.00",Ankiahia,Basy,Tsoidafe,3
+235,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/3/2020,Dec,3,2020,Simona,L,1,1,0,08H30,12H19,Horita,8,3,"5,000.00",Badiga,Voloso,Lamera,1
+236,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/3/2020,Dec,3,2020,Sabasy,L,1,1,0,08H30,12H21,Horita,1,2.5,"5,000.00",Badiga,Voloso,,
+237,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/3/2020,Dec,3,2020,Lemae,L,1,1,0,08H30,12H24,Horita,10,8.5,"5,000.00",Korakorake ,Voloso,Moroy,1
+238,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/3/2020,Dec,3,2020,Dimby ,L,1,1,0,,,,,,,,,,
+239,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/3/2020,Dec,3,2020,"Dare, Basa, Mairo",L,3,3,0,08H30,12H28,Angisy,4,3,"7,000.00",Ankara,Harato,Tsoimena,30
+240,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/3/2020,Dec,3,2020,"Sele, Safidy, Zovisoa, Karatsake",L,4,4,0,08H30,12H31,Antserapohe,200,12,"1,500.00",Ambane,Harato,Angisy,2
+241,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/3/2020,Dec,3,2020,"Patric, Dafara, Tefe, Kalisa, Kika",L,5,5,0,08H30,12H34,Mahalogy,600,200,"1,500.00",Atamboho,Harato,,
+242,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/3/2020,Dec,3,2020,"Tsikivy, Masy",L/V,2,1,1,08H30,12H38,Olovo,3,12.5,"4,000.00",Bevontsandra,Basy,Fiantsifa,5
+243,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,Manike ,L,1,1,0,11H00,01H30,Horita,20,12,"5,000.00",Nosive,Voloso,,
+244,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,"Mahatsiaro, Rasidy",L,2,2,0,11H00,01H30,Lanora,1,14,"3,500.00",Besamboto,Basy,Olovo,1
+245,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,Bokiny,L,1,1,0,11H00,01H34,Horita,9,3.5,"5,000.00",Bamahia,Voloso,Gogo,200
+246,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,Maritin,L,1,1,0,11H00,01H38,Angisy,10,4.5,"7,000.00",Nosive,vinta,,
+247,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,"Bernard, Davidoky",L,2,2,0,11H00,01H38,Tapaporoha,40,18,"4,000.00",Andama,Harato,Tsidafe,10
+248,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,"Maro, Gay, Papo",L,3,3,0,11H00,01H40,Tapaporoha,20,105,"4,000.00",Andama,Harato,Tabake,16
+249,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,"Botomainty, Alex, Mana",L,3,3,0,11H00,01H43,Olovo,3,18,"4,000.00",Ambahoe,Basy,Zanga,3
+250,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,"Kongo, Lova",L,2,2,0,11H00,01H46,Tabake,25,12,"1,500.00",Ambavae,Basy,Vontsandra,1
+251,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,"Hery, Kaletsa, Jean Triel",L,3,3,0,11H00,01H48,Angisy,60,20,"7,000.00",Andama,Harato,Hinta,20
+252,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,Sofera,L,1,1,0,11H00,01H52,Tsabeake,12,8,"4,000.00",Ravinogne,Vinta,Fiambonjo,4
+253,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,Nivae,L,1,1,0,11H00,01H52,Tsabeake,3,1,"4,000.00",Ravinogne,Vinta,,
+254,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,Maricilin,L,1,1,0,11H00,01H56,Lanora,1,7,"3,000.00",Tsoripase,Vinta,,
+255,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,"Forede, Korise",L,3,3,0,11H00,01H59,Tapaporoha,20,9,"4,000.00",Andama,Harato,Fiambonjo,10
+256,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/4/2020,Dec,4,2020,Pasike,L,1,1,0,,,,,,,,,,
+257,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/8/2020,Dec,8,2020,"Daniel, Jisy",L,3,3,0,06H00,09H00,Lanora,68,70,"3,500.00",Ataimby,Makarakara,,
+258,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/8/2020,Dec,8,2020,"Drike, Franco",L,7,7,0,06H00,09H00,Babake,100,200,"2,000.00",Antomboho,Harato,,
+259,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/8/2020,Dec,8,2020,Lexandre,L,1,1,0,06H00,09H03,Horita,1,1,"5,000.00",Ambatobe,Voloso,,
+260,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/8/2020,Dec,8,2020,Leda,L,1,1,0,06H00,09H06,Angisy,11,2,"7,000.00",Badiga,vinta,,
+261,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/8/2020,Dec,8,2020,Edison,L,1,1,0,06H00,09H10,Horita,1,0.5,"5,000.00",Antamboho,Voloso,,
+262,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/8/2020,Dec,8,2020,Lotso,L,4,4,0,06H00,09H20,Babake,19,18,"2,000.00",Andama,Harato,,
+263,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/8/2020,Dec,8,2020,Ginga,L,1,1,0,06H00,09H22,Horita,2,5,"5,000.00",Badiga,Voloso,Tabake,2
+264,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/8/2020,Dec,8,2020,Zimo,L,2,2,0,06H00,09H25,Horita,12,4,"5,000.00",Ankiahia,Voloso,Lanora,30
+265,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/8/2020,Dec,8,2020,Tanake,L,1,1,0,06H00,09H28,Horita,4,2.5,"5,000.00",Ambokatsa,Voloso,Tabake,1
+266,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/8/2020,Dec,8,2020,Holagna,L,1,1,0,06H00,09H28,Angisy,1,3,"7,000.00",Ankorakorake,vinta,,
+267,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/8/2020,Dec,8,2020,Kolin,L,1,1,0,06H00,09H31,Angisy,1,0.5,"7,000.00",Ankiahia,vinta,,
+268,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/8/2020,Dec,8,2020,Tsingala,L,1,1,0,06H00,09H34,Angisy,6,3,"5,000.00",Ankiahia,Voloso,,
+269,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/8/2020,Dec,8,2020,sahira,L,1,1,0,06H00,09H34,Horita,,,,,,,
+270,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/9/2020,Dec,9,2020,Bokiny,L,1,1,0,07H00,10H44,Horita,7,6,"5,000.00",Andama,Voloso,Gogo,200
+271,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/9/2020,Dec,9,2020,Bernard,L,2,2,0,07H00,10H44,Tapaporoha,35,20,"4,000.00",Andama,Harato,Tabake,8
+272,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/9/2020,Dec,9,2020,"Gay, Golijy",L,2,2,0,07H00,10H50,Votso,1,22,"7,000.00",Ambohibe,Basy,zanga,2
+273,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/9/2020,Dec,9,2020,"Raza, Soalia",L,3,3,0,07H00,10H50,Angisy,15,3,"2,000.00",Abesalonjo,Harato,Antserake,20
+274,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/9/2020,Dec,9,2020,Toarison,L,5,5,0,07H00,10H55,Babake,100,190,"3,000.00",Badiga,Makarakara,Lanora,19
+275,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/9/2020,Dec,9,2020,Tolikiba,L,5,5,0,07H00,10H58,Manjiandovoke,300,100,"5,000.00",Ravinogne,Harato,Tsoimena,30
+276,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/9/2020,Dec,9,2020,Dada,L,1,1,0,07H00,10H58,Horita,1,1,"5,000.00",Ambatomainty,Voloso,,
+277,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/9/2020,Dec,9,2020,Firatsa,L,1,1,0,07H00,11H06,Horita,8,2.5,"5,000.00",Ankiahia,Voloso,Gogo,300
+278,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/9/2020,Dec,9,2020,Monike,L,1,1,0,07H00,11H07,Horita,6,3,"5,000.00",Ankara,Voloso,leme,7
+279,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/9/2020,Dec,9,2020,Kian,L,1,1,0,07H00,11H09,Voramasaky,12,7,"3,500.00",Badiga,vinta,,
+280,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/9/2020,Dec,9,2020,Meme,L,1,1,0,07H00,11H12,Tsoike,20,2,"3,000.00",Andama,Harato,Hinta,10
+281,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/9/2020,Dec,9,2020,Rambola ,L,1,1,0,07H00,11H12,Bemampe,6,11,"1,300.00",Ambatobe,Gantana,,
+282,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/9/2020,Dec,9,2020,Lixe,L,1,1,0,07H00,11H15,Tsabeake,16,4.5,"4,000.00",Amaromalinike,vinta,Fiambonjo,10
+283,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/10/2020,Dec,10,2020,Manike ,L,1,1,0,08H30,01H00,Horita,1,0.5,"5,000.00",Nosive,Voloso,Vontsandra,2
+284,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/10/2020,Dec,10,2020,martin,L,2,2,0,08H30,01H00,Tapaporoha,40,20.5,"4,000.00",Nosive,Harato,Tabake,11
+285,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/10/2020,Dec,10,2020,Nahatsara,L,2,2,0,08H30,01H09,Kiloka,25,10,"2,000.00",Bemahia,Basy,toho,1
+286,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/10/2020,Dec,10,2020,Bernard,L,3,3,0,08H30,01H12,Tapaporoha,90,45,"4,000.00",Ambatobe,Harato,Fiambonjo,22
+287,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/10/2020,Dec,10,2020,Vinelo,L,1,1,0,08H30,01H12,Angisy,4,2.5,"7,000.00",Tsalova,vinta,,
+288,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/10/2020,Dec,10,2020,"Hery, dady",L,3,3,0,08H30,01H17,Angisy,25,12,"7,000.00",Andama,Harato,Tsoimena,22
+289,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/10/2020,Dec,10,2020,Tsahoa,L,2,2,0,08H30,01H17,Horita,6,3,"5,000.00",Ambane,Voloso,tsontso,23
+290,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/10/2020,Dec,10,2020,Giana,L,2,2,0,08H30,01H18,Voramasaky,3,2,"3,500.00",Badiga,Harato,Dabandriake,7
+291,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/10/2020,Dec,10,2020,Tsitakare,L,2,2,0,08H30,01H22,Tapaporoha,68,24,"4,000.00",Tsoripase,Harato,Tsoidafe,12
+292,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/10/2020,Dec,10,2020,Revinta,L,1,1,0,08H30,01H24,Voramasaky,17,6.5,"3,500.00",Bemahia,vinta,Lemeleme,12
+293,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/10/2020,Dec,10,2020,Fiara,L,1,1,0,08H30,01H24,Horita,6,4,"5,000.00",Ambatomainty,Voloso,,
+294,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/10/2020,Dec,10,2020,Sisike,L,1,1,0,08H30,01H26,GOGO,260,10,"1,000.00",Andama,Harato,,
+295,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/10/2020,Dec,10,2020,Hady,L,1,1,0,08H30,01H30,Antserake,7,17,"3,000.00",Antamboho,vinta,,
+296,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,Ndria,L,1,1,0,09H07,02H13,Horita,2,6,"5,000.00",Ambatomainty,Voloso,Zanga,9
+297,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,Fate,L,1,1,0,09H07,02H19,Horita,6,10,"5,000.00",Ankara,Voloso,Lamera,4
+298,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,Dasizy,L,1,1,0,09H07,02H22,Horita,4,4,"5,000.00",Badiga,Voloso,Gogo,28
+299,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,"Drike, Franco",L,6,6,0,09H07,02H24,Lanora,30,200,"3,000.00",Tamboho,Harato,,
+300,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,"Daniel, Maro",L,3,3,0,09H07,02H27,Mandreandrea,700,250,"3,000.00",Ravinogne,Harato,Fiambonjo,110
+301,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,Nalae,L,1,1,0,09H07,02H30,Tsabeake,17,6,"4,000.00",Ankorakorake,Vinta,Tambake,2
+302,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,Nolagna,L,1,1,0,09H07,02H32,Angisy,4,1,"7,000.00",Badiga,Vinta,,
+303,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,Paulin,L,1,1,0,09H07,02H35,Angisy,11,3.5,"7,000.00",Badiga,Vinta,,
+304,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,Edson,L,2,2,0,09H07,02H39,Angisy,40,15,"7,000.00",Ankiahia,Harato,,
+305,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,Ginga,L,1,1,0,09H07,02H43,Horita,2,4,"5,000.00",Topolo,Voloso,Gogo,200
+306,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,Tafa,L,4,4,0,09H07,02H46,Babake,120,114,"2,500.00",Tamboho,Harato,,
+307,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,Ramaro,L,1,1,0,09H07,02H46,Fiambonjo,30,14.5,"2,000.00",Namangoa,Vinta,Lemeleme,7
+308,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,Randria,L,1,1,0,09H07,02H49,Fiambonjo,10,3.5,"2,000.00",Namangoa,Vinta,Tabake,4
+309,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,Hery,L,1,1,0,09H07,02H50,Fiambonjo,18,10,"2,000.00",Ambatobe,Vinta,Lemeleme,8
+310,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/11/2020,Dec,11,2020,Gala,L,1,1,0,09H07,02H55,Horita,2,1.5,"2,000.00",Ankiahia,Voloso,,
+311,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,"Poly, Alexe, Botomainte",L,3,3,0,10H30,03H20,Tapaporoha,25,12,"4,000.00",Ravinagne,Harato,Fiambonjo,10
+312,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,"Malike, Zafianake",L,2,2,0,10H30,03H20,Tapaporoha,60,28.5,"4,000.00",Bevontsandra,Harato,Tabake,20
+313,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,"Zafisoa Nila, Klary",L,2,2,0,10H30,03H25,Olovo,2,23,"4,000.00",Bemahia,Basy,Fiankanga,2
+314,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,Lidovic,L,2,2,0,10H30,03H30,Horita,7,4.5,"5,000.00",Ambatomainty,Voloso,Lamera,4
+315,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,Maiava,L,1,1,0,10H30,03H30,Horita,1,0.5,"5,000.00",Namangoa,Voloso,Kiloka,1
+316,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,Firaisa,L,1,1,0,10H30,03H34,GOGO,400,19,"1,500.00",Tapolo,Makarakara,,
+317,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,dada,L,1,1,0,10H30,03H37,Horita,3,4.5,"5,000.00",Nosive,Voloso,Lamera Badiga,7
+318,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,Maronike,L,1,1,0,10H30,03H39,Horita,3,1,"5,000.00",Andama,Voloso,Lamera,4
+319,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,Kian,L,1,1,0,10H30,03H43,Voramasake,10,6,"3,500.00",Ambatobe,Vinta,Ampazo,10
+320,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,Zipa,L,1,1,0,10H30,03H45,Lamera Badija,7,2.5,"1,500.00",Ankiahia,Basy,Bozike,2
+321,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,Solo. Maniry,L,1,1,0,10H30,03H49,Lamera,8,4,"2,000.00",Ankiahia,Basy,tsontso,9
+322,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,Dafara,L,1,1,0,10H30,03H49,Horita,7,8,"5,000.00",Ankiahia,Voloso,Vontsandra,3
+323,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,"Lamere, Ravo, Zexe",L,3,3,0,10H30,03H52,Horita,15,12.5,"5,000.00",Ambatobe,Voloso,Beza,4
+324,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,"Miandraha, Miandry",L,2,2,0,10H30,03H54,Horita,2,4,"5,000.00",Maromalinike,Voloso,Fanigitara,4
+325,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/12/2020,Dec,12,2020,"Ndimby, Maridona",L,2,2,0,10H30,03H57,Lamera,20,14,"2,000.00",Namangoa,Basy,Horita,1
+326,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,Maira,L,1,1,0,12H00,04H30,Kiloka,7,3,"2,000.00",Badiga,Basy,Horita,1
+327,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,Remana,L,1,1,0,12H00,04H33,Horita,6,3.5,"5,000.00",Badiga,Voloso,Moroy,2
+328,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,"Gala, Mona",L,3,3,0,12H00,04H37,Angisy,25,8,"7,000.00",Ankorakorake,Harato,,
+329,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,Madamine,L,3,3,0,12H00,04H39,Tapaporoha,70,35,"4,000.00",Ambatobe,Harato,Tabake,10
+330,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,Roselin,L,1,1,0,12H00,04H44,Horita,10,3,"5,000.00",Tampolo ,Voloso,Lamera,7
+331,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,Manosotse,L,1,1,0,12H00,04H46,Horita,1,3,"5,000.00",Ankiahia,Voloso,Boziky,4
+332,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,"Mangae, Kolin",L,4,4,0,12H00,04H49,Voramasake,80,50,"3,500.00",Ambohoe,Harato,Fiantsifa,40
+333,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,Jo,L,1,1,0,12H00,04H53,Horita,2,2,"5,000.00",Andama,Voloso,Amporama,6
+334,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,"Dara, Basa",L,3,3,0,12H00,04H57,Angisy,18,5,"7,000.00",Andama,Harato,,
+335,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,"Lamere, Ravo",L,2,2,0,12H00,04H59,Horita,12,6.5,"5,000.00",Ankara,Voloso,Tabokina,3
+336,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,Dafara,L,1,1,0,12H00,05H10,Horita,7,3.5,"5,000.00",Ambatobe,Voloso,Tabake,6
+337,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,Patric,L,1,1,0,12H00,05H14,Tsoike,40,6.5,"3,000.00",Ankiahia,Harato,Tabake,4
+338,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,Dada,L,1,1,0,12H00,05H17,Horita,7,7,"5,000.00",Badiga,Voloso,Votrandra,4
+339,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,Firaisa,L,1,1,0,12H00,05H21,Horita,9,3,"5,000.00",Ambatobe,Voloso,Lamera,7
+340,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,Maronoke,L,1,1,0,12H00,05H24,Horita,10,8,"5,000.00",Ankara,Voloso,Gogo,100
+341,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/13/2020,Dec,13,2020,Adolphe,L,2,2,0,12H00,05H30,Horita,3,6,"5,000.00",Ambany,Voloso,Gogo,160
+342,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Monira ,L,2,2,0,01H00,06H00,Horita,10,4.5,"5,000.00",Akiahia,Voloso,Zanga,6
+343,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Netake,L,2,2,0,01H00,06H00,Horita,8,5,"5,000.00",Badiga,Voloso,Zanga,3
+344,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,"Lamae, Ravo",L,2,2,0,01H00,06H10,Horita,9,6,"5,000.00",Nosive,Voloso,,
+345,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Ndidy,L,1,1,0,01H00,06H12,Horita,2,1,"5,000.00",Bemahia,Voloso,,
+346,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Maradona,L,1,1,0,01H00,06H12,Horita,7,3,"5,000.00",Badiga,Voloso,Lamera,2
+347,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Leja,L,4,4,0,01H00,06H14,Ambariake,200,110,"4,000.00",Tamboro,Harato,,
+348,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Mboie,L,1,1,0,01H00,06H16,Kiloka,20,7,"1,500.00",Badiga,Basy,Tabake,7
+349,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Tsiala,L,2,2,0,01H00,06H19,Tsiomena,38,10,"3,000.00",Ankara,Harato,Fiambonjo,8
+350,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Sahira,L,1,1,0,01H00,06H23,Lamera,7,4.5,"2,000.00",Vakivao,Basy,Tabake,2
+351,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Radeko,L,1,1,0,01H00,06H26,Lamera,6,2.5,"2,000.00",Badiga,Basy,Fiambonjo,1
+352,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Marara,L,1,1,0,01H00,06H29,Horita,7,3.5,"5,000.00",Bevotrandra,Voloso,,
+353,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Mbata,L,1,1,0,01H00,06H31,Horita,1,3,"5,000.00",Nosive,Voloso,Tabokina,2
+354,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Roselin,L,1,1,0,01H00,06H34,Horita,8,10,"5,000.00",Tapolo,Voloso,Fiantsifa,3
+355,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Manositry,L,1,1,0,01H00,06H34,Horita,4,2,"5,000.00",Ankorakorake,Voloso,,
+356,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/14/2020,Dec,14,2020,Gala,L,3,3,0,01H00,06H39,Angisy,40,14,"7,000.00",Ankiahia,Harato,Tsedafe,6
+357,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Manike ,L,1,1,0,06H00,09H02,Horita,20,16,"5,000.00",Nosive,Voloso,Lamera,3
+358,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Nahatsara,L,1,1,0,06H00,09H05,Olovo,1,13.5,"4,000.00",Besamboto,Basy,Fianakanga,3
+359,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Zafianake,L,1,1,0,06H00,09H10,Moloto,19,4,"2,000.00",Bemahia,Harato,Tsoidafe,10
+360,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Botomainty,L,3,3,0,06H00,09H13,Tapaporoha,60,30,"4,000.00",Nosive,Harato,Fiambonjo,16
+361,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Gilante,L,1,1,0,06H00,09H13,Antserake,4,12,"3,000.00",Tamboho,Vinta,,
+362,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Jonary,L,1,1,0,06H00,09H15,Horita,8,10,"5,000.00",Andama,Voloso,Antsiva,1
+363,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Tex,L,1,1,0,06H00,09H19,Horita,1,,,,,,
+364,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Sofera,L,1,1,0,06H00,09H24,Tsabeake,20,9,"4,000.00",Ravinagne,Vinta,Ampozo,4
+365,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Nivae,L,1,1,0,06H00,09H24,Tsabeake,7,2,"4,000.00",Ravinagne,Vinta,,
+366,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Korise,L,3,3,0,06H00,09H27,Tapaporoha,28,10,"4,000.00",Bevotrandra,Harato,Tabaky,9
+367,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Tsiahoa,L,2,2,0,06H00,09H29,Horita,6,3,"5,000.00",Ambany,Voloso,Zanga,6
+368,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Avy,L,1,1,0,06H00,09H32,Angisy,12,4,"7,000.00",Andama,Vinta,,
+369,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Tsiafake,L,1,1,0,06H00,09H37,Angisy,7,1,"7,000.00",Andama,Vinta,,
+370,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Ngerae ,L,1,1,0,06H00,09H39,Angisy,2,0.5,"7,000.00",Andama,Vinta,,
+371,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Ralaibata,L,2,2,0,06H00,09H44,Tabake,28,12,"2,000.00",Ambatobe,Basy,Betampe ,30
+372,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Marara,L,1,1,0,06H00,09H49,Horita,1,0.5,"5,000.00",Ankiahia,Voloso,Soana,2
+373,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/15/2020,Dec,15,2020,Manosotse,L,1,1,0,06H00,09H54,Horita,12,3,500,Ambatobe,Voloso,Bozike,6
+374,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,Ndria,L,7,7,0,07H20,10H20,Fela,50,6,500,Tamboho,Gan,Tay,8
+375,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,Fate,L,1,1,0,07H20,10H30,Fela,100,45,500,Tamboho,Gan,Lejaleja,2
+376,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,Dasizy,L,1,1,0,07H20,10H34,Fela,105,40,500,Tamboho,Gan,Karote,400
+377,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,"Drike, Pinjo",L,2,2,0,07H20,10H34,Betampe,70,9,1300,Ambohoe,Gan,,
+378,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,"Franco, Jean Kilo",L,2,2,0,07H20,10H37,Betampe,6,7.5,1300,Ambohoe,Gan,,
+379,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,"Ltsoe, Tafa",L,3,3,0,07H20,10H39,Angisy,18,7,6000,Ankiahia,Harato,Vonitsandra,1
+380,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,"Edison, Tanake",L,3,3,0,07H20,10H44,Angisy,20,8.5,6000,Badiga,Harato,Tsaikemena,30
+381,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,Tsiahala,L,2,2,0,07H20,10H44,Antsisy,30,15,3500,Korakorake,Harato,Taboke,7
+382,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,Manantsoa,L,1,1,0,07H20,10H47,Tsoimena,40,7,3000,Badiga,Harato,Fiambonjo,3
+383,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,"Patric, Kika",L,4,4,0,07H20,10H50,Mahalogy,650,130,1500,Tamboho,Harato,Ambariake,100
+384,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,Memae,L,1,1,0,07H20,10H55,Betampe,10,2,1300,Ambohoe,Gan,Antsiva,1
+385,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,Gala,L,1,1,0,07H20,10H58,Betampe,70,16,1300,Ambohoe,Gan,,
+386,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,Zigilo,L,1,1,0,07H20,10H59,Fela,50,10,500,Ambohoe,Tana,Faigitara,7
+387,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,"Zemba, Brian",L,4,4,0,07H20,10H05,Tapaporoha,45,22,3500,Tamboho,Harato,,
+388,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/16/2020,Dec,16,2020,"Gay, Ramaro",L,2,2,0,07H20,11H10,Betampe,80,20,1300,Ambohoe,Tana,,
+389,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,Maniki,L,1,1,0,08H30,12H00,Betampe,13,2,1300,Korakorake,Tana,Lemera,9
+390,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,Bokiny,L,1,1,0,08H30,12H10,Gogo,300,20,1500,Bemahia,Mahitikera,,
+391,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,Nahatsara,L,1,1,0,08H30,12H14,Betampe,30,3.5,1300,Ambotombe,Tana,Tabake,2
+392,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,Herimamy,L,3,3,0,08H30,12H17,ND,100,15,1000,Badiga,Harato,Tsoidafe,12
+393,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,"Toarison, Selin",L,4,4,0,08H30,12H20,Babake,30,34,2000,Nosive,Harato,Lanora,10
+394,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,"Bokise, Benike",L,2,2,0,08H30,12H23,Lonora,2,40,3000,Bemahia,Basy,Fiantsifa,6
+395,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,Hady,L,1,1,0,08H30,12H26,Lonora,1,15,3000,Ravinogne,Vinta,,
+396,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,Norike,L,4,4,0,08H30,12H29,Voromasake,40,25,3500,Korakorake,Harato,Fiantsifa,20
+397,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,"Zavy, Zix",L,4,4,0,08H30,12H32,Tapaporoha,39,23,3500,Korakorake,Harato,Tabake,7
+398,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,"Lala I, Tsikivy",L,2,2,0,08H30,12H39,Angisy,4,1,6000,Andama,Harato,Votsanda,2
+399,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,Tolotse,L,1,1,0,08H30,12H38,Angisy,12,4,6000,Saleka,Vinta,,
+400,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,Maronike,L,1,1,0,08H30,12H42,Fela,38,6,500,Tamboho,Tana,Lejaleja,1
+401,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,Dada,L,1,1,0,08H30,12H45,Fela,10,1.5,500,Tamboho,Tana,Karote,7
+402,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,Kian,L,1,1,0,08H30,12H45,Voramasake,19,12,3500,Namangoa,Vinta,Fiambonjo,10
+403,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/17/2020,Dec,17,2020,Dary,L,1,1,0,08H30,12H47,Fela,50,11.5,500,Tamboho,Tana,Faigitara,7
+404,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Sofera ,L,1,1,0,09H00,01H30,Tsabeake,25,9,3500,Nosive,Vinta,Fiambonjo,6
+405,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Nivae,L,1,1,0,09H00,01H33,Tsabeake,12,4,3500,Ravinogne,Vinta,Lemeleme,7
+406,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Avy,L,1,1,0,09H00,01H36,Angisy,6,2,6000,Ankiahia,Vinta,,
+407,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Tsahoa,L,1,1,0,09H00,01H39,Angisy,12,6,6000,Badida,Vinta,,
+408,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Tsiafake,L,1,1,0,09H00,01H43,Angisy,6,1,6000,Namangoa,Vinta,,
+409,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Mariselin,L,1,1,0,09H00,01H47,Lanora,1,30,3000,Nosive,Vinta,,
+410,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Zafe,L,1,1,0,09H00,01H49,Angisy,10,5,6000,Andama,Vinta,,
+411,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,"Nili, Klarimond",L,2,2,0,09H00,01H54,Olovo,2,18,3000,Ravinogne,Basy,Fiantsifa,8
+412,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,"Kolise, Frede",L,3,3,0,09H00,01H57,Tapaporoha,40,25,3500,Namangoa,Harato,Fiambonjo,10
+413,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Kinia,L,1,1,0,09H00,02H00,Fela,16,4,500,Tamboho,Tana,Zanga,2
+414,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Alexe,L,1,1,0,09H00,02H10,Fela,26,6,500,Tamboho,Tana,Karote,11
+415,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Romialy,L,1,1,0,09H00,02H10,Angisy,19,65,6000,Ambatobe,Vinta,,
+416,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Ralay,L,1,1,0,09H00,02H15,Tabake,38,16.5,1500,Behafotia,Basy,Lamera,4
+417,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Herimany,L,1,1,0,09H00,02H18,Tahake,19,7.5,1500,Ravinogne,Basy,Ampozo,3
+418,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Nady,L,1,1,0,09H00,02H22,Antserake,7,14,3000,Ankasy,Vinta,,
+419,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Mily,L,1,1,0,09H00,02H25,Votso,2,7,3500,Badida,Basy,Moroy,2
+420,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,"Odon, Zavy",L,4,4,0,09H00,02H28,Tapaporoha,30,16,35000,Andama,Harato,Bozike,4
+421,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Meme,L,1,1,0,09H00,02H29,Fela,20,6,500,Tamboho,Tana,Karo,10
+422,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/18/2020,Dec,18,2020,Dada,L,1,1,0,09H00,02H31,Karote,28,7.5,700,Tamboho,Tana,Fela,2
+423,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Ndria,L,1,1,0,10H30,03H09,Angisy,11,7,6000,Ankihia,Vinta,,
+424,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Fate,L,1,1,0,10H30,03H11,Angisy,7,1.5,6000,Badida,Vinta,,
+425,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Dasizy,L,1,1,0,10H30,03H20,Angisy,10,6,6000,Nosive,Vinta,,
+426,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,"Drike, Franco",L,7,7,0,10H30,03H20,Vango,28,200,3500,Antaniraty,Harato,Ambariake,30
+427,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Nolagna,L,1,1,0,10H30,03H25,Angisy,14,8,6000,Korakorake,Vinta,,
+428,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Kolin,L,1,1,0,10H30,03H30,Angisy,13,6.5,6000,Nosive,Vinta,,
+429,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Edison,L,1,1,0,10H30,03H32,Fela,200,45,500,Tamboho,Tana,Zanga,6
+430,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Tsohoia,L,1,1,0,10H30,03H36,Karote,100,28,,Tamboho,Tana,Zanga,2
+431,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Mboie,L,1,1,0,10H30,03H39,Lamera,4,25,700,Bodiga,Basy,Takalo,2
+432,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Ndimby,L,1,1,0,10H30,03H42,Kiloka,13,7,1500,Korakorake,Basy,Lamera,
+433,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Bolanta,L,3,3,0,10H30,03H45,Ambariake,400,280,3000,Taneraty,Harato,,
+434,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Gala,L,1,1,0,10H30,03H48,Betampe,16,3,1300,Namangoa,Tana,Antsiva,1
+435,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Mbena,L,1,1,0,10H30,03H49,Jakake,30,10,1500,Tamboho,Tana,Fay,4
+436,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Rocelin,L,1,1,0,10H30,03H54,Lamera,7,2.5,2000,Namangoa,Basy,Tabake,3
+437,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/19/2020,Dec,19,2020,Maiara,L,1,1,0,10H30,03H57,Kiloka,12,7,1500,Andama,Basy,Gogo,20
+438,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Martin,L,3,3,0,11H07,04H30,Tapaporoha,45,26,"3,500.00",Nosive,Harato,Fiambonjo,11
+439,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Mahatsara,L,1,1,0,11H07,04H32,olovo,1,5,"3,500.00",Ravinogne,Basy,Kiloka,2
+440,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Rasidy ,L,1,1,0,11H07,04H35,Moloto,30,10,"1,500.00",Ankiahia,Harato,Keleterake,20
+441,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Bokiny,L,1,1,0,11H07,04H38,Gogo,150,9.5,"1,500.00",Andama,Harato,,
+442,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Tsitakare,L,2,2,0,11H07,04H42,Tapaporoha,40,20,"3,500.00",Tsoripase,Harato,Fiambonjo,10
+443,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Zafianake,L,2,2,0,11H07,04H45,Tabake,20,10,"1,500.00",Nosive,Harato,votsanja,1
+444,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Avy,L,1,1,0,11H07,04H48,Angisy,17,6,"6,000.00",Ankasy,Vinta,,
+445,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Tsiafake,L,1,1,0,11H07,04H48,Angisy,6,1,"6,000.00",Ankasy,Vinta,,
+446,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Tsahoa,L,1,1,0,11H07,04H45,Angisy,9,2.5,"6,000.00",Nosive,Vinta,,
+447,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Mariselin,L,1,1,0,11H07,04H56,Lanora,2,40,"3,000.00",Bemahia,Vinta,,
+448,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Fiara,L,1,1,0,11H07,04H59,Gogo,40,6,"1,500.00",Badiga,Harato,Bozike,10
+449,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,"Zavy, Zixe",L,4,4,0,11H07,05H06,Tapaporoha,50,26,"3,500.00",Korakorake ,Harato,Fiambonjo,4
+450,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Tsikivy,L,1,1,0,11H07,05H09,Tabake,22,10.5,"1,500.00",Nosive,Basy,Fiantsifa,2
+451,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Dada,L,1,1,0,11H07,05H12,Lamera,6,3,"2,000.00",Ambane,Voloso,Takalo,1
+452,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Kian,L,1,1,0,11H07,05H17,Voramasake,10,7,"3,800.00",Ravinagne,Vinta,Lemeleme,6
+453,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/20/2020,Dec,20,2020,Firaisa,L,1,1,0,11H07,05H23,Gogo,400,32,"1,500.00",Radiga,Harato,Lamera,5
+454,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,Fate,L,1,1,0,06H00,09H30,Fela,18,4,500,Tamboho,Tana,Zanga,2
+455,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,Maro,L,1,1,0,06H00,09H33,Karote,60,7,700,Tamboho,Tana,Fiagitara,10
+456,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,Ndria,L,1,1,0,06H00,09H36,Kiloka,24,12,"1,500.00",Badiga,Harato,Moroy,3
+457,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,Kovae,L,1,1,0,06H00,09H39,Angisy,16,7,"6,000.00",Ravinogne,Vinta,,
+458,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,Leda,L,1,1,0,06H00,09H43,Angisy,11,5,"6,000.00",Nosive,Vinta,,
+459,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,"Dreke, Pinjo",L,7,7,0,06H00,09H47,Ambariake,800,480,"3,000.00",Ambokatsa,Harato,,
+460,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,EME,L,1,1,0,06H00,09H50,Angisy,11,7,"6,000.00",Badiga,Vinta,,
+461,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,Nila,L,1,1,0,06H00,09H54,Tsabeake,6,1,"3,000.00",Anamangoa,Vinta,Tsotso,9
+462,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,"Leda, Lofe",L,2,2,0,06H00,09H57,Voramasake,70,32,"2,500.00",Nosive,Harato,Menasofy,29
+463,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,Jeannot,L,1,1,0,06H00,09H59,Angisy,10,1.5,"6,000.00",Ambatomainty,Vinta,,
+464,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,Nolae,L,1,1,0,06H00,09H59,Angisy,2,1,"6,000.00",Bevotsandra,Vinta,,
+465,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,Nolagna,L,1,1,0,06H00,10H08,Angisy,18,8,"6,000.00",Nosive,Vinta,,
+466,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,Kolin,L,1,1,0,06H00,10H10,Angisy,4,2.5,"6,000.00",Nosive,Vinta,,
+467,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,Ginga,L,1,1,0,06H00,10H14,Fela,20,6,"1,500.00",Bemahia,Tana,Zanga,4
+468,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/21/2020,Dec,21,2020,Edson,L,1,1,0,06H00,10H20,Karote,19,6.5,700,Tamboho,Tana,Zanga,6
+469,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Lamre,L,1,1,0,07H09,11H20,Bemampe,17,4,"1,300.00",Nosive,Tana,Lamera,4
+470,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Ndimby,L,1,1,0,07H09,11H24,Kiloka,4,1,"1,500.00",Tapolo,Basy,Tona,2
+471,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Mboie,L,1,1,0,07H09,11H27,Lamera,7,4.5,"2,000.00",Badiga,Basy,Beja,1
+472,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Kika,L,1,1,0,07H09,11H29,Lamera,1,12,"3,000.00",Ravinogne,Basy,Angisy,10
+473,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Sahira,L,1,1,0,07H09,11H33,Lamera,10,13,"2,000.00",Tapolo,Basy,Fiambonjo,6
+474,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Tsihala,L,1,1,0,07H09,11H37,Kiloka,13,4,"1,500.00",Ankiahia,Basy,Tsotso,3
+475,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Tsakalafo,L,1,1,0,07H09,11H39,Voramasake,27,23,"2,500.00",Ankara,Vinta,Ampozo,11
+476,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,"Gaga, Zigilo",L,2,2,0,07H09,11H43,Betampe,70,10,"1,300.00",Tapolo,Tana,,
+477,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Maira,L,1,1,0,07H09,11H43,Kiloka,7,2,"1,500.00",Korakorake ,Basy,votsanja,2
+478,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Bata,L,1,1,0,07H09,11H48,Lamera,2,4,"2,000.00",Tapolo,Basy,Kiloka,3
+479,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Manosotse,L,1,1,0,07H09,11H48,Fela,33,12,500,Tamboho,Tana,,
+480,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Lido,L,1,1,0,07H09,11H54,Karote,18,7,700,Tamboho,Tana,Fela,7
+481,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Rocelin,L,1,1,0,07H09,11H57,Lamera,6,7.5,"2,000.00",Badiga,Basy,Tabaka,3
+482,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Jô,L,1,1,0,07H09,11H59,Karote,10,6,"1,500.00",Ankara,Basy,Tabokina,1
+483,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Remana,L,1,1,0,07H09,12H04,Tabake,6,1,"1,500.00",Tapolo,Basy,,
+484,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,"Gay, Rambola",L,2,2,0,07H09,12H10,Betampe,70,12,"1,300.00",Ambatobe,Tana,,
+485,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Sambalahy,L,2,2,0,07H09,12H16,Tabake,25,10,"1,500.00",Korakorake ,Basy,Fiantsifa,10
+486,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Dare,L,1,1,0,07H09,12H20,Gogo,200,12,"1,500.00",Namangoa,Harato,Bozike,8
+487,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Basa,L,1,1,0,07H09,12H24,Kiloka,20,8,"1,500.00",Tsoripase,Basy,Lamera,3
+488,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/22/2020,Dec,22,2020,Mairo,L,1,1,0,07H09,12H27,Fela,30,4.5,500,Tamboho,Tana,Lagnilagny,7
+489,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Kovae,L,1,1,0,08H30,01H10,Angisy,7,2,"6,000.00",Ambatobe,Vinta,,
+490,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Leda,L,1,1,0,08H30,01H20,Angisy,16,8,"6,000.00",Nosive,Vinta,,
+491,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Fiacre,L,1,1,0,08H30,01H22,Lanora,1,9,"3,000.00",Bemahia,Vinta,,
+492,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Nola,L,1,1,0,08H30,01H26,Voramasake,6,2,"3,500.00",Tsalova,Vinta,Fiambonjo,2
+493,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Kolin,L,1,1,0,08H30,01H29,Angisy,3,1,"6,000.00",Ravinogne,Vinta,,
+494,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Nolagna,L,1,1,0,08H30,01H34,Voramasake,1,0.5,"3,500.00",Korakorake ,Vinta,Fiampozy,4
+495,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Edison,L,1,1,0,08H30,01H37,Karote,18,3,700,Tamboho,Tana,Fiagitara,6
+496,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Taneke,L,1,1,0,08H30,01H40,Kiloka,19,8.5,"1,500.00",Badiga,Basy,Tsontso,7
+497,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Ginga,L,1,1,0,08H30,01H44,Fela,50,20,500,Tamboho,Tana,Karote,10
+498,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Lemae,L,1,1,0,08H30,01H48,Tabake,17,9,"1,500.00",Badiga,Voloso,votsanja,4
+499,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Sahira,L,1,1,0,08H30,01H52,Lamera,10,13,"2,000.00",Ambatomainty,Basy,Angarera,1
+500,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Radoko,L,1,1,0,08H30,01H55,Kiloka,7,3,"1,500.00",Ankara,Basy,Tabokina,2
+501,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Maridona,L,1,1,0,08H30,01H58,Kiloka,17,11,"1,500.00",Ankiahia,Basy,Tsoidafe,7
+502,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Bolanta,L,1,1,0,08H30,01H59,Mahalogy,700,28,"1,000.00",Tamboho,Harato,Ambariake,6
+503,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,"Patric, Dafara",L,4,4,0,08H30,02H10,Mahalogy,1000,400,"1,000.00",Tamboho,Harato,Geba,12
+504,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,"Gala, Mona",L,3,3,0,08H30,02H16,Angisy,9,3,"6,000.00",Andama,Harato,Antserake,30
+505,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/23/2020,Dec,23,2020,Bena,L,1,1,0,08H30,02H19,Tabake,12,7.5,"1,500.00",Ampase,Basy,Moroy,1
+506,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Bokiny,L,1,1,0,09H30,03H00,Angisy,5,1,"6,000.00",Nosive,Vinta,,
+507,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Rasida,L,1,1,0,10H30,03H07,Bentape,16,4,"1,300.00",Bevotsandra,Tana,Lamera,4
+508,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Martin,L,3,3,0,11H30,03H10,Tapaporoha,24,14,"3,500.00",Ravinogne,Harato,Fiambonjo,10
+509,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,"Maro, Marce",L,2,2,0,12H30,03H16,Betampe,70,12,"1,300.00",Badiga,Tana,Tabake,7
+510,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Tsahoa,L,1,1,0,13H30,03H18,Angisy,3,1,"6,000.00",Nosive,Vinta,,
+511,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Avy,L,1,1,0,14H30,03H23,Angisy,17,9,"6,000.00",Andama,Vinta,,
+512,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Nivae,L,1,1,0,15H30,03H26,Tsabeake,2.5,13,"3,500.00",Ravinogne,Vinta,,
+513,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Mariselin,L,1,1,0,16H30,03H30,Lanora,3,45,"3,000.00",Badiga,Vinta,,
+514,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Tonary,L,1,1,0,17H30,03H33,Karote,66,18,700,Tamboho,Vinta,Tabokina,2
+515,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Katexe,L,1,1,0,18H30,03H36,Fela,100,28,500,Tamboho,Vinta,,
+516,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Sofera,L,1,1,0,19H30,03H40,Tsabeake,7,2,"3,500.00",Ravinogne,Vinta,Tsaraby,4
+517,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Ralay,L,1,1,0,20H30,03H44,Tabake,1,0.5,"1,500.00",Bevotsandra,Basy,votsanja,2
+518,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Herimany,L,1,1,0,21H30,03H47,Soanada,20,16,"1,500.00",Maromalinike,Basy,Lamera,9
+519,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Hady,L,1,1,0,22H30,03H49,Lanora,2,34,"3,000.00",Bemahia,Vinta,,
+520,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Mily,L,1,1,0,23H30,03H52,Tabake,16,19,"1,500.00",Bevotsandra,Basy,Soagna,3
+521,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Tsikivy,L,1,1,0,00H30,03H56,Soanada,40,36,"1,500.00",Badiga,Basy,Tabake,10
+522,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,"Zavy, Sove",L,2,2,0,01H30,03H58,Tapaporoha,70,54,"3,500.00",Korakorake ,Harato,Fiambonjo,18
+523,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/24/2020,Dec,24,2020,Firaisa,L,1,1,0,02H30,03H58,Beja,4,2.5,"4,800.00",Ambane,Voloso,Toho,3
+524,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Leda ,L,1,1,0,11H00,04H30,Angisy,10,6,"6,000.00",Ambatobe,Vinta,,
+525,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Kovae,L,1,1,0,11H00,04H30,Angisy,3,1,"6,000.00",Badiga,Vinta,,
+526,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,"Drike, Pinjo",L,6,6,0,11H00,04H34,Lanora,200,202,"3,000.00",Tapolo,Harato,Babake,34
+527,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,"Danile, Maro",L,3,3,0,11H00,04H36,Ambariake,400,200,"3,500.00",Tamboho,Harato,,
+528,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Ndria,L,1,1,0,11H00,04H39,Fela,19,2,500,Tamboho,Tana,Fay,7
+529,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Fate,L,1,1,0,11H00,04H44,Karote,30,6,700,Tamboho,Tana,Fela,19
+530,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Eme,L,1,1,0,11H00,04H46,Angisy,10,2.5,"6,000.00",Hamangoa,Vinta,,
+531,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Nila,L,1,1,0,11H00,04H49,Angisy,15,6,"6,000.00",Badiga,Vinta,,
+532,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Nolagna,L,1,1,0,11H00,04H49,Voramasake,4,2,"3,500.00",Tapolo,Vinta,Fiambonjo,2
+533,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Edson,L,1,1,0,11H00,04H53,Fela,7,1,500,Tamboho,Tana,lejaleja,2
+534,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Ginga,L,1,1,0,11H00,04H57,Angisy,2,3,"6,000.00",Nosive,Vinta,,
+535,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Tanake,L,1,1,0,11H00,04H59,Angisy,17,8.5,"6,000.00",Tapolo,Vinta,,
+536,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Lemae,L,1,1,0,11H00,05H04,Karote,7,1,700,Tamboho,Tana,Tabokina,4
+537,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Dimby ,L,1,1,0,11H00,05H07,Lamera,6,4.5,"2,000.00",Nosive,Basy,Fiambonjo,8
+538,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Maridona,L,1,1,0,11H00,05H12,Kiloka,14,9,"1,500.00",Nosive,Basy,Lamera,1
+539,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,"Gala, Mona",L,3,3,0,11H00,05H16,Angisy,4,15.5,"6,000.00",Ambatobe,Harato,,
+540,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/25/2020,Dec,25,2020,Hifike,L,1,1,0,11H00,05H20,Beja,7,3.5,"45,000.00",Badiga,Tana,Tona,2
+541,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Martin,L,3,3,0,12H30,05H47,Tapaporoha,50,43,"3,500.00",Bemahia,Harato,Tabake,7
+542,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Rasidy ,L,1,1,0,12H30,05H47,Tsoimena,100,6.5,"3,000.00",Ravinogne,Harato,Fiambonjo,18
+543,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Bokiny,L,1,1,0,12H30,05H49,Gogo,200,20,"1,500.00",Ambane,Harato,Bozitse,7
+544,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Nahatsa,L,1,1,0,12H30,05H51,Betampe,17,5,"1,300.00",Bevotsandra,Tana,Lamera,1
+545,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,"Gay, Papo",L,2,2,0,12H30,05H54,Olovo,3,50,"3,000.00",Bemahia,Basy,Tabake,6
+546,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Kalentsa,L,1,1,0,12H30,05H56,Angisy,37,7,"6,000.00",Andama,Harato,Atserake,25
+547,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Nivae,L,1,1,0,12H30,05H59,Angisy,12,3,"6,000.00",Korakorake ,Vinta,,
+548,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Mariselin,L,1,1,0,12H30,06H04,Lanora,1,38,"3,000.00",Bemahia,Vinta,,
+549,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Avy,L,1,1,0,12H30,06H07,Angisy,7,1,"6,000.00",Andama,Vinta,,
+550,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Tsahoa,L,1,1,0,12H30,06H09,Angisy,2,2,"6,000.00",Badiga,Vinta,,
+551,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Sofera,L,1,1,0,12H30,06H12,Tsabeake,17,4.5,"3,500.00",Namangoa,Vinta,,
+552,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Ralahy,L,1,1,0,12H30,06H15,Karote,46,8,700,Tamboho,Tana,Fay,2
+553,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Lekisisy,L,1,1,0,12H30,06H17,Gogo,250,40,"1,500.00",Ankiahia,Harato,Lamera,6
+554,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Fiara,L,1,1,0,12H30,06H19,Fela,50,10,500,Tamboho,Tana,Karote,10
+555,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Toarison,L,1,1,0,12H30,06H23,Betampe,12,2,"1,300.00",Ambatobe,Tana,,
+556,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Selin,L,1,1,0,12H30,06H25,Betampe,20,4,"1,300.00",Ambatobe,Tana,Lamera,4
+557,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/26/2025,Dec,26,2025,Boxe,L,1,1,0,12H30,06H27,Lamera,7,5,"2,000.00",Ambane,Basy,Tabake,2
+558,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/27/2020,Dec,27,2020,Lala I,L,1,1,0,06H20,09H00,Angisy,8,1,"6,000.00",Nosive,Vinta,,
+559,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/27/2020,Dec,27,2020,Tolotse,L,1,1,0,06H20,09H04,Angisy,1,1.5,"6,000.00",Nosive,Vinta,,
+560,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/27/2020,Dec,27,2020,Zeze,L,1,1,0,06H20,09H10,Tsabeake,16,5,"3,500.00",Ravinogne,Vinta,Fiambonjo,6
+561,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/27/2020,Dec,27,2020,"Zavy, Zixe",L,2,2,0,06H20,09H13,Tapaporoha,60,35,"3,500.00",Korakorake ,Harato,Lanora,9
+562,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/27/2020,Dec,27,2020,Dada,L,1,1,0,06H20,09H16,Fela,3,0.5,500,Tamboho,Tana,,
+563,2020 Tsiandamba Nov-Dec Soumen,Soumen,Tsiandamba,12/27/2020,Dec,27,2020,Kian,L,1,1,0,06H20,09H16,Voramasake,8,7,"3,500.00",Badiga,Vinta,,

@@ -1,0 +1,302 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin = 0.5in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{color}
+\usepackage{framed}
+\setlength{\fboxsep}{.8em}
+
+\usepackage{tcolorbox}
+
+\tcbset{
+  mystyle/.style={
+    before skip=-10pt, % Adjust this value
+    after skip=-10pt   % Adjust this value
+  }
+}
+\newtcolorbox{mynoteblock}[1][]{mystyle, #1}
+
+\newtcolorbox{blackbox}{
+  colback=black,
+  colframe=orange,
+  coltext=white,
+  boxsep=5pt,
+  arc=4pt}
+  
+\newtcolorbox{ltbluebox}{
+  colback=blue!5!white,
+  colframe=blue!75!black,
+  boxsep=5pt,
+  arc=4pt}
+  
+\newtcolorbox{ltgreenbox}{
+  colback=green!5!white,
+  colframe=blue!75!black,
+  boxsep=5pt,
+  arc=4pt}
+  
+\newtcolorbox{ltpurplebox}{
+  colback=purple!5!white,
+  colframe=blue!75!black,
+  boxsep=5pt,
+  arc=4pt}
+  
+
+
+\newenvironment{cols}[1][]{}{}
+
+\newenvironment{col}[1]{\begin{minipage}[t]{#1}\ignorespaces\vspace{0pt}}{%
+\end{minipage}
+\ifhmode\unskip\fi
+\aftergroup\useignorespacesandallpars}
+
+\def\useignorespacesandallpars#1\ignorespaces\fi{%
+#1\fi\ignorespacesandallpars}
+
+\makeatletter
+\def\ignorespacesandallpars{%
+  \@ifnextchar\par
+    {\expandafter\ignorespacesandallpars\@gobble}%
+    {}%
+}
+\makeatother
+
+\usepackage{awesomebox}
+\setlength{\aweboxvskip}{1mm}
+
+
+\pagenumbering{gobble}
+
+\usepackage{enumitem}
+\setlist{itemsep=1pt, parsep=0pt} %# Adjust vertical spacing
+\setlist[itemize,1]{leftmargin=*, labelsep=0.3em} %# Adjust horizontal spacing
+\setlist[enumerate,1]{leftmargin=*, labelsep=0.3em} %# Adjust horizontal spacing
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\vspace{-1cm}
+
+\section{Measures Setting: Potential Indicators and
+Pathways}\label{measures-setting-potential-indicators-and-pathways}
+
+\begin{noteblock}
+Measure setting is the process of establishing regulatory controls and
+conservation tools that govern how, when, where, and how much fish can
+be harvested to prevent overfishing and ensure the long-term
+sustainability of stocks. Measures could include regulations such as
+effort controls, spatial or temporal closures, or size and age limits to
+landings. \textbf{Note: }measure setting also includes regulating catch
+limits, however due to the importance of catch management decisions,
+catch and quota setting are described in their own 1-pager.
+
+\end{noteblock}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Key question: What additional indicators could inform measures
+  setting? Could ecosystem indicators or recreational demand indicators
+  in addition to current information improve the process?}
+\item
+  \textbf{Scope: Should we develop a general process for using
+  indicators in the measures setting process, or focus on a specific
+  application for a single species? Which species?}
+\end{itemize}
+
+\begin{cols}
+
+\begin{col}{0.49\textwidth}
+
+\begin{ltbluebox}
+
+\subsection{What information is used
+now?}\label{what-information-is-used-now}
+
+Current measures in place are outlined by NOAA's
+\href{https://www.fisheries.noaa.gov/species-directory}{Specification
+Summaries} and their
+\href{https://www.fisheries.noaa.gov/rules-and-regulations/fisheries}{Federal
+Regulations}.
+
+\subsection{Information sources for
+indicators}\label{information-sources-for-indicators}
+
+Big picture performance metrics for commercial and recreational
+fisheries are available in:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/state-ecosystem-reports-northeast-us-shelf}{State
+  of the Ecosystem Reports}
+\item
+  \href{https://static1.squarespace.com/static/511cdc7fe4b00307a2628ac6/t/672bbef75e7b1166ec15dba9/1730920200863/2_MAB_RiskAssess_2024.pdf}{EAFM
+  Risk Assessments}
+\item
+  \href{https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/ecosystem-and-socioeconomic-profile-development-and-reports\#longfin-inshore-squid\%E2\%80\%94in-process}{Ecosystem
+  and Socioeconomic Profiles}
+\end{itemize}
+
+Also see \href{https://www.rhapcast.org/}{river herring} bycatch
+mitigation IRA project
+
+\end{ltbluebox}
+
+\end{col}
+
+\begin{col}{0.02\textwidth}
+~
+
+\end{col}
+
+\begin{col}{0.49\textwidth}
+
+\begin{ltgreenbox}
+
+\subsection{Information gaps}\label{information-gaps}
+
+To understand multispecies, multifleet implications of measures set for
+a given species, we would need easy access to:
+
+\begin{itemize}
+\item
+  What fleets the species is caught in.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://www.fisheries.noaa.gov/new-england-mid-atlantic/commercial-fishing/quota-monitoring-greater-atlantic-region}{CAMS}
+    data for commercial fleets
+  \item
+    \href{https://www.fisheries.noaa.gov/recreational-fishing-data/introduction-marine-recreational-information-program-data}{MRIP}
+    for recreational fleets
+  \end{itemize}
+\item
+  Other targets and catch from these fleets
+\item
+  Who manages the other species and fleets if not MAFMC
+\item
+  Measures in place for all the other species (commercial and
+  recreational) caught with the species of interest
+\end{itemize}
+
+\textbf{Further useful information could include:}
+
+\begin{itemize}
+\item
+  Aggregate performance metrics for the fisheries to evaluate
+  implications of changes (commercial and recreational):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Landings
+  \item
+    Revenues
+  \item
+    Trips
+  \item
+    Expenditures
+  \item
+    Resilience
+  \item
+    Other system level fishery elements from risk assessment
+  \end{itemize}
+\item
+  Stock projections of age and size compositions
+\item
+  Projections of commercial fleet and angler response to measures
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Is there a threshold for switching to a different species?
+  \end{itemize}
+\item
+  Projections of climate and habitat conditions for relevant species
+
+  \begin{itemize}
+  \tightlist
+  \item
+    See \href{https://psl.noaa.gov/cefi_portal/}{Changing Ecosystems and
+    Fisheries Initiative Portal}
+  \end{itemize}
+\end{itemize}
+
+\end{ltgreenbox}
+
+\end{col}
+
+\end{cols}
+
+\end{document}

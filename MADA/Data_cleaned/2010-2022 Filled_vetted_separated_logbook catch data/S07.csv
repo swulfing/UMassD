@@ -1,0 +1,618 @@
+,FileName,Collector,Village,Date,Month,Day,Year,Name,Gender,Number.of.men,Number.of.women,Total.number.of.people,Time.depart,Time.arrive,Product.type,Number.of.product,Kilo,Price..in.ariary.,Fishing.spot,Gear,Other.catch.type.1..unweigned.,Other.catch.type.1.number,Other.catch.type.1.kilo,Other.catch.type.1.price,Other.catch.type.2..unweigned.,Other.catch.type.2.number,Other.catch.type.2.kilo,Other.catch.type.2.price,Other.catch.type.3..unweigned.,Other.catch.type.3.number,Other.catch.type.3.kilo,Other.catch.type.3.price,Other.catch.type.4..unweigned.,Other.catch.type.4.number,Other.catch.type.4.kilo,Other.catch.type.4.price,Rational.not.collect.malagasy,Not.collect_bad.weather,Not.collect_personal.reason
+1,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Simo,L,1,0,1,7h,12h,F.tsabeaky,5,7.5,41250,Nanohofa,vinta,Boziky,10,,,,,,,,,,,,,,,NA,NA,NA
+2,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Mario,L,1,0,1,8h,11h,F.voramasaky,11,27.5,137500,Ampilako,vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+3,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Lave,L,2,0,2,7h,12h,H,3,2.5,12100,Ampilako,Voloso,F2,2,,,,,,,,,,,,,,,NA,NA,NA
+4,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,ravelo,L,2,0,2,6h,10h,H,8,2.4,10500,Belamera,Voloso,zanga,1,,,,,,,,,,,,,,,NA,NA,NA
+5,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Razaly,L,1,0,1,8h,11h,H,2,6.7,30150,Belamera,Voloso,F,1,,,,,,,,,,,,,,,NA,NA,NA
+6,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Nakae,L,1,0,1,7h,11h,H,1,3,13500,nandoa,Voloso,zanga,3,,,,,,,,,,,,,,,NA,NA,NA
+7,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Role,L,1,0,1,7h,13h,H,4,11.2,67200,nandoa,Voloso,zanga,3,,,,,,,,,,,,,,,NA,NA,NA
+8,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Deka,L,1,0,1,8h,12h,Kapilany,1,5,22500,nandoa,Basimpia,,1,,,,,,,,,,,,,,,NA,NA,NA
+9,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Velo,L,1,0,1,8h,11h,H,3,3.1,13900,nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+10,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Sele,L,2,0,2,6h,13h,H,1,0.5,2200,Antabohy,Voloso,F.mainty,3,,,,,,,,,,,,,,,NA,NA,NA
+11,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Donasy,L,2,0,2,6h,13h,H,12,54,243000,Ampilako,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+12,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Alinde,L,1,0,1,6h,10h,H,4,9.2,41400,Ampilako,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+13,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Felikise,L,1,0,1,6h,10h,ND,2,5,22500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+14,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Bisiky,L,3,0,3,6h,13h,F.be,4,8.2,45100,Belamera,Basimpia,zanga,2,,,,,,,,,,,,,,,NA,NA,NA
+15,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Gizave,L,1,0,1,6h,11h,F.tsabeaky,11,7,38500,Ampilako,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+16,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Sambany,L,4,0,4,6h,13h,F.be,3,9,45000,Ampilako,Harato,H,3,,,,,,,,,,,,,,,NA,NA,NA
+17,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Nary,L,6,0,6,8h,11h,F.be,7,17.5,96200,Ampilako,Harato,fano be,1,,,,,,,,,,,,,,,NA,NA,NA
+18,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Mandimbe,L,1,0,1,8h,11h,H,1,2,9000,nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+19,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Handy,L,1,0,1,8h,10h,H,5,7.5,33750,nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+20,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Tary,L,1,0,1,7h,10h,H,3,1.5,6750,nandoa,Voloso,F,1,,,,,,,,,,,,,,,NA,NA,NA
+21,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Farake,L,1,0,1,7h,11h,H,3,4,18000,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+22,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/3/2021,Aug,3,2021,Zisy,L,1,0,1,7h,11h,H,1,5,22500,Ampilako,Voloso,zanga,1,,,,,,,,,,,,,,,NA,NA,NA
+23,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Aniso,L,1,0,1,6h,11h,F.voramasaky,7,16.1,88550,Nanohofa,vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+24,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,londa,L,1,0,1,6h,12h,F.voramasaky,9,19.8,385000,Nanohofa,vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+25,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Lerivo,L,1,0,1,7h,10h,H,2,7,31500,Belamera,Voloso,zanga,1,,,,,,,,,,,,,,,NA,NA,NA
+26,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Nakae,L,1,0,1,8h,11h,H,1,2.1,9450,Ampilako,Voloso,Boziky,50,,,,,,,,,,,,,,,NA,NA,NA
+27,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Teby,L,1,0,1,8h,11h,H,3,2,9000,nandoa,Voloso,F,1,,,,,,,,,,,,,,,NA,NA,NA
+28,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Donasy,L,2,0,2,8h,12h,H,5,6.5,29200,nandoa,Voloso,F.lovo,1,,,,,,,,,,,,,,,NA,NA,NA
+29,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Stephan,L,1,0,1,7h,11h,H,1,1.5,67500,Ambolivato,Voloso,F,1,,,,,,,,,,,,,,,NA,NA,NA
+30,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Tabozike,L,1,0,1,7h,11h,H,3,1.7,7650,Belamera,Voloso,F,1,,,,,,,,,,,,,,,NA,NA,NA
+31,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Remaro,L,1,0,1,8h,12h,F.mainty,17,8.7,21750,Ampilako,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+32,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Zilasy,L,6,0,6,8h,11h,F.maliniky,1 sac,150,525000,Antanifoty,Harato,F.foty,1,,,,,,,,,,,,,,,NA,NA,NA
+33,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,sangala,L,7,0,7,7h,14h,F.be,13 sacs,2 tonnes,17528000,Antanifoty,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+34,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Role,L,1,0,1,8h,11h,H,3,4,18000,Amatovy,Voloso,zanga,2,,,,,,,,,,,,,,,NA,NA,NA
+35,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Razaly,L,1,0,1,8h,11h,H,2,8.5,38250,Nanohofa,Voloso,zanga,1,,,,,,,,,,,,,,,NA,NA,NA
+36,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Nary,L,6,0,6,7h,15h,F.tsiameareny,1 sac,170,765000,Andohavato,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+37,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,rolland,L,4,0,4,7h,13h,F.voramasaky,12,25,137500,nandoa,Harato,H,1,,,,,,,,,,,,,,,NA,NA,NA
+38,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Retovony,L,1,0,1,8h,11h,H,1,2.5,11250,Ambavae,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+39,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Dongarie,L,1,0,1,9h,11h,F.aloalo,1,12.7,95250,Ambolivato,vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+40,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,makarena,L,1,0,1,9h,11h,A,3,21,210000,Nanohofa,vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+41,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Siteve,L,1,0,1,9h,12h,H,5,2.6,11700,Ampilako,Voloso,F,2,,,,,,,,,,,,,,,NA,NA,NA
+42,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Rafaly,L,1,0,1,9h,12h,H,3,7,31500,Ampilako,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+43,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Tsima,L,1,0,1,6h,11h,F.voramasaky,4,10,35000,Ambohoe,vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+44,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/4/2021,Aug,4,2021,Solofo,L,1,0,1,8h,12h,H,7,5,22500,Ambohoe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+45,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Lave,L,2,0,2,7h,11h,H,2,3.2,14400,Tsimahafoty,Voloso,zanga,1,,,,,,,,,,,,,,,NA,NA,NA
+46,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Siteve,L,1,0,1,7h,12h,H,1,0.5,2250,Ambohoe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+47,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Razaly,L,1,0,1,8h,11h,H,3,2,9000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+48,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Zavy,L,1,0,1,7h,11h,H,2,5,22500,Andohavato,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+49,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Tsily,L,1,0,1,7h,11h,F.Tsifa,4,17,42500,Belamera,Basimpia,A,2,,,,,,,,,,,,,,,NA,NA,NA
+50,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Live,L,1,0,1,8h,11h,0,0,0,0,Ampilako,Basimpia,zanga,1,25000,,,,,,,,,,,,,,NA,NA,NA
+51,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Nerike,L,1,0,1,8h,11h,H,2,2,9000,Ambohoe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+52,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Teby,L,1,0,1,8h,12h,F.soroboa,7,,17500,Andohavato,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+53,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Ela,L,1,0,1,7h,10h,H,1,1.5,6750,Ampilako,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+54,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Zase,L,1,0,1,7h,10h,H,3,3,13500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+55,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Babo,L,1,0,1,7h,11h,A,1,4,40000,Belamera,vinta,F.mainty,4,,,,,,,,,,,,,,,NA,NA,NA
+56,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Handy,L,1,0,1,7h,12h,H,1,2,9000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+57,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Rendea,L,1,0,1,7h,11h,H,1,0.5,2250,Tsimahafoty,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+58,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Kirisy,L,1,0,1,8h,11h,H,1,1.7,7650,Antabohy,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+59,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Lahy,L,1,0,1,7h,11h,H,1,1,4500,Antabohy,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+60,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Velo,L,1,0,1,8h,11h,H,2,3.5,15750,Antabohy,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+61,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Tsifitahy,L,1,0,1,7h,11h,F.voramasaky,4,3,19500,Ankemaky,vinta,H,1,,,,,,,,,,,,,,,NA,NA,NA
+62,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Retovo,L,1,0,1,7h,11h,F.voramasaky,1,2,13000,Ankemaky,vinta,H,2,,,,,,,,,,,,,,,NA,NA,NA
+63,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Finasy,L,1,0,1,8h,11h,H,1,0.7,3150,Andama,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+64,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Larike,L,1,0,1,8h,11h,F.gogo,ND,ND,47000,Andaniriaky,Harato,H,1,,,,,,,,,,,,,,,NA,NA,NA
+65,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Rikise,L,1,0,1,8h,11h,H,3,5.8,22100,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+66,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/5/2021,Aug,5,2021,Nanola,L,1,0,1,7h,11h,H,1,2,9000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+67,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Radona,L,3,0,3,6h,11h,F.tsoy,ND,125,312500,Nanohofa,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+68,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Fitiava,L,3,0,3,6h,12h,F.mainty,ND,33,47500,Tsimahafoty,Harato,H,1,,,,,,,,,,,,,,,NA,NA,NA
+69,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Maharitse,L,2,0,2,7h,11h,F.bodoloha,3,7.9,197500,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+70,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Kavitse,L,1,0,1,8h,11h,H,3,4.5,20250,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+71,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Rakoto  velo,L,4,0,4,6h,10h,F.Tsifa,7,8.7,39150,Belamera,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+72,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Zilasy,L,4,0,4,6h,11h,F.Tsifa,5,7.5,15000,Ambohoe,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+73,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Borake,L,2,0,2,8h,11h,H,1,2,9000,Ambatobe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+74,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Tary,L,2,0,2,8h,11h,H,2,1.5,6750,nandoa,Basimpia,zanga,2,,,,,,,,,,,,,,,NA,NA,NA
+75,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Tery,L,2,0,2,8h,11h,H,3,18,67500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+76,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Maharitse,L,1,0,1,7h,10h,H,7,12,54000,Ambatovy,Voloso,A,4,,,,,,,,,,,,,,,NA,NA,NA
+77,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Rico,L,3,0,3,6h,12h,0,0,0,0,nandoa,Voloso,F  ,2,,,Boziky,40,7,7000,,,,,,,,,NA,NA,NA
+78,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Asikara,L,5,0,5,6h,12h,A,ND,50,475000,Ampilako,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+79,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Gustave,L,2,0,2,7h,11h,H,3,5.5,24750,Antanifoty,Basimpia,zanga,3,,,,,,,,,,,,,,,NA,NA,NA
+80,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,dada,L,1,0,1,8h,11h,H,1,2.5,11250,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+81,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Andreresy,L,3,0,3,6h,11h,F.foty,50,35,192500,Tsimahafoty,Harato,H,2,,,,,,,,,,,,,,,NA,NA,NA
+82,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Azelon,L,1,0,1,8h,11h,H,1,3.5,15750,Ampilako,Voloso,H,2,,,,,,,,,,,,,,,NA,NA,NA
+83,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,faby,L,1,0,1,7h,11h,F.mainty,ND,25,37500,Ankemaky,Basimpia,zanga,1,,,,,,,,,,,,,,,NA,NA,NA
+84,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Tary,L,5,0,5,6h,11h,H,3,7.5,33750,Andamabe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+85,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Nary,L,1,0,1,8h,11h,H,1,3,13500,Andama,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+86,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Sambatse,L,1,0,1,8h,11h,H,2,5,22500,Ampilako,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+87,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Tavo,L,2,0,2,8h,12h,Boziky,70,25,25000,Jokozoko,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+88,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/6/2021,Aug,6,2021,Tovonasy,L,5,0,5,6h,12h,F.foty,ND,150,825000,Sarehima,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+89,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Sele,L,2,0,2,7h,12h,H,5,5.3,23850,Ambatobe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+90,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Fanampy,L,1,0,1,8h,11h,H,5,4,18000,nandoa,Voloso,Boziky,13,,,,,,,,,,,,,,,NA,NA,NA
+91,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Manife,L,1,0,1,8h,11h,F.foty,23,57.8,388700,Sarehima,vinta,F.mainty,31,,,,,,,,,,,,,,,NA,NA,NA
+92,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Delefe,L,1,0,1,8h,10h,F.lanora,4,6.5,45500,nandoa,vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+93,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Nary,L,1,0,1,8h,11h,H,1,2,9000,Belamera,Voloso,zanga,1,,,,,,,,,,,,,,,NA,NA,NA
+94,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,rolland,L,4,0,4,6h,13h,F.Tsifa,32,128,256000,Ampilako,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+95,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Teby,L,1,0,1,8h,11h,H,2,5,22500,Andamabe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+96,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Lahady,L,1,0,1,8h,12h,H,1,1.2,5400,Andamabe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+97,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Fidy,L,1,0,1,8h,12h,F.voramasaky,5,6,33000,Sarehima,vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+98,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Nasolo,L,1,0,1,7h,11h,H,6,3.7,16650,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+99,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Tery,L,1,0,1,8h,12h,H,3,7,31500,Ambatovy,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+100,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Lahine,L,1,0,1,8h,11h,H,1,3,13500,Ambatovy,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+101,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Sambatse,L,2,0,2,7h,13h,F.Tsifa,13,39,78000,Ampilako,Basimpia,zanga,2,,,,,,,,,,,,,,,NA,NA,NA
+102,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Vie,L,1,0,1,6h,11h,H,2,4.4,19800,Ankara,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+103,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Sandry,L,1,0,1,8h,11h,H,1,1,4500,Ambohoe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+104,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Sido,L,2,0,2,7h,12h,F.Tsifa,4,4,24200,Ampilako,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+105,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Bisiky,L,3,0,3,6h,13h,F.bodoloha,8,24,60000,Ampilako,Basimpia,zanga,1,,,,,,,,,,,,,,,NA,NA,NA
+106,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Dede,L,1,0,1,8h,11h,H,1,3,13500,Sarehima,Voloso,Boziky,3,,,,,,,,,,,,,,,NA,NA,NA
+107,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Donasy,L,2,0,2,7h,11h,fay,3,ND,25000,Andaniriaky,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+108,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Razaly,L,1,0,1,8h,11h,H,1,4.5,202500,Jokozoko,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+109,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Lae,L,1,0,1,8h,11h,H,3,10.5,47250,Ambatovy,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+110,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/9/2021,Aug,9,2021,Deka,L,1,0,1,8h,11h,H,1,0.7,3150,Andaniriaky,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+111,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,londa,L,1,0,1,7h,11h,F.foty,8,13.6,74250,Nanohofa,vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+112,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Velo,L,1,0,1,7h,11h,H,1,2.5,11250,nandoa,Voloso,Boziky,32,,,,,,,,,,,,,,,NA,NA,NA
+113,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Zasime,L,3,0,3,7h,12h,F.tsoy,ND,50,125000,Belamera,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+114,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Tary,L,1,0,1,8h,11h,H,3,1.7,7650,Tsimahafoty,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+115,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Razaly,L,1,0,1,8h,12h,H,2,4.6,20700,Ambatobe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+116,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Siteve,L,1,0,1,8h,12h,0,0,0,0,Sarehima,Basimpia,zanga,1,,,zanga,3,,70000,,,,,,,,,NA,NA,NA
+117,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,faby,L,1,0,1,8h,11h,F.mainty,27,32.4,64800,Andaniriaky,Basimpia,zanga,2,,,,,,,,,,,,,,,NA,NA,NA
+118,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Bisiky,L,2,0,2,8h,12h,F.Tsifa,10,28,37500,Jokozoko,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+119,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Mario,L,1,0,1,8h,11h,F.tsabeaky,12,27.6,151250,Ampilako,vinta,H,2,,,,,,,,,,,,,,,NA,NA,NA
+120,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Gizave,L,1,0,1,7h,11h,F.voramasaky,7,17.5,96250,Andaniahitse,vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+121,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Deka,L,1,0,1,7h,11h,H,3,5,22500,Ambatovy,Voloso,Boziky,2,,,,,,,,,,,,,,,NA,NA,NA
+122,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,K0forase,L,1,0,1,8h,11h,H,2,7.5,33750,Ankemaky,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+123,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Nanola,L,1,0,1,7h,11h,H,4,2.8,12600,Andama,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+124,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Zafe,L,1,0,1,7h,11h,H,1,1.1,4950,Ankara,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+125,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Mariso,L,1,0,1,8h,12h,0,0,0,0,Belamera,Basimpia,zanga,1,,,Zanga foty,2,,45000,,,,,,,,,NA,NA,NA
+126,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Ferdina,L,1,0,1,8h,11h,H,3,6,27000,Andaniriaky,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+127,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Tsabena,L,2,0,2,8h,12h,H,5,15,67500,Ampilako,Voloso,F.mainty,12,,,,,,,,,,,,,,,NA,NA,NA
+128,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Nakae,L,1,0,1,8h,11h,H,1,3,13500,Ambohoe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+129,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Deka,L,1,0,1,8h,12h,H,3,4,18000,Andamabe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+130,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Ravelo,L,1,0,1,8h,11h,H,2,6.7,30150,Tsimahafoty,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+131,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,rolland,L,4,0,4,8h,12h,F.voramasaky,ND,150,825000,Ampilako,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+132,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/11/2021,Aug,11,2021,Sambatse,L,3,0,3,8h,13h,F.voramasaky,ND,130,715000,Ampilako,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+133,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Fanampy,L,2,0,2,8h,12h30,Boziky,40,5,5000,Sarehima,Harato,Lamera,1,,,,,,,,,,,,,,,NA,NA,NA
+134,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Tolotra,L,6,0,6,8h,12h,H.nakora,8,3,9000,Sarehima,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+135,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Krizy,L,1,0,1,8h,12h30,Boziky,50,13,13000,Nanannose,vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+136,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Maharitse,L,1,0,1,8h,12h,F.foty,22,4,16000,Andamabe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+137,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Ronaly,L,3,0,3,8h,12h,F.savisavy,8,2.5,7500,Tsimahafoty,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+138,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Sisy,L,1,0,1,7h,12h,H ,4,3,16500,Ambatobe,vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+139,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,nasy,L,2,0,2,7.3,12h,H  ,7,5,27500,Andamabe,Harato,F.toho,1,,,,,,,,,,,,,,,NA,NA,NA
+140,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Donasy,L,1,0,1,6h,12h30,F.soroboa,6,ND,15000,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+141,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Teby,L,1,0,1,8h,2h,F.tabake,10,6,12000,Andanahitse,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+142,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Stephan,L,1,0,1,9h,2h,H  ,5,3.5,19200,Ankara,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+143,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Kevin,L,3,0,3,8h,2h,Boziky,12,3,3000,Ankara,Basy,,,,,,,,,,,,,,,,,NA,NA,NA
+144,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Fredina,L,3,0,3,7h,2h,F.tabake,8,4,8000,Ankara,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+145,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Saotse,L,2,0,2,7h30,2h,H  ,3,1.5,8200,Ambohoe,Basy,,,,,,,,,,,,,,,,,NA,NA,NA
+146,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Nanola,L,2,0,2,7h,2h,H  ,8,4.5,24700,Nananose,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+147,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Tsimitovy,L,3,0,3,8h,2h,F.savisavy,9,3.5,10500,Sarehima,Harato,Drakake,8,,,,,,,,,,,,,,,NA,NA,NA
+148,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Manosotse,L,1,0,1,8h,2h,F.voramasake,13,4,14000,Ambatoloake,Basimpia,F.tsontso,3,,,,,,,,,,,,,,,NA,NA,NA
+149,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Rene,L,1,0,1,8h,2h,A,5,2.5,25000,Ankazo bevohitse,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+150,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Gama,L,2,0,2,7h,2h,0,0,0,0,Andaniriake,Basimpia,Beja,2,,,zanga zomaly,15,,16000,,,,,,,,,NA,NA,NA
+151,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Julis ginto,L,1,0,1,8h,2h30,F.tsifa,25,30,46000,Tsimahafoty,Voloso,zanga zomaly,4,,,,,,,,,,,,,,,NA,NA,NA
+152,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Dede,L,1,0,1,8h,2h30,f.lovo,1,10,35000,Anosy,Vinta,zanga benono,1,,,,,,,,,,,,,,,NA,NA,NA
+153,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Kary,L,4,0,4,8h,2h30,Drakake,30,8,16000,Anosy,Harato,F.ledraledra,4,,,,,,,,,,,,,,,NA,NA,NA
+154,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,monde,L,3,0,3,8h,2h30,0,0,0,0,Belamera,Basimpia,lamera,1,,,Zanga benono,4,,60000,,,,,,,,,NA,NA,NA
+155,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/12/2021,Aug,12,2021,Zanie,V,0,4,4,8h,1h,0,0,0,0,Nandoa,Voloso,,,,,Zanga tsokena,6,,9000,,,,,,,,,NA,NA,NA
+156,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,nila,V,0,3,3,8h,1h,H  ,3,1.5,8200,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+157,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,maroe,V,0,4,4,8h,1h,H  ,1,3.5,19200,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+158,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Velo,L,1,0,1,6h,12h ,Boziky,70,15,15000,Belapa,Basy,,,,,,,,,,,,,,,,,NA,NA,NA
+159,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Lahy,L,2,0,2,6h,12h30,0,0,0,0,Belapa,vy fer,zanga zomaly,3,,6000,,,,,,,,,,,,,NA,NA,NA
+160,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Dridry,V,6,0,6,8h,12h ,0,0,0,0,Nandoa,Voloso,Zanga kida,8,,1600,,,,,,,,,,,,,NA,NA,NA
+161,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Fidy,L,2,0,2,4h,12h ,F.valala,1/2 sac,22,66000,Ambohoe,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+162,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Tsima,L,1,0,1,4h,12h ,A,6,2.5,25000,Andamabe,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+163,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Kinoly,L,3,0,3,8h,112h30,H  ,5,3.5,19200,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+164,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Manife,L,1,0,1,7h,12h ,F.lamatra,2,11,66000,Nanohofa,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+165,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Severe,L,1,0,1,8h,1h,F.gogo,,8,12000,Belapa,Makarakara,,,,,,,,,,,,,,,,,NA,NA,NA
+166,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Fara,V,0,5,5,8h,1h30,0,0,0,0,Nandoa,Voloso,Zanga tsokena,7,,7000,,,,,,,,,,,,,NA,NA,NA
+167,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Faby,L,1,0,1,7h,12h ,F.angy,1/2 sac,23,46000,Belamera,Basy,,,,,,,,,,,,,,,,,NA,NA,NA
+168,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Rivike,L,1,0,1,6h,1h,H  ,2,1.5,8200,Nananose,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+169,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Zasime,L,2,0,2,8h,11h,"F,foty",32,5,20000,Ambolivato,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+170,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Rozina,V,0,3,3,8h,1h30,0,0,0,0,Belamera,Voloso,Zanga tsokena,4,,6000,,,,,,,,,,,,,NA,NA,NA
+171,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Zilasy,L,4,0,4,7h,12h ,"F,foty",10,3.5,14000,Beviko,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+172,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Kristophe,L,1,0,1,8h,1h,0,0,0,0,Nandoa,Voloso,Boziky,15,3,3000,,,,,,,,,,,,,NA,NA,NA
+173,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Mario,L,1,0,1,6h,1h,F.voramasake,19,3,10500,Nanohofa,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+174,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Oraly,V,0,3,3,8h,12h ,H  ,6,3,16500,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+175,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Soazana,V,0,4,4,8h,1h30,0,0,0,0,Belamera,Voloso,Zanga tsokena,2,,3000,,,,,,,,,,,,,NA,NA,NA
+176,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/13/2021,Aug,13,2021,Demake,V,0,2,2,8h,12h ,H  ,1,3.5,19200,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+177,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,kofrase,L,1,0,1,9h,3h,0,0,0,0,Ambatovy,Basy,Zanga dorlisy,40,,4000,,,,,,,,,,,,,NA,NA,NA
+178,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Mariso,L,1,0,1,9h,3h,H  ,2,3.5,19200,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+179,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Lengera,L,1,0,1,7h,12h ,H  ,4,2,11000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+180,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Rafaly,L,2,0,2,9h,3h,0,0,0,0,Nananose,Voloso,Zanga benono,3,,60000,,,,,,,,,,,,,NA,NA,NA
+181,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Noke,L,2,0,2,6h,12h ,0,0,0,0,Nanohofa,Voloso,Zanga dorlisy,60,,6000,,,,,,,,,,,,,NA,NA,NA
+182,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Evo,L,1,0,1,9h,3h,Drakake,70,6,12000,Nanohofa,ala tana,,,,,,,,,,,,,,,,,NA,NA,NA
+183,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Finasy,L,1,0,1,9h,2h30,H  ,1,2.5,13700,Ankara,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+184,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Marisele,L,1,0,1,7h,1h,H  ,5,2.5,13700,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+185,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Nanola,L,3,0,3,6h,11h,0,0,0,0,Tsimahafoty,Basy,Zanga dorlisy,30,,3000,,,,,,,,,,,,,NA,NA,NA
+186,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Rikise,L,1,0,1,7h,12h ,0,0,0,0,Andama ,vy fer,zanga zomaly,6,,9000,,,,,,,,,,,,,NA,NA,NA
+187,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Merike,L,1,0,1,8h,12h ,H nakora,15,2.5,7500,Tsimahafoty,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+188,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,londa,L,2,0,2,6h,11h30,F.voramasake,10,4,14000,Andanahitse,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+189,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Tany,L,3,0,3,9h,2h30,F.mainty,ND,10,20000,Ambatovy,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+190,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Noele,L,1,0,1,6h,12h ,zanga zomaly,6,,12000,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+191,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Lerivo,L,1,0,1,6h,12h30,F.tabake,3,2.5,5000,Sarehima,Basy,,,,,,,,,,,,,,,,,NA,NA,NA
+192,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Gizavy,L,1,0,1,4h,11h,Beja,3,1.5,3000,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+193,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Tsimitovy,L,1,0,1,9h,3h,Boziky,30,4,3200,Andoha holo,vy fer,,,,,,,,,,,,,,,,,NA,NA,NA
+194,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Radona,L,4,0,4,7h,12h ,F.tsoy,ND,7,14500,Andama ,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+195,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Mizie,L,3,0,3,7h,12h ,F.tsoy,ND,3,10500,Andama ,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+196,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Lido,L,1,0,1,9h,2h30,H  ,3,1.5,8200,Andaniriake,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+197,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Lorake,L,1,0,1,6h,11h30,H  ,3,4,24000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+198,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/17/2021,Aug,17,2021,Tary,L,1,0,1,7h,12h ,0,0,0,0,Belamera,Voloso,Zanga tsokena,6,,9000,,,,,,,,,,,,,NA,NA,NA
+199,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Lerivo,L,1,0,1,6h,2h,H  ,5,8,36000,Belamera,Voloso,zanga   ,2,,,,,,,,,,,,,,,NA,NA,NA
+200,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Rolland,L,8,0,8,6h,2h30,F.foty,101,ND,450000,Ampilako,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+201,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Sisike,L,1,0,1,8h,3h,H  ,3,4.5,20250,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+202,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Nasike,L,1,0,1,8h,3h,H  ,7,5.5,26100,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+203,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Rivike,L,1,0,1,6h,1h,H  ,2,42,18900,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+204,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Nary,L,1,0,1,6h,2h30,A,25,37.5,206250,Andamabe,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+205,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Sambatse,L,3,0,3,7h,3h30,F.tsifa,7,21,42000,Ampilako,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+206,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Bisiky,L,2,0,2,7h,2h30,F.bodoloha,9,20.7,51750,Ampilako,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+207,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Sitaviny,L,1,0,1,6h,12h ,H  ,1,3,13500,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+208,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Tany,L,3,0,3,6h,1h,H  ,4,2.5,11250,Ambatovy,Voloso,bozike,6,,,,,,,,,,,,,,,NA,NA,NA
+209,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Zasime,L,2,0,2,4h,9h,H  ,11,5.5,24750,Tsimahafoty,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+210,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,kofrase,L,1,0,1,7h,3h,H  ,3,7.5,33750,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+211,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Zilasy,L,5,0,5,6h,12h ,F.tsoy,75,125,312500,Nandoa,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+212,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Manife,L,1,0,1,4h,11h,"F,foty",6,18,108000,Sarehima,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+213,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Fidy,L,1,0,1,7h,2h30,F.voramasake,13,4,14000,Sarehima,Vinta,F.tsontso,4,,,,,,,,,,,,,,,NA,NA,NA
+214,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Mizie,L,3,0,3,8h,3h30,F.valala,1 sac,25,75000,Nandoa,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+215,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Velo,L,1,0,1,6h,1h,H  ,1,2,10000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+216,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Zido,L,3,0,3,4h,12h ,F.tsifa,6,16,24000,Ampilako,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+217,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Rene,L,1,0,1,7h,12h30,A,4,1.5,15000,Ankazo bevohitse,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+218,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Sanala,L,6,0,6,5h,12h ,F.tsameareny,8,16,64000,Ampilako,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+219,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Teby,L,1,0,1,6h,1h30,0,0,0,0,Nandoa,Basimpia,fay rara,1,,,Zanga benono,2,,60000,,,,,,,,,NA,NA,NA
+220,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/20/2021,Aug,20,2021,Lahy,L,1,0,1,8h,3h,H  ,5,8,44000,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+221,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Tarie,V,0,4,4,8h,2h,0,0,0,0,Jokozoko,Voloso,Zanga tsokena,8,,12000,,,,,,,,,,,,,NA,NA,NA
+222,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Mae,V,0,3,3,8h,2h,0,0,0,0,Nandoa,Voloso,Zanga tsokena,4,,6000,,,,,,,,,,,,,NA,NA,NA
+223,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Lengera,L,1,0,1,6h,1h,F.sapiata,1/2 sac,12,18000,Andamabe,Makarakara,,,,,,,,,,,,,,,,,NA,NA,NA
+224,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Razaly,L,1,0,1,8h,2h30,H  ,2,3.5,19200,Tsimahafoty,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+225,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,maroe,V,0,3,3,8h,2h,H  ,2,4.5,24700,Nandoa,Basy,F.toho,1,,,,,,,,,,,,,,,NA,NA,NA
+226,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Noele,L,1,0,1,6h,1h30,0,0,0,0,Nananose,Vinta,Zanga benono,6,,35000,,,,,,,,,,,,,NA,NA,NA
+227,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Retovone,L,1,0,1,4h,12h ,F.voramasake,8,3.5,12200,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+228,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Zanie,V,0,4,4,8h,2h30,H  ,4,2,11000,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+229,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Siko,L,1,0,1,6h,12h ,Drakake,15,3,6000,Ataboly,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+230,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Marisele,L,1,0,1,8h,3h,0,0,0,0,Tsimahafoty,Voloso/tana,Zanga tsokena,,,,Boziky,30,7,70000,,,,,,,,,NA,NA,NA
+231,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Tsimitovy,L,1,0,1,8h,2h,0,0,0,0,Nanohofa,Basy,,,,,Boziky,25,5,5000,,,,,,,,,NA,NA,NA
+232,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Mira,V,0,4,4,8h,2h30,0,0,0,0,Belamera,Voloso,Zanga tsokena,3,,4500,,,,,,,,,,,,,NA,NA,NA
+233,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Zongize,V,0,6,6,8h,3h,H  ,1,1.5,8200,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+234,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Sandry,L,1,0,1,6h,2h,Zanga benono,4,,80000,Nananose,Basy,lamera,,,,,,,,,,,,,,,,NA,NA,NA
+235,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Nabole,L,1,0,1,6h,2h,F.tabake,5,3.5,7000,Nananose,Basy,,,,,,,,,,,,,,,,,NA,NA,NA
+236,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Zambadisita,L,2,0,2,4h,12h30,F.valala,1/2 sac,20,60000,Ambohoe,Basy/haato,,,,,,,,,,,,,,,,,NA,NA,NA
+237,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Zafianake,L,2,0,2,8h,3h,H  ,1,3,16500,Mahasaha,Basy,,,,,,,,,,,,,,,,,NA,NA,NA
+238,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Dada,L,6,0,6,6h,2h,F.tsifa,4,110,165000,Mahasaha,Basy,,,,,,,,,,,,,,,,,NA,NA,NA
+239,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Foatake,L,1,0,1,8h,2h30,0,0,0,0,Antandeo,Voloso,Boziky,10,2.5,2500,,,,,,,,,,,,,NA,NA,NA
+240,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Soazana,V,0,5,5,8h,2h,0,0,0,0,Nandoa,Voloso,Zanga mainte,9,,1800,,,,,,,,,,,,,NA,NA,NA
+241,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/21/2021,Aug,21,2021,Fara,V,0,3,3,8h,2h,0,0,0,0,Nandoa,Voloso,Zanga tsokena,3,,4500,,,,,,,,,,,,,NA,NA,NA
+242,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Velo,L,1,0,1,8h,12h ,H  ,3,4.5,20250,Nanohofa,Voloso,F  ,2,,,,,,,,,,,,,,,NA,NA,NA
+243,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Nanola,L,1,0,1,8h,11h,H  ,7,5,22500,Nanohofa,Voloso,zanga   ,1,,,,,,,,,,,,,,,NA,NA,NA
+244,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Nasolo,L,1,0,1,8h,11h,F.tsameareny,3,4.8,26400,Nandoa,Basimpia,H,4,,,,,,,,,,,,,,,NA,NA,NA
+245,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Tsitaviny,L,1,0,1,8.3,11h,F.tsifa,5,15,30000,Ampilako,Basimpia,zanga   ,2,,,,,,,,,,,,,,,NA,NA,NA
+246,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Rolland,L,6,0,6,7h,13h,F.valala,ND,272,952000,Ampilako,Harato,H,1,,,,,,,,,,,,,,,NA,NA,NA
+247,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Sambatse,L,2,0,2,7h,13h,F.tsifa,4,12,18000,Ambohoe,Basimpia,zanga   ,1,,,,,,,,,,,,,,,NA,NA,NA
+248,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Bisiky,L,2,0,2,4h,12h ,F.valala,120,62,270000,Andamabe,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+249,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Lahine,L,1,0,1,8h,11h,H  ,2,4.8,21600,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+250,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Nary,L,2,0,2,8h,12h ,F.tsifa,7,21,31500,Ampilako,Basimpia,H,3,,,,,,,,,,,,,,,NA,NA,NA
+251,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Teby,L,1,0,1,8h,11h,F.tsifa,4,12,18000,Ambatovy,Basimpia,zanga   ,1,,,,,,,,,,,,,,,NA,NA,NA
+252,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Ferdina,L,2,0,2,8h,13h,Drakake,22,10,20000,Tanifoty,Basimpia,H kely,5,,,,,,,,,,,,,,,NA,NA,NA
+253,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,kofrase,L,1,0,1,8h,12h ,H  ,3,8,36000,Ankara,Voloso,bozike,13,,,,,,,,,,,,,,,NA,NA,NA
+254,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Sangala,L,7,0,7,6h30,13h,F.foty, ND,250,1500000,Ampilako,Harato,H  ,2,,,,,,,,,,,,,,,NA,NA,NA
+255,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Zafianake,L,1,0,1,7h,11h,F.valala,18,9.5,33250,Ampilako,Basimpia,2anga,1,,,,,,,,,,,,,,,NA,NA,NA
+256,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Lerivo,L,1,0,1,8h,11h,H  ,1,7,31500,Jokozoko,Voloso,zanga   ,1,,,,,,,,,,,,,,,NA,NA,NA
+257,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Sisike,L,1,0,1,8h,11h,H  ,2,1.5,6750,Andaniriake,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+258,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Manife,L,1,0,1,8h,13h,F.voramasake,11,23.7,130350,Tsimahafoty,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+259,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Fidy,L,1,0,1,8h,12h ,F.angy,27,21,52500,Tsimahafoty,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+260,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Tsima,L,1,0,1,8h,12h ,F.bondro,13,3,6000,Tsimahafoty,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+261,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Behoho,L,1,0,1,8h,11h,F.voramasake,12,18,99000,Tsimahafoty,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+262,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Nasike,L ,1,0,1,8h,11h,H  ,3,10,45000,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+263,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/22/2021,Aug,22,2021,Retovone,L ,1,0,1,8h,12h ,F.voramasake,4,15,82500,Tsimahafoty,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+264,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Retovo   velo,L ,2,0,2,8h,12h ,Lamera,1,3,7500,Jokozoko,Basimpia,H  ,1,,,,,,,,,,,,,,,NA,NA,NA
+265,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Terisy,V,0,3,3,8h,12h ,0,0,0,0,Belamera,Voloso,zanga   ,1,,,Beja,2,,9100,,,,,,,,,NA,NA,NA
+266,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Fan0meza,V,0,4,4,8h,12h ,0,0,0,0,Belamera,Voloso,H  ,2,,,zanga   ,1,,25000,,,,,,,,,NA,NA,NA
+267,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Rafe,V,0,2,2,8h,12h ,H  ,3,4.5,20250,Ankara,Voloso,Beja,1,,,,,,,,,,,,,,,NA,NA,NA
+268,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Teliny,V,0,2,2,7h,12h ,H  ,1,2,9000,Belamera,Voloso,bozike,11,,,,,,,,,,,,,,,NA,NA,NA
+269,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Orely,V,0,5,5,8h,12h ,Fay,2,ND,45000,Andaniriake,Voloso,H   ,2,,,,,,,,,,,,,,,NA,NA,NA
+270,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Maroe,V,0,3,3,8h,12h ,0,0,0,0,Andanahitse,Voloso,H   ,1,,,Beja,3,,12000,,,,,,,,,NA,NA,NA
+271,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Finasy,L  ,1,0,1,6h,12h ,F.lovohara,3,7.2,10800,Sarehima,Basimpia,F.mainty,3,,,,,,,,,,,,,,,NA,NA,NA
+272,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Sisy,L,1,0,1,8h,12h ,H  ,2,5,22500,Sarehima,Basimpia,F.foyy,1,,,,,,,,,,,,,,,NA,NA,NA
+273,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Bokony,V,0,3,3,6h,12h ,0,0,0,0,Ankara,Voloso,Boziky,45,13,13000,,,,,,,,,,,,,NA,NA,NA
+274,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,niela,V,0,5,5,6h,12h ,0,0,0,0,Tsimahafoty,Voloso,Zanga tsokena,8,,4000,,,,,,,,,,,,,NA,NA,NA
+275,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Donasy,L  ,2,0,2,8h,1h,H  ,4,8.3,37350,Anosy,Basimpia,zanga   ,2,,,,,,,,,,,,,,,NA,NA,NA
+276,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Tary,L  ,1,0,1,7h,1h,F.foty,7,10.5,63000,Ambatobe,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+277,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Fitiava,L  ,1,0,1,7h,1h,Tsiysike,10,16,240000,Ambatovy,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+278,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Palazy,V,0,4,4,8h,1h30,H  ,4,2.3,10350,Ankemake,Voloso,bozike,21,,,,,,,,,,,,,,,NA,NA,NA
+279,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Kotiry,V,0,2,2,8h,1h30,0,0,0,0,Andaniriake,Voloso,Zanga potike,27,,5000,,,,,,,,,,,,,NA,NA,NA
+280,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Faravavy,V,0,3,3,8h,2h,0,0,0,0,Belamera,Voloso,Beja,37,12,9600,,,,,,,,,,,,,NA,NA,NA
+281,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Diany,V,0,4,4,8h,2h,0,0,0,0,Tsimahafoty,Voloso,Boziky,22,8,6400,,,,,,,,,,,,,NA,NA,NA
+282,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Zongize,V,0,2,2,7h,2h,Lamera,3,5,17500,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+283,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,Niny,V,0,3,3,7h,2h30,Fay,2,ND,67000,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+284,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,nabole,L  ,1,0,1,6h,2h30,F.lovo,4,6.9,276000,Nanohofa,Basimpia,zanga   ,1,,,,,,,,,,,,,,,NA,NA,NA
+285,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/23/2021,Aug,23,2021,sandry,L  ,1,0,1,6h,2h30,F.tsoy,19,13,32500,Nanohofa,Basimpia,zanga   ,3,,,,,,,,,,,,,,,NA,NA,NA
+286,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Alinde,L  ,1,0,1,7h,11h,ND,7,1.2,1800,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+287,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Manife,L  ,1,0,1,ND,ND,Drakake,3,5,30000,Belamera,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+288,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,kofrase,L  ,1,0,1,ND,ND,"F,foty",1,3.8,17100,Tsimahafoty,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+289,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Tsima,L  ,1,0,1,ND,ND,H  ,5,7.2,39600,Belamera,Vinta,H  ,2,,,,,,,,,,,,,,,NA,NA,NA
+290,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Lerivo,L  ,1,0,1,ND,ND,F.voramasake,4,2.6,11700,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+291,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Deka,L  ,1,0,1,ND,ND,H  ,1,3,10500,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+292,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Nakae,L   ,1,0,1,ND,ND,H  ,16,ND,5500,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+293,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Tovone,L   ,1,0,1,ND,ND,Zanga dorlisy,2,4.7,30550,Belamera,Vinta,F.mainty,3,,,,,,,,,,,,,,,NA,NA,NA
+294,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Ela,L   ,1,0,1,ND,ND,A,8,5,22500,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+295,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Solofo,L  ,1,0,1,ND,ND,H  ,6,3.2,14400,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+296,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,marisele,L ,1,0,1,ND,ND,H  ,1,1.1,4950,Tsimahafoty,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+297,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Fanampe,L ,1,0,1,ND,ND,H  ,27,9,7200,Andama ,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+298,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Sitaviny,L ,1,0,1,ND,ND,Boziky,2,ND,37000,Belamera,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+299,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Lengera,L ,1,0,1,ND,ND,F.gogo,,7.5,37500,Tsimahafoty,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+300,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Fidy,L ,1,0,1,ND,ND,A,4,7.3,47450,Belamera,Vinta,bozike,27,,,,,,,,,,,,,,,NA,NA,NA
+301,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/25/2021,Aug,25,2021,Kirizy,L ,1,0,1,ND,ND,Bboziky/joka,31,18,18000,Tsimahafoty,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+302,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Mahatante,L   ,4,0,4,7h,13h,F.valala,ND,27,94500,Ambohoe,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+303,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Manaky,L   ,2,0,2,8h,13h,F.kinirike,ND,31,93000,Jokozoko,Harato,H  ,2,,,,,,,,,,,,,,,NA,NA,NA
+304,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Vio,L   ,1,0,1,8h,12h ,H  ,2,7,31500,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+305,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Faby,L   ,1,0,1,8h,11h,F.mainty,ND,21,52500,Andama ,Basimpia,zanga   ,1,,,,,,,,,,,,,,,NA,NA,NA
+306,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Makarena,L   ,1,0,1,8h,11h,F.aloalo kely,3,10,60000,Ambatovy,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+307,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Sandry,L    ,1,0,1,8h,12h ,0,0,0,0,Belamera,Voloso,Zanga foty,2,,32000,,,,,,,,,,,,,NA,NA,NA
+308,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Siteve,L     ,1,0,1,8h,11h,H  ,1,3.2,14400,Sarehima,Voloso,bozike,7,,,,,,,,,,,,,,,NA,NA,NA
+309,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Nobele, L,1,0,1,8h,11h,H  ,5,2.8,12600,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+310,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Bisky,L ,2,0,2,8h,12h ,F.tsameareny,8,12.8,51200,Ampilako,Basimpia,F.moroy,1,,,,,,,,,,,,,,,NA,NA,NA
+311,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Zindo,L ,2,0,2,7h,13h,"F,foty",3,9.5,57000,Ampilako,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+312,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,nary,L ,5,0,5,7h,12h ,A,7,14,91000,Sarehima,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+313,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Kolobe,L ,3,0,3,6h,13h,A,14,24,156000,Andaniriake,Harato,F.foty,3,,,,,,,,,,,,,,,NA,NA,NA
+314,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,lahade,L ,1,0,1,8h,11h,F.mainty,11,8.3,20750,Nandoa,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+315,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Razaly,L ,1,0,1,8h,12h ,H  ,1,2.5,11250,Ambatobe,Voloso,Drakake,8,,,,,,,,,,,,,,,NA,NA,NA
+316,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Sangory,L ,1,0,1,8h,11h,F.aloalo be,1,18,117000,Andama ,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+317,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,velo,L ,1,0,1,8h,11h,0,0,0,0,Ankara,Voloso,Zanga dorlisy,54,,7000,,,,,,,,,,,,,NA,NA,NA
+318,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Kirizy,L ,1,0,1,8h,11h,0,0,0,0,Nanohofa,Voloso,F.kabo,1,,,Boziky,51,22,17600,,,,,,,,,NA,NA,NA
+319,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Lahine,L ,1,0,1,8h,11h,H  ,3,4.5,20250,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+320,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Tsima,L ,1,0,1,8h,12h ,F.kely terake,,27.6,69000,Ankemake,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+321,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Siko,L     ,1,0,1,8h,12h ,Lamera,2,5,15000,Ambatovy,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+322,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Sisike,L     ,1,0,1,8h,12h ,H  ,4,2.6,11700,Andama ,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+323,2021 SALARY AUG-OCT Felenie,Felenie,Salary,8/26/2021,Aug,26,2021,Handy,L    ,1,0,1,8h,11h,H  ,1,1,4500,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+324,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,kofrase,L ,1,0,1,6h,11h,0,0,0,0,Ataboly,Basy,Tsaiso,3,,,Zanga dorlisy,140,,14000,,,,,,,,,NA,NA,NA
+325,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Mariso,L ,1,0,1,6h,11h,0,0,0,0,Ataboly,Voloso,Votsandra,1,,,Zanga dorlisy,80,,8000,,,,,,,,,NA,NA,NA
+326,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Langa,L ,1,0,1,6h,11h,0,0,0,0,Ataboly,Basy,Takaho,4,,,Zanga dorlisy,100,,10000,,,,,,,,,NA,NA,NA
+327,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Rafaly,L ,1,0,1,6h,11h,0,0,0,0,Atabohy/nanohofa,Voloso,lamera,1,,,Zanga dorlisy,50,,5000,,,,,,,,,NA,NA,NA
+328,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Severe,L ,1,0,1,8h,1h,F.gogo,350,6,9000,Nanohofa,Makarakara,,,,,,,,,,,,,,,,,NA,NA,NA
+329,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Rikise,L ,1,0,1,6h,12h ,H  ,6,3.5,19200,Belamera,Voloso,F.kabo,2,,,,,,,,,,,,,,,NA,NA,NA
+330,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Zie,L ,1,0,1,7h,11h,"F,foty",3,1.5,6000,Tsimahafoty,Basimpia,F  ,3,,,,,,,,,,,,,,,NA,NA,NA
+331,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Mahaonitse,L ,2,0,2,7h,12h ,F.mainty,12,6,12000,Sarehima,Harato,F.toho,3,,,,,,,,,,,,,,,NA,NA,NA
+332,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Rakoto,L ,2,0,2,8h,12h ,F.lamatra,1,15,105000,Ambohoe,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+333,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Maro ,L ,1,0,1,8h,1h,Tsitsike,3,2.6,25000,Sarehima,Basimpia,Votsandra,3,,,,,,,,,,,,,,,NA,NA,NA
+334,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Beno,L ,3,0,3,9h,12h ,Fay,1,50,75000,Nandoa,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+335,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Asikara,L ,3,0,3,10h,11h,0,0,0,0,Belamera,Vinta,zanga   ,6,,9000,,,,,,,,,,,,,NA,NA,NA
+336,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Daniele,L ,1,0,1,10h,1h,H  ,4,7,31500,Nanohofa,Vinta,F.aloalo,1,,,,,,,,,,,,,,,NA,NA,NA
+337,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Zaza,L  ,1,0,1,10h,1h,F.lovohara,8,11,33000,Andaniriake,Voloso,bozike,2,,,,,,,,,,,,,,,NA,NA,NA
+338,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,kary,L ,1,0,1,10h,2h,0,0,0,0,Nananose,Basimpia,zanga   ,4,,,zanga   ,4,,48000,,,,,,,,,NA,NA,NA
+339,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Boe,L ,3,0,3,8h,12h ,H  ,5,6.8,30600,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+340,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Mahatante,L ,2,0,2,8h,12h ,A,3,5.5,35750,Belamera,Harato,zanga   ,1,,,,,,,,,,,,,,,NA,NA,NA
+341,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Mikola,L ,1,0,1,7h,12h ,A,6,10.1,65650,Belamera,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+342,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,naina,L     ,1,0,1,8h,2h,F,2,4,14000,Ankara,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+343,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Ginto,L    ,2,0,2,6h,2h30,H  ,4,6.7,30150,Tsimahafoty,Harato,Liva,2,,,,,,,,,,,,,,,NA,NA,NA
+344,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Miandry,L   ,2,0,2,8h,2h30,H  ,3,2.3,10350,Nandoa,Harato,Antsive,2,,,,,,,,,,,,,,,NA,NA,NA
+345,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Zerome,L ,2,0,2,10h,12h ,Lamera,1,3,10500,Nanohofa,Vinta,F.Antserake,1,,,,,,,,,,,,,,,NA,NA,NA
+346,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/1/2021,Sep,1,2021,Bisiky,L ,2,0,2,7h,11h,F.foty,3,5.9,35400,Nandoa,Basimpia,A ,3,,,,,,,,,,,,,,,NA,NA,NA
+347,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Nary,L ,1,0,1,8h,12h ,H/soroboa,7,1.5,2250,Andama ,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+348,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Dede,L ,1,0,1,8h,11h,F.foty,8,4.6,11500,Sarehima,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+349,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Siko,L  ,1,0,1,8h,12h ,F.tsifa,1,3,6000,Andaniriake,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+350,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Sambatse,L ,2,0,2,8h,11h,F.foty,4,4.5,11250,Ambatovy,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+351,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Tavo,L ,1,0,1,8h,12h ,Drakake,11,7,14000,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+352,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Sitaviny,L ,1,0,1,7h,11h,H  ,3,0.8,3600,Ankemake,Voloso,F.kabo,1,,,,,,,,,,,,,,,NA,NA,NA
+353,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Foataky,L ,1,0,1,8h,12h ,F.kinirike,5,6,21000,Jokozoko,Voloso,bozike,13,,,,,,,,,,,,,,,NA,NA,NA
+354,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Ramily,L  ,1,0,1,6h,10h,Boziky,50,26,20800,Nanohofa,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+355,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Babo,L ,1,0,1,8h,11h,"F,foty",7,5.1,30600,Ambatobe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+356,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Ramaro,L ,1,0,1,7h,12h ,F.mainty,27,15,37500,Ambavae,Vinta,F.bodoloha,1,,,,,,,,,,,,,,,NA,NA,NA
+357,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Tsiambena,L  ,1,0,1,8h,11h,H  ,2,4.7,21150,Sarehima,Basimpia,zanga   ,1,,,,,,,,,,,,,,,NA,NA,NA
+358,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Role,L ,1,0,1,8h,12h ,H  ,1,2.7,3150,Nandoa,Voloso,F.soroboa,1,,,,,,,,,,,,,,,NA,NA,NA
+359,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Live,L ,1,0,1,7h,11h,H  ,3,2.2,23400,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+360,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Nanola,L ,1,0,1,8h,10h,0,0,0,0,Andanahitse,Voloso,zanga   ,4,,11000,,,,,,,,,,,,,NA,NA,NA
+361,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Finasy,L ,1,0,1,8h,11h,0,0,0,0,Belamera,Voloso,Boziky,21,7,5600,,,,,,,,,,,,,NA,NA,NA
+362,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Lave,L  ,1,0,1,7h,12h ,F.tsifa,3,5.2,18200,Tsimahafoty,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+363,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Naina,L  ,1,0,1,6h,12h ,"F,foty",9,8.3,49800,Andamabe,Vinta,A ,2,,,,,,,,,,,,,,,NA,NA,NA
+364,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Randria,L ,1,0,1,6h,13h,"F,foty",6,5,30000,Nanohofa,Vinta,F.mainty,1,,,,,,,,,,,,,,,NA,NA,NA
+365,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Handy,L ,1,0,1,8h,11h,H  ,1,1.2,5400,Ambohoe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+366,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Zase,L ,1,0,1,8h,11h,H  ,1,2,9000,Ampilako,Voloso,bozike,3,,,,,,,,,,,,,,,NA,NA,NA
+367,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/2/2021,Sep,2,2021,Sele,L ,1,0,1,8h,12h ,H  ,1,1.5,6750,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+368,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,kofrase,L ,1,0,1,8h,11h,H  ,1,3,13500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+369,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,marisele,L ,1,0,1,8h,9h,H  ,2,2.5,11250,Andama ,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+370,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,lahade,L  ,1,0,1,8h,11h,"F,foty",4,5,27500,Sarehima,Basimpia,H  ,1,,,,,,,,,,,,,,,NA,NA,NA
+371,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Tolotra,L ,3,0,3,8h,12h ,H nakora,4,2.5,1000,Ambatovy,Voloso,bozike,13,,,,,,,,,,,,,,,NA,NA,NA
+372,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Remampy,L ,1,0,1,8h30,12h ,H  ,2,3,13500,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+373,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Rolland,L  ,2,0,2,8h,12h ,F.tsameareny,,300,1050000,Ankemake,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+374,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Lengera,L ,1,0,1,7h30,1h,H  ,3,2.5,11250,Ankara,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+375,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Sambatse,L ,1,0,1,8h,12h ,F.tsameareny,7,21,73500,Ankemake,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+376,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,sandry,L ,1,0,1,8h,12h ,H  ,2,3.5,15750,Ankara,Basimpia,zanga   ,1,,,,,,,,,,,,,,,NA,NA,NA
+377,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Vie,L ,1,0,1,7h,12h ,H  ,1,2,9000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+378,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Alinde,L  ,1,0,1,7h,1h,0,0,0,0,Belamera,Voloso,zanga   ,1,,15000,,,,,,,,,,,,,NA,NA,NA
+379,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Tary,L ,1,0,1,6h30,10h,F.tsifa,2,5,17500,Tsimahafoty,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+380,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Zindo,L ,1,0,1,7h,12h ,F.tsameareny,7,8.6,30100,Nanohofa,Basimpia,H  ,2,,,,,,,,,,,,,,,NA,NA,NA
+381,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Ela,L ,1,0,1,8h,12h ,"F,foty",3,7.2,43200,Ambatobe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+382,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Sangala,L ,4,0,4,7h,10h,"F,foty",ND,1 tonne,60000000,Jokozoko,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+383,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Manife,L ,1,0,1,8h,11h,F.voramasake,8,13,58500,Andaniriake,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+384,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Makarena,L ,1,0,1,7h,11h,F.aloalo  ,3,21,115500,Ambatobe,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+385,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Bisiky,L ,1,0,1,7h,11h,F.bodoloha,2,5,20000,Nandoa,Basimpia,bozike,14,,,,,,,,,,,,,,,NA,NA,NA
+386,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Deka,L ,1,0,1,8h,12h ,H  ,5,2.1,94500,Ampilako,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+387,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Teby,L ,1,0,1,8h,12h ,0,0,0,0,Ankemake,Basimpia,zanga   ,1,,15000,,,,,,,,,,,,,NA,NA,NA
+388,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Solofo,L  ,1,0,1,8h,12h ,H  ,4,1.5,6750,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+389,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/3/2021,Sep,3,2021,Harido,L ,1,0,1,8h,12h30,H  ,3,2,9000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+390,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Rakoto Velo,L ,3,0,3,6h,12h ,A,23,40,260000,Andanahitse,Harato,H  ,1,,,,,,,,,,,,,,,NA,NA,NA
+391,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Zelasy,L ,4,0,4,6h,12h ,F.tsoymalinike,ND,123,307500,Avae,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+392,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Teby,L ,2,0,2,7h,12h ,F.tsifa,7,13,32500,Nananose,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+393,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Donasy,L ,1,0,1,7h,12h ,F.mainty,10,7,14000,Nananose,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+394,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Zazalahy,L ,1,0,1,7h,11h,F.bodoloha,5,6.5,13000,Ampilako,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+395,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Delife,L ,2,0,2,6h,11h,F.aloalo  ,2,8.7,56550,Nanohofa,Vinta,zanga   ,2,,,,,,,,,,,,,,,NA,NA,NA
+396,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Tsima,L ,2,0,2,8h,12h ,F.fotihohy,10,9,27000,Tsimahafoty,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+397,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Manife,L ,1,0,1,8h,12h ,F.voramasake,3,6,21000,Andaniriake,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+398,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Zakombary,L ,1,0,1,7h,11h,F.kinirike,8,5,17500,Belamera,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+399,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Ivo,L ,1,0,1,6h,12h ,F.tsameareny,1,3,7500,Andaniriake,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+400,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Sambatse,L ,2,0,2,8h,1h,"F,foty",18,24.9,161850,Jokozoko,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+401,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Tavo,L ,1,0,1,9h,2h,A,4,8.1,48600,Belamera,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+402,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Tovonasy,L ,2,0,2,8h,12h ,F.voramasake,7,9,31500,Belamera,Basimpia,H  ,2,,,,,,,,,,,,,,,NA,NA,NA
+403,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Remampy,L  ,1,0,1,8h,12h ,A,2,3.5,18600,Belamera,Vinta,bozike,21,,,,,,,,,,,,,,,NA,NA,NA
+404,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Ragista,L  ,1,0,1,7h,11h,F.fotihohy,5,4,14000,Belamera,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+405,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,niriko,L ,1,0,1,6h,10h,0,0,0,0,Sarehima,Basimpia,zanga   ,2,,,zanga   ,4,,3500,,,,,,,,,NA,NA,NA
+406,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Zafianake,L ,1,0,1,7h,12h ,F.tsifa,3,7.8,27300,Ambatovy,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+407,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Foatake,L ,1,0,1,8h,12h ,F.mainty,5,8.1,20250,Ambatovy,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+408,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Piaro,L ,1,0,1,8h,1h,F.bodoloha,21,15,37500,Tsimahafoty,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+409,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Fidy,L ,1,0,1,8h,2h,0,0,0,0,Tsimahafoty,Basimpia,zanga   ,2,,45000,,,,,,,,,,,,,NA,NA,NA
+410,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Noely,L ,1,0,1,8h,12h ,H  ,1,2,9000,Sarehima,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+411,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/4/2021,Sep,4,2021,Radona,L ,2,0,3,8h,12h ,F.tsoymalinike,,210,525000,Sarehima,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+412,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Bisiky,L ,1,0,2,8h,12h ,F ,7,8.4,46200,Jokozoko,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+413,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Teby,L ,3,0,1,8h,1h,0,0,0,0,Andaniriake,Basimpia,zanga   ,2,,52000,,,,,,,,,,,,,NA,NA,NA
+414,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Sambatse,L ,2,0,3,7h,11h,zanga   ,1,,27000,Sarehima,Basimpia,zanga   ,1,,27000,,,,,,,,,,,,,NA,NA,NA
+415,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Niila,L ,2,0,2,8h,12h ,A,7,15,75000,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+416,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Zindo,L ,2,0,2,8h,12h ,F.bodoloha,3,8,20000,Andaniriake,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+417,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Rolland,L ,4,0,4,6h,11h,E,10,5.6,19600,Ankara,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+418,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Sangala,L ,6,0,6,6h,10h,F ,5,4.2,14700,Belamera,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+419,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Manife,L ,1,0,1,7h,11h,F ,5,14,35000,Nandoa,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+420,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Edmond,L ,4,0,4,8h,12h ,F ,40,88.9,222250,Bemena,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+421,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Dede,L ,2,0,2,8h,12h ,0,0,0,0,Nandoa,Basimpia,zanga   ,1,,20000,,,,,,,,,,,,,NA,NA,NA
+422,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Nampy,L ,3,0,3,8h,12h ,A,6,10.2,66300,Sarehima,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+423,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Jery,L  ,2,0,2,8h,1h,F ,11,12,42000,Andaniriake,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+424,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Radona,L  ,1,0,1,8h30,1h,F.tsoy ,ND,24,60000,Jokozoko,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+425,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,naina,L ,1,0,1,8h,1h30,F.voramasake,3,7,24500,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+426,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Bika,L ,3,0,3,7h,12h ,H  ,4,2.5,11250,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+427,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Nandy,L ,4,0,4,8h,1h30,H  ,2,5,22500,Tsimahafoty,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+428,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Rico,L  ,3,0,3,6h,11h,F.llanora,1,7.8,23400,Andama ,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+429,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Azelon,L ,1,0,1,6h,11h,F.tsifa,6,18,45000,Tsimahafoty,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+430,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Noke,L ,1,0,1,7h,12h ,F.aloalo  ,1,15,97500,Nanohofa,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+431,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Fredinand,L ,3,0,3,8h,12h ,H  ,2,3.1,13950,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+432,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,Live,L ,2,0,2,8h,12h ,F ,8,12.5,37500,Belamera,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+433,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/7/2021,Sep,7,2021,tsily,L ,2,0,2,8h,12h ,F.lovo ,1,6,15000,Belamera,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+434,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Soazana,V,0,4,4,8h,12h ,0,0,0,0,Belamera,Voloso,Zanga,8,,4000,,,,,,,,,,,,,NA,NA,NA
+435,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Motirake,V,0,3,3,8h,12h ,H  ,5,7,35000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+436,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,tsily,L ,1,0,1,8h,12h ,F ,8,5,20000,Belamera,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+437,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Osta,L ,1,0,1,8h,12h ,F ,7,3.5,14000,Ambatovy,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+438,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Fetsy,V,0,5,5,8h,12h ,0,0,0,0,Ambatovy,Voloso,zanga   ,22,,11000,,,,,,,,,,,,,NA,NA,NA
+439,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Landorose,L ,2,0,2,8h,12h ,F ,10,12,48000,Andaniriake,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+440,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Marovavy,L/V,1,1,2,8h,12h ,Bindra/horita,4,2,10000,Jokozoko,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+441,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Zongize,V,0,4,4,8h,12h ,0,0,0,0,Belamera,Voloso,zanga   ,35,,12500,,,,,,,,,,,,,NA,NA,NA
+442,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Vien,L ,1,0,1,8h,12h ,H  ,2,3,15000,Ankara,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+443,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Kolinike,V,0,2,2,8h,12h ,Liva/horita,2,1,5000, Antandeo,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+444,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Nandy,L ,1,0,1,8h,12h30,A,4,1,10000,Nanohofa,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+445,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Misele,L ,3,0,3,8h,12h30,F ,6,3,12000,Nanohofa,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+446,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Zilasy,L ,1,0,1,8h,12h30,F ,8,4,16000,Andaniriake,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+447,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Faneva,V,0,3,3,8h,12h30,0,0,0,0,Antandeo,Voloso,zanga   ,12,,6000,,,,,,,,,,,,,NA,NA,NA
+448,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Orely,V,0,2,2,8h,12h30,Bindra/horita,3,1,5000,Ambatovy,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+449,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Tery,L ,2,0,2,8h,1h,H  ,3,1.5,75000,Jokozoko,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+450,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Mizie,L   ,2,0,2,8h,1h,H  ,6,4.5,22500,Belamera,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+451,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Tany,L    ,1,0,1,8h,1h,F ,2,8,32000,Ankara,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+452,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,kristophe,L   ,1,0,1,8h,1h,H  ,4,3.5,17500,Andanahitse,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+453,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Leontiny,V,0,4,4,8h,1h30,H  ,10,13,65000,Ambolivato,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+454,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Rimbe,L   ,3,0,3,8h,1h30,F ,17,15,60000,Antandeo,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+455,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/8/2021,Sep,8,2021,Juste,L   ,1,0,1,8h,1h30,F ,9,4.5,18000,Andaniriake,Basimpia,,,,,,,,,,,,,,,,,NA,NA,NA
+456,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Siko,L ,1,0,1,8h,11h30,Drakake,30,18,36000,Anose/Taboly,basy,F.ledra,1,,,,,,,,,,,,,,,NA,NA,NA
+457,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Rolland,L  ,5,0,5,4h,2h,F.tsifa,70,120,180000,Nananose,Harato be,,,,,,,,,,,,,,,,,NA,NA,NA
+458,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Manife,L ,1,0,1,6h,12h ,F.voramasake,7,8.5,29750,Belamera,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+459,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Zerome,L ,3,0,3,6h,12h ,0,0,0,0,Nananose,basy,F.bodoloha,3,,,zanga benono,3,,60000,,,,,,,,,NA,NA,NA
+460,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Sambatse,L ,2,0,2,7h,11h,F.soroboa,4,ND,62000,Andamabe,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+461,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Zindo,L  ,2,0,2,7h,12h ,Fay sify,7,ND,47000,Belamera,basy,zanga   ,1,,,,,,,,,,,,,,,NA,NA,NA
+462,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,kary,L ,1,0,1,7h,11h,F.tsifa,2,,ND,Antandeo,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+463,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Monde,L ,1,0,1,8h,11h,0,0,0,0,Ankara,basy,zanga   ,,,,,,,,,,,,,,,,NA,NA,NA
+464,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Dede,L ,1,0,1,8h,12h ,F.kapiteny,ND,ND,ND,Nandoa,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+465,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Boe,L ,1,0,1,8h,12h ,F.valala,ND,ND,ND,Nandoa,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+466,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Mahatante,L ,3,0,3,8h,12h ,F.voramasake,ND,ND,ND,Tsimahafoty,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+467,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Gisita,L ,3,0,3,8h,12h ,F.tsoy ,ND,ND,ND,Sarehima,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+468,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Zafianake,L  ,2,0,2,8h,12h ,F.lamatra,ND,ND,ND,Belamera,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+469,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Gizave,L ,1,0,1,8h,12h ,F.llanora,ND,ND,ND,Sarehima,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+470,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Mario,L ,1,0,1,8h,12h ,0,0,0,0,Ambatovy,Voloso,zanga   ,,,,,,,,,,,,,,,,NA,NA,NA
+471,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Aniso,L ,1,0,1,8h,12h ,H  ,ND,ND,ND,Nananose,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+472,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Live,L ,2,0,2,8h,12h ,H  ,ND,ND,ND,Nananose,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+473,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Handy,L ,1,0,1,8h,12h ,A,ND,ND,ND,Nananose,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+474,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Babo,L ,2,0,2,8h,12h ,Takalo,ND,ND,ND,Andanahitse,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+475,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Alinde,L  ,1,0,1,8h,12h ,F.kabo,ND,ND,ND,Andaniriake,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+476,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Razaly,L  ,1,0,1,8h,12h ,H  ,ND,ND,ND,Andaniriake,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+477,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/12/2021,Sep,12,2021,Merike,L  ,1,0,1,8h,12h ,H  ,ND,ND,ND,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+478,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Zelasy,L  ,4,0,4,7h,12h ,F ,ND,ND,ND,Nanohofa,Harato be,,,,,,,,,,,,,,,,,NA,NA,NA
+479,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Mizie,L ,3,0,3,7h,12h ,F ,ND,ND,ND,Belamera,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+480,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Mamade,L ,1,0,1,7h,12h ,0,0,0,0,Nanohofa,basy,zanga   ,,,,,,,,,,,,,,,,NA,NA,NA
+481,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Bila,L ,1,0,1,7h,12h ,0,0,0,0,Belamera,basy,zanga   ,,,,,,,,,,,,,,,,NA,NA,NA
+482,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Mana ,L ,1,0,1,7h,12h ,Lamera,ND,ND,ND,Nananose,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+483,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Juste,L ,2,0,2,7h,12h ,Morosy,ND,ND,ND,Andanahitse,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+484,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,maharitse,L ,2,0,2,7h,12h ,F.kabo,ND,ND,ND,Andaniriake,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+485,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Radona,L ,4,0,4,7h,12h ,Lamera,ND,ND,ND,Tsimahafoty,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+486,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Kirizy,L ,2,0,2,7h,12h ,F.voramasake,ND,ND,ND,Tsimahafoty,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+487,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Loda,L ,1,0,1,7h,12h ,A,ND,ND,ND,Sarehima,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+488,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Dada,L ,1,0,1,7h,12h ,A,ND,ND,ND,Sarehima,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+489,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Fredinand,L ,1,0,1,7h,12h ,A,ND,ND,ND,Sarehima,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+490,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Tary,L ,3,0,3,7h,12h ,F ,ND,ND,ND,Nanohofa,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+491,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Zandry,L ,1,0,1,7h,12h ,0,0,0,0,Ambohoe,basy,zanga   ,,,,,,,,,,,,,,,,NA,NA,NA
+492,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Manife,L ,1,0,1,7h,12h ,H  ,ND,ND,ND,Ambohoe,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+493,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Dede,L ,1,0,1,7h,12h ,H  ,ND,ND,ND,Ankara,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+494,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Kary,L ,2,0,2,7h,12h ,0,0,0,0,Ambatovy,Vinta,Boziky,,,,,,,,,,,,,,,,NA,NA,NA
+495,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Badada,L ,2,0,2,7h,12h ,H  ,ND,ND,ND,Nanohofa,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+496,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Teby,L ,1,0,1,7h,12h ,F ,ND,ND,ND,Anose ,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+497,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Siko,L ,1,0,1,7h,12h ,F.lanilany,ND,ND,ND,Andohahola,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+498,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/13/2021,Sep,13,2021,Zido,L ,2,0,2,7h,12h ,F.anterake,ND,ND,ND,Belamera,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+499,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Manife,L     ,1,0,1,8h,11h,F.voramasake,4,7.5,3045,Andama ,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+500,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Jean,L ,1,0,1,8h,11h,F.valala,ND,27.5,68750,Ankara,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+501,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Nary,L ,1,0,1,7h,11h,0,0,0,0,Ambolivato,basy,zanga   ,1,,35000,,,,,,,,,,,,,NA,NA,NA
+502,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Nanola,L ,1,0,1,7h,11h,H  ,1,0.7,3150,Ampilako,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+503,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Stephan,L ,1,0,1,7h,11h,H  ,1,1.5,6750,Nananose,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+504,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Teby,L ,2,0,2,7h,11h,0,0,0,0,Nandoa,basy,zanga   ,2,,37000,,,,,,,,,,,,,NA,NA,NA
+505,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Sambatse,L ,2,0,2,7h,11h,F.angy,,4.6,16100,Andamabe,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+506,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Edmond,L ,6,0,6,7h,14h,f.foty,,75,412500,Ampilako,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+507,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Tavo,L ,1,0,1,7h,12h ,H  ,1,1,4500,Tsimahafoty,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+508,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Sitaviny,L ,1,0,1,7h,12h ,F.angy,,2.7,67500,Ankara,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+509,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Bisky,L ,2,0,2,7h,12h ,0,0,0,0,Ambatobe,basy,zanga   ,1,,36000,,,,,,,,,,,,,NA,NA,NA
+510,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Dede,L ,1,0,1,7h,12h ,0,0,0,0,Nananose,basy,zanga   ,7,,15000,,,,,,,,,,,,,NA,NA,NA
+511,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Zindo,L ,2,0,2,8h,12h ,F.tsifa,2,21,31500,Ambatovy,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+512,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Razaly,L ,1,0,1,7h,12h ,H  ,5,1.5,6750,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+513,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Tsima,L ,1,0,1,7h,12h ,A,4,3,18000,Nandoa,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+514,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Rico,L  ,1,0,1,7h,11h,A,4,2,12000,Tsimahafoty,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+515,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Mario,L ,1,0,1,8h,11h,H nakora,7,3,6000,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+516,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Nasolo,L ,1,0,1,8h,11h,H  ,1,0.5,2250,Ankemake,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+517,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Monde,L ,1,0,1,7h,11h,H  ,1,0.4,1800,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+518,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,Zafy,L    ,1,0,1,7h,11h,H  ,1,9.6,27000,Sarehima,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+519,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,lahade,L    ,1,0,1,7h,11h,F.angy,,3.1,7750,Nandoa,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+520,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/14/2021,Sep,14,2021,sandry,L    ,1,0,1,8h,11h,F.valala,,7,17500,Nandoa,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+521,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Tery,L ,1,0,1,8h,11h,0,0,0,0,Belamera,Voloso,F.lanora,1,,,Boziky,8,2.5,2500,,,,,,,,,NA,NA,NA
+522,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Mahoniysy,L ,1,0,1,8h,11h,H nakora,12,3.5,10500,Ataboly,Voloso,F.ledra,2,,,,,,,,,,,,,,,NA,NA,NA
+523,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Maro ,L ,1,0,1,8h,10h,H  ,1,0.5,2700,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+524,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,bay,L ,1,0,1,8h,11h,0,0,0,0,Ataboly,Voloso,Zanga dorlisy,60,,6000,,,,,,,,,,,,,NA,NA,NA
+525,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Daniele,L ,1,0,1,8h,11h,H nakora,8,2,6000,Andamabe,Voloso,F.ledra,1,,,,,,,,,,,,,,,NA,NA,NA
+526,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Nandy,L ,1,0,1,7h,10h,H  ,2,1.5,8200,Nandoa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+527,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Charles,L  ,1,0,1,7h,11h,F.tabake,4,3.5,7000,Belamera,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+528,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Tibo,L ,1,0,1,7h,11h,F.tabake,1,1.5,3000,Andamabe,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+529,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Refandra,L ,1,0,1,7h,10h,Zanga zomaly,4,,8000,Belapa,Voloso,F.toho,1,,,,,,,,,,,,,,,NA,NA,NA
+530,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Retovo,L ,1,0,1,7h,11h,0,0,0,0,Belamera,Vinta,F.voramasake,5,2.5,8700,,,,,,,,,,,,,NA,NA,NA
+531,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Zerome,L  ,1,0,1,7h,11h,0,0,0,0,Andrefa,vy,zanga benono,3,,75000,,,,,,,,,,,,,NA,NA,NA
+532,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,kary,L ,1,0,1,7h,11h,F.angy,32,15,30000,Nanohofa,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+533,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Go,L ,1,0,1,7h,11h,H nakora,8,2.5,7500,Andamabe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+534,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Boete,L ,1,0,1,7h,11h,Drakake,30,6,12000,Ataboly,Sabora,,,,,,,,,,,,,,,,,NA,NA,NA
+535,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Siko,L ,1,0,1,7h,11h,0,0,0,0,Ataboly,Voloso,Zanga dorlisy,102,,10400,,,,,,,,,,,,,NA,NA,NA
+536,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Foataky,L ,1,0,1,7h,11h,F.tabake,42,10,20000,Nandoa,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+537,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Zasime,L ,1,0,1,7h,12h ,F.foty,11,3.5,14000,Sarehima,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+538,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Zindo,L ,1,0,1,7h,12h ,0,0,0,0,Ambohoe,vy,zanga benono,4,,80000,,,,,,,,,,,,,NA,NA,NA
+539,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Rico,L ,1,0,1,7h,12h ,H nakora,4,1,3000,Andama ,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+540,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Ramose Dada,L ,1,0,1,8h,12h ,H  ,2,1.5,8200,Jokozoko,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+541,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Kila,L ,1,0,1,6h,12h ,H  ,1,2.5,13700,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+542,2021 SALARY AUG-OCT Felenie,Felenie,Salary,9/15/2021,Sep,15,2021,Gistave,L   ,1,0,1,8h,11h,"F,foty",8,3,12000,Nanohofa,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+543,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Alinde,L/V,3,3,6,9h,3h30,H  ,1,1,7000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+544,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Reboba,L ,1,0,1,8h,3h,H  ,4,3.5,24500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+545,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Sambatse,L/V,3,4,7,9h,3h,H  ,2,2.5,17500,Belamera,Voloso,Zanga tsokena,2,,,,,,,,,,,,,,,NA,NA,NA
+546,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Deka,L  ,1,0,1,8h,3h,H  ,2,1.5,10500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+547,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Velo,L  ,1,0,1,9h,3h30,H  ,1,0.5,3500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+548,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Lave,L ,1,0,1,9h,3h,H  ,2,2.5,17500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+549,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Nasy,L  ,1,0,1,9h,3h30,H  ,1,0.5,3500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+550,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Manife,L  ,1,0,1,7h,3h,H  ,2,2.5,17500,Belamera,Voloso,F.voramasake,6,,,,,,,,,,,,,,,NA,NA,NA
+551,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Dridry,L/V,2,2,4,9h,3h30,H  ,3,1.5,10500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+552,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Tany,L ,3,0,3,9h,4h,F.tsoy ,16,2,8000,Belamera,Voloso,H,1,,,,,,,,,,,,,,,NA,NA,NA
+553,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Fidy,L ,1,0,1,7h,3h,H  ,1,2,14000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+554,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Noeline,V  ,0,1,1,9h,3h,H  ,1,0.5,3500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+555,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Forake,L ,1,0,1,9h,3h,H  ,1,1,7000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+556,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Marisele,L ,1,0,1,7h,3h,H  ,1,0,3500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+557,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Nanola,L  ,1,0,1,7h,3h,H  ,6,8,56000,Nananose,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+558,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Solofo,L/V,1,1,2,9h,3h30,H  ,1,3.5,24500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+559,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Reladra,L   ,1,0,1,7h,3h30,H  ,6,14,98000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+560,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/9/2021,Oct,9,2021,Noely,L   ,1,0,1,7h,3h30,H  ,3,2.5,10500,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+561,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Babo,L ,1,0,1,7h,2h,H  ,1,3,21000,Nananose,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+562,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,KOfrance,L ,1,0,1,7h,2h,H  ,4,4,28000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+563,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Dada,L ,1,0,1,7h,12h ,H  ,1,1,7000,Belamera,TSY MISY,,,,,,,,,,,,,,,,,NA,NA,NA
+564,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,FInasy,L/V,1,2,3,8h,2h,H  ,4,3,21000,Belamera,TSY MISY,,,,,,,,,,,,,,,,,NA,NA,NA
+565,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Forake,L ,1,0,1,10h,4h,H  ,1,2.5,17500,Belamera,TSY MISY,,,,,,,,,,,,,,,,,NA,NA,NA
+566,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Kirizy,L   ,1,0,1,10h,4h,H  ,1,0.5,35000,Belamera,TSY MISY,,,,,,,,,,,,,,,,,NA,NA,NA
+567,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Alinde,L  ,1,0,1,7h,2h,H  ,2,3,21000,Nananose,TSY MISY,,,,,,,,,,,,,,,,,NA,NA,NA
+568,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Remaro,L  ,2,0,2,7h,3h,"F,foty",20,3,12000,Nanohofa,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+569,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Tsabena,L  ,2,0,2,8h,2h30,F.Mainte,4,2,4000,Jokozoko,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+570,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Deka,L   ,1,0,1,10h,4h,H  ,1,2.5,17500,Andaniriake,TSY MISY,,,,,,,,,,,,,,,,,NA,NA,NA
+571,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Nakae,L  ,1,0,1,10h,4h,Lamera,3,4,8000,Belamera,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+572,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Fanampe,L ,1,0,1,10h,4h,H  ,2,6,42000,Nanohofa,ND,,,,,,,,,,,,,,,,,NA,NA,NA
+573,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Ela,L ,1,0,1,7h,2h,H  ,3,1,7000,Nananose,ND,,,,,,,,,,,,,,,,,NA,NA,NA
+574,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Live,L ,1,0,1,7h,2h,H  ,3,0.2,3500,Nananose,ND,,,,,,,,,,,,,,,,,NA,NA,NA
+575,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Felikise,L ,1,0,1,7h,2h,0,0,0,0,Nananose,ND,zanga benono,1,2,5000,,,,,,,,,,,,,NA,NA,NA
+576,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Rivike,L ,1,0,1,10h,4h,H  ,6,10,70000,Belamera,ND,,,,,,,,,,,,,,,,,NA,NA,NA
+577,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Nila,V  ,0,6,6,10h,4h,0,0,0,0,Jokozoko,ND,zanga tsokena,22,,33000,,,,,,,,,,,,,NA,NA,NA
+578,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Zanie,V  ,0,6,6,10h,4h,0,0,0,0,Nandoa,ND,zanga tsokena,18,,27000,,,,,,,,,,,,,NA,NA,NA
+579,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/10/2021,Oct,10,2021,Fara,V  ,0,5,5,10h,4h,0,0,0,0,Nandoa,Voloso,Benono,,,,zanga folera,70,,14000,,,,,,,,,NA,NA,NA
+580,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Alinde,L      ,1,0,1,6h,2h,H  ,3,1.5,9000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+581,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Zasike,L      ,1,0,1,6h,2h,H  ,8,5,30000,Belamera,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+582,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Nakae,L      ,1,0,1,6h,2h,F.Mainte,8,3,6000,Jokozoko,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+583,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Deka,L      ,1,0,1,7h,2h,H  ,4,2.5,15000,Marerano,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+584,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Marisele,L      ,1,0,1,7h,2h,H  ,1,2.5,15000,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+585,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,KOfrance,L      ,1,0,1,7h,12h ,H  ,3,2,12000,Sarehima,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+586,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Loda,L      ,1,0,1,6h,2h30,Lamera,1,2,4000,Nanohofa,basy,Zanga tsokena,2,,,,,,,,,,,,,,,NA,NA,NA
+587,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Mariso,L      ,1,0,1,6h,3h,0,0,0,0,Ataboly,Tana,Dorlisy,60,,6000,,,,,,,,,,,,,NA,NA,NA
+588,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Lengra,L      ,1,0,1,6h,3h,0,0,0,0,Ataboly,Tana,Dorlisy,65,,6500,,,,,,,,,,,,,NA,NA,NA
+589,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Sambatse,L      ,1,0,1,7h,2h,F.Mainte,25,4,10000,Nanohofa,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+590,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Nobole,L      ,1,0,1,7h,2h,H  ,2,1,6000,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+591,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Manife,L      ,1,0,1,4H,12h ,F.voramasake,6,3.5,12250,Belamera,Vinta,F.Mainte,,,,,,,,,,,,,,,,NA,NA,NA
+592,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Fidy,L      ,1,0,1,4H,12h ,F.Mainte,18,3,6000,Nanohofa,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+593,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,FInasy,L      ,1,0,1,6h,2h,H  ,2,1.5,9000,Andamabe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+594,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Tsabena,L      ,2,0,2,7h,3h,F.tsifa,1,1,2000,Jokozoko,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+595,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/15/2021,Oct,15,2021,Fosy,L      ,3,0,3,4H,2h,F.Babake,4,2,4000,Ambohoe,Harato,,,,,,,,,,,,,,,,,NA,NA,NA
+596,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,KOfrance,L       ,1,0,1,7h,2h,H  ,5,2.5,15000,Andamabe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+597,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Mariso,L       ,1,0,1,7h,2h,H  ,1,2.5,15000,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+598,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Alinde,L       ,1,0,1,6h,12h ,H  ,8,4,24000,Mahasaha,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+599,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Nobole,L       ,2,0,2,7h,1h,H  ,5,2.5,15000,Nananose,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+600,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Deka,L       ,1,0,1,7h,2h,H  ,2,1.5,9000,Nanohofa,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+601,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Reso,L       ,1,0,1,7h,2h,H  ,2,1,6000,Andamabe,Voloso,,,,,,,,,,,,,,,,,NA,NA,NA
+602,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Sambatse,L       ,2,0,2,6h,1h,H  ,8,5,30000,Nananose,Voloso,F.Tsifa,2,,,,,,,,,,,,,,,NA,NA,NA
+603,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Manife,L       ,1,0,1,4H,12h ,F.voramasake,16,10,35000,Belamera,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+604,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Tsima,L       ,1,0,1,4H,12h ,A,4,1.5,15000,Andama ,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+605,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Fidy,L       ,3,0,3,7h,7h,F.valala,1/2 sac,20.5,31500,Ambohoe,Harato,Soroboa,2,,,,,,,,,,,,,,,NA,NA,NA
+606,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Fosy,L       ,1,0,1,6h,4h,F.Votso,1,6,21000,Ambavabelamera,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+607,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Dame,L       ,1,0,1,6h,12h ,F.aloalo  ,1,5,15000,Ambavae,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+608,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Nampy,L       ,1,0,1,7h,1h,A,4,5,50000,Jokozoko,Vinta,,,,,,,,,,,,,,,,,NA,NA,NA
+609,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Ramampy,L       ,1,0,1,8h,1h,H  ,2,1.5,9000,Tanndeo,Voloso,F.toho,1,,,,,,,,,,,,,,,NA,NA,NA
+610,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Evo,L       ,1,0,1,7h,2h,0,0,0,0,Ataboly,Tana,Dorlisy,20,,2000,,,,,,,,,,,,,NA,NA,NA
+611,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Rafaly,L       ,1,0,1,7h,2h,0,0,0,0,Ataboly,Tana,Dorlisy,4,,4000,,,,,,,,,,,,,NA,NA,NA
+612,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Mahatante,L       ,2,0,2,6h,7h,Fay  ,1,,45000,Ambohoe,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+613,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Sisy,L       ,1,0,1,6h,12h ,F.Bondro,4,1.5,3000,Andama ,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+614,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Paty,L       ,4,0,4,7h,6h,F.Mainte,22,8.5,21500,Andohariake,basy,,,,,,,,,,,,,,,,,NA,NA,NA
+615,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Mariso,L       ,3,0,3,6h,1h,0,0,0,0,Ambavabelamera,Torse,Zangambato,5,,15000,,,,,,,,,,,,,NA,NA,NA
+616,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Dimby,L       ,2,0,2,7h,3h,0,0,0,0,Andamabe,Torse,Zanga zomaly,3,,4000,,,,,,,,,,,,,NA,NA,NA
+617,2021 SALARY AUG-OCT Felenie,Felenie,Salary,10/16/2021,Oct,16,2021,Lahade,L       ,1,0,1,6h,12h ,0,0,0,0,Ambolivato,Torse,Lamera,1,,,Zanga zomaly,2,,3000,,,,,,,,,NA,NA,NA
