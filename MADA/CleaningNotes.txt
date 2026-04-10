@@ -4,7 +4,7 @@
 
 1. Data download. Each file opened, checked to make sure correct columns are filled with data (this was done manually)
 
-2. OG filename added to dataset column for reference
+2. OG filename added to dataset column for reference. Renamed all datasets to S# or T# based on village so 
 
 
 words:
@@ -20,3 +20,37 @@ tsy misy - Not Available
 - Note, catch and amounts were kept together if they were next to eachother. For example, under other.catch.type, other.catch.amount, and other.catch.weight are the following:
 FIA, ZANGA, 1. Here I left Fia as uncounted and assumed the 1 was associated with teh zanga 
 - Some species were listed as name number but the number caught was also filled out. If this was the case, this number was dropped
+
+11.00-12.30
+2.30-3.30
+
+1. Combined all datasets (Doing Salary and Tsiandamba) separately
+2. Standardized dates and times
+3. Added a tow ID (congruent with Olivia's data cleaning) and standardized times. Anira got back to me with some translation answers. File included in drive
+4. Translating amounts:
+	
+03/30/2026
+09.15-10.30 Doing the mandatory harassment training I apparently forgot to do
+
+04/01/2026
+
+Start: 3:00- 5:30
+
+1. Continuing species IDs. After completing Salary:
+	Go through sub product names and add to list
+	Find sources for all of these
+	Convert to gdrive
+	Go through local names for the ones I don't know
+
+Repeat with Tsimba
+
+
+04/03/2026
+
+1.30-2.30
+
+
+04/05
+12:00-2:00
+16.15 - 17.15
+

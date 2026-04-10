@@ -400,8 +400,8 @@ RecDevs <- Proj_ests %>%
   filter(Year > 2022) %>%
   group_by(EM_name, seed_no) %>%
   summarise(NAADevs = sd(OM_NAA_devs),
-            SigR = mean(OM_NAAsigma_youngest)) %>%
-  mutate(Rec_Ecov = NAADevs + SigR)
+            SigR = mean(exp(OM_NAAsigma_youngest))) %>%
+  mutate(Rec_Ecov = SigR - NAADevs)
 
 tableinfo <- RecDevs %>%
   group_by(EM_name) %>%
@@ -432,7 +432,7 @@ tableinfo$Maxiumun <- round(tableinfo$Maxiumun, digits = 4)
 
 colnames(tableinfo) <- c('EM Name','Mean','SD','Minimum', 'Maximum')
 
-kable(tableinfo, caption = 'GAVIN SHOULD I REPORT A MEAN OR A MEDIAN W QUARTILE RANGES HERE. ALSO NECESSARY?')
+kable(tableinfo, caption = 'GAVIN SHOULD I REPORT A MEAN OR A MEDIAN W QUARTILE RANGES HERE. ALSO NECESSARY? DOUBLE CHECK CALC ON THIS ONE. I THINK IM SWITCHING NAA DEVS AND SIGMAR')
 
 ```
 
@@ -463,8 +463,8 @@ OverfishedStatus <- BRP_data %>%
 
 
 BRPTable <- OverfishedStatus %>%
-  mutate(OverFishedYN = case_when(OM_Overfished < 1 ~ 1,
-                                  OM_Overfished >= 1 ~ 0,
+  mutate(OverFishedYN = case_when(OM_Overfished < .5 ~ 1,
+                                  OM_Overfished >= .5 ~ 0,
                                   ),
          OverFishingYN = case_when(OM_Overfishing > 1 ~ 1,
                                    OM_Overfishing <= 1 ~ 0)) %>%
