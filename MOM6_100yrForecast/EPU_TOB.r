@@ -13,10 +13,10 @@ for(i in 1:length(scenario)){
   dataclip <- dataclip %>%
     filter(Date <= "2022-07-02")
   
-  pnts_sf <- st_as_sf(dataclip, coords = c('Lon', 'Lat'), crs = st_crs(4269))
-  pnts_trans <- pnts_sf# st_transform(pnts_sf, 2163) # I have no idea if we need to care about this warning message
+  pnts_trans <- st_as_sf(dataclip, coords = c('Lon', 'Lat'), crs = st_crs(4269))
+  #pnts_trans <- pnts_sf# st_transform(pnts_sf, 2163) # I have no idea if we need to care about this warning message
   
-  rm(pnts_sf, dataclip)
+  rm(dataclip)
   
 
   StatAreas <- read_sf("C:/Users/swulfing/Documents/GitHub/UMassD/MOM6_100yrForecast/EPUs/EPU_extended.shp")
@@ -30,7 +30,7 @@ for(i in 1:length(scenario)){
     
     #GOM_Data <- st_intersection(dataclip, GBK)
 
-    tt_trans <- StatAreas # tt_trans <- st_transform(StatAreas, 2163)
+    tt_trans <- st_make_valid(StatAreas) # tt_trans <- st_transform(StatAreas, 2163)
 
     # Seeing which points fall within the StatAreas
     pnts_trans <- pnts_trans %>% mutate(
@@ -48,7 +48,7 @@ for(i in 1:length(scenario)){
 
     data_list <- data_list %>%
       group_by(Year) %>%
-      summarise(Mean_Tob = mean(Mean))
+      summarise(Mean_Tob = mean(Mean, na.rm = TRUE))
     
     if(j==2){
       saveRDS(data_list, paste0('C:/Users/swulfing/Documents/GitHub/UMassD/MOM6_100yrForecast/EPU_TOB/', scenario[i], '_GBK.RDS'))

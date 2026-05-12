@@ -24,20 +24,20 @@ for(i in 1:length(scenario)){
   #   filter(Date <= "2022-07-02")
   
   pnts_trans <- st_as_sf(dataclip, coords = c('Lon', 'Lat'), crs = st_crs(4269))
-  #pnts_trans <- pnts_sf# st_transform(pnts_sf, 2163) # I have no idea if we need to care about this warning message
+  # pnts_trans <- pnts_sf# st_transform(pnts_sf, 2163) # I have no idea if we need to care about this warning message
   
   rm(dataclip)
   
-  StatAreas <- read_sf(paste0(workfolder,"EPUs/EPU_extended.shp"))
+  StatAreas <- read_sf(paste0(workfolder,"NEFSC_GIS/Statistical_Areas_2010.shp"))
   
   for(j in 1:2){
-    
-    if(j == 2){
-      StatAreas <-  StatAreas %>%
-        filter(EPU == 'GB')
+    if(j == 1){
+      GOM_stats <- as.integer(c(513, 514, 515, 521, 526, 541)) # COD
+    }else{
+      GOM_stats <- as.integer(c(464, 465, 511, 512, 513, 514, 515)) # HADDOCK
     }
     
-    #GOM_Data <- st_intersection(dataclip, GBK)
+    StatAreas <- subset(StatAreas, subset = Id %in% GOM_stats)
     
     tt_trans <- st_make_valid(StatAreas) # tt_trans <- st_transform(StatAreas, 2163)
     
@@ -59,10 +59,10 @@ for(i in 1:length(scenario)){
       group_by(Year) %>%
       summarise(Mean_Tob = mean(Mean, na.rm = TRUE))
     
-    if(j==2){
-      saveRDS(data_list, paste0(workfolder,Outputs,'/', scenario[i], '_GBK.RDS'))
+    if(j==1){
+      saveRDS(data_list, paste0(workfolder,Outputs,'/', scenario[i], '_TOBGOM_COD.RDS'))
     }
-    else{saveRDS(data_list, paste0(workfolder,Outputs,'/', scenario[i], '_EPU.RDS'))}
+    else{saveRDS(data_list, paste0(workfolder,Outputs,'/', scenario[i], '_TOBGOM_HADDOCK.RDS'))}
   }
   
   # }, error=function(e){

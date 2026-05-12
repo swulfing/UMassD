@@ -18,7 +18,7 @@ for(j in 1:length(scenario)) {
                              TOB = c())
 
 for(i in 1970:2100){
-  url <- paste0('C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MOM6FORECASTPULL/', scenario[j],'/',scenario[j],'/tob/tob_',i,'.nc')
+  url <- paste0('C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/MOM6FORECASTPULL/', scenario[j],'/',scenario[j],'/tos/tos_',i,'.nc')
   tryCatch({
     
     nc <- nc_open(url)
@@ -33,11 +33,11 @@ for(i in 1970:2100){
     
     # Read a slice of the data into memory
     
-    tob <- ncvar_get(nc, "tob", start = c(1, 1, timestart), count = c(-1, -1, 1)) # Dimensions (LAT, LON, LEAD, MEMBER (idk wtf member is)), DEPENDING ON WHAT YOU PULL, THESE DIMENSIONS MAY CHANGE ORDER. Here, I am taking all lat/lon data and just one timestep and one 'member' (again, don't know wtf that is)
+    tos <- ncvar_get(nc, "tos", start = c(1, 1, timestart), count = c(-1, -1, 1)) # Dimensions (LAT, LON, LEAD, MEMBER (idk wtf member is)), DEPENDING ON WHAT YOU PULL, THESE DIMENSIONS MAY CHANGE ORDER. Here, I am taking all lat/lon data and just one timestep and one 'member' (again, don't know wtf that is)
     
     #MATCH YOUR SECOND ELEMENTS IWTH THE TIME START AND COUNT.
-    nrow(tob) # Should match your lon dims
-    ncol(tob) # should match your lat dims
+    nrow(tos) # Should match your lon dims
+    ncol(tos) # should match your lat dims
     
     tunits <- ncatt_get(nc, "time", "units")
     datesince <- tunits$value
@@ -51,9 +51,9 @@ for(i in 1970:2100){
     
     # Create a df of all points within time step
     df <- expand.grid(Lon = lon, Lat = lat)
-    df$TOB <- as.vector(tob)   # NO t() — dimensions already match
+    df$TOS <- as.vector(tos)   # NO t() — dimensions already match
     df$Date <- as.Date(datetime_var)
-    names(df) <- c("Lon", "Lat", "TOB", 'Date')
+    names(df) <- c("Lon", "Lat", "TOS", 'Date')
     
  TempTimeseries <- rbind(TempTimeseries, df)
  
@@ -65,5 +65,5 @@ for(i in 1970:2100){
   })
 }
   #write.csv(TempTimeseries, paste0(wd, '/', scenario[j], '.csv'))
-  saveRDS(TempTimeseries, paste0(wd, '/', scenario[j], '.rds'))
+  saveRDS(TempTimeseries, paste0(wd, '/', scenario[j], '_TOS.rds'))
 }
