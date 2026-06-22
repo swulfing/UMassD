@@ -1,0 +1,731 @@
+---
+graphics: yes
+output:
+  bookdown::pdf_document2:
+    fig_caption: yes
+    toc: no
+    lof: yes
+    lot: yes
+    keep_tex: yes
+  pdf_document:
+    toc: no
+    keep_tex: true
+  bookdown::html_document2:
+    fig_caption: yes
+    toc: no
+  word_document: default
+geometry: margin=1in
+fontsize: 12pt
+bibliography:
+- references.bib
+- USETHIS.bib
+csl: apa_1.csl
+header-includes: \usepackage{setspace} \usepackage{lineno} \usepackage{placeins} \usepackage[nottoc,notlof,notlot]{tocbibind} \renewcommand{\contentsname}{} \renewcommand{\listfigurename}{} \renewcommand{\listtablename}{} \usepackage{sectsty} \sectionfont{\centering}
+---
+
+\doublespacing
+
+
+```{=tex}
+\begin{center}
+    
+\textbf{\Large Applying effective environmental forecasts to Management Strategy Evaluation of yellowtail flounder}
+    
+\textsc{Sophie Wulfing$^{1*}$ Chengxue Li$^{3}$ Scott I. Large$^{2}$ Vincent Saba$^{2}$ Gavin Fay$^{1}$\\}
+\vspace{3 mm}
+\normalsize{\indent $^1$School for Marine Science and Technology, University of Massachusetts Dartmouth, 02747, MA, USA\\ $^2$NOAA, National Marine Fisheries Service, Woods Hole, MA 02543, USA\\ $^3$School of Marine and Atmospheric Sciences, Stony Brook University, Stony Brook, NY 11794, USA\\}
+$\text{*}$ Corresponding authors: Sophie Wulfing (SophieWulfing@gmail.com)
+\end{center}
+```
+
+\newpage
+
+\linenumbers
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, dev="cairo_pdf", cache = FALSE)
+setwd("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft2")
+
+library(png)
+library(ggplot2)
+library(dplyr)
+library(knitr)
+library(ggpubr)
+library(gridExtra)
+
+PlotLocations <- 'C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Plots'
+
+ModNames_proj <- c("Mod_AR1Ecov", "Mod_NoEcov", "Mod_HistAvgEcov", "Mod_RecWindEcov", "Mod_RecTrendEcov", "Mod_TermYear", "Mod_BadProj", "Mod_GoodProj")
+ModNames_bias <-   c("Mod_AR1Ecov", "Mod_NoEcov", "Mod_LOWEcov", "Mod_MEDLOWEcov", "Mod_MEDEcov", "Mod_HIGHEcov")
+ModNames_biasOMs <- c("Mod_LOWEcov", "Mod_MEDLOWEcov", "Mod_MEDEcov", "Mod_HIGHEcov")
+
+Proj_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft2/Projections_data.rds')
+FiveYr_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassDartmouth-MSE/SW/Draft2/Figs/5Yr_data.rds')
+NAARE_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassDartmouth-MSE/SW/Draft2/Figs/NAA_RE_data.rds')
+
+BRP_data <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft2/BRP_data.rds')
+
+# Biases
+HIGH_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft2/Biases/High_data.rds') 
+HIGH_ests$OM_name <- 'HIGH'
+
+MED_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft2/Biases/Med_data.rds')
+MED_ests$OM_name <- 'MED'
+
+MEDLOW_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft2/Biases/MedLow_data.rds') 
+MEDLOW_ests$OM_name <- 'MEDLOW'
+
+LOW_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft2/Biases/Low_data.rds')
+LOW_ests$OM_name <- 'LOW'
+```
+
+# ABSTRACT
+
+The US Northeast Continental shelf is the fastest warming marine ecosystem in the United States and understanding this change is imperative to maintaining the sustainability and productivity of this region's fishery. Management Strategy Evaluation (MSE) is a technique in fisheries management to simulate and compare the likely outcomes of different management actions, assess trade-offs of different management options, and has been used to create more climate-ready management plans. However, predicting future environmental covariates such as bottom temperature can be challenging, as these conditions are subject to high stochasticity. In this study, we analyze the different choices made when projecting or forecasting future environmental conditions within assessments, what subsequent catch advice is generated from the MSE, and how this affects long-term fishery dynamics. We use the Georges Bank Yellowtail Flounder (*Limanda ferruginea*) as it is an important stock to the Northeast groundfish fishery and its recruitment has been shown to be impacted by bottom ocean temperatures. Results focusing on recruitment-environment relationships have shown that using a 5 year temperature average to project forward in the management period most accurately estimates 'true' environmental covariates. However, among different projection decisions, including integrating environmental forecasts of varying accuracy, there is a limited impact on the model performance and output, and the model is more influenced by changes to recruitment variability and assessment frequency.
+
+# INTRODUCTION
+
+As the world’s oceans are complex physical and chemical systems, climate change has impacted oceans in a variety of ways such as increased water temperature and acidification, and changes in ocean currents [@fabry2008; @guinotte2008; @abraham2013; @sydeman2015; @wilson2016; @poloczanska2016; @garcíamolinos2017; @friedland2022; @cheng2024]. As a result, different marine species are projected to have complex and varying responses to these environmental shifts depending on species’ life histories, thermal tolerances, mobility, and other aspects of the species’ biology [@guinotte2008; @chown2010; @honischGeologicalRecordOcean2012; @puntFisheriesManagementClimate2014; @stewartCombinedClimatePreymediated2014; @sydeman2015; @poloczanska2016; @wilson2016; @chaikin2024]. This creates compounding challenges when managing commercially-important fisheries. As some species will shift ranges northward or to deeper waters in search of colder temperatures, this will disrupt historical food chains as predators and prey may shift in different directions, or range shifts will introduce new interactions between predator and prey species that have historically not overlapped [@overholtz2011; @albouy2014; @stewartCombinedClimatePreymediated2014; @sydeman2015; @wilson2016; @garcíamolinos2017; @chaikin2024]. Further, as fish populations may experience shifts in distribution, annual growth patterns, or vary in abundance, this has potential to increase catch effort as historical fishing grounds and times may now not line up with fish stocks’ new life history dynamics [@overholtz2011; @poloczanska2016; @tommasi2017; @fulton2021]. New species may also shift their ranges into a commonly fished area, potentially opening up new commercial opportunities [@stewartCombinedClimatePreymediated2014].
+
+The US Northeast continental shelf has warmed faster than any other marine ecosystem in the United States [@saba2016; @kleisner2017; @saba2023]. The varying responses to climate change across fished species has presented challenges in accurately assessing stock health of various species in the region, however these environmental covariates have rarely been incorporated into stock assessments in the Northeast U.S. [@hare2016; @kleisner2017; @mazur2023]. These covariates have been shown to reduce retrospective patterns and increase projection accuracy in New England populations such as Atlantic Cod, haddock, yellowtail flounder, and winter flounder [@buckley2004; @klein2017]. However, incorporating environmental covariates into stock assessments is difficult and a very clear and strong relationship between environmental change and population dynamics must be shown or else improper use of an environmental covariate could lead to poorer rather than better estimation performance [@haltuchPromisesPitfallsIncluding2011; @puntFisheriesManagementClimate2014; @ehrlén2015; @brittenIdentificationPerformanceStockrecruitment2024; @millerFactorsAffectingInferences2023].
+
+Management Strategy Evaluations (MSEs) are decision making frameworks that allow assessors to simulate and compare the sustainability and tradeoffs associated with different management decisions [@hollowed2011; @tommasi2017; @mazur2023; @saba2023]. Applying climate change covariates and MSE to New England groundfish has shown to improve the robustness of stock assessments [@mazur2023]. However, applications of MSEs can still be challenging, as climate change shifts population baselines and creates dynamics that are harder to predict in biological systems. This demonstrates a need for further research on how to incorporate these environmental conditions into the MSE framework [@hollowed2011; @punt2016; @stramClimateReadinessSynthesis2022; @saba2023]. Populations’ responses to climate change can be complex, as fish exhibit different sensitivities to environmental conditions depending on their lifestage, and different environmental changes (i.e. increased sea surface or bottom temperature, changes in salinity, and altered currents) will have different effects on populations [@hollowed2011]. Further in 2025, the Northeast Region Coordinating Council (NRCC) reduced the frequency of management stock assessments from three-year cycles to five-year cycles due to decreased resources and capacity [@CurrentStockAssessment2026], which could further influence how climated should be considered in these assessments.
+
+Further, decisions on how to project environmental conditions are important to consider when predicting stock dynamics. With recent improvements, ocean dynamic models are able to offer improved predictions of future stock dynamics and are being used in stocks worldwide. However, the spatial and temporal scale of these models is relevant [@hobday2016]. Future climate is also difficult to estimate as there is a lot of uncertainty and climate change is a very chaotic process [@puntFisheriesManagementClimate2014]. As assessments attempt to capture future population trends, forecasting environmental trends is also imperative, however this can be challenging as optimal decisions can change depending on scale, species, and which environmental covariates are used [@kellImplicationsClimateChange2005; @hollowed2011; @tommasi2017; @stramClimateReadinessSynthesis2022]. In a simulation-estimation experiment, @brittenIdentificationPerformanceStockrecruitment2024 found that there was no discernable difference if projections continued the AR1 process or if the environmental covariate projection was calculated as the mean of the last 5 years. Further, @kellImplicationsClimateChange2005 showed that climate change has a limited effect in the short term for Atlantic cod, and only long term simulations showed an affect on stock dynamics and recovery. @northeastfisheriessciencecenterwoodsholemausaCollapseRecoveryCollapse2025 used both recent averages and AR(1) estimations of future climate to predict that Georges Bank yellowtail flounder stocks could recover under certain climate conditions, but the efficacy and catch advice of each projection was not compared. This project aims to build off of these finding by expanding the projections tested, simulating over a greater number of years, and seeing how catch advice and fishery dynamics may respond to changing projections.
+
+The yellowtail flounder (*Limanda ferruginea*) has a long history of harvest in the US Atlantic Coast. However due to stock collapse in the 1980s, it is now primarily caught as bycatch in other surrounding fisheries (CITE RTA). Yellowtail flounder is managed as three distinct stocks in the Northeast US; Southern New England, Gulf of Maine, and Georges Bank. Yellowtail flounder are sensitive to water temperatures at the larval phase [@laurence1981]. The Georges Bank stock has been shown to shift its distribution northward in response to warming ocean temperatures [@murawski1993; @nye2009; @hyun2014]. This stock has been in decline starting in the 1970s, leading to a collapse in the early 1990s [@stone2004]. Recently, ocean bottom temperature has been shown to have a strong link to the recruitment of Georges Bank yellowtail flounder, and the incorporation of this environmental covariate has been shown to improve stock assessment accuracy and prediction success [@johnsonYellowtailFlounderLimanda1999; @kerr2022; CITE RESEARCH TRACK]. Because this relationship between environment and stock dynamics has a clear linkage, inclusion of environmental covariates have improved assessment success, and this stock has a long history of data collection, we will use Georges Bank yellowtail flounder as a case study. We aim to incorporate bottom temperature into stock assessments and the MSE framework in order to assess different choices when projecting bottom temperature in Georges Bank and how this affects forecasts in assessments and subsequent tactical fishery management advice of Georges Bank yellowtail flounder.
+
+# METHODS
+
+To conduct the MSE process, we used trawl survey data from the Northeast Fisheries Science Center (NEFSC) and outputs from the Woods Hole Assessment Model (WHAM). WHAM was developed by researchers at NEFSC, and is a state-space stock assessment model which incorporates climate variables into fishery processes [@stockWoodsHoleAssessment2021]. The stock data used was collected by the NEFSC fall and spring surveys, the DFO spring survey, as well as commercial data, which spanned from 1973 to 2022. Choices for weights-at-age, natural mortality, fleet selectivity, recruitment and maturity were derived from results from the 2024 research track assessment on yellowtail flounder (CITE ASSESSMENT) and these numbers are available in the supplemental material. The output of the WHAM model was then used in the R package whamMSE (CITE CHENG) to simulate the MSE process. This package creates an Operating Model (OM) which simulates fishery dynamics, including fishing and stock dynamics. As a state space model, the OM incorporates process-error in its dynamics, but the values generated by the OM represent the ‘true’ values of the fishery. The Estimation Model (EM) simulates the survey and assessment process in the fishery, including observation errors. Stock assessments were tested with the 0.75 Fmsy NEFMC control rule. We tested a 50 year MSE period where assessments were conducted every three years.
+
+For the environmental covariate of bottom temperature, we used a dataset developed by @dupontavice2023, which is also used in the Georges Bank yellowtail flounder stock assessment CITE ASSESSMENT. We projected the ‘real-world- temperature by conducting a linear regression on the existing data points and then projecting future temperatures along this trendline with added variation around a normal distribution. The package whamMSE was used to conduct the Management Strategy Evaluation CITECHENG. In this simulation, the environmental covariate was treated as a latent variable in the operating model, therefore process error of the ecov was removed in the OM so only the specified projection was modeled in the “real world” scenario of our simulation. First, the Wood’s Hole Assessment Model was fitted to real Yellowtail flounder data from the NEFSC survey to serve as the basis for the OM. This base-OM was used to estimate parameters for numbers-at-age, selectivity, recruitment, and ecological covariate. These parameters were then treated as ‘truth’ in our simulation and were used in the second OM we developed for the projections. This second OM, with all of the parameters already estimated, fixes the environmental covariate at a true state with no process error, however observation error is still included in this process. This allowed us to run multiple simulations of various temperature projections in our Estimation Model while maintaining the same ‘real-world’ state.
+
+We then tested various EMs that were identical except for this temperature projection. For the first experiment, we first compared EM temperature projections with varying levels of bias. We developed four scenarios: High Ecov, where the overall trend of the OM temperature projection was doubled to simulate a high bias in projections; Medium Ecov, where the EM uses the same temperature as the OM; Medium-Low Ecov, where the overall trend was multiplied by -1 to simulate low bias in projections; and Low Ecov, where the overall trend was multiplied by -2 to simulate a very low bias in projections. Each simulation was run 100 times to ensure robustness of model results. Any non-converged model resulted in the elimation of that whole simulation.
+
+```{r EMTemps, fig.cap = 'Temperature projections of the different Bias tests. The medium projection follows the overall trend of historical data, and this was used as a baseline for the other OM temperature projections', echo = FALSE, warning = FALSE, message = FALSE}
+knitr::include_graphics("Biases/EMtempPlot.png")
+```
+
+This simulation was then repeated with the OM changing it's baseline projection to use the High, Medium, Medium-Low, and Low temperature projections to compare how hypothetical future climate scenarios may change the outcome of having a biased projection. Each of these OMs were tested against each climate projection in the EMs.
+
+After comparing biased projections through the MSE process, the experiment was repeated except we used only the original OM temperature projection (the one that maintains the trend from the @dupontavice2023 data set). For the EMs, two biased projections were kept (a 'bad' projection, which doubled the rate of temperature increase compared to the OM, and a 'good' projection, which maintained the general trend of temperature increase with added stochasticity), along with various projection choices that, at each assessment year, self-update with the previous years' temperature information. Instead of using a single time series throughout the projection, all EMs were changed to simulate real-life stock assessment processes, where the three-year projection was recalculated at each assessment year step given the previous three years of data. Descriptions of temperature projections are outlined in figure \@ref(fig:EMTempsProj). A new temperature projection is then calculated from that in the EM and projected for the next three years until the next assessment.
+
+Further, as the reported random effects on recruitment from the management track was a high value (0.655), we conducted a similar experiment with reduced random effects on recruitment (0.2) as a sensitivity test to the experiment. Also, due to the announcement by the NRCC of reduced management cycles, we also compared these results with 5-year instead of 3-year assessments to evaluate how this management change will affect our ability to effectively project environmental covariates in stock assessments.
+
+```{r EMTempsProj, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Temperature projections used in each EM. AR(1) (Auto-Regressive1) - This projection uses an updated mean at each timestep for the projection. Recent Window - This process uses the mean of the previous 5 years in its projection. Historical average - Uses the average of all datapoints collected. Recent Trend - Similar to new window, this process takes the last 5 years of data and uses the linear regression of the last 5 years as its projection. Terminal Year - Uses the terminal year of historical data across the projection period. Good projection - Uses the general rate of temperature increase as the OM. Bad projection - Same as the Medium-Low bias in the previous experiment, this projection tests projection with a low bias. No temperature (not pictured) - This projection does not consider environmental covariates it its projection. CHANGING THIS TO DISPLAY MULTIPLE PROJECTION GRAPHS. SEE RDS OBJECT IN FOLDER"}
+
+
+# CHANGING THIS 
+
+knitr::include_graphics("Plots/EMtempPlot.png")
+```
+
+After the MSE process was conducted in the experiments, we compared the outputs of each model and the subsequent catch advice to emerge from the model. We then compared estimated natural and fishing mortality, spawning stock biomass, and estimated recruitment in each model in order to understand how different assumptions in creating environmental projections propagates reflects real-world dynamics and how this ultimately affects management decisions.
+
+# RESULTS
+
+Before assessing the accuracy of each model, each EM simulated was tested for convergence. If any of the EM models did not converge, the whole seed was removed from the results to ensure comparability across results. Convergence checks were used from the r packages TMB and nlminb CITE PACKAGES.
+
+## Bias Tests
+
+The estimated parameters for the environmental covariate are shown in figure \@ref(fig:paramEstsbias) compared to that of the OM in each bias test (the black vertical line). Across the EMs, low-biased EMs tended to underestimate this covariate, while high-biased projections resulted in an over-estimation of this covariate. Conversely, EMs meant to emulate the real world scenarios (green projections in figure \@ref(fig:paramEstsbias)) generally out-performed the biased projections, with the exception of the low climate scenario. When comparing the resulting spawning stock biomass (SSB) and fishing mortality ($\bar{F}$) from these simulations, the direction of bias in the EMs had more of an impact on the results than the accuracy of the projection to the OM. Across climate scenarios, higher bias EMs tended to estimate higher SSB trends in the projection period and lower $\bar{F}$, however subsequent catch advice remains relatively similar across the different biases, regardless of climate scenario. Further, in warmer climate scenarios, the differences among calculated $\bar{F}$ becomes greater across EMs; using a lower temperature bias results in higher, more variable $\bar{F}$ estimations. These figures are provided in the supplemental material.
+
+```{r paramEstsbias, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "Estimated environmental parameter from each EM compared to the 'true' value in the OM on the y axis. Colors correspond to if the EM had a high temperature bias (red), a low temperature bias (blue), or if the EM intended to accurately reflect climate dynamics (i.e. AR(1) process or temperature projection that matched that of the OM) (green). The dashed black line indicates where these two estimations would be equal"}
+
+Bias_ests <- list(HIGH_ests, MED_ests, MEDLOW_ests, LOW_ests)
+
+# BIASES
+meanTablebias <- data.frame(EM_name = c(),
+                            seed = c(),
+                            OM_name = c(),
+                            ecov_mean_om = c(),
+                            ecov_mean_em = c(),
+                            percentDifference = c(),
+                            ecov_sd = c(), 
+                            bias_dir = c())
+
+for(i in 1:4){
+  data_use <- Bias_ests[[i]]
+
+  #mean
+  data_clean <- data_use %>%
+  group_by(EM_name, seed_no) %>%
+  summarize(ecov_mean_om = round(mean(Ecov_beta_R_OM, na.rm = TRUE), digits = 3),
+            ecov_mean_em = round(mean(Ecov_beta_R_EM, na.rm = TRUE), digits = 3),
+            ecov_sd = round(sd(Ecov_beta_R_EM, na.rm = TRUE), digits = 3)) %>%
+    mutate(percentDifference = (ecov_mean_em - ecov_mean_om)/ecov_mean_om)
+  
+  data_clean$OM_name <- i
+  
+  data_clean <- data_clean %>%
+    select(EM_name, seed_no, OM_name, ecov_mean_om, ecov_mean_em, percentDifference, ecov_sd)
+  
+    for(j in 1:nrow(data_clean)){
+  #meanTablebias <- merge(meanTablebias, data_clean, by = 'EM_name')
+    if(i == 1){
+      if(data_clean$EM_name[j] == 'Mod_AR1Ecov'| data_clean$EM_name[j] == 'Mod_HIGHEcov'){data_clean$bias_dir[j] <- 'S'} else {data_clean$bias_dir[j] <- 'L'}
+      }
+
+    if(i == 2){
+      if(data_clean$EM_name[j] == 'Mod_AR1Ecov'| data_clean$EM_name[j] == 'Mod_MEDEcov'){data_clean$bias_dir[j] <- 'S'} else if (data_clean$EM_name[j] == 'Mod_LOWEcov' | data_clean$EM_name[j] == 'Mod_MEDLOWEcov'){data_clean$bias_dir[j] <- 'L'} else{data_clean$bias_dir[j] <- 'H'}
+    }
+    if(i == 3){
+      if(data_clean$EM_name[j] == 'Mod_AR1Ecov'| data_clean$EM_name[j] == 'Mod_MEDEcov'){data_clean$bias_dir[j] <- 'S'} else if (data_clean$EM_name[j] == 'Mod_LOWEcov' | data_clean$EM_name[j] == 'Mod_MEDLOWEcov'){data_clean$bias_dir[j] <- 'L'} else{data_clean$bias_dir[j] <- 'H'}
+      if(data_clean$EM_name[j] == 'Mod_AR1Ecov'| data_clean$EM_name[j] == 'Mod_MEDLOWEcov'){data_clean$bias_dir[j] <- 'S'} else if (data_clean$EM_name[j] == 'Mod_LOWEcov'){data_clean$bias_dir[j] <- 'L'} else{data_clean$bias_dir[j] <- 'H'}
+    }
+    if(i == 4){
+      if(data_clean$EM_name[j] == 'Mod_AR1Ecov'| data_clean$EM_name[j] == 'Mod_LOWEcov'){data_clean$bias_dir[j] <- 'S'} else{data_clean$bias_dir[j] <- 'H'}
+    }
+
+  # }
+  # bias_compare <- rbind(bias_compare, data_clean)
+}
+
+
+data_clean$bias_dir <- factor(data_clean$bias_dir, levels = c('L','S','H'))
+
+  #colnames(data_clean) <- c('EM', 'OM', 'OM Ecov', 'EM Ecov', 'Percent Change', 'SD')
+
+  meanTablebias <- rbind(meanTablebias, data_clean)
+}
+
+
+meanTablebias$EM_name <- factor(meanTablebias$EM_name, levels = c("Mod_NoEcov","Mod_LOWEcov", "Mod_MEDLOWEcov", "Mod_MEDEcov", "Mod_HIGHEcov", "Mod_AR1Ecov"))
+
+p <- list()
+
+scenarioNames <- c('High', 'Medium', 'Medium-Low', 'Low') #c('Medium-Low','Low','High', 'Medium')
+
+for(i in c(3,4,1,2)){
+  data_use <- Bias_ests[[i]]
+  
+  plotdata <- meanTablebias %>%
+    filter(OM_name == i) %>%
+    filter(EM_name != "Mod_NoEcov")
+  
+  p[[i]] <- ggplot(plotdata, aes(x = EM_name, y = ecov_mean_em, fill = bias_dir)) +
+    geom_boxplot(show.legend = TRUE) +
+    scale_fill_manual(name = 'Bias',
+                      values = c("L" = "blue", "S" = "green", "H" = "red") ,
+                     labels = c('Low', 'None', 'High'),
+                     drop = FALSE) +
+    scale_x_discrete(labels= c('Low', 'Medium-Low','Medium','High','AR(1)')) +
+    geom_hline(yintercept = mean(plotdata$ecov_mean_om), linetype = "dashed", color = "black") +
+    ylim(-0.75, -0.1) +
+    labs(title = paste('Climate Scenario:', scenarioNames[i])) +#ggtitle (i) + 
+    theme(axis.title = element_blank(),
+          plot.title = element_text(size = 10)) +
+    coord_flip()
+}
+
+annotate_figure(ggarrange(p[[1]], p[[2]], p[[3]], p[[4]], nrow = 4, common.legend = TRUE, legend = 'right'), left = text_grob("Forecast", rot = 90, vjust = 1, hjust = 0.5, size = 14))
+
+
+
+```
+
+## Projection Tests
+
+When comparing the parameter for the environmental covariate across different projections (table \@ref(tab:paramEstsproj)) , the most accurate estimation of the ecological covariate was the projection that used recent window approach, with only 4.282% change from the ‘true’ value. Historical average projections were the least accurate and had the largest range of estimated ecological covariates across simulations. The relative performance of each projection was the same with reduced random effects on recruitment, where recent average produced the most accurate estimation of the ‘true’ ecological covariate, and relatively poorer performances from  historical average (table \@ref(tab:paramEstsNAARE)). Further, the ‘bad’ and ‘good’ projections, recent trend, and recent window all generally overestimated the ecological covariate, while AR(1), Historical Average, and Terminal Year projections tended to underestimate the true covariate, and this was consistent between the normal projection tests and the reduced random effects test. Across projections, neither the regular test nor the reduced random effects test had consistently better accuracy in estimating this covariate across the simulations.
+
+```{r paramEstsproj, fig.cap = 'Estimated ecological covariates for the different temperature projections in the EM compared to the "true" value in the OM.', echo = FALSE, warning = FALSE, message = FALSE}
+### DO WE WANT THIS INFO IN TABLE OR GRAPH FORM
+
+
+library(dplyr)
+
+# PROJECTIONS
+paramEsts_projs <- Proj_ests %>%
+  filter(EM_name != 'Mod_NoEcov') %>%
+  group_by(EM_name) %>%
+  summarize(OM_ecov = round(mean(Ecov_beta_R_OM, na.rm = TRUE), digits = 3),
+          mean_ecov = round(mean(Ecov_beta_R_EM, na.rm = TRUE), digits = 3),
+          sd_ecov = round(sd(Ecov_beta_R_EM, na.rm = TRUE), digits = 3)) %>%
+    rowwise() %>%
+    mutate(PercentChange = ((mean_ecov - OM_ecov)/OM_ecov) * 100) %>%
+  select(EM_name, OM_ecov, mean_ecov, PercentChange, sd_ecov) %>%
+  mutate(EM_name = case_when(
+    EM_name == 'Mod_AR1Ecov' ~ 'AR(1)',
+    EM_name == 'Mod_BadProj' ~'Bad Projection',
+    EM_name == 'Mod_GoodProj' ~'Good Projection',
+    EM_name == 'Mod_HistAvgEcov' ~'Historical Average',
+    EM_name == 'Mod_RecTrendEcov' ~'Recent Trend',
+    EM_name == 'Mod_RecWindEcov' ~'Recent Window',
+    EM_name == 'Mod_TermYear' ~'Terminal Year'
+  ))
+
+#Ecov_processPars_mean
+
+paramEsts_projs$PercentChange <- round(paramEsts_projs$PercentChange, digits = 3)
+
+colnames(paramEsts_projs) <- c('EM Name','OM Ecov','Mean Ecov','Percent Change', 'Ecov Standard Dev.')
+
+kable(paramEsts_projs, caption = 'Ecov parameter estimates, standard deviation, and rho for each EM for projection')
+
+
+boxplot_test <- Proj_ests %>%
+  filter(EM_name != 'Mod_NoEcov')
+
+ggplot(data = boxplot_test, aes(x = EM_name, y = Ecov_beta_R_EM)) +
+  geom_boxplot() +
+  geom_hline(yintercept = -0.3969783, color = 'red', linetype = 'dashed') +
+  scale_x_discrete(labels= c('AR(1)','Bad Projection','Good Projection','Historical Average','Recent Trend','Recent Window','Terminal Year')) +
+  xlab('Projection') +
+  ylab('Calculated Ecological Covariate') +
+  theme(axis.text.x=element_text(color = "black", size=11, angle=30, vjust=.8, hjust=0.8)) 
+
+
+```
+
+```{r paramEstsNAARE, fig.cap = 'Estimated ecological covariates in for the different temperature projections with reduced random effects on recruitment.', echo = FALSE, warning = FALSE, message = FALSE}
+# PROJECTIONS
+paramEsts_projs <- NAARE_ests %>%
+  filter(EM_name != 'Mod_NoEcov') %>%
+  group_by(EM_name) %>%
+  summarize(OM_ecov = round(mean(Ecov_beta_R_OM, na.rm = TRUE), digits = 3),
+          mean_ecov = round(mean(Ecov_beta_R_EM, na.rm = TRUE), digits = 3),
+          sd_ecov = round(sd(Ecov_beta_R_EM, na.rm = TRUE), digits = 3)) %>%
+    rowwise() %>%
+    mutate(PercentChange = ((mean_ecov - OM_ecov)/OM_ecov) * 100) %>%
+  select(EM_name, OM_ecov, mean_ecov, PercentChange, sd_ecov) %>%
+  mutate(EM_name = case_when(
+    EM_name == 'Mod_AR1Ecov' ~ 'AR(1)',
+    EM_name == 'Mod_BadProj' ~'Bad Projection',
+    EM_name == 'Mod_GoodProj' ~'Good Projection',
+    EM_name == 'Mod_HistAvgEcov' ~'Historical Average',
+    EM_name == 'Mod_RecTrendEcov' ~'Recent Trend',
+    EM_name == 'Mod_RecWindEcov' ~'Recent Window',
+    EM_name == 'Mod_TermYear' ~'Terminal Year'
+  ))
+
+#Ecov_processPars_mean
+
+paramEsts_projs$PercentChange <- round(paramEsts_projs$PercentChange, digits = 3)
+
+colnames(paramEsts_projs) <- c('EM Name','OM Ecov','Mean Ecov','Percent Change', 'Ecov Standard Dev.')
+
+kable(paramEsts_projs, caption = 'Ecov parameter estimates, standard deviation, and rho for each EM for projection')
+
+
+# boxplot_test <- Proj_ests %>%
+#   filter(EM_name != 'Mod_NoEcov')
+# 
+# ggplot(data = boxplot_test, aes(x = EM_name, y = Ecov_beta_R_EM)) +
+#   geom_boxplot() +
+#   geom_hline(yintercept = -0.3969783, color = 'red', linetype = 'dashed') +
+#   scale_x_discrete(labels= c('AR(1)','Bad Projection','Good Projection','Historical Average','Recent Trend','Recent Window','Terminal Year')) +
+#   xlab('Projection') +
+#   ylab('Calculated Ecological Covariate') +
+#   theme(axis.text.x=element_text(color = "black", size=11, angle=30, vjust=.8, hjust=0.8)) 
+
+```
+
+However, figure \@ref(fig:timeseriesproj) shows the catch advice, SSB, $\bar{F}$, and predicted catch from the OM of each projection test. Similar to the bias tests, these model outputs were very similar to one another and all converged to similar estimations throughout the time series. When comparing this to simulations with reduced random effects on recruitment, different projection choices behave similarly, however the oscillations in catch advice, SSB, $\bar{F}$, and predicted catch oscillate more intensely, suggesting larger booms and busts of fishing activity and stock size. The different projections also performed very similarly in the amount of variation in recruitment that could be explained by the ecological covariate, with the average of 13.27% across simulations that had similar ranges across projections (table \@ref(tab:recruitmentDevs)). Further, all projections had similar results in the proportion of years reporting overfished and overfishing status (table \@ref(tab:RefPoints)).
+
+```{r timeseriesproj, fig.cap = 'Catch advice (top), SSB (second), FBar (third), and predicted catch (bottom) calculated from each EM over the projection period', echo = FALSE, warning = FALSE, message = FALSE}
+library(scales)
+p <- list()
+
+catchAdvice_projs <- Proj_ests %>%
+  #filter(Year >= 2024) %>%
+  group_by(EM_name, Year) %>%
+  summarize(mean_catchAdvice = mean(Catch_advice),
+          sd_catchAdvice = sd(Catch_advice),
+          mean_SSB = mean(SSB),
+          sd_SSB = sd(SSB),
+          mean_FBar = mean(FBar),
+          sd_FBar = sd(FBar),
+          mean_Pred_catch = mean(Pred_catch),
+          sd_Pred_catch = sd(Pred_catch))
+
+
+
+p[[1]] <- ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_catchAdvice, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_catchAdvice - sd_catchAdvice, ymax = mean_catchAdvice + sd_catchAdvice, fill = EM_name), alpha = 0.2) +
+    geom_line() +
+  # ylab('Mean Catch Advice (kmt)') +
+  labs(title = 'Mean Catch Advice (kmt)') +#ggtitle (i) + 
+    theme(axis.title = element_blank(),
+          plot.title = element_text(size = 10)) +
+  scale_color_discrete(name = "EM",
+                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year')) +
+  scale_y_continuous(labels = scales::comma) + 
+  xlim(2023,2073)
+  # scale_y_continuous(labels = scales::label_number_si())
+
+p[[2]] <- ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_SSB, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_SSB - sd_SSB, ymax = mean_SSB + sd_SSB, fill = EM_name), alpha = 0.2) +
+    geom_line() +
+  # ylab('Mean SSB (kmt)') +
+  labs(title = 'Mean SSB (kmt)') +#ggtitle (i) + 
+    theme(axis.title = element_blank(),
+          plot.title = element_text(size = 10)) +
+  scale_color_discrete(name = "EM",
+                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year')) +
+  scale_y_continuous(labels = scales::comma)+ 
+  xlim(2023,2073)
+
+p[[3]] <- ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_FBar, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_FBar - sd_cFBar, ymax = mean_FBar + sd_FBar, fill = EM_name), alpha = 0.2) +
+    geom_line() +
+  # ylab('Mean Fbar') +
+  labs(title = 'Mean Fbar') +#ggtitle (i) + 
+    theme(axis.title = element_blank(),
+          plot.title = element_text(size = 10)) +
+  scale_color_discrete(name = "EM",
+                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year'))+ 
+  xlim(2023,2073)
+
+p[[4]] <- ggplot(data = catchAdvice_projs, aes(x = Year, y = mean_Pred_catch, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_mean_Pred_catch - mean_Pred_catch, ymax = mean_mean_Pred_catch + sd_mean_Pred_catch, fill = EM_name), alpha = 0.2) +
+    geom_line() +
+  # ylab('Mean Predicted Catch (kmt)') +
+  labs(title = 'Mean Predicted Catch (kmt)') +#ggtitle (i) + 
+    theme(axis.title = element_blank(),
+          plot.title = element_text(size = 10)) +
+  scale_color_discrete(name = "EM",
+                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year')) +
+  scale_y_continuous(labels = scales::comma)+ 
+  xlim(2023,2073)
+
+ggpubr::ggarrange(p[[1]], p[[2]], p[[3]], p[[4]], nrow = 4, common.legend = TRUE, legend = 'right', align = "v")
+
+```
+
+
+```{r recruitmentDevs, echo = FALSE, warning = FALSE, message = FALSE}
+
+RecDevs <- Proj_ests %>%
+  filter(EM_name != 'Mod_NoEcov') %>%
+  filter(Year > 2022) %>%
+  group_by(EM_name, seed_no) %>%
+  summarise(NAADevs = sd(OM_NAA_devs),
+            SigR = mean(exp(OM_NAAsigma_youngest))) %>%
+  mutate(Rec_Ecov = SigR - NAADevs)
+
+tableinfo <- RecDevs %>%
+  group_by(EM_name) %>%
+  summarize(Mean = mean(Rec_Ecov),
+            St.Dev = sd(Rec_Ecov),
+            Minimum = min(Rec_Ecov),
+            Maxiumun = max(Rec_Ecov)) %>%
+  mutate(EM_name = case_when(
+    EM_name == 'Mod_AR1Ecov' ~ 'AR(1)',
+    EM_name == 'Mod_BadProj' ~'Bad Projection',
+    EM_name == 'Mod_GoodProj' ~'Good Projection',
+    EM_name == 'Mod_HistAvgEcov' ~'Historical Average',
+    EM_name == 'Mod_RecTrendEcov' ~'Recent Trend',
+    EM_name == 'Mod_RecWindEcov' ~'Recent Window',
+    EM_name == 'Mod_TermYear' ~'Terminal Year'
+  ))
+
+tableinfo$Mean <- tableinfo$Mean * 100
+tableinfo$St.Dev <- tableinfo$St.Dev * 100
+tableinfo$Minimum <- tableinfo$Minimum * 100
+tableinfo$Maxiumun <- tableinfo$Maxiumun * 100
+
+
+tableinfo$Mean <- round(tableinfo$Mean, digits = 4)
+tableinfo$St.Dev <- round(tableinfo$St.Dev, digits = 4)
+tableinfo$Minimum <- round(tableinfo$Minimum, digits = 4)
+tableinfo$Maxiumun <- round(tableinfo$Maxiumun, digits = 4)
+
+colnames(tableinfo) <- c('EM Name','Mean','SD','Minimum', 'Maximum')
+
+kable(tableinfo, caption = 'GAVIN SHOULD I REPORT A MEAN OR A MEDIAN W QUARTILE RANGES HERE. ALSO NECESSARY? DOUBLE CHECK CALC ON THIS ONE. I THINK IM SWITCHING NAA DEVS AND SIGMAR')
+
+```
+
+```{r RefPoints}
+
+BRP_data <- BRP_data %>%
+  filter(Year >= 2023 & Year < 2071) %>%
+  rowwise() %>%
+  mutate(MSYOverfishing_OM = OM_Fbar/exp(OM_log_FMSY_static),
+         MSYOverfishing_EM = EM_Fbar/exp(EM_log_FMSY_static),
+         
+         Overfished_OM = OM_SSB/exp(OM_log_SSB_FXSPR_static),
+         Overfished_EM = EM_SSB/exp(EM_log_SSB_FXSPR_static),
+         
+         Overfishing_OM = OM_Fbar/exp(OM_log_Fbar_XSPR_static),
+         Overfishing_EM = EM_Fbar/exp(EM_log_Fbar_XSPR_static))
+
+OverfishedStatus <- BRP_data %>%
+  filter(Year >= 2024) %>%
+  group_by(EM_name, Year) %>%
+  summarize(OM_Overfishing = mean(Overfishing_OM, na.rm = TRUE),
+            EM_Overfishing = mean(Overfishing_EM, na.rm = TRUE),
+            SD_Overfishing = sd(Overfishing_EM, na.rm = TRUE),
+            OM_Overfished = mean(Overfished_OM, na.rm = TRUE),
+            EM_Overfished = mean(Overfished_EM, na.rm = TRUE),
+            SD_Overfished = sd(Overfished_EM, na.rm = TRUE)
+  )
+
+
+BRPTable <- OverfishedStatus %>%
+  mutate(OverFishedYN = case_when(OM_Overfished < .5 ~ 1,
+                                  OM_Overfished >= .5 ~ 0,
+                                  ),
+         OverFishingYN = case_when(OM_Overfishing > 1 ~ 1,
+                                   OM_Overfishing <= 1 ~ 0)) %>%
+  group_by(EM_name) %>%
+  summarize(
+    OverFishingProp = mean(OverFishingYN),
+    OverFishedProp = mean(OverFishedYN)
+    ) %>%
+  mutate(EM_name = case_when(
+    EM_name == 'Mod_AR1Ecov' ~ 'AR(1)',
+    EM_name == 'Mod_NoEcov' ~ 'No Ecov',
+    EM_name == 'Mod_BadProj' ~'Bad Projection',
+    EM_name == 'Mod_GoodProj' ~'Good Projection',
+    EM_name == 'Mod_HistAvgEcov' ~'Historical Average',
+    EM_name == 'Mod_RecTrendEcov' ~'Recent Trend',
+    EM_name == 'Mod_RecWindEcov' ~'Recent Window',
+    EM_name == 'Mod_TermYear' ~'Terminal Year'
+  ))
+
+
+# BRPTable <- OverfishedStatus %>%
+#   group_by(EM_name) %>%
+#   summarize(
+#     OverFishedProp = (sum(OM_Overfishing > 1) / n()),
+#     OverFishingProp = (sum(OM_Overfished < 1) / n())
+#     ) %>%
+#   mutate(EM_name = case_when(
+#     EM_name == 'Mod_AR1Ecov' ~ 'AR(1)',
+#     EM_name == 'Mod_NoEcov' ~ 'No Ecov',
+#     EM_name == 'Mod_BadProj' ~'Bad Projection',
+#     EM_name == 'Mod_GoodProj' ~'Good Projection',
+#     EM_name == 'Mod_HistAvgEcov' ~'Historical Average',
+#     EM_name == 'Mod_RecTrendEcov' ~'Recent Trend',
+#     EM_name == 'Mod_RecWindEcov' ~'Recent Window',
+#     EM_name == 'Mod_TermYear' ~'Terminal Year'
+#   ))
+
+
+
+#Ecov_processPars_mean
+
+BRPTable$OverFishedProp <- round(BRPTable$OverFishedProp, digits = 3)
+BRPTable$OverFishingProp <- round(BRPTable$OverFishingProp, digits = 3)
+
+colnames(BRPTable) <- c('EM Name','Proportion Overfished', 'Proportion Overfishing')
+
+kable(BRPTable, caption = 'Proportion of years in each projection that reported over-fished and over-fishing statuses using FXSPR proxy')
+
+
+
+```
+
+In the model performance (figure \@ref(fig:radar)), however, these differences have a minimal impact on the overall accuracy of these models. With the exception of the model without an ecological covariate and the model with a biased projection, all models performed similarly when comparing SSB, Catch, and $\bar{F}$ of the first and terminal years of the projection. The calculated SSB, ($\bar{F}$), and predicted catch from the terminal three years of the projection period show similar patterns of similarity across EMs (figure \@ref(fig:projterminal3)). This may be explained by the fact that temperature affects recruitment in this population, and figure \@ref(fig:cohortAnalysis) demonstrates the relatively small proportion of the population that consists of these newly recruited fish.
+
+```{r radar, out.width="75%", fig.cap = 'Relative performance of each EM in the beginning and terminal 10 years of the simulation', echo = FALSE, warning = FALSE, message = FALSE}
+knitr::include_graphics("Plots/Projections_model_performance_radar.png")
+```
+
+```{r projterminal3, out.width="30%", fig.cap="F, SSB, and catch of terminal 10 years of MSE in projections test", fig.show='hold', fig.align='center', echo = FALSE, warning = FALSE, message = FALSE}
+
+knitr::include_graphics(c("Plots/Projections_Fbar_global_last_10_years.png",
+                          
+                        "Plots/Projections_Catch_last_10_years.png",
+                        
+                        "Plots/Projections_SSB_last_10_years.png"))
+
+
+
+```
+
+```{r cohortAnalysis, out.width="75%", fig.cap = "A sub-sample of Weights at Age per year. Each year's cohort is outlined in black"}
+
+knitr::include_graphics("Plots/CohortAnalysis.png")
+
+```
+
+## 5-Year Assessment Tests
+
+When comparing the performance of 5 year assessment periods, a similar pattern emerges as to which projections over or under estimate the true ecological covariate. However in the 5-year assessment period, the performance of the recent window projection is reduced, and this is outperformed by the ‘bad’ climate projection, with only a 2% average difference between the true covariate and that which was estimated (table \@ref(tab:paramEsts5Yr)). This does have notable consequences for the resulting catch advice and estimated $\bar{F}$ among management periods, with the 5 year period exhibiting much more dramatic ‘swings’ in between periods of high and low predicted catch, mortality, and catch advice, whereas the 3 year management schedule has these oscillations, but with lower amplitudes. SSB is generally under estimated with a reduced management schedule.
+
+```{r paramEsts5Yr, fig.cap = 'Estimated ecological covariates in for the different biased temperature projections in the EM compared to the "true" value in the OM.', echo = FALSE, warning = FALSE, message = FALSE}
+library(dplyr)
+
+# PROJECTIONS
+paramEsts_5Yr <- FiveYr_ests %>%
+  filter(EM_name != 'Mod_NoEcov') %>%
+  group_by(EM_name) %>%
+  summarize(OM_ecov = round(mean(Ecov_beta_R_OM, na.rm = TRUE), digits = 3),
+          mean_ecov = round(mean(Ecov_beta_R_EM, na.rm = TRUE), digits = 3),
+          sd_ecov = round(sd(Ecov_beta_R_EM, na.rm = TRUE), digits = 3)) %>%
+    rowwise() %>%
+    mutate(PercentChange = ((mean_ecov - OM_ecov)/OM_ecov) * 100) %>%
+  select(EM_name, OM_ecov, mean_ecov, PercentChange, sd_ecov) %>%
+  mutate(EM_name = case_when(
+    EM_name == 'Mod_AR1Ecov' ~ 'AR(1)',
+    EM_name == 'Mod_BadProj' ~'Bad Projection',
+    EM_name == 'Mod_GoodProj' ~'Good Projection',
+    EM_name == 'Mod_HistAvgEcov' ~'Historical Average',
+    EM_name == 'Mod_RecTrendEcov' ~'Recent Trend',
+    EM_name == 'Mod_RecWindEcov' ~'Recent Window',
+    EM_name == 'Mod_TermYear' ~'Terminal Year'
+  ))
+
+#Ecov_processPars_mean
+
+paramEsts_5Yr$PercentChange <- round(paramEsts_5Yr$PercentChange, digits = 3)
+
+colnames(paramEsts_5Yr) <- c('EM Name','OM Ecov','Mean Ecov','Percent Change', 'Ecov Standard Dev.')
+
+kable(paramEsts_5Yr, caption = 'Ecov parameter estimates, standard deviation, and rho for each EM for projection')
+
+
+boxplot_test <- Proj_ests %>%
+  filter(EM_name != 'Mod_NoEcov')
+
+ggplot(data = boxplot_test, aes(x = EM_name, y = Ecov_beta_R_EM)) +
+  geom_boxplot() +
+  geom_hline(yintercept = -0.3969783, color = 'red', linetype = 'dashed') +
+  scale_x_discrete(labels= c('AR(1)','Bad Projection','Good Projection','Historical Average','Recent Trend','Recent Window','Terminal Year')) +
+  xlab('Projection') +
+  ylab('Calculated Ecological Covariate') +
+  theme(axis.text.x=element_text(color = "black", size=11, angle=30, vjust=.8, hjust=0.8)) 
+
+```
+
+
+```{r timeseries5Yr, fig.cap = 'Catch advice (top), SSB (second), FBar (third), and predicted catch (bottom) calculated from each EM over the projection period', echo = FALSE, warning = FALSE, message = FALSE}
+library(scales)
+p <- list()
+
+catchAdvice_5Yr <- FiveYr_ests %>%
+  #filter(Year >= 2024) %>%
+  group_by(EM_name, Year) %>%
+  summarize(mean_catchAdvice = mean(Catch_advice),
+          sd_catchAdvice = sd(Catch_advice),
+          mean_SSB = mean(SSB),
+          sd_SSB = sd(SSB),
+          mean_FBar = mean(FBar),
+          sd_FBar = sd(FBar),
+          mean_Pred_catch = mean(Pred_catch),
+          sd_Pred_catch = sd(Pred_catch))
+
+
+
+p[[1]] <- ggplot(data = catchAdvice_5Yr, aes(x = Year, y = mean_catchAdvice, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_catchAdvice - sd_catchAdvice, ymax = mean_catchAdvice + sd_catchAdvice, fill = EM_name), alpha = 0.2) +
+    geom_line() +
+  # ylab('Mean Catch Advice (kmt)') +
+  labs(title = 'Mean Catch Advice (kmt)') +#ggtitle (i) + 
+    theme(axis.title = element_blank(),
+          plot.title = element_text(size = 10)) +
+  scale_color_discrete(name = "EM",
+                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year')) +
+  scale_y_continuous(labels = scales::comma) + 
+  xlim(2023,2073)
+  # scale_y_continuous(labels = scales::label_number_si())
+
+p[[2]] <- ggplot(data = catchAdvice_5Yr, aes(x = Year, y = mean_SSB, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_SSB - sd_SSB, ymax = mean_SSB + sd_SSB, fill = EM_name), alpha = 0.2) +
+    geom_line() +
+  # ylab('Mean SSB (kmt)') +
+  labs(title = 'Mean SSB (kmt)') +#ggtitle (i) + 
+    theme(axis.title = element_blank(),
+          plot.title = element_text(size = 10)) +
+  scale_color_discrete(name = "EM",
+                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year')) +
+  scale_y_continuous(labels = scales::comma)+ 
+  xlim(2023,2073)
+
+p[[3]] <- ggplot(data = catchAdvice_5Yr, aes(x = Year, y = mean_FBar, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_FBar - sd_cFBar, ymax = mean_FBar + sd_FBar, fill = EM_name), alpha = 0.2) +
+    geom_line() +
+  # ylab('Mean Fbar') +
+  labs(title = 'Mean Fbar') +#ggtitle (i) + 
+    theme(axis.title = element_blank(),
+          plot.title = element_text(size = 10)) +
+  scale_color_discrete(name = "EM",
+                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year'))+ 
+  xlim(2023,2073)
+
+p[[4]] <- ggplot(data = catchAdvice_5Yr, aes(x = Year, y = mean_Pred_catch, group = EM_name, color = EM_name)) +
+  #geom_ribbon(aes(ymin = mean_mean_Pred_catch - mean_Pred_catch, ymax = mean_mean_Pred_catch + sd_mean_Pred_catch, fill = EM_name), alpha = 0.2) +
+    geom_line() +
+  # ylab('Mean Predicted Catch (kmt)') +
+  labs(title = 'Mean Predicted Catch (kmt)') +#ggtitle (i) + 
+    theme(axis.title = element_blank(),
+          plot.title = element_text(size = 10)) +
+  scale_color_discrete(name = "EM",
+                       labels = c('AR(1)','Bad Projection','Good Projection','Historical Average','No Ecov','Recent Trend','Recent Window','Terminal Year')) +
+  scale_y_continuous(labels = scales::comma)+ 
+  xlim(2023,2073)
+
+ggpubr::ggarrange(p[[1]], p[[2]], p[[3]], p[[4]], nrow = 4, common.legend = TRUE, legend = 'right', align = "v")
+
+```
+
+Conducting assessments every 5 years increases the amount of variability in recruitment that the ecological covariate accounts for, averaging almost 14% across simulations and projections (table \@ref(tab:recruitmentDevs5Yr)). However this average remained very similar among the different projection choices.
+
+```{r recruitmentDevs5Yr, echo = FALSE, warning = FALSE, message = FALSE}
+
+RecDevs <- FiveYr_ests %>%
+  filter(EM_name != 'Mod_NoEcov') %>%
+  filter(Year > 2022) %>%
+  group_by(EM_name, seed_no) %>%
+  summarise(NAADevs = sd(OM_NAA_devs),
+            SigR = mean(OM_NAAsigma_youngest)) %>%
+  mutate(Rec_Ecov = NAADevs + SigR)
+
+tableinfo <- RecDevs %>%
+  group_by(EM_name) %>%
+  summarize(Mean = mean(Rec_Ecov),
+            St.Dev = sd(Rec_Ecov),
+            Minimum = min(Rec_Ecov),
+            Maxiumun = max(Rec_Ecov))
+
+tableinfo$Mean <- tableinfo$Mean * 100
+tableinfo$St.Dev <- tableinfo$St.Dev * 100
+tableinfo$Minimum <- tableinfo$Minimum * 100
+tableinfo$Maxiumun <- tableinfo$Maxiumun * 100
+
+
+tableinfo$Mean <- round(tableinfo$Mean, digits = 4)
+tableinfo$St.Dev <- round(tableinfo$St.Dev, digits = 4)
+tableinfo$Minimum <- round(tableinfo$Minimum, digits = 4)
+tableinfo$Maxiumun <- round(tableinfo$Maxiumun, digits = 4)
+
+colnames(tableinfo) <- c('EM Name','Mean','SD','Minimum', 'Maximum')
+
+kable(tableinfo, caption = 'Similar to my other questions, should I combine with other table (this one is looking at 5 year assessment cycles)?')
+
+```
+
+# DISCUSSION
+
+The results from the bias test show that, while incorporating the ecological covariate helps model performance overall, the trajectory of the projection of temperature used in predicting future simulations will predictably under or over estimate the ecological parameter depending on the type of bias. As a result, low biases tend to under-estimate SSB and higher biases tend to predict higher SSBs. The differences in $\bar{F}$ across biases becomes greater in warmer climate scenarios. Underestimating the future climate projection could result in highly variable $\bar{F}$ calculations. However these differences had a limited affect on catch advice and predicted catch. Because warmer 'real-world' scenarios supported lower SSB estimations, this means the fishery could risk higher rates of overfishing in warmer climates, with higher $\bar{F}$ associated with under-estimating this environmental change.  @northeastfisheriessciencecenterwoodsholemausaCollapseRecoveryCollapse2025 found that changing climate conditions have overidden effective management of yellowtail flounder in the early 2000's, and our findings show that these management challenges could persist if bottom temperatures continue to warm quickly. This is contrary to findings from @kellImplicationsClimateChange2005, which found that the specific climate scenario modeled in the OM had a limited affect on the recoverability of Atlantic cod stocks.
+
+However, this test was more of a hypothetical exploration of how diverging temperature projections changes the outputs of the model. In reality, stock assessments use hindcast environmental information, so it is not realistic that an assessment would continue to use a temperature trajectory that diverges away from the real environmental conditions. Instead, stock assessments incorporate the most recent data and use this information to make predictions until the next assessment. This is why our projections test updated its temperature predictions with the previous three years of information. Similar to the bias tests, we found that incorporating the environmental covariate resulted in slightly different dynamics, but overall followed similar trajectories. Some models appeared to do better with some metrics (e.g. recent window projections resulted in the most accurate ecological covariate), but this had a limited impact in the overall fishery dynamics, even in the long term. This is in line with previous literature for yellowtail flounder, which has shown that there is little discernible difference between projections that used a continued estimated environmental process, ones that fixed the environmental process at recent 5 year average, and a third EM which used the observed environmental index [@brittenIdentificationPerformanceStockrecruitment2024] ADD ALEX. This research also noted that the specific stock-recruitment relationship defined in the model will change the environmental affect size due to the placement of the environmental covariate in the stock-recruit equation. @mcclatchieReassessmentStockRecruit2010 found that for Pacific sardine, *Sardinops sagax*, temperature actually did not have a relationship with recruitment, and the correlation between temperature parameters and recruitment depended on the amount of autocorrelation in the temperature time series, although the specific mechanism that links Pacific sardine recruitment is less clear than with yellowtail flounder. This may also be due to the amount of recruitment variation that was explained by the ecological covariate. In these simulations, the percentage of variation explained by the ecological covariate had a maximum of 25.47% in one simulation, yet @deoliveiraLimitsUseEnvironmental2005 found that management strategies do not show any benefits to risk and average catch if the ecological covariate explains less than 50% of recruitment variation. None of the simulations in this experiment exceeded 50%.
+
+This could be the result of the type of link that the environmental covariate makes with the population. For Georges Bank Yellowtail, the environmental covariate has a lagged controlling effect on recruitment (CITE RT). Over time, the negative effects of high temperature could be masked by density-dependent mortality, or other factors that occur during the lag. @kellImplicationsClimateChange2005 found that the long-term performance and calculated reference points of Atlantic cod stock depended on if ocean temperatures were linked to juvenile survival versus the carrying capacity of the stock. Further, there may be a greater difference in model outputs if the environmental covariate had a direct effect on distribution, carrying capacity, catchability, mortality, behavioral, migratory, spawning, or metabolic processes; life history traits that can all be affected by environmental change [@puntFisheriesManagementClimate2014; @stockWoodsHoleAssessment2021], indicating a need for further research on projection choices for environmental covariates that affect other parts of life history. Catch advice is not very dependent on recruitment, and because this environmental link is also lagged, these combined factors could be masking the effect. Further, @haltuchPromisesPitfallsIncluding2011 has shown that incorrectly including environmental covariates in the stock does not have a large effect on biomass reference points or relative errors of the model. A review by @puntFisheriesManagementClimate2014 has also shown that short and medium-term fisheries management simulations are generally not greatly improved by incorporating environmental covariates. This research served to test a longer-term simulation and found a similar result. However, if there is a high temporal contrast in the ‘real world’ or OM, incorporating the environmental covariate in the estimation model can improve model accuracy [@millerFactorsAffectingInferences2023]. This could indicate that these results may change depending on the amount of future variation in ocean bottom temperatures.
+
+Instead of projection choices influencing model dynamics, changing from a 3-year to a 5-year assessment period had a larger affect on the simulated catch advice and $\bar{F}$. This result implies that the choice of projection will still produce similar results, but this transition to the less frequent schedule could have repercussions on the stability of the fishery, with larger swings in between periods of high SSB and catch and periods of low stocks and strict management measures. 
+
+Future ocean conditions are expected to be highly variable in coming years due to climate change, [@wangClimateProjectionsSelected2010], so understanding potential impacts on fishery dynamics is vital. Overall, we found that projection decisions had a limited effect on catch advice and fishery dynamics in an MSE framework and other model components, such as assessment frequency and recruitment variation, had a larger influence on catch and management advice. This could be due to the nature of the environmental link to Georges Bank Yellowtail flounder, indicating a need for further research on how this type of link will affect model dynamics over different projection decisions. 
+
+
+
+
+\newpage
+
+**References**
+
+
+
+
+
+
+
+
+
+
+
+
+

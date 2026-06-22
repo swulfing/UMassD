@@ -1,0 +1,152 @@
+---
+title: "HighCatchExplore_NAARE"
+author: "Sophie Wulfing"
+date: "2026-06-02"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+
+setwd('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft2')
+NAARE_ests <- readRDS('NAA_RE_data.rds')
+om_ecov <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassDartmouth-MSE/SW/om_ecov.RDS')
+
+
+```
+
+```{r quantiles, echo = FALSE}
+
+SSB <- NAARE_ests %>%
+  filter(Year <= 2025) %>%
+  group_by(EM_name, Year) %>%
+  summarize(
+    as_tibble_row(quantile(SSB))
+  )
+SSB <- pivot_longer(SSB, cols = c("0%", "25%", "50%", "75%", "100%"), names_to = 'Quantile', values_to = 'Value')
+SSB$Quantile <- factor(SSB$Quantile, levels = c("0%", "25%", "50%", "75%", "100%"))
+  
+recruit <- NAARE_ests %>%
+  filter(Year <= 2025) %>%
+  group_by(EM_name, Year) %>%
+  summarize(
+    as_tibble_row(quantile(OM_NAA_youngest))
+  )
+
+recruit <- pivot_longer(recruit, cols = c("0%", "25%", "50%", "75%", "100%"), names_to = 'Quantile', values_to = 'Value')
+recruit$Quantile <- factor(recruit$Quantile, levels = c("0%", "25%", "50%", "75%", "100%"))
+  
+catch <- NAARE_ests %>%
+  filter(Year <= 2025) %>%
+  group_by(EM_name, Year) %>%
+  summarize(
+    as_tibble_row(quantile(Pred_catch))
+  )
+
+catch <- pivot_longer(catch, cols = c("0%", "25%", "50%", "75%", "100%"), names_to = 'Quantile', values_to = 'Value')
+catch$Quantile <- factor(catch$Quantile, levels = c("0%", "25%", "50%", "75%", "100%"))
+
+fbar <- NAARE_ests %>%
+  filter(Year <= 2025) %>%
+  group_by(EM_name, Year) %>%
+  summarize(
+    as_tibble_row(quantile(FBar))
+  )
+
+fbar <- pivot_longer(fbar, cols = c("0%", "25%", "50%", "75%", "100%"), names_to = 'Quantile', values_to = 'Value')
+fbar$Quantile <- factor(fbar$Quantile, levels = c("0%", "25%", "50%", "75%", "100%"))
+
+```
+
+```{=tex}
+\newpage
+```
+
+```{r ssbQuantiles, fig.cap = 'SSB Quantiles', message = FALSE, warning = FALSE, echo = FALSE, out.height = '45%', fig.pos = 't'}
+
+ggplot(SSB, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1) +
+  theme_minimal()+ theme(legend.position = "none")
+
+```
+
+```{r ssb2Quantiles, fig.cap = 'SSB Quantiles rescaled without 100th percentile', message = FALSE, warning = FALSE, echo = FALSE, out.height = '45%', fig.pos = 'b'}
+
+SSB2 <- SSB %>% filter(Quantile != '100%')
+ggplot(SSB2, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1, scales = 'free_y') +
+  theme_minimal()+ theme(legend.position = "none")
+```
+
+```{=tex}
+\newpage
+```
+
+```{r recruitQuantiles, fig.cap = 'Recruitment Quantiles', echo = FALSE, message = FALSE, warning = FALSE, out.height = '45%'}
+
+ggplot(recruit, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1) +
+  theme_minimal()+ theme(legend.position = "none")
+
+```
+
+```{r recruit2Quantiles, fig.cap = 'Recruitment Quantiles rescaled without 100th percentile', echo=FALSE, message = FALSE, warning = FALSE, out.height = '45%'}
+
+recruit2 <- recruit %>% filter(Quantile != '100%')
+ggplot(recruit2, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1, scales = 'free_y') +
+  theme_minimal()+ theme(legend.position = "none")
+```
+
+```{=tex}
+\newpage
+```
+
+```{r catchQuantiles, fig.cap = 'Catch Quantiles', echo = FALSE, message = FALSE, warning = FALSE, out.height = '45%'}
+
+ggplot(catch, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1) +
+  theme_minimal()+ theme(legend.position = "none")
+```
+
+```{r catch2Quantiles, fig.cap = 'Catch Quantiles rescaled without 100 percentile', message = FALSE, warning = FALSE, echo = FALSE, out.height = '45%'}
+
+catch2 <- catch %>% filter(Quantile != '100%')
+ggplot(catch2, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1, scales = 'free_y') +
+  theme_minimal()+ theme(legend.position = "none")
+```
+
+```{=tex}
+\newpage
+```
+
+```{r fbarQuantiles, fig.cap = 'FBar Quantiles', echo = FALSE, message = FALSE, warning = FALSE, out.height = '45%'}
+
+ggplot(fbar, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1) +
+  theme_minimal()+ theme(legend.position = "none")
+
+```
+
+```{r fbar2Quantiles, fig.cap = 'FBar Quantiles rescaled without 100 percentile', echo = FALSE, message = FALSE, warning = FALSE, out.height = '45%'}
+
+fbar2 <- fbar %>% filter(Quantile != '100%')
+ggplot(fbar2, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1, scales = 'free_y') +
+  theme_minimal()+ theme(legend.position = "none")
+```

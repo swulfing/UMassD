@@ -1,0 +1,232 @@
+---
+title: "HighCatchExplore"
+author: "Sophie Wulfing"
+date: "2026-06-02"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+
+setwd('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft2')
+Proj_ests <- readRDS('Projections_data.rds')
+om_ecov <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassDartmouth-MSE/SW/om_ecov.RDS')
+
+
+```
+
+```{r quantiles, echo = FALSE}
+
+SSB <- Proj_ests %>%
+  filter(Year <= 2025) %>%
+  group_by(EM_name, Year) %>%
+  summarize(
+    as_tibble_row(quantile(SSB))
+  )
+SSB <- pivot_longer(SSB, cols = c("0%", "25%", "50%", "75%", "100%"), names_to = 'Quantile', values_to = 'Value')
+SSB$Quantile <- factor(SSB$Quantile, levels = c("0%", "25%", "50%", "75%", "100%"))
+  
+recruit <- Proj_ests %>%
+  filter(Year <= 2025) %>%
+  group_by(EM_name, Year) %>%
+  summarize(
+    as_tibble_row(quantile(OM_NAA_youngest))
+  )
+
+recruit <- pivot_longer(recruit, cols = c("0%", "25%", "50%", "75%", "100%"), names_to = 'Quantile', values_to = 'Value')
+recruit$Quantile <- factor(recruit$Quantile, levels = c("0%", "25%", "50%", "75%", "100%"))
+  
+catch <- Proj_ests %>%
+  filter(Year <= 2025) %>%
+  group_by(EM_name, Year) %>%
+  summarize(
+    as_tibble_row(quantile(Pred_catch))
+  )
+
+catch <- pivot_longer(catch, cols = c("0%", "25%", "50%", "75%", "100%"), names_to = 'Quantile', values_to = 'Value')
+catch$Quantile <- factor(catch$Quantile, levels = c("0%", "25%", "50%", "75%", "100%"))
+
+fbar <- Proj_ests %>%
+  filter(Year <= 2025) %>%
+  group_by(EM_name, Year) %>%
+  summarize(
+    as_tibble_row(quantile(FBar))
+  )
+
+fbar <- pivot_longer(fbar, cols = c("0%", "25%", "50%", "75%", "100%"), names_to = 'Quantile', values_to = 'Value')
+fbar$Quantile <- factor(fbar$Quantile, levels = c("0%", "25%", "50%", "75%", "100%"))
+
+```
+
+* I think this comes from a jump in recruitment around 2020 in the simulations in the 100th percentile, because immediately after that, we see a bump in SSB and a bump in catch/fbar following that.
+
+* Catch is in kmt, recruitment is in individuals, I think SSB is also kmt but confirming that
+
+* We don't see this high catch in the original OM that (see figure 10) we later see in the simulations. There's a little bump in recruitment toward the end followed by a little bump in fbar but not at all to the scale we see in some of the sims
+
+* I compared this with the simulations I did with reduced recruitment sigma (from ~0.6 to 0.2):
+    + SSB: lower in the reduced sigma simulations, the spike we see in the 100th quartile is more gradual in the reduced sigma on recruitment
+    + Recruitment: lower in reduced sigma simulations, We don't see a spike at the end of the historical period
+    + Catch: generally lower in reduced sigma simulations (with some exceptions)
+    + Fbar: lower peak in reduced sigma simulations but still has one across projections
+
+<!-- * According to the WHAM function reference, I don't really see anywhere where indices could have been weighted directly. There are places to specify not to use certain index values or you could alter the observation error on indices. -->
+
+* Another solution could be to shorten historical period and see what that does (i.e. begin projecting at like 2015 instead of 2022)
+
+```{=tex}
+\newpage
+```
+
+```{r ssbQuantiles, fig.cap = 'SSB Quantiles', message = FALSE, warning = FALSE, echo = FALSE, out.height = '45%', fig.pos = 't'}
+
+ggplot(SSB, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1) +
+  theme_minimal()+ theme(legend.position = "none")
+
+```
+
+```{r ssb2Quantiles, fig.cap = 'SSB Quantiles rescaled without 100th percentile', message = FALSE, warning = FALSE, echo = FALSE, out.height = '45%', fig.pos = 'b'}
+
+SSB2 <- SSB %>% filter(Quantile != '100%')
+ggplot(SSB2, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1, scales = 'free_y') +
+  theme_minimal()+ theme(legend.position = "none")
+```
+
+```{=tex}
+\newpage
+```
+
+```{r recruitQuantiles, fig.cap = 'Recruitment Quantiles', echo = FALSE, message = FALSE, warning = FALSE, out.height = '45%'}
+
+ggplot(recruit, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1) +
+  theme_minimal()+ theme(legend.position = "none")
+
+```
+
+```{r recruit2Quantiles, fig.cap = 'Recruitment Quantiles rescaled without 100th percentile', echo=FALSE, message = FALSE, warning = FALSE, out.height = '45%'}
+
+recruit2 <- recruit %>% filter(Quantile != '100%')
+ggplot(recruit2, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1, scales = 'free_y') +
+  theme_minimal()+ theme(legend.position = "none")
+```
+
+```{=tex}
+\newpage
+```
+
+```{r catchQuantiles, fig.cap = 'Catch Quantiles', echo = FALSE, message = FALSE, warning = FALSE, out.height = '45%'}
+
+ggplot(catch, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1) +
+  theme_minimal()+ theme(legend.position = "none")
+```
+
+```{r catch2Quantiles, fig.cap = 'Catch Quantiles rescaled without 100 percentile', message = FALSE, warning = FALSE, echo = FALSE, out.height = '45%'}
+
+catch2 <- catch %>% filter(Quantile != '100%')
+ggplot(catch2, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1, scales = 'free_y') +
+  theme_minimal()+ theme(legend.position = "none")
+```
+
+```{=tex}
+\newpage
+```
+
+```{r fbarQuantiles, fig.cap = 'FBar Quantiles', echo = FALSE, message = FALSE, warning = FALSE, out.height = '45%'}
+
+ggplot(fbar, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1) +
+  theme_minimal()+ theme(legend.position = "none")
+
+```
+
+```{r fbar2Quantiles, fig.cap = 'FBar Quantiles rescaled without 100 percentile', echo = FALSE, message = FALSE, warning = FALSE, out.height = '45%'}
+
+fbar2 <- fbar %>% filter(Quantile != '100%')
+ggplot(fbar2, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1, scales = 'free_y') +
+  theme_minimal()+ theme(legend.position = "none")
+```
+
+```{=tex}
+\newpage
+```
+
+```{r fbarDiverge, fig.cap = 'This isnt that important Im just curious about the diverging trends in fbar based on the projections above', message = FALSE, warning = FALSE, echo = FALSE}
+
+
+fbarDiv <- Proj_ests %>%
+  filter(Year > 2025) %>%
+  group_by(EM_name, Year) %>%
+  summarize(
+    as_tibble_row(quantile(FBar))
+  )
+
+fbarDiv <- pivot_longer(fbarDiv, cols = c("0%", "25%", "50%", "75%", "100%"), names_to = 'Quantile', values_to = 'Value')
+fbarDiv$Quantile <- factor(fbarDiv$Quantile, levels = c("0%", "25%", "50%", "75%", "100%"))
+
+
+ggplot(fbarDiv, aes(x = Year, y = Value, color = EM_name, group = EM_name)) +
+  geom_line() +
+  facet_wrap(~ Quantile, ncol = 1, scales = 'free_y') +
+  theme_minimal()
+
+```
+
+```{=tex}
+\newpage
+```
+
+```{r OGOM, fig.cap = 'Results from the original OM that we fitted with wham to use as base We dont really see the bump that we later see in the different simulations', message = FALSE, warning = FALSE, echo = FALSE}
+
+library(patchwork)
+
+OGOM <- data.frame(
+  Years = om_ecov[["years"]],
+  SSB = om_ecov[["rep"]][["SSB"]],
+  catch = om_ecov[["rep"]][["pred_catch"]],
+  recruit = om_ecov[["rep"]][["NAA"]][,,,1],
+  fbar = om_ecov[["rep"]][["Fbar"]][,1]
+)
+
+p1 <- ggplot(OGOM, aes(x = Years, y = SSB)) + geom_line() + ylab('SSB')
+p2 <- ggplot(OGOM, aes(x = Years, y = catch)) + geom_line() + ylab('Catch')
+p3 <- ggplot(OGOM, aes(x = Years, y = recruit)) + geom_line() + ylab('Recruitment')
+p4 <- ggplot(OGOM, aes(x = Years, y = fbar)) + geom_line() + ylab('fbar')
+
+# Stack all 4 ggplots vertically
+stacked_plot <- p1 / p2 / p3 / p4
+
+# Display the stacked plot
+stacked_plot
+
+```
+
+
+
+
+
+
+
+
+
+

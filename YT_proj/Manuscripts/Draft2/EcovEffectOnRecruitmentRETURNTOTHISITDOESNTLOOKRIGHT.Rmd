@@ -1,0 +1,99 @@
+---
+title: "EcovContributionToRecruit"
+author: "Sophie Wulfing"
+date: "2026-06-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+
+setwd('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft2')
+Proj_ests <- readRDS('Projections_data.rds')
+
+```
+
+# The Calculation
+
+log(R_t) = log(BH(SSB_t)) + beta * Ecov_t + epsilon_t
+Then you can calculate:
+
+Ecov contribution = beta * Ecov_t  (I assume you know what beta is in your OM and Ecov true state trajectory in your OM, but let me know if you can't find them)
+
+and you could compare its variance to the total modeled variation in log recruitment:
+Percent variation explained by Ecov = Var(beta * Ecov_t) / Var(log(R_t)) (so basically ecov_var/full_var)
+
+One thing you should prob know is the variability of Rec is driven by three 'stochastic' component: (1) SSB (because you have B-H SRR I guess?), and SSB_t is driven by annual variability in M, F, and most importantly NAA_devs; (2) Ecov, which is a product of ecov series x beta that can increase/decrease R_t, now you can see if you have a high beta, this term becomes dominant and can drive R_t dramatically; (3) epsilon_t which is sigma_R you extracted (you should use realized one maybe["om"]][["rep"]][["NAA_devs"]][1,1,,1])
+
+betas[i] <- mods[[i]][["Mod1"]][["om"]][["par"]][["Ecov_beta_R"]]
+ecov_t <- data.frame(mods[[i]][["Mod1"]][["om"]][["rep"]][["Ecov_x"]][1:101,1])
+SSB <- data.frame(mods[[i]][["Mod1"]][["om"]][["rep"]][["SSB"]])
+Epsilon <- data.frame(mods[[i]][["Mod1"]][["om"]][["rep"]][["NAA_devs"]][1,1,,1])
+
+```{r cars}
+
+EcovEffects <- Proj_ests %>%
+  mutate(Ecov_contribution_OM = Ecov_beta_R_OM * Temp_OM) %>%
+  mutate(Ecov_contribution_EM = Ecov_beta_R_EM * Temp_EM) %>%
+  mutate(logRecruit_OM = log(OM_NAA_youngest)) %>%
+  mutate(logRecruit_EM = log(EM_NAA_youngest)) %>%
+  group_by(EM_name, seed_no) %>%
+  summarize(VarEcov_OM = var(Ecov_contribution_OM, na.rm = TRUE),
+            VarEcov_EM = var(Ecov_contribution_EM, na.rm = TRUE),
+            VarRec_OM = var(logRecruit_OM, na.rm = TRUE),
+            VarRec_EM = var(logRecruit_EM, na.rm = TRUE)) %>%
+  mutate(EcovEffect_OM = VarEcov_OM/VarRec_OM) %>%
+  mutate(EcovEffect_EM = VarEcov_EM/VarRec_EM) %>%
+  select(EM_name, EcovEffect_OM, EcovEffect_EM) # seend_no
+
+
+EcovEffects_boxplot <- pivot_longer(EcovEffects, cols = c("EcovEffect_OM", "EcovEffect_EM"), names_to = 'Model', values_to = 'Value')
+
+ggplot(EcovEffects_boxplot, aes(x = EM_name, y = Value, fill = Model)) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 45))
+
+
+just_checking <- EcovEffects_boxplot %>% filter(Model == 'EcovEffect_OM')
+
+ggplot(just_checking, aes(x = EM_name, y = Value, fill = Model)) +
+  geom_boxplot() +
+  theme(axis.text.x = element_text(angle = 45))
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
