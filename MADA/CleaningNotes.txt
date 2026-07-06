@@ -1,10 +1,28 @@
-03/10/2026 Notes:
+Cleaning steps (as of 07/06/2026)
+Note: I am uploading to this google drive as steps get completed, but if you want to see where progress is currently at, please see my GitHub at: https://github.com/swulfing/UMassD/tree/main/MADA for current status of the cleaning
 
-08.30-12.45 
+1. Data download. Each file opened, checked to make sure correct columns are filled with data (this was done manually). There were a few columns that combined information for secondary catch, secondary catch price, and secondary catch weight into one cell. These were copied into the correct cells
+- Note, catch and amounts were kept together if they were next to eachother. For example, under other.catch.type, other.catch.amount, and other.catch.weight are the following:
+FIA, ZANGA, 1. Here I left Fia as uncounted and assumed the 1 was associated with the zanga 
+- Some species were listed as name number but the number caught was also filled out. If this was the case, this first number was dropped
 
-1. Data download. Each file opened, checked to make sure correct columns are filled with data (this was done manually)
+2. OG filename added to dataset column for reference. Renamed all datasets to S# or T# based on village so they could be easily combined in R code.
 
-2. OG filename added to dataset column for reference. Renamed all datasets to S# or T# based on village so 
+3. Dates and time have been standardized. After we get species names, this will help us to understand which dates and times make sense and which don't. Overnight fishing is common here, but it depends on target catch so knowing what was caught will (possibly) help us to understand if these are correct 
+
+4. Similarly, if something besides a number was used for the number of product or price of product, we plan on comparing what information is available in that row to another similar catch (e.g. if someone caught the same or similar species around the same time, how much were they paid for it?). But again, this makes finding out species names the priority
+
+5. Species IDs process: This is the hardest part of this dataset and as you can see above, some of the other cleaning steps will depend on this one.
+Current status:
+ 
+A document was created with all of the unique species names used in the dataset (including secondary and tertiary products). I grouped these based on what I thought sounded phonetically similar, but this needs to be checked of course (I don't speak malagasy) 
+
+See FishNames excel doc:
+Column 1: What I think the common name is in Malagasy
+Column 2: Translation of this common name in English
+Column 3: These are all the data entries that I think fit into these categories. These are the words that I have combined if I think they are similar
+Column 4: Source of where I found the Malagasy word online
+Column 5: This is to be filled out by Mez and friends. Their task is to first check the words that I have combined and make sure these are correct. If not, I have asked them to recombine anything incorrect or make new rows with words that don't fit with others. They will then compare it to the LocalNames doc in the LocalNames folder. These include all of the local names used in this region with the species that it is associated with. Once this document is returned to me, I will be able to match an entry in the CPUE dataset with a local name and a species (hopefully). But I will update as this goes along
 
 
 words:
@@ -17,12 +35,6 @@ Sihoa - unknown??
 tsy misy - Not Available
 
 
-- Note, catch and amounts were kept together if they were next to eachother. For example, under other.catch.type, other.catch.amount, and other.catch.weight are the following:
-FIA, ZANGA, 1. Here I left Fia as uncounted and assumed the 1 was associated with teh zanga 
-- Some species were listed as name number but the number caught was also filled out. If this was the case, this number was dropped
-
-11.00-12.30
-2.30-3.30
 
 1. Combined all datasets (Doing Salary and Tsiandamba) separately
 2. Standardized dates and times
@@ -43,14 +55,4 @@ Start: 3:00- 5:30
 	Go through local names for the ones I don't know
 
 Repeat with Tsimba
-
-
-04/03/2026
-
-1.30-2.30
-
-
-04/05
-12:00-2:00
-16.15 - 17.15
 
