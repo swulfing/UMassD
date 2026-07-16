@@ -1,0 +1,166 @@
+---
+title: "SupplementaryMaterial"
+author: "Sophie Wulfing"
+date: "2026-07-08"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, dev="cairo_pdf", cache = FALSE)
+setwd("C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft3")
+
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(ggpubr)
+library(gridExtra)
+library(png)
+library(grid)
+
+Proj_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft3/Projections_data.rds')
+FiveYr_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft3/5Yr_data.rds')
+FiveYrSENS_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft3/5YrSENS_data.rds')
+NAARE_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft3/NAARE_data.rds')
+```
+
+
+
+```{r BiasVars, fig.cap = 'Annual variation in catch of each EM for a) the low-temperature OM scenario, b) the medium-low temperature OM scenario, c) the medium-temperature scenario, and d) the high-temperature OM scenario'}
+p1 <- readPNG("Plots/Supplemental/LOWCatch_variation.png")
+p2 <- readPNG("Plots/Supplemental/MEDLOWCatch_variation.png")
+p3 <- readPNG("Plots/Supplemental/MEDCatch_variation.png")
+p4 <- readPNG("Plots/Supplemental/HIGHCatch_variation.png")
+
+
+grid.arrange(rasterGrob(p1), rasterGrob(p2), rasterGrob(p3), rasterGrob(p4), nrow = 2)
+```
+
+```{r radarTests, fig.cap = 'The performance of EM projections in the first and last 10 years of the simulation period for the a) reduced variation on Numbers at Age OM and b) the five-year assessment period'}
+p1 <- readPNG("Plots/Supplemental/radar_NAARE.png")
+p2 <- readPNG("Plots/Supplemental/radar_5Yr.png")
+
+grid.arrange(rasterGrob(p1), rasterGrob(p2), nrow = 1)
+```
+
+```{r paramEstsNAARE, fig.cap = 'Estimated ecological covariates for the different temperature projections with reduced random effects on recruitment.', echo = FALSE, warning = FALSE, message = FALSE}
+# PROJECTIONS
+# paramEsts_projs <- NAARE_ests %>%
+#   filter(EM_name != 'Mod_NoEcov') %>%
+#   group_by(EM_name) %>%
+#   summarize(OM_ecov = round(median(Ecov_beta_R_OM, na.rm = TRUE), digits = 3),
+#           med_ecov = round(median(Ecov_beta_R_EM, na.rm = TRUE), digits = 3),
+#           sd_ecov = round(sd(Ecov_beta_R_EM, na.rm = TRUE), digits = 3)) %>%
+#     rowwise() %>%
+#     mutate(PercentChange = ((med_ecov - OM_ecov)/OM_ecov) * 100) %>%
+#   select(EM_name, OM_ecov, med_ecov, PercentChange) %>%
+#   mutate(EM_name = case_when(
+#     EM_name == 'Mod_AR1Ecov' ~ 'AR(1)',
+#     EM_name == 'Mod_BadProj' ~'Bad Projection',
+#     EM_name == 'Mod_GoodProj' ~'Good Projection',
+#     EM_name == 'Mod_HistAvgEcov' ~'Historical Average',
+#     EM_name == 'Mod_RecTrendEcov' ~'Recent Trend',
+#     EM_name == 'Mod_RecWindEcov' ~'Recent Window',
+#     EM_name == 'Mod_TermYear' ~'Terminal Year'
+#   ))
+
+# #Ecov_processPars_mean
+# 
+# paramEsts_projs$PercentChange <- round(paramEsts_projs$PercentChange, digits = 3)
+# 
+# colnames(paramEsts_projs) <- c('EM Name','OM Ecov','Median Ecov','Percent Change')
+# 
+# kable(paramEsts_projs, caption = 'Ecov parameter estimates, standard deviation, and rho for each EM for projection')
+
+boxplot_test <- NAARE_ests %>%
+  filter(EM_name != 'Mod_NoEcov')
+
+ggplot(data = boxplot_test, aes(x = EM_name, y = Ecov_beta_R_EM)) +
+  geom_boxplot() +
+  geom_hline(yintercept = -0.3969783, color = 'red', linetype = 'dashed') +
+  scale_x_discrete(labels= c('AR(1)','Bad Projection','Good Projection','Historical Average','Recent Trend','Recent Window','Terminal Year')) +
+  xlab('Projection') +
+  ylab('Calculated Ecological Covariate') +
+  theme(axis.text.x=element_text(color = "black", size=11, angle=30, vjust=.8, hjust=0.8)) 
+
+```
+
+```{r paramEsts5Yr, fig.cap = 'Estimated ecological covariates for the different biased temperature projections with a 5-year assessment cycle', echo = FALSE, warning = FALSE, message = FALSE}
+library(dplyr)
+
+# # PROJECTIONS
+# paramEsts_5Yr <- FiveYr_ests %>%
+#   filter(EM_name != 'Mod_NoEcov') %>%
+#   group_by(EM_name) %>%
+#   summarize(OM_ecov = round(median(Ecov_beta_R_OM, na.rm = TRUE), digits = 3),
+#           med_ecov = round(median(Ecov_beta_R_EM, na.rm = TRUE), digits = 3),
+#           sd_ecov = round(sd(Ecov_beta_R_EM, na.rm = TRUE), digits = 3)) %>%
+#     rowwise() %>%
+#     mutate(PercentChange = ((med_ecov - OM_ecov)/OM_ecov) * 100) %>%
+#   select(EM_name, OM_ecov, med_ecov, PercentChange) %>%
+#   mutate(EM_name = case_when(
+#     EM_name == 'Mod_AR1Ecov' ~ 'AR(1)',
+#     EM_name == 'Mod_BadProj' ~'Bad Projection',
+#     EM_name == 'Mod_GoodProj' ~'Good Projection',
+#     EM_name == 'Mod_HistAvgEcov' ~'Historical Average',
+#     EM_name == 'Mod_RecTrendEcov' ~'Recent Trend',
+#     EM_name == 'Mod_RecWindEcov' ~'Recent Window',
+#     EM_name == 'Mod_TermYear' ~'Terminal Year'
+#   ))
+# 
+# #Ecov_processPars_mean
+# 
+# paramEsts_5Yr$PercentChange <- round(paramEsts_5Yr$PercentChange, digits = 3)
+# 
+# colnames(paramEsts_5Yr) <- c('EM Name','OM Ecov','Mean Ecov','Percent Change')
+# kable(paramEsts_5Yr, caption = 'Ecov parameter estimates, standard deviation, and rho for each EM for projection')
+
+
+boxplot_test <- FiveYr_ests %>%
+  filter(EM_name != 'Mod_NoEcov')
+
+ggplot(data = boxplot_test, aes(x = EM_name, y = Ecov_beta_R_EM)) +
+  geom_boxplot() +
+  geom_hline(yintercept = -0.3969783, color = 'red', linetype = 'dashed') +
+  scale_x_discrete(labels= c('AR(1)','Bad Projection','Good Projection','Historical Average','Recent Trend','Recent Window','Terminal Year')) +
+  xlab('Projection') +
+  ylab('Calculated Ecological Covariate') +
+  theme(axis.text.x=element_text(color = "black", size=11, angle=30, vjust=.8, hjust=0.8)) 
+
+```
+
+```{r TestsVars, fig.cap = 'Catch (top), SSB (middle), and fishing mortality (bottom) for reduced variation on Numbers at Age (left) and a five-year assessment period (right)'}
+
+# SSB, FBAR VARIATION IN NAARE TEST VS PROJECTION TESTS
+
+p1 <- readPNG("Plots/Supplemental/NAARECatch_variation.png")
+p2 <- readPNG("Plots/Supplemental/5YRCatch_variation.png")
+p3 <- readPNG("Plots/Supplemental/NAARESSB_variation.png")
+p4 <- readPNG("Plots/Supplemental/5YRSSB_variation.png")
+p5 <- readPNG("Plots/Supplemental/NAAREFbar_variation.png")
+p6 <- readPNG("Plots/Supplemental/5YRFbar_variation.png")
+
+grid.arrange(rasterGrob(p1), rasterGrob(p2), rasterGrob(p3), rasterGrob(p4), rasterGrob(p5), rasterGrob(p6), nrow = 3)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
