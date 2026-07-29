@@ -1,8 +1,9 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "Website_Wulfing"
+  title: "swulfing.github.io"
   navbar:
     left:
       - href: index.qmd

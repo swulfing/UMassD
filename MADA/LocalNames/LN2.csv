@@ -1,4 +1,4 @@
-FileName,Year,Month,Day,Region,Village,Informant gender,Informant age,Informant name,Informant_tools_bait,gender taking species,ocean location,tools/bait,Scientific name,Harvest Pressure,Price/Kilo,Local Name,time,Notes
+FileName,Year,Month,Day,Region,Village,Informant gender,Informant age,Informant name,Informant_tools_bait,gender taking species,ocean location,tools/bait,ScientificName,Harvest Pressure,Price/Kilo,LocalName,time,Notes
 2022_SW Salary_August_Fish_Carnau,2022,August,8,SW,Salary,M,36,Carnau," basimpia, fins, mask, volosh",M,D,,Balistoides conspicillum,1,not sold,Tsontso sikily,,
 2022_SW Salary_August_Fish_Carnau,2022,August,8,SW,Salary,M,36,Carnau," basimpia, fins, mask, volosh",M,D,,Carangoides ferdau,1,"3,500",Lanora,,
 2022_SW Salary_August_Fish_Carnau,2022,August,8,SW,Salary,M,36,Carnau," basimpia, fins, mask, volosh",M,D,,Carangoides fulvoguttatus,1,"3,500",Lanora,,
