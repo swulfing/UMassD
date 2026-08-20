@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.13)  16 JUL 2026 11:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.20)  20 AUG 2026 11:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **YT_ProjDraft3.tex
 (./YT_ProjDraft3.tex
 LaTeX2e <2026-06-01>
-L3 programming layer <2026-06-18>
+L3 programming layer <2026-08-10>
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size12.clo
@@ -394,7 +394,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip65
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2026-07-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count331
 ) (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2026-05-21 v1.32 bookmark driver for pdfTeX (HO)
@@ -500,17 +500,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 133.
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [2] [3] [4] [5]
-Overfull \hbox (77.36652pt too wide) in paragraph at lines 147--148
-\T1/lmr/m/n/12 other sur-round-ing fish-eries (\T1/lmr/bx/n/12 northeastfisheriessciencecenteru.s.YellowtailFlounderResearch2025?\T1/lmr/m/n/12 ).
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
-\T1/lmr/m/n/12 floun-der (\T1/lmr/bx/n/12 northeastfisheriessciencecenteru.s.YellowtailFlounderResearch2025?\T1/lmr/m/n/12 ).
- []
-
-[6] [7]
+) [2] [3] [4] [5] [6] [7]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 161.
 (c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -560,51 +550,46 @@ File: YT_ProjDraft3_files/figure-latex/cohorts-1.pdf Graphic file (type pdf)
 <use YT_ProjDraft3_files/figure-latex/cohorts-1.pdf>
 Package pdftex.def Info: YT_ProjDraft3_files/figure-latex/cohorts-1.pdf  used on input line 245.
 (pdftex.def)             Requested size: 452.69014pt x 312.16548pt.
-
-LaTeX Warning: Reference `(' on page 18 undefined on input line 251.
-
 [18 <./YT_ProjDraft3_files/figure-latex/paramEstsproj-1.pdf>] [19 <./YT_ProjDraft3_files/figure-latex/cohorts-1.pdf>]
-<Plots/Projection/Catch_variation.png, id=197, 722.7pt x 505.89pt>
+<Plots/Projection/Catch_variation.png, id=198, 722.7pt x 505.89pt>
 File: Plots/Projection/Catch_variation.png Graphic file (type png)
 <use Plots/Projection/Catch_variation.png>
 Package pdftex.def Info: Plots/Projection/Catch_variation.png  used on input line 255.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<Plots/NAARE/Catch_variation.png, id=199, 722.7pt x 505.89pt>
+<Plots/NAARE/Catch_variation.png, id=200, 722.7pt x 505.89pt>
 File: Plots/NAARE/Catch_variation.png Graphic file (type png)
 <use Plots/NAARE/Catch_variation.png>
 Package pdftex.def Info: Plots/NAARE/Catch_variation.png  used on input line 255.
 (pdftex.def)             Requested size: 234.87471pt x 164.4123pt.
-<YT_ProjDraft3_files/figure-latex/ecovContribution-1.pdf, id=200, 452.69125pt x 314.17375pt>
+<YT_ProjDraft3_files/figure-latex/ecovContribution-1.pdf, id=201, 458.71375pt x 314.17375pt>
 File: YT_ProjDraft3_files/figure-latex/ecovContribution-1.pdf Graphic file (type pdf)
 <use YT_ProjDraft3_files/figure-latex/ecovContribution-1.pdf>
 Package pdftex.def Info: YT_ProjDraft3_files/figure-latex/ecovContribution-1.pdf  used on input line 264.
-(pdftex.def)             Requested size: 452.69014pt x 314.17297pt.
-[20 <./Plots/Projection/Catch_variation.png> <./Plots/NAARE/Catch_variation.png>] [21 <./YT_ProjDraft3_files/figure-latex/ecovContribution-1.pdf>] [22]
+(pdftex.def)             Requested size: 458.73363pt x 314.18735pt.
+[20 <./Plots/Projection/Catch_variation.png> <./Plots/NAARE/Catch_variation.png>] [21 <./YT_ProjDraft3_files/figure-latex/ecovContribution-1.pdf>] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33]
+Overfull \hbox (42.86913pt too wide) in paragraph at lines 413--414
+\T1/lmr/m/n/12 https://www.fisheries.noaa.gov/new-england-mid-atlantic/population-assessments/management-
+ []
 
-LaTeX Warning: Reference `(' on page 23 undefined on input line 274.
-
-[23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] (./YT_ProjDraft3.aux)
+[34] [35] [36] [37] [38] (./YT_ProjDraft3.aux)
  ***********
 LaTeX2e <2026-06-01>
-L3 programming layer <2026-06-18>
+L3 programming layer <2026-08-10>
  ***********
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 12325 strings out of 469158
- 198308 string characters out of 5458382
- 616897 words of memory out of 5000000
- 41019 multiletter control sequences out of 15000+600000
+ 12338 strings out of 469089
+ 198906 string characters out of 5457179
+ 617972 words of memory out of 5000000
+ 41093 multiletter control sequences out of 15000+600000
  675233 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 83i,6n,93p,2996b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,6n,93p,2942b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmss8.pfb><c:/Users/swulfing/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on YT_ProjDraft3.pdf (36 pages, 2680638 bytes).
+Output written on YT_ProjDraft3.pdf (38 pages, 2682716 bytes).
 PDF statistics:
- 537 PDF objects out of 1000 (max. 8388607)
- 441 compressed objects within 5 object streams
- 120 named destinations out of 1000 (max. 500000)
+ 568 PDF objects out of 1000 (max. 8388607)
+ 470 compressed objects within 5 object streams
+ 128 named destinations out of 1000 (max. 500000)
  179 words of extra memory for PDF output out of 10000 (max. 10000000)
 

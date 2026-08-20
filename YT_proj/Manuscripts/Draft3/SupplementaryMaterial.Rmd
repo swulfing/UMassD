@@ -3,8 +3,9 @@ title: "SupplementaryMaterial"
 author: "Sophie Wulfing"
 date: "2026-07-08"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
+header-includes: \usepackage{setspace} \usepackage{lineno} \usepackage{placeins} \usepackage[nottoc,notlof,notlot]{tocbibind} \renewcommand{\contentsname}{} \renewcommand{\listfigurename}{} \renewcommand{\listtablename}{} \usepackage{sectsty} \sectionfont{\centering} \usepackage{booktabs}
 ---
 
 ```{r setup, include=FALSE}
@@ -23,8 +24,62 @@ Proj_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscri
 FiveYr_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft3/5Yr_data.rds')
 FiveYrSENS_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft3/5YrSENS_data.rds')
 NAARE_ests <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft3/NAARE_data.rds')
+convergence <- readRDS('C:/Users/swulfing/Documents/GitHub/UMassD/YT_proj/Manuscripts/Draft3/Convergence.rds')
 ```
 
+```{r conv}
+
+convergence$Test_name <- factor(convergence$Test_name,
+                                levels = c("Proj", "Proj_RE", "Proj_5Yr", 
+                                           "Bias_High", "Bias_Med", "Bias_MedLow", "Bias_Low"))
+
+convergence$EM_name <- factor(convergence$EM_name,
+                              levels = c("Mod_AR1Ecov", "Mod_NoEcov", "Mod_HistAvgEcov", "Mod_TermYear", "Mod_RecWindEcov",  "Mod_RecTrendEcov", "Mod_GoodProj", "Mod_BadProj", 
+                                         "Mod_HIGHEcov", "Mod_MEDEcov", "Mod_MEDLOWEcov", "Mod_LOWEcov"))
+                                
+
+convergence <- convergence %>%
+  arrange(Test_name, EM_name) %>%
+  mutate(Experiment = case_when(
+    grepl('Bias_',Test_name) ~ "Bias",
+    grepl('Proj',Test_name) ~ "Projection"
+    )) %>%
+  mutate(OM = case_when(
+    Test_name == "Proj" ~ 'Normal Projection',
+    Test_name == "Proj_RE" ~ 'NAA Reduced Random Effects',
+    Test_name == "Proj_5Yr" ~ '5-Year Projection',
+    
+    Test_name == "Bias_High" ~ 'High Temperature Scenario',
+    Test_name == "Bias_Med" ~ 'Medium Temperature Scenario',
+    Test_name == "Bias_MedLow" ~ 'Medium-Low Temperature Scenario',
+    Test_name == "Bias_Low" ~ 'Low Temperature Scenario',
+  )) %>%
+  mutate(EM = case_when(
+    EM_name == "Mod_AR1Ecov" ~ 'AR(1)',
+    EM_name == "Mod_NoEcov" ~ 'No Ecov',
+    EM_name == "Mod_HistAvgEcov" ~ 'Historical Average',
+    EM_name == "Mod_RecWindEcov" ~ 'Recent Window',
+    EM_name == "Mod_RecTrendEcov" ~ 'Recent Trend',
+    EM_name == "Mod_TermYear" ~ 'Terminal Year',
+    EM_name == "Mod_BadProj" ~ "'Bad' Projection",
+    EM_name == "Mod_GoodProj" ~ "'Good' Projection",
+    
+    EM_name == "Mod_LOWEcov" ~ 'Low Bias',
+    EM_name == "Mod_MEDLOWEcov" ~ 'Medium-Low Bias',
+    EM_name == "Mod_MEDEcov" ~ 'Medium Bias',
+    EM_name == "Mod_HIGHEcov" ~ 'High Bias',
+  )) %>%
+  mutate('Percent Non-Converged' = No_NonConverged/100) %>%
+  select(Experiment, OM, EM, 'Percent Non-Converged')
+  
+
+kable(convergence, caption = 'Convervence rates of each MSE scenario tested.',
+      format = "latex", booktabs = TRUE) # %>%
+  # kable_styling(latex_options = "striped") %>%
+  # kable_styling(latex_options = "HOLD_position") %>%
+  # landscape()
+
+```
 
 
 ```{r BiasVars, fig.cap = 'Annual variation in catch of each EM for a) the low-temperature OM scenario, b) the medium-low temperature OM scenario, c) the medium-temperature scenario, and d) the high-temperature OM scenario'}
