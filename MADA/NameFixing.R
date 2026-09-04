@@ -1,10 +1,19 @@
 #MAY NEED TO CHANGE /USED IN THE 
+#pregit <- 'C:/Users/swulfing/Documents/GitHub/'
+pregit <- 'C:/Users/SophieWulfing/Documents/GitHub/'
 
 library(tidyverse)
+library(readr)
 
-setwd('C:/Users/swulfing/Documents/GitHub/UMassD/MADA/2010-2022 Filled_vetted_separated_logbook catch data-20251230T162744Z-3-001/CleanedData')
+setwd(paste0(pregit,'UMassD/MADA/2010-2022 Filled_vetted_separated_logbook catch data-20251230T162744Z-3-001/CleanedData'))
 
-Salary <- read.csv('CPUEData_Salary.csv')#, fileEncoding = "UTF-8")
+Salary <- read.csv('CPUEData_Salary.csv')
+
+# Remove special characters
+for(i in 1:ncol(Salary)){
+  Salary[,i] <- iconv(Salary[,i], to = "UTF-8", sub = "byte")
+}
+
 Salary$Product.type <- toupper(Salary$Product.type)
 Salary$Product.type <- trimws(Salary$Product.type)
 # Remove special characters except spaces
@@ -17,13 +26,16 @@ for(i in 1:nrow(Salary)){
     
 }
 
-Names_Anira <- read.csv('C:/Users/swulfing/Documents/GitHub/UMassD/MADA/FishNames.csv')
+Names_Anira <- read.csv(paste0(pregit,'UMassD/MADA/FishNames.csv'))
 
 # TESTING QUOTE ISSUE
 # Names_Anira <- read.csv('C:/Users/swulfing/OneDrive - University of Massachusetts Dartmouth/Desktop/New folder/FishNames.csv')
 
 # Remove special characters except quotes and spaces
-Names_Anira$In.data.examples <- iconv(Names_Anira$In.data.examples, to = "UTF-8", sub = "byte")
+for(i in 1:ncol(Names_Anira)){
+  Names_Anira[,i] <- iconv(Names_Anira[,i], to = "UTF-8", sub = "byte")
+}
+
 Names_Anira$In.data.examples <- gsub("[^,a-zA-Z\\s]" , "" , Names_Anira$In.data.examples, perl = TRUE)
 Names_Anira$Possible.Local.Name <- gsub("[^,a-zA-Z\\s]" , "" , Names_Anira$Possible.Local.Name, perl = TRUE)
 
@@ -46,7 +58,7 @@ locallist <- c()
 specieslist <- c()
 
 for(i in 1:7){
-  dataset <- read.csv(paste0('C:/Users/swulfing/Documents/GitHub/UMassD/MADA/LocalNames/LN',i,'.csv'))
+  dataset <- read.csv(paste0(pregit,'UMassD/MADA/LocalNames/LN',i,'.csv'))
   colnames(dataset)
   locallist <- append(locallist, dataset$LocalName) # SCIENTIFIC.NAME
   specieslist <- append(specieslist, dataset$ScientificName)
@@ -102,6 +114,7 @@ Species_names$SpeciesName <- trimws(Species_names$SpeciesName)
 Salary$LocalName    <- NA
 Salary$MalagasyName <- NA
 Salary$EnglishName  <- NA
+Salary$ScientificName <- NA
 
 for (i in 1:nrow(Salary)) {
   Name_first <- Salary$Product.type[i]
@@ -140,13 +153,14 @@ for(i in 1:nrow(Salary)){
     
     # Find all local names with a match and make a list
     for(j in 1:nrow(Species_names)){
-      if{Species_names$LocalName[j] %in% Name_standard | grepl(Species_names$LocalName[j], Name_standard)}(
+      if(Species_names$LocalName[j] %in% Name_standard | grepl(Species_names$LocalName[j], Name_standard)){
         sciList <- append(Species_names$SpeciesName[j], sciList)
-      )
+        sciList <- unique(sciList) # This will need further cleaning as there are some misspellings
+      }
     }
     
     # Add this list of sci names to Salary Data
-    Salary$ScientificName[i] <- namelist #Species_names$SpeciesName[j]
+    Salary$ScientificName[i] <- paste(sciList, collapse = ", ") #Species_names$SpeciesName[j]
   }}
 
 
