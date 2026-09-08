@@ -7,7 +7,8 @@ library(readr)
 
 setwd(paste0(pregit,'UMassD/MADA/2010-2022 Filled_vetted_separated_logbook catch data-20251230T162744Z-3-001/CleanedData'))
 
-Salary <- read.csv('CPUEData_Salary.csv')
+#Salary <- read.csv('CPUEData_Salary.csv')
+Salary <- read.csv('CPUEData_Tsi.csv')
 
 # Remove special characters
 for(i in 1:ncol(Salary)){
@@ -164,11 +165,13 @@ for(i in 1:nrow(Salary)){
   }}
 
 
+Salary_send <- Salary %>%
+  select(Product.type, MalagasyName, EnglishName, LocalName, ScientificName, FinalName) %>%
+  filter(!is.na(Product.type))
 
 
 
-
-
+write.csv(Salary_send,'Tsi_Named1.csv')
 
 
 
